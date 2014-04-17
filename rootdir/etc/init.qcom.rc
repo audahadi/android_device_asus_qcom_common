@@ -40,6 +40,9 @@ on init
     mkdir /asdf 0755 system system
     mkdir /factory 0775 system system
 
+    # Enable power-on alarm
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+
 on fs
     mount_all fstab.qcom
 
