@@ -22,11 +22,11 @@ def FullOTA_InstallEnd(info):
 
 def FullOTA_Assertions(info):
   AddApidAssertion(info, info.input_zip)
-
+  AddTrustZoneAssertion(info, info.input_zip)
 
 def IncrementalOTA_Assertions(info):
   AddApidAssertion(info, info.input_zip)
-
+  AddTrustZoneAssertion(info, info.input_zip)
 
 def AddApidAssertion(info, input_zip):
   android_info = input_zip.read("OTA/android-info.txt")
@@ -34,3 +34,12 @@ def AddApidAssertion(info, input_zip):
   if m:
     variants = m.group(1).replace("|", ", ")
     info.script.AppendExtra('assert(run_program("/sbin/grep", "1", "/proc/apid") != "1" || abort("Can\'t install on unsupported device. Supported devices: %s"););' % variants)
+
+def AddTrustZoneAssertion(info, input_zip):
+  android_info = info.input_zip.read("OTA/android-info.txt")
+  m = re.search(r'require\s+version-trustzone\s*=\s*(\S+)', android_info)
+  if m:
+    versions = m.group(1).split('|')
+    if len(versions) and '*' not in versions:
+      cmd = 'assert(asus.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1");'
+      info.script.AppendExtra(cmd)

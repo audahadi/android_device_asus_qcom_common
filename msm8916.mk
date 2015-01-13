@@ -185,6 +185,10 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_asus
+
 # Releasetools
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
