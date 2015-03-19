@@ -76,6 +76,9 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     libboringssl-compat
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/init.asus.cam.ditlib.sh:install/bin/init.asus.cam.ditlib.sh
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -169,8 +172,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.qcom.bt.sh \
-    init.asus.cam.ditlib.sh
+    init.qcom.bt.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \

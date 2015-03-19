@@ -14,6 +14,5 @@
 
 def FullOTA_InstallEnd(info):
   info.script.Mount("/system")
-  info.script.AppendExtra('assert(run_program("/sbin/sh", "/system/etc/init.asus.cam.ditlib.sh") == 0);')
-  info.script.AppendExtra('delete("/system/etc/init.asus.cam.ditlib.sh");')
+  info.script.AppendExtra('assert(run_program("/sbin/sh", "/tmp/install/bin/init.asus.cam.ditlib.sh") == 0);')
   info.script.Unmount("/system")
