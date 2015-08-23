@@ -19,6 +19,10 @@ def FullOTA_InstallEnd(info):
   info.script.AppendExtra('assert(run_program("/sbin/sh", "/tmp/install/bin/init.asus.sh") == 0);')
   info.script.Unmount("/system")
 
+def FullOTA_PostValidate(info):
+  info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/bootdevice/by-name/system");');
+  info.script.AppendExtra('run_program("/tmp/install/bin/resize2fs_static", "/dev/block/bootdevice/by-name/system");');
+  info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/bootdevice/by-name/system");');
 
 def FullOTA_Assertions(info):
   AddApidAssertion(info, info.input_zip)

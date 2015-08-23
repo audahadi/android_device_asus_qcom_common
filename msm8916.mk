@@ -188,7 +188,8 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    librecovery_updater_asus
+    librecovery_updater_asus \
+    resize2fs_static
 
 # Releasetools
 PRODUCT_COPY_FILES += \
