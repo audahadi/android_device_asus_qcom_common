@@ -811,9 +811,9 @@ service ril-daemon2 /system/bin/rild -c 2
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
 
-service charger /charger
+service charger /charger -c
     class charger
-    group log
+    critical
     seclabel u:r:healthd:s0
 
 service ssr_diag /system/bin/ssr_diag
