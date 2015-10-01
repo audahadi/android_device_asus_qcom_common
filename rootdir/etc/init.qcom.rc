@@ -32,6 +32,9 @@ import init.target.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
+    # Turn off backlight on blank
+    write /sys/class/leds/lcd-backlight/trigger "backlight"
+
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
