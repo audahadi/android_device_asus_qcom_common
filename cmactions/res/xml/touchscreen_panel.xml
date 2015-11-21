@@ -56,4 +56,14 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="category_gestures"
+        android:title="@string/touchscreen_extras">
+
+        <SwitchPreference
+            android:key="touchscreen_gesture_haptic_feedback"
+            android:title="@string/haptic_feedback"
+            android:summary="@string/haptic_feedback_summary" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

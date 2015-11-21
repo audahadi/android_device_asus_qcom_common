@@ -35,4 +35,8 @@
     <string name="touchscreen_z_gesture_title">Flashlight</string>
     <string name="touchscreen_z_gesture_summary">Draw a \"Z\" to activate Flashlight</string>
 
+    <!-- haptic feedback  -->
+    <string name="touchscreen_extras">Extras</string>
+    <string name="haptic_feedback">Haptic feedback</string>
+    <string name="haptic_feedback_summary">Vibrate when a gesture is detected</string>
 </resources>

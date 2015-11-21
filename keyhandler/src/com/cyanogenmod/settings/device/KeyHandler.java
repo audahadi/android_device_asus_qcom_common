@@ -40,6 +40,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.provider.Settings.Global;
@@ -59,6 +60,9 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final int GESTURE_REQUEST = 1;
+
+    private static final String KEY_GESTURE_HAPTIC_FEEDBACK =
+            "touchscreen_gesture_haptic_feedback";
 
     private static final String ACTION_DISMISS_KEYGUARD =
             "com.android.keyguard.action.DISMISS_KEYGUARD_SECURELY";
@@ -94,6 +98,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private String mRearCameraId;
     private boolean mTorchEnabled;
     private Sensor mProximitySensor;
+    private Vibrator mVibrator;
     WakeLock mProximityWakeLock;
     WakeLock mGestureWakeLock;
     private int mProximityTimeOut;
@@ -117,6 +122,11 @@ public class KeyHandler implements DeviceKeyHandler {
             mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             mProximityWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                     "ProximityWakeLock");
+        }
+
+        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (mVibrator == null || !mVibrator.hasVibrator()) {
+            mVibrator = null;
         }
 
     }
@@ -183,6 +193,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
                 Intent c_intent = new Intent(action, null);
                 startActivitySafely(c_intent);
+                doHapticFeedback();
                 break;
             case KEY_GESTURE_E:
                 ensureKeyguardManager();
@@ -195,6 +206,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 Intent e_intent = new Intent(Intent.ACTION_MAIN, null);
                 e_intent.addCategory(Intent.CATEGORY_APP_EMAIL);
                 startActivitySafely(e_intent);
+                doHapticFeedback();
                 break;
             case KEY_GESTURE_S:
                 ensureKeyguardManager();
@@ -210,6 +222,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 Intent s_intent = pm.getLaunchIntentForPackage(defaultApplication );
                 if (s_intent != null) {
                     startActivitySafely(s_intent);
+                    doHapticFeedback();
                 }
                 break;
             case KEY_GESTURE_V:
@@ -222,6 +235,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
                 Intent v_intent = new Intent(Intent.ACTION_DIAL, null);
                 startActivitySafely(v_intent);
+                doHapticFeedback();
                 break;
             case KEY_GESTURE_W:
                 ensureKeyguardManager();
@@ -233,8 +247,10 @@ public class KeyHandler implements DeviceKeyHandler {
                 mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
                 Intent w_intent = new Intent(Intent.ACTION_WEB_SEARCH, null);
                 startActivitySafely(w_intent);
+                doHapticFeedback();
                 break;
             case KEY_GESTURE_Z:
+
                 if (mRearCameraId == null) {
                     updateCameraService();
                 }
@@ -246,6 +262,7 @@ public class KeyHandler implements DeviceKeyHandler {
                     } catch (CameraAccessException e) {
                         // Ignore
                     }
+                    doHapticFeedback();
                 }
                 break;
             }
@@ -314,6 +331,17 @@ public class KeyHandler implements DeviceKeyHandler {
             mContext.startActivityAsUser(intent, null, user);
         } catch (ActivityNotFoundException e) {
             // Ignore
+        }
+    }
+
+    private void doHapticFeedback() {
+        if (mVibrator == null) {
+            return;
+        }
+        boolean enabled = Settings.System.getInt(mContext.getContentResolver(),
+                KEY_GESTURE_HAPTIC_FEEDBACK, 1) != 0;
+        if (enabled) {
+            mVibrator.vibrate(50);
         }
     }
 }
