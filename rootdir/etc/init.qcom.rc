@@ -260,7 +260,8 @@ on post-fs-data
 
     # Permissions for glove
     chown system system /sys/bus/i2c/devices/i2c-5/5-0038/glove_mode
-    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
+    chown system radio /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
+    chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
     chown system system /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode
     chown system system /proc/asus_touch_proximity_status
 
