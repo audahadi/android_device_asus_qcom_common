@@ -16,9 +16,10 @@
 
 package com.cyanogenmod.settings.device;
 
-import com.android.internal.util.cm.ScreenType;
-
 import android.app.ActionBar;
+
+import org.cyanogenmod.internal.util.ScreenType;
+
 import android.os.Bundle;
 import android.provider.Settings;
 import android.preference.PreferenceActivity;
