@@ -151,8 +151,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_PACKAGES += \
-    libdashplayer \
-    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -160,11 +158,7 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
-    libstagefrighthw \
-    qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    libstagefrighthw
 
 # Power HAL
 PRODUCT_PACKAGES += \
@@ -194,7 +188,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermald-ultimate-mode.conf:system/etc/thermald-ultimate-mode.conf
+    $(LOCAL_PATH)/thermal/thermald-ultimate-mode.conf:system/etc/thermald-ultimate-mode.conf \
     $(LOCAL_PATH)/thermal/thermald-ultimate-mode-zd550kl.conf:system/etc/thermald-ultimate-mode-zd550kl.conf \
     $(LOCAL_PATH)/thermal/thermald-ultimate-mode-ze550kl-8916.conf:system/etc/thermald-ultimate-mode-ze550kl-8916.conf \
     $(LOCAL_PATH)/thermal/thermald-ultimate-mode-ze550kl-8939.conf:system/etc/thermald-ultimate-mode-ze550kl-8939.conf \
