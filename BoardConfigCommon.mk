@@ -83,6 +83,9 @@ BOARD_HARDWARE_CLASS += \
     hardware/cyanogen/cmhw \
     $(VENDOR_PATH)/cmhw
 
+# Cpusets
+ENABLE_CPUSETS := true
+
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 

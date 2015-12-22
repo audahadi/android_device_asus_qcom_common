@@ -828,6 +828,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
     group camera system inet input graphics
+    writepid /dev/cpuset/system-background/tasks
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -846,6 +847,7 @@ service perfd /system/vendor/bin/perfd
    user root
    group root
    disabled
+   writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
@@ -892,6 +894,7 @@ service msm_irqbalance /system/bin/msm_irqbalance -p 0,0,0,0,1,1,1,1
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service spk_calibration /system/bin/tfamode 0
     user root
