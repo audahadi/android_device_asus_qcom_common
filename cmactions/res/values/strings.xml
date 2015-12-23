@@ -18,7 +18,6 @@
 
     <!-- Gesture shortcuts -->
     <string name="screen_gestures_panel_title">Gesture shortcuts</string>
-    <string name="screen_gestures_panel_summary">Use gestures while the screen is off</string>
 
     <string name="touchscreen_control_gesture_title">Enable Gestures</string>
     <string name="gesture_category_title">Available Gestures</string>
