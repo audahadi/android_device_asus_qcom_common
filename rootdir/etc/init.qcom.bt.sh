@@ -53,16 +53,7 @@ failed ()
 
 program_bdaddr ()
 {
-  if [ -f /system/bin/yl_btmac ]; then
-    BTMAC=`/system/bin/yl_btmac`
-    if [ -n "$BTMAC" ] && [ "$BTMAC" != "00:00:00:00:00:00" ]; then
-      /system/bin/btnvtool -b $BTMAC
-    else
-      /system/bin/btnvtool -O
-    fi
-  else
-    /system/bin/btnvtool -O
-  fi
+  /system/bin/btnvtool -O
   logi "Bluetooth Address programmed successfully"
 }
 
@@ -129,8 +120,8 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.pbap true
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun true
+        setprop ro.bluetooth.sap false
+        setprop ro.bluetooth.dun false
         case $btsoc in
           "ath3k")
               setprop ro.qualcomm.bluetooth.map false
@@ -162,14 +153,14 @@ config_bt ()
            setprop ro.qualcomm.bt.hci_transport smd
        fi
        ;;
-    "msm8974" | "msm8226" | "msm8610" | "msm8916" )
+    "msm8974" | "msm8226" | "msm8610" | "msm8916" | "msm8909" )
        if [ "$btsoc" != "ath3k" ]
        then
            setprop ro.bluetooth.hfp.ver 1.6
            setprop ro.qualcomm.bt.hci_transport smd
        fi
        ;;
-    "apq8084" | "mpq8092" )
+    "apq8084" | "mpq8092" | "msm8994" )
        if [ "$btsoc" != "rome" ]
        then
            setprop ro.qualcomm.bt.hci_transport smd
@@ -188,17 +179,17 @@ fi
 
 case "$stack" in
     "bluez")
-	   logi "Bluetooth stack is $stack"
-	   setprop ro.qc.bluetooth.stack $stack
-	   reason=`getprop vold.decrypt`
-	   case "$reason" in
-	       "trigger_restart_framework")
-	           start dbus
-	           ;;
-	   esac
+       logi "Bluetooth stack is $stack"
+       setprop ro.qc.bluetooth.stack $stack
+       reason=`getprop vold.decrypt`
+       case "$reason" in
+           "trigger_restart_framework")
+               start dbus
+               ;;
+       esac
         ;;
     *)
-	   logi "Bluetooth stack is Bluedroid"
+       logi "Bluetooth stack is Bluedroid"
         ;;
 esac
 
