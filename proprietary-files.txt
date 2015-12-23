@@ -28,6 +28,11 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
+lib/libmmcamera_interface.so
+lib/libmmjpeg_interface.so
+lib64/libqdMetaData.so
+lib/libqdMetaData.so
+lib/libqomx_core.so
 lib/hw/camera.msm8916.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
@@ -541,3 +546,18 @@ bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
+
+# xditk - Camera dep
+lib/DataSet/ISP/libxditk_isp.bin
+lib/DataSet/ISP_lib_set/8916/libxditk_isp.bin
+lib/DataSet/ISP_lib_set/8929/libxditk_isp.bin
+lib/DataSet/ISP_lib_set/8939/libxditk_isp.bin
+lib/libsarcsoft.so
+lib/libxditk_AT.so
+lib/libxditk_ArcSoftMOD.so
+lib/libxditk_ISP.so
+lib/libxditk_SR.so
+vendor/lib/libxditk_DIT_MSM8916.so
+vendor/lib/libxditk_DIT_Qualcomm.so
+vendor/lib/libxditk_Network.so
+vendor/lib/libxditk_mmcamera2_stats_algorithm.so
