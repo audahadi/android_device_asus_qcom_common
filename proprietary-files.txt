@@ -522,6 +522,12 @@ vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 
+# Sensors
+lib/libinvensense_hal.so
+lib64/libinvensense_hal.so
+lib/hw/sensors.msm8916.so
+lib64/hw/sensors.msm8916.so
+
 # Thermal
 bin/thermal-engine
 vendor/lib64/libthermalclient.so
