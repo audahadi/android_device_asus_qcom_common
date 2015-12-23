@@ -106,6 +106,9 @@ EXTENDED_FONT_FOOTPRINT := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
+# Keymater
+TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+
 # Malloc
 MALLOC_IMPL := dlmalloc
 
