@@ -126,6 +126,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8916
 
+# Qualcomm
+PRODUCT_PACKAGES += \
+    dsi_config.xml \
+    netmgr_config.xml \
+    qmi_config.xml
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
