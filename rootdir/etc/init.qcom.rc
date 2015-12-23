@@ -31,134 +31,14 @@ import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    mkdir /asdf 0771 system system
-    mkdir /firmware 0771 system system
-    mkdir /system 0777 root root
-    symlink /data/tombstones /tombstones
 
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
+    mkdir /firmware 0771 system system
 
-    symlink /sdcard /mnt/sdcard0
+    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
-
-on fs
-    mount_all fstab.qcom
-    mkdir /persist/data 0700 system system
-    restorecon_recursive /persist
-
-on post-fs
-    export_rc /system/etc/init.cne.rc
-
-# msm specific files that need to be created on /data
-on post-fs-data
-
-    mkdir /data/fdAlbum 0770 camera camera
-    mkdir /data/misc/camera 0770 camera camera
-
-    #Create PERFD deamon related dirs
-    mkdir /data/misc/perfd 0770 root system
-    chmod 2770 /data/misc/perfd
-    mkdir /data/misc/perfd 0755 root system
-    chmod 2755 /data/misc/perfd
-    mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
-
-    # NFC local data and nfcee xml storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
-
-    mkdir /data/media 0770 media_rw media_rw
-    restorecon_recursive /data/media
-
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
-
-    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
-
-    # Create the directories used by the Wireless subsystem
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-
-    # Create the directories used by CnE subsystem
-    mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
-
-    mkdir /data/connectivity/nsrm 0771 system system
-    chown system system /data/connectivity/nsrm
-
-    # Create the directories used by DPM subsystem
-    mkdir /data/dpm 0771 system system
-    chown system system /data/dpm
-
-    mkdir /data/dpm/fdMgr 0771 system system
-    chown system system /data/dpm/fdMgr
-
-    # Create directory used by audio subsystem
-    mkdir /data/misc/audio 0770 audio audio
-    restorecon_recursive /data/misc/audio
-
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
-
-    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-    # We chown/chmod /persist again so because mount is run as root + defaults
-    chown system system /persist
-    chmod 0771 /persist
-    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
-
-    # Chown polling nodes as needed from UI running on system server
-    chown system system /sys/devices/platform/msm_sdcc.1/polling
-    chown system system /sys/devices/platform/msm_sdcc.2/polling
-    chown system system /sys/devices/platform/msm_sdcc.3/polling
-    chown system system /sys/devices/platform/msm_sdcc.4/polling
-
-    #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
-    mkdir /data/system 0775 system system
-    #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
-
-    #Create directories for Location services
-    mkdir /data/misc/location 0770 gps gps
-    mkdir /data/misc/location/mq 0770 gps gps
-    mkdir /data/misc/location/xtwifi 0770 gps gps
-    mkdir /data/misc/location/gpsone_d 0770 system gps
-    mkdir /data/misc/location/quipc 0770 gps system
-    mkdir /data/misc/location/gsiff 0770 gps gps
-
-    #Create directory from IMS services
-    mkdir /data/shared 0755
-    chown system system /data/shared
-
-    #Create directory for FOTA
-    mkdir /data/fota 0771
-    chown system system /data/fota
-
-    #Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
-
-    # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
-    restorecon_recursive /data/time
-
-    mkdir /data/audio/ 0770 media audio
-
-    setprop vold.post_fs_data_done 1
-
-    #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -169,6 +49,11 @@ on early-boot
     write /sys/module/pil_msa/parameters/modem_auth_timeout_ms ${persist.sys.modem_auth_timeout}
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     write /sys/kernel/boot_adsp/boot 1
+
+on fs
+    mount_all fstab.qcom
+    restorecon_recursive /persist
+    mkdir /persist/data 0700 system system
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -193,6 +78,9 @@ on boot
     chmod 0660 /dev/ttyHS2
     chown bluetooth bluetooth /dev/ttyHS2
 
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
+    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -214,10 +102,6 @@ on boot
 
 
     setprop ro.telephony.call_ring.multiple false
-
-    #Set SUID bit for usbhub
-    chmod 4755 /system/bin/usbhub
-    chmod 755 /system/bin/usbhub_init
 
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
@@ -283,26 +167,476 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    # charger
-    chown system system /sys/bus/i2c/drivers/lc709203/batt_capacity
-    chmod 0660 /sys/bus/i2c/drivers/lc709203/batt_capacity
+# msm specific files that need to be created on /data
+on post-fs-data
+    # Create directory for TZ Apps
+    mkdir /data/misc/qsee 0770 system system
 
     # camera sockets
     mkdir /data/misc/camera 0770 camera camera
 
-    # color
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+    mkdir /data/media 0770 media_rw media_rw
+    chown media_rw media_rw /data/media
+
+    mkdir /data/misc/ipa 0700 net_admin net_admin
+
+    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
+
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
+    # Create the directories used by CnE subsystem
+    mkdir /data/connectivity 0771 system system
+    chown system system /data/connectivity
+
+    # Create the directories used by DPM subsystem
+    mkdir /data/dpm 0771 system system
+    chown system system /data/dpm
+
+    mkdir /data/dpm/fdMgr 0771 system system
+    chown system system /data/dpm/fdMgr
+
+    mkdir /data/dpm/nsrm 0771 system system
+    chown system system /data/dpm/nsrm
+
+    # Create directory used by audio subsystem
+    mkdir /data/misc/audio 0770 audio audio
+
+    # Create directory used by the DASH client
+    mkdir /data/misc/dash 0770 media audio
 
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
-    mkdir /persist/display 0770 system graphics
+
+    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
+    # We chown/chmod /persist again so because mount is run as root + defaults
+    chown system system /persist
+    chmod 0771 /persist
+    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
+
+    # Chown polling nodes as needed from UI running on system server
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
+    chown system system /sys/devices/platform/msm_sdcc.3/polling
+    chown system system /sys/devices/platform/msm_sdcc.4/polling
+
+    #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
+    mkdir /data/system 0775 system system
+    #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
+
+    #Create directories for Location services
+    mkdir /data/misc/location 0770 gps gps
+    mkdir /data/misc/location/mq 0770 gps gps
+    mkdir /data/misc/location/xtwifi 0770 gps gps
+    mkdir /data/misc/location/gpsone_d 0770 system gps
+    mkdir /data/misc/location/quipc 0770 gps system
+    mkdir /data/misc/location/gsiff 0770 gps gps
+
+    #Create the symlink to emmc_total_size
+    symlink /sys/devices/soc.0/7824900.sdhci/emmc_total_size /data/data/emmc_total_size
+
+    #Create directory from IMS services
+    mkdir /data/shared 0755
+    chown system system /data/shared
+
+    #Create directory for FOTA
+    mkdir /data/fota 0771
+    chown system system /data/fota
+
+    #Create directory for hostapd
+    mkdir /data/hostapd 0770 system wifi
+
+    # Create /data/time folder for time-services
+    mkdir /data/time/ 0700 system system
+
+    mkdir /data/audio/ 0770 media audio
+
+    setprop vold.post_fs_data_done 1
+
+    #Create a folder for SRS to be able to create a usercfg file
+    mkdir /data/data/media 0770 media media
+
+    #Create folder for mm-qcamera-daemon
+    mkdir /data/camera 0770 media camera
+
+    #Create PERFD deamon related dirs
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
+
+    # NFC local data and nfcee xml storage
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/nfc/param 0770 nfc nfc
+
+    # Permissions for glove
+    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/glove_mode
+    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
+    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode
+    chown system system /proc/asus_touch_proximity_status
+
+    # Permissions for Sensors
+    chown system system /dev/cm3602
+    chmod 0660 /dev/cm3602
+
+    chown system system /dev/lightsensor
+    chmod 0660 /dev/lightsensor
+
+    chown system system /sys/class/optical_sensors/proximity/ps_adc
+    chmod 0664 /sys/class/optical_sensors/proximity/ps_adc
+
+    # AKM E-compass
+    chown system system /sys/class/compass/akm09911/enable_acc
+    chown system system /sys/class/compass/akm09911/enable_mag
+    chown system system /sys/class/compass/akm09911/enable_fusion
+    chown system system /sys/class/compass/akm09911/delay_acc
+    chown system system /sys/class/compass/akm09911/delay_mag
+    chown system system /sys/class/compass/akm09911/delay_fusion
+    chown system system /sys/class/compass/akm09911/accel
+    chown system system /dev/akm09911_dev
+    chown system system /sys/class/i2c-adapter/i2c-0/0-001e/mode
+
+    chmod 0660 /sys/class/compass/akm09911/enable_mag
+    chmod 0660 /sys/class/compass/akm09911/delay_mag
+    chmod 0660 /sys/class/compass/akm09911/enable_acc
+    chmod 0660 /sys/class/compass/akm09911/delay_acc
+    chmod 0660 /sys/class/compass/akm09911/enable_fusion
+    chmod 0660 /sys/class/compass/akm09911/delay_fusion
+    chmod 0660 /dev/akm09911_dev
+
+    chmod 0774 /sys/devices/virtual/compass/akm09911/akm_status
+    chmod 0774 /sys/devices/virtual/compass/akm09911/akm_09911_raw
+    chmod 0774 /sys/devices/virtual/compass/akm09911/akm_i2c
+    chmod 0774 /sys/class/i2c-adapter/i2c-0/0-001e/mode
+
+    # Invensense IIO setting
+    # Folders
+    chown system system /sys/bus/iio/devices/iio:device0/
+    chmod 775           /sys/bus/iio/devices/iio:device0/
+    chown system system /sys/bus/iio/devices/iio:device0/buffer
+    chmod 774           /sys/bus/iio/devices/iio:device0/buffer
+    chown system system /sys/bus/iio/devices/iio:device0/scan_elements
+    chmod 774           /sys/bus/iio/devices/iio:device0/scan_elements
+    chown system system /sys/bus/iio/devices/iio:device0/trigger
+    chmod 774           /sys/bus/iio/devices/iio:device0/trigger
+    chown system system /sys/bus/iio/devices/iio:device0/power
+    chmod 774           /sys/bus/iio/devices/iio:device0/power
+
+    chown system.system /sys/bus/iio/devices/iio:device0/*
+    chmod 774           /sys/bus/iio/devices/iio:device0/*
+    chown system.system /sys/bus/iio/devices/iio:device0/buffer/*
+    chmod 774           /sys/bus/iio/devices/iio:device0/buffer/*
+    chown system.system /sys/bus/iio/devices/iio:device0/scan_elements/*
+    chmod 774           /sys/bus/iio/devices/iio:device0/scan_elements/*
+    chown system.system /sys/bus/iio/devices/iio:device0/trigger/*
+    chmod 774           /sys/bus/iio/devices/iio:device0/trigger/*
+    chown system.system /sys/bus/iio/devices/iio:device0/power/*
+    chmod 774           /sys/bus/iio/devices/iio:device0/power/*
+
+    # Files
+    chown system system /dev/iio:device0
+    chmod 774           /dev/iio:device0
+    chown system system /sys/bus/iio/devices/iio:device0/uevent
+    chmod 774           /sys/bus/iio/devices/iio:device0/uevent
+    chown system system /sys/bus/iio/devices/iio:device0/dev
+    chmod 774           /sys/bus/iio/devices/iio:device0/dev
+    chown system system /sys/bus/iio/devices/iio:device0/buffer/length
+    chmod 774           /sys/bus/iio/devices/iio:device0/buffer/length
+    chown system system /sys/bus/iio/devices/iio:device0/buffer/enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/buffer/enable
+    chown system system /sys/bus/iio/devices/iio:device0/scan_elements/in_timestamp_en
+    chmod 774           /sys/bus/iio/devices/iio:device0/scan_elements/in_timestamp_en
+    chown system system /sys/bus/iio/devices/iio:device0/scan_elements/in_timestamp_type
+    chmod 774           /sys/bus/iio/devices/iio:device0/scan_elements/in_timestamp_type
+    chown system system /sys/bus/iio/devices/iio:device0/scan_elements/in_timestamp_index
+    chmod 774           /sys/bus/iio/devices/iio:device0/scan_elements/in_timestamp_index
+    chown system system /sys/bus/iio/devices/iio:device0/sampling_frequency_available
+    chmod 774           /sys/bus/iio/devices/iio:device0/sampling_frequency_available
+    chown system system /sys/bus/iio/devices/iio:device0/reg_dump
+    chmod 774           /sys/bus/iio/devices/iio:device0/reg_dump
+    chown system system /sys/bus/iio/devices/iio:device0/temperature
+    chmod 774           /sys/bus/iio/devices/iio:device0/temperature
+    chown system system /sys/bus/iio/devices/iio:device0/master_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/master_enable
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_scale
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_scale
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_x_calibbias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_x_calibbias
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_y_calibbias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_y_calibbias
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_z_calibbias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_z_calibbias
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_x_offset
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_x_offset
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_y_offset
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_y_offset
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_z_offset
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_z_offset
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_self_test_scale
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_self_test_scale
+    chown system system /sys/bus/iio/devices/iio:device0/self_test_samples
+    chmod 774           /sys/bus/iio/devices/iio:device0/self_test_samples
+    chown system system /sys/bus/iio/devices/iio:device0/self_test_threshold
+    chmod 774           /sys/bus/iio/devices/iio:device0/self_test_threshold
+    chown system system /sys/bus/iio/devices/iio:device0/gyro_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/gyro_enable
+    chown system system /sys/bus/iio/devices/iio:device0/gyro_fifo_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/gyro_fifo_enable
+    chown system system /sys/bus/iio/devices/iio:device0/gyro_rate
+    chmod 774           /sys/bus/iio/devices/iio:device0/gyro_rate
+    chown system system /sys/bus/iio/devices/iio:device0/power_state
+    chmod 774           /sys/bus/iio/devices/iio:device0/power_state
+    chown system system /sys/bus/iio/devices/iio:device0/sampling_frequency
+    chmod 774           /sys/bus/iio/devices/iio:device0/sampling_frequency
+    chown system system /sys/bus/iio/devices/iio:device0/self_test
+    chmod 774           /sys/bus/iio/devices/iio:device0/self_test
+    chown system system /sys/bus/iio/devices/iio:device0/gyro_matrix
+    chmod 774           /sys/bus/iio/devices/iio:device0/gyro_matrix
+    chown system system /sys/bus/iio/devices/iio:device0/secondary_name
+    chmod 774           /sys/bus/iio/devices/iio:device0/secondary_name
+    chown system system /sys/bus/iio/devices/iio:device0/event_accel_motion
+    chmod 774           /sys/bus/iio/devices/iio:device0/event_accel_motion
+    chown system system /sys/bus/iio/devices/iio:device0/event_smd
+    chmod 774           /sys/bus/iio/devices/iio:device0/event_smd
+    chown system system /sys/bus/iio/devices/iio:device0/event_pedometer
+    chmod 774           /sys/bus/iio/devices/iio:device0/event_pedometer
+    chown system system /sys/bus/iio/devices/iio:device0/flush_batch
+    chmod 774           /sys/bus/iio/devices/iio:device0/flush_batch
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_scale
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_scale
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_x_calibbias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_x_calibbias
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_y_calibbias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_y_calibbias
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_z_calibbias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_z_calibbias
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_self_test_scale
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_self_test_scale
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_x_offset
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_x_offset
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_y_offset
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_y_offset
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_z_offset
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_z_offset
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_x_dmp_bias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_x_dmp_bias
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_y_dmp_bias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_y_dmp_bias
+    chown system system /sys/bus/iio/devices/iio:device0/in_accel_z_dmp_bias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_accel_z_dmp_bias
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_x_dmp_bias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_x_dmp_bias
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_y_dmp_bias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_y_dmp_bias
+    chown system system /sys/bus/iio/devices/iio:device0/in_anglvel_z_dmp_bias
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_anglvel_z_dmp_bias
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_int_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_int_on
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_on
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_steps
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_steps
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_time
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_time
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_counter
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_counter
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_step_thresh
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_step_thresh
+    chown system system /sys/bus/iio/devices/iio:device0/pedometer_int_thresh
+    chmod 774           /sys/bus/iio/devices/iio:device0/pedometer_int_thresh
+    chown system system /sys/bus/iio/devices/iio:device0/smd_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/smd_enable
+    chown system system /sys/bus/iio/devices/iio:device0/smd_threshold
+    chmod 774           /sys/bus/iio/devices/iio:device0/smd_threshold
+    chown system system /sys/bus/iio/devices/iio:device0/smd_delay_threshold
+    chmod 774           /sys/bus/iio/devices/iio:device0/smd_delay_threshold
+    chown system system /sys/bus/iio/devices/iio:device0/smd_delay_threshold2
+    chmod 774           /sys/bus/iio/devices/iio:device0/smd_delay_threshold2
+    chown system system /sys/bus/iio/devices/iio:device0/dmp_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/dmp_on
+    chown system system /sys/bus/iio/devices/iio:device0/dmp_int_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/dmp_int_on
+    chown system system /sys/bus/iio/devices/iio:device0/dmp_event_int_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/dmp_event_int_on
+    chown system system /sys/bus/iio/devices/iio:device0/step_indicator_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/step_indicator_on
+    chown system system /sys/bus/iio/devices/iio:device0/batchmode_timeout
+    chmod 774           /sys/bus/iio/devices/iio:device0/batchmode_timeout
+    chown system system /sys/bus/iio/devices/iio:device0/batchmode_wake_fifo_full_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/batchmode_wake_fifo_full_on
+    chown system system /sys/bus/iio/devices/iio:device0/six_axes_q_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/six_axes_q_on
+    chown system system /sys/bus/iio/devices/iio:device0/six_axes_q_rate
+    chmod 774           /sys/bus/iio/devices/iio:device0/six_axes_q_rate
+    chown system system /sys/bus/iio/devices/iio:device0/three_axes_q_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/three_axes_q_on
+    chown system system /sys/bus/iio/devices/iio:device0/three_axes_q_rate
+    chmod 774           /sys/bus/iio/devices/iio:device0/three_axes_q_rate
+    chown system system /sys/bus/iio/devices/iio:device0/ped_q_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/ped_q_on
+    chown system system /sys/bus/iio/devices/iio:device0/ped_q_rate
+    chmod 774           /sys/bus/iio/devices/iio:device0/ped_q_rate
+    chown system system /sys/bus/iio/devices/iio:device0/step_detector_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/step_detector_on
+    chown system system /sys/bus/iio/devices/iio:device0/accel_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/accel_enable
+    chown system system /sys/bus/iio/devices/iio:device0/accel_fifo_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/accel_fifo_enable
+    chown system system /sys/bus/iio/devices/iio:device0/accel_rate
+    chmod 774           /sys/bus/iio/devices/iio:device0/accel_rate
+    chown system system /sys/bus/iio/devices/iio:device0/firmware_loaded
+    chmod 774           /sys/bus/iio/devices/iio:device0/firmware_loaded
+    chown system system /sys/bus/iio/devices/iio:device0/accel_matrix
+    chmod 774           /sys/bus/iio/devices/iio:device0/accel_matrix
+    chown system system /sys/bus/iio/devices/iio:device0/motion_lpa_on
+    chmod 774           /sys/bus/iio/devices/iio:device0/motion_lpa_on
+    chown system system /sys/bus/iio/devices/iio:device0/motion_lpa_freq
+    chmod 774           /sys/bus/iio/devices/iio:device0/motion_lpa_freq
+    chown system system /sys/bus/iio/devices/iio:device0/motion_lpa_threshold
+    chmod 774           /sys/bus/iio/devices/iio:device0/motion_lpa_threshold
+    chown system system /sys/bus/iio/devices/iio:device0/in_magn_scale
+    chmod 774           /sys/bus/iio/devices/iio:device0/in_magn_scale
+    chown system system /sys/bus/iio/devices/iio:device0/compass_enable
+    chmod 774           /sys/bus/iio/devices/iio:device0/compass_enable
+    chown system system /sys/bus/iio/devices/iio:device0/compass_rate
+    chmod 774           /sys/bus/iio/devices/iio:device0/compass_rate
+    chown system system /sys/bus/iio/devices/iio:device0/compass_matrix
+    chmod 774           /sys/bus/iio/devices/iio:device0/compass_matrix
+    chown system system /sys/bus/iio/devices/iio:device0/name
+    chmod 774           /sys/bus/iio/devices/iio:device0/name
+    chown system system /sys/bus/iio/devices/iio:device0/trigger/current_trigger
+    chmod 774           /sys/bus/iio/devices/iio:device0/trigger/current_trigger
+    chown system system /sys/bus/iio/devices/iio:device0/power/runtime_status
+    chmod 774           /sys/bus/iio/devices/iio:device0/power/runtime_status
+    chown system system /sys/bus/iio/devices/iio:device0/power/control
+    chmod 774           /sys/bus/iio/devices/iio:device0/power/control
+    chown system system /sys/bus/iio/devices/iio:device0/power/runtime_suspended_time
+    chmod 774           /sys/bus/iio/devices/iio:device0/power/runtime_suspended_time
+    chown system system /sys/bus/iio/devices/iio:device0/power/runtime_active_time
+    chmod 774           /sys/bus/iio/devices/iio:device0/power/runtime_active_time
+    chown system system /sys/bus/iio/devices/iio:device0/power/autosuspend_delay_ms
+    chmod 774           /sys/bus/iio/devices/iio:device0/power/autosuspend_delay_ms
+    chown system system /sys/bus/iio/devices/iio:device0/dmp_firmware
+    chmod 774           /sys/bus/iio/devices/iio:device0/dmp_firmware
+    chown system system /sys/bus/iio/devices/iio:device0/six_axes_q_value
+    chmod 774           /sys/bus/iio/devices/iio:device0/six_axes_q_value
+    chown system system /sys/bus/iio/devices/iio:device0/rawdata_accel
+    chmod 774           /sys/bus/iio/devices/iio:device0/rawdata_accel
+    chown system system /sys/bus/iio/devices/iio:device0/rawdata_gyro
+    chmod 774           /sys/bus/iio/devices/iio:device0/rawdata_gyro
+
+    chown system system /sys/bus/iio/devices/iio:device1/
+    chmod 774           /sys/bus/iio/devices/iio:device1/
+    chown system system /sys/bus/iio/devices/iio:device1/buffer
+    chmod 774           /sys/bus/iio/devices/iio:device1/buffer
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements
+    chown system system /sys/bus/iio/devices/iio:device1/trigger
+    chmod 774           /sys/bus/iio/devices/iio:device1/trigger
+    chown system system /sys/bus/iio/devices/iio:device1/power
+    chmod 774           /sys/bus/iio/devices/iio:device1/power
+
+    chown system.system /sys/bus/iio/devices/iio:device1/*
+    chmod 774           /sys/bus/iio/devices/iio:device1/*
+    chown system.system /sys/bus/iio/devices/iio:device1/buffer/*
+    chmod 774           /sys/bus/iio/devices/iio:device1/buffer/*
+    chown system.system /sys/bus/iio/devices/iio:device1/scan_elements/*
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/*
+    chown system.system /sys/bus/iio/devices/iio:device1/trigger/*
+    chmod 774           /sys/bus/iio/devices/iio:device1/trigger/*
+    chown system.system /sys/bus/iio/devices/iio:device1/power/*
+    chmod 774           /sys/bus/iio/devices/iio:device1/power/*
+
+
+    chown system system /sys/bus/iio/devices/iio:device1/compass_matrix
+    chmod 774           /sys/bus/iio/devices/iio:device1/compass_matrix
+
+    chown system system /sys/bus/iio/devices/iio:device1/dev
+    chmod 774           /sys/bus/iio/devices/iio:device1/dev
+
+    chown system system /sys/bus/iio/devices/iio:device1/in_magn_scale
+    chmod 774           /sys/bus/iio/devices/iio:device1/in_magn_scale
+
+    chown system system /sys/bus/iio/devices/iio:device1/name
+    chmod 774           /sys/bus/iio/devices/iio:device1/name
+
+    chown system system /sys/bus/iio/devices/iio:device1/sampling_frequency
+    chmod 774           /sys/bus/iio/devices/iio:device1/sampling_frequency
+
+    chown system system /sys/bus/iio/devices/iio:device1/uevent
+    chmod 774           /sys/bus/iio/devices/iio:device1/uevent
+
+    chown system system /sys/bus/iio/devices/iio:device1/value
+    chmod 774           /sys/bus/iio/devices/iio:device1/value
+
+
+    chown system system /sys/bus/iio/devices/iio:device1/buffer/length
+    chmod 774           /sys/bus/iio/devices/iio:device1/buffer/length
+    chown system system /sys/bus/iio/devices/iio:device1/buffer/enable
+    chmod 774           /sys/bus/iio/devices/iio:device1/buffer/enable
+
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_timestamp_en
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_timestamp_en
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_timestamp_type
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_timestamp_type
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_timestamp_index
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_timestamp_index
+
+
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_x_en
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_x_en
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_x_type
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_x_type
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_x_index
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_x_index
+
+
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_y_en
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_y_en
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_y_type
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_y_type
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_y_index
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_y_index
+
+
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_z_en
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_z_en
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_z_type
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_z_type
+    chown system system /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_z_index
+    chmod 774           /sys/bus/iio/devices/iio:device1/scan_elements/in_magn_z_index
+
+    chown system system /sys/bus/iio/devices/iio:device1/trigger/current_trigger
+    chmod 774           /sys/bus/iio/devices/iio:device1/trigger/current_trigger
+
+
+    chown system system /sys/bus/iio/devices/iio:device1/power/runtime_status
+    chmod 774           /sys/bus/iio/devices/iio:device1/power/runtime_status
+    chown system system /sys/bus/iio/devices/iio:device1/power/control
+    chmod 774           /sys/bus/iio/devices/iio:device1/power/control
+    chown system system /sys/bus/iio/devices/iio:device1/power/runtime_suspended_time
+    chmod 774           /sys/bus/iio/devices/iio:device1/power/runtime_suspended_time
+    chown system system /sys/bus/iio/devices/iio:device1/power/runtime_active_time
+    chmod 774           /sys/bus/iio/devices/iio:device1/power/runtime_active_time
+    chown system system /sys/bus/iio/devices/iio:device1/power/autosuspend_delay_ms
+    chmod 774           /sys/bus/iio/devices/iio:device1/power/autosuspend_delay_ms
+
+    chown system system /dev/iio:device1
+    chmod 774           /dev/iio:device1
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
 on property:vold.decrypt=trigger_restart_framework
     start config_bluetooth
+    start wcnss-service
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
@@ -472,17 +806,17 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service_redefine ril-daemon /system/bin/rild -c2
+service_redefine ril-daemon /system/bin/rild
     class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_r qcom_oncrpc qcom_diag log net_raw
 
-service ril-daemon2 /system/bin/rild -c3
+service ril-daemon1 /system/bin/rild -c2
     class main
-    socket rild3 stream 660 root radio
-    socket rild-debug3 stream 660 radio system
+    socket rild2 stream 660 root radio
+    socket rild-debug2 stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_r qcom_oncrpc qcom_diag log net_raw
 
