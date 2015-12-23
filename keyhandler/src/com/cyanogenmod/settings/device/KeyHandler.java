@@ -70,23 +70,35 @@ public class KeyHandler implements DeviceKeyHandler {
 
     // Supported scancodes
     private static final int KEY_GESTURE_DOUBLECLICK = 256;
-    private static final int KEY_GESTURE_C = 257;
-    private static final int KEY_GESTURE_E = 258;
-    private static final int KEY_GESTURE_S = 259;
-    private static final int KEY_GESTURE_V = 260;
-    private static final int KEY_GESTURE_W = 261;
-    private static final int KEY_GESTURE_Z = 262;
+    private static final int KEY_GESTURE_UP = 257;
+    private static final int KEY_GESTURE_DOWN = 258;
+    private static final int KEY_GESTURE_LEFT = 259;
+    private static final int KEY_GESTURE_RIGHT = 260;
+    private static final int KEY_GESTURE_M = 261;
+    private static final int KEY_GESTURE_L = 262;
+    private static final int KEY_GESTURE_V = 263;
+    private static final int KEY_GESTURE_Z = 264;
+    private static final int KEY_GESTURE_C = 265;
+    private static final int KEY_GESTURE_E = 266;
+    private static final int KEY_GESTURE_S = 267;
+    private static final int KEY_GESTURE_W = 268;
 
     private static final int GESTURE_WAKELOCK_DURATION = 3000;
 
     private static final int[] sSupportedGestures = new int[] {
         KEY_GESTURE_DOUBLECLICK,
+        KEY_GESTURE_UP,
+        KEY_GESTURE_DOWN,
+        KEY_GESTURE_LEFT,
+        KEY_GESTURE_RIGHT,
+        KEY_GESTURE_M,
+        KEY_GESTURE_L,
+        KEY_GESTURE_V,
+        KEY_GESTURE_Z,
         KEY_GESTURE_C,
         KEY_GESTURE_E,
-        KEY_GESTURE_S,
-        KEY_GESTURE_V,
-        KEY_GESTURE_W,
-        KEY_GESTURE_Z
+        KEY_GESTURE_E,
+        KEY_GESTURE_W
     };
 
     private final Context mContext;
