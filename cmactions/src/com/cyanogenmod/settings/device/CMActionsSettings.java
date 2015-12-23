@@ -42,7 +42,7 @@ public class CMActionsSettings {
     public static final String TOUCHSCREEN_Z_GESTURE_KEY = "touchscreen_gesture_z";
 
     // Proc nodes
-    public static final String TOUCHSCREEN_GESTURE_MODE_NODE = "/sys/bus/i2c/devices/i2c-7/7-0038/ftsgesturemode";
+    public static final String TOUCHSCREEN_GESTURE_MODE_NODE = "/sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode";
 
     // Key Masks
     public static final int KEY_MASK_GESTURE_CONTROL = 0x40;
