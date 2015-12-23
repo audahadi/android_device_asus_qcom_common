@@ -27,6 +27,7 @@ ro.qualcomm.bt.hci_transport=smd
 ro.sys.fw.dex2oat_thread_count=4
 
 # Display
+ro.sf.lcd_density=480
 debug.composition.type=c2d
 debug.sf.gpu_comp_tiling=1
 debug.mdpcomp.idletime=600
