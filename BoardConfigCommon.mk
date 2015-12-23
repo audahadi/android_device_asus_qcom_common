@@ -107,6 +107,9 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 # Malloc
 MALLOC_IMPL := dlmalloc
 
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 131072
+
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
