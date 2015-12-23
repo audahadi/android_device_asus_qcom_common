@@ -68,7 +68,17 @@ public class KeyHandler implements DeviceKeyHandler {
             "com.android.keyguard.action.DISMISS_KEYGUARD_SECURELY";
     public static final String SMS_DEFAULT_APPLICATION = "sms_default_application";
 
-    // Supported scancodes
+    /*
+     * Supported scancodes:
+     * C: launch camera app
+     * e: launch E-Mail app
+     * S: launch messaging app
+     * V: launch phone app
+     * W: launch browser app
+     * Z: turn flashlight
+     *
+     * UP, DOWN, LEFT, RIGHT, M, L aren't handled for now
+     */
     private static final int KEY_GESTURE_DOUBLECLICK = 256;
     private static final int KEY_GESTURE_UP = 257;
     private static final int KEY_GESTURE_DOWN = 258;
@@ -87,18 +97,12 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private static final int[] sSupportedGestures = new int[] {
         KEY_GESTURE_DOUBLECLICK,
-        KEY_GESTURE_UP,
-        KEY_GESTURE_DOWN,
-        KEY_GESTURE_LEFT,
-        KEY_GESTURE_RIGHT,
-        KEY_GESTURE_M,
-        KEY_GESTURE_L,
-        KEY_GESTURE_V,
-        KEY_GESTURE_Z,
         KEY_GESTURE_C,
         KEY_GESTURE_E,
-        KEY_GESTURE_E,
-        KEY_GESTURE_W
+        KEY_GESTURE_S,
+        KEY_GESTURE_V,
+        KEY_GESTURE_W,
+        KEY_GESTURE_Z
     };
 
     private final Context mContext;
