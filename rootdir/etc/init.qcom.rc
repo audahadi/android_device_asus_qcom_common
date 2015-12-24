@@ -895,3 +895,19 @@ service msm_irqbalance /system/bin/msm_irqbalance -p 0,0,0,0,1,1,1,1
     class core
     user root
     group root
+
+service spk_calibration /system/bin/tfamode 0
+    user root
+    oneshot
+    disabled
+
+on property:service.bootanim.exit=0
+    start spk_calibration
+
+service spk_setmode /system/bin/tfamode 1
+    user root
+    oneshot
+    disabled
+
+on property:sys.config.maxxaudio=*
+    start spk_setmode
