@@ -533,6 +533,11 @@ lib64/libinvensense_hal.so
 lib/hw/sensors.msm8916.so
 lib64/hw/sensors.msm8916.so
 
+# TFA
+bin/tfamode
+lib/libtfa9887.so
+lib64/libtfa9887.so
+
 # Thermal
 bin/thermal-engine
 vendor/lib64/libthermalclient.so
