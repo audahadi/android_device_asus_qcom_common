@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DEVICE=msm8939-common
+export DEVICE=msm8916-common
 
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
@@ -26,10 +26,10 @@ PRODUCT_COPY_FILES += \\
 EOF
 
 LINEEND=" \\"
-COUNT=`wc -l ../msm8939-common/proprietary-files.txt | awk {'print $1'}`
-DISM=`egrep -c '(^#|^$)' ../msm8939-common/proprietary-files.txt`
+COUNT=`wc -l ../msm8916-common/proprietary-files.txt | awk {'print $1'}`
+DISM=`egrep -c '(^#|^$)' ../msm8916-common/proprietary-files.txt`
 COUNT=`expr $COUNT - $DISM`
-for FILE in `egrep -v '(^#|^$)' ../msm8939-common/proprietary-files.txt`; do
+for FILE in `egrep -v '(^#|^$)' ../msm8916-common/proprietary-files.txt`; do
   COUNT=`expr $COUNT - 1`
   if [ $COUNT = "0" ]; then
     LINEEND=""
