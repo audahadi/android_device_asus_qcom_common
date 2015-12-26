@@ -12,6 +12,10 @@ function extract() {
         if [ ! -d $2/$DIR ]; then
             mkdir -p $2/$DIR
         fi
+        DIR=`dirname $DEST`
+        if [ ! -d $2/$DIR ]; then
+            mkdir -p $2/$DIR
+        fi
         if [ "$SRC" = "adb" ]; then
             # Try CM target first
             adb pull /system/$DEST $2/$DEST
