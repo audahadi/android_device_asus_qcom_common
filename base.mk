@@ -859,6 +859,15 @@ endif
 DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
 PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
 
+# Proprietary latinime libs needed for Keyboard swyping
+ifneq ($(filter arm64,$(TARGET_ARCH)),)
+PRODUCT_COPY_FILES += \
+    device/qcom/common/prebuilt/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+else
+PRODUCT_COPY_FILES += \
+    device/qcom/common/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+endif
+
 # include additional build utilities
 -include device/qcom/common/utils.mk
 
