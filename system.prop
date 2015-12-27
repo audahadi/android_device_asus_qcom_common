@@ -1,3 +1,4 @@
+
 # ActivityManager optimizations
 ro.sys.fw.bservice_enable=true
 ro.sys.fw.bservice_limit=5
@@ -97,3 +98,4 @@ ro.sys.fw.trim_enable_memory=1073741824
 
 # WiFi
 ro.disableWifiApFirmwareReload=true
+wifi.interface=wlan0
