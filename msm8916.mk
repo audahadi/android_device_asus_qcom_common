@@ -179,11 +179,6 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermald-ultimate-mode.conf:system/etc/thermald-ultimate-mode.conf \
-    $(LOCAL_PATH)/thermal/thermald-ultimate-mode-zd550kl.conf:system/etc/thermald-ultimate-mode-zd550kl.conf \
-    $(LOCAL_PATH)/thermal/thermald-ultimate-mode-ze550kl-8916.conf:system/etc/thermald-ultimate-mode-ze550kl-8916.conf \
-    $(LOCAL_PATH)/thermal/thermald-ultimate-mode-ze550kl-8939.conf:system/etc/thermald-ultimate-mode-ze550kl-8939.conf \
-    $(LOCAL_PATH)/thermal/thermald-ultimate-mode-ze600kl.conf:system/etc/thermald-ultimate-mode-ze600kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:system/etc/thermal-engine-8916-ze550kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8929-ze600kl.conf:system/etc/thermal-engine-8929-ze600kl.conf \
