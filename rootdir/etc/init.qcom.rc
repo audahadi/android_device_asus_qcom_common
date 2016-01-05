@@ -54,6 +54,11 @@ on early-boot
 
 on fs
     mount_all fstab.qcom
+
+    # activate zram
+    swapon_all fstab.qcom
+    write /proc/sys/vm/page-cluster 0
+
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
 
