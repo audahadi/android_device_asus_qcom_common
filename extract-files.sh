@@ -1,60 +1,60 @@
 #!/bin/bash
 
-function extract() {
+function extract () {
     for FILE in `egrep -v '(^#|^$)' $1`; do
+        # Split the file from the destination (format is "file[:destination]")
         OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
         FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
         DEST=${PARSING_ARRAY[1]}
-        if [ -z $DEST ]; then
+        if [ -z "$DEST" ]; then
             DEST=$FILE
         fi
-        DIR=`dirname $FILE`
-        if [ ! -d $2/$DIR ]; then
-            mkdir -p $2/$DIR
-        fi
         DIR=`dirname $DEST`
-        if [ ! -d $2/$DIR ]; then
-            mkdir -p $2/$DIR
+        if [ ! -d $BASE/$DIR ]; then
+            mkdir -p $BASE/$DIR
         fi
-        if [ "$SRC" = "adb" ]; then
-            # Try CM target first
-            adb pull /system/$DEST $2/$DEST
-            # if file does not exist try OEM target
-            if [ "$?" != "0" ]; then
-                adb pull /system/$FILE $2/$DEST
+
+        if [ "$SETUP" != "1" ]; then
+            if [ -z $LDIR ]; then
+                adb pull /system/$FILE $BASE/$DEST
+            else
+                cp $LDIR/system/$FILE $BASE/$DEST
             fi
-        else
-            cp $SRC/system/$FILE $2/$DEST
             # if file dot not exist try destination
-            if [ "$?" != "0" ]
-                then
-                cp $SRC/system/$DEST $2/$DEST
+            if [ "$?" != "0" ]; then
+                if [ -z $LDIR ]; then
+                    adb pull /system/$DEST $BASE/$DEST
+                else
+                    cp $LDIR/system/$DEST $BASE/$DEST
+                fi
             fi
         fi
     done
 }
 
-if [ $# -eq 0 ]; then
-  SRC=adb
-else
-  if [ $# -eq 1 ]; then
-    SRC=$1
-  else
-    echo "$0: bad number of arguments"
-    echo ""
-    echo "usage: $0 [PATH_TO_EXPANDED_ROM]"
-    echo ""
-    echo "If PATH_TO_EXPANDED_ROM is not specified, blobs will be extracted from"
-    echo "the device using adb pull."
-    exit 1
-  fi
-fi
-
 BASE=../../../vendor/$VENDOR/msm8916-common/proprietary
-rm -rf $BASE/*
-
 DEVBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-rm -rf $DEVBASE/*
+
+while getopts ":nhsd:" options
+do
+  case $options in
+    n ) NC=1 ;;
+    d ) LDIR=$OPTARG ;;
+    s ) SETUP=1 ;;
+    h ) echo "Usage: `basename $0` [OPTIONS] "
+        echo "  -n  No cleanup"
+        echo "  -d  Fetch blob from filesystem"
+        echo "  -s  Setup only, no extraction"
+        echo "  -h  Show this help"
+        exit ;;
+    * ) ;;
+  esac
+done
+
+if [ "$NC" != "1" ]; then
+  rm -rf $BASE/*
+  rm -rf $DEVBASE/*
+fi
 
 extract ../../$VENDOR/msm8916-common/proprietary-files.txt $BASE
 extract ../../$VENDOR/$DEVICE/proprietary-files.txt $DEVBASE
