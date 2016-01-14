@@ -104,6 +104,8 @@ on enable-low-power
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-3
 
+    rm /data/misc/perfd/default_values
+    rm /data/system/perfd/default_values
     start perfd
 
 on charger
