@@ -400,6 +400,9 @@ bin/time_daemon
 vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
 
+# Voice recognition
+vendor/lib/hw/sound_trigger.primary.msm8916.so
+
 # xditk - Camera dep
 lib/DataSet/ISP/libxditk_isp.bin
 lib/DataSet/ISP_lib_set/8916/libxditk_isp.bin
