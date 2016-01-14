@@ -296,15 +296,6 @@ bin/msm_irqbalance
 bin/perfd:vendor/bin/perfd
 vendor/lib64/libqti-perfd-client.so
 
-# Playready
-vendor/lib64/qcdrm/playready/lib/libtzplayready_customer.so
-vendor/lib64/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
-vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
-vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
-vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
-vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
-vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
-
 # Postprocessing
 bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
 vendor/lib64/libdisp-aba.so
