@@ -83,18 +83,6 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
 
-PLAYREADY_IMAGES := \
-    playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
-
-PLAYREADY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PLAYREADY_IMAGES)))
-$(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Playready firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(PLAYREADY_SYMLINKS)
-
 VENUS_IMAGES := \
     venus.b00 venus.b01 venus.b02 venus.b03 venus.b04 venus.mdt
 
