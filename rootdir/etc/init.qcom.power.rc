@@ -14,8 +14,6 @@ on enable-low-power
 
     # HMP Task packing settings for 8939, 8929
     write /proc/sys/kernel/sched_small_task 20
-    write /proc/sys/kernel/sched_mostly_idle_load 30
-    write /proc/sys/kernel/sched_mostly_idle_nr_run 3
 
     write /sys/class/devfreq/qcom,mincpubw.65/governor "cpufreq"
     write /sys/class/devfreq/qcom,cpubw.64/governor "bw_hwmon"
