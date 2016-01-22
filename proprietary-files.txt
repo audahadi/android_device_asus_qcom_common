@@ -382,6 +382,10 @@ lib64/libmplmpu.so
 lib/hw/sensors.msm8916.so
 lib64/hw/sensors.msm8916.so
 
+# Support
+lib64/libstlport.so
+lib/libstlport.so
+
 # TFA
 bin/tfamode
 lib/libtfa9887.so

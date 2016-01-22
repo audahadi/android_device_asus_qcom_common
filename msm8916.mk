@@ -72,8 +72,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libshim_camera \
-    libboringssl-compat \
-    libstlport
+    libboringssl-compat
 
 # Charger
 PRODUCT_PACKAGES += \
