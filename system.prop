@@ -89,9 +89,6 @@ ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9,9
 ro.telephony.ril.config=simactivation
 
-# Scheduler
-sys.io.scheduler=bfq
-
 # Time
 persist.timed.enable=true
 
