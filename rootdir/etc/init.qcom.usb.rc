@@ -813,50 +813,6 @@ on property:sys.usb.config=rndis,diag,diag_mdm,diag_qsc,adb
     start adbd
     setprop sys.usb.state rndis,adb
 
-# USB RNDIS + pclink
-on property:sys.usb.config=rndis,pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F04
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
-on property:sys.usb.config=rndis,pclink
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F04
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
-# USB RNDIS + adb + pclink
-on property:sys.usb.config=rndis,adb,pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F05
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
-on property:sys.usb.config=rndis,adb,pclink
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F05
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
 on property:sys.usb.config=ptp,mass_storage
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 0B05
@@ -875,29 +831,6 @@ on property:sys.usb.config=ptp,adb,mass_storage
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-# USB PTP + pclink
-on property:sys.usb.config=ptp,pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F06
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
-# USB PTP + adb + pclink
-on property:sys.usb.config=ptp,adb,pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F07
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
 on property:sys.usb.config=mtp,mass_storage
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 0B05
@@ -914,29 +847,6 @@ on property:sys.usb.config=mtp,adb,mass_storage
     write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    setprop sys.usb.state ${sys.usb.config}
-
-# USB MTP + pclink
-on property:sys.usb.config=mtp,pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F02
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start pclinkd
-    setprop sys.usb.state ${sys.usb.config}
-
-# USB MTP + adb + pclink
-on property:sys.usb.config=mtp,adb,pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F03
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    start pclinkd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,diag
@@ -1272,21 +1182,46 @@ on property:sys.usb.config=ncm,adb
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
+on property:sys.usb.config=ptp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 05C6
+    write /sys/class/android_usb/android0/idProduct 904D
+    write /sys/class/android_usb/android0/functions ptp
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=ptp,adb
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 05C6
+    write /sys/class/android_usb/android0/idProduct 904E
+    write /sys/class/android_usb/android0/functions ptp,adb
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 05C6
+    write /sys/class/android_usb/android0/idProduct F003
+    write /sys/class/android_usb/android0/functions mtp
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 05C6
+    write /sys/class/android_usb/android0/idProduct 9039
+    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
 on property:sys.usb.config=charging
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 05C6
     write /sys/class/android_usb/android0/idProduct F006
     write /sys/class/android_usb/android0/functions charging
     write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
-
-# pclink only USB configuration
-on property:sys.usb.config=pclink,mass_storage
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0B05
-    write /sys/class/android_usb/android0/idProduct 5F01
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/bus/pci/devices/0000:00:02.3/sdis 1
-    write /sys/class/android_usb/android0/enable 1
-    start pclinkd
     setprop sys.usb.state ${sys.usb.config}
