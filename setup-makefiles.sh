@@ -211,7 +211,7 @@ EOF
 
 LOCAL_PATH := \$(call my-dir)
 
-ifneq (\$(filter Z00T,\$(TARGET_DEVICE)),)
+ifneq (\$(filter Z00T Z00L,\$(TARGET_DEVICE)),)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := com.qualcomm.location
