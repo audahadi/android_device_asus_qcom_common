@@ -199,24 +199,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths_mtp.xml:system/etc/sound_trigger_mixer_paths_mtp.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
-# Wifi
-PRODUCT_PACKAGES += \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
-    libwpa_client \
-    hostapd \
-    dhcpcd.conf \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    wcnss_service
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/configs/hostapd.conf:system/etc/hostapd/hostapd_default.conf \
-    $(LOCAL_PATH)/configs/hostapd.deny:system/etc/hostapd/hostapd.deny \
-    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-
+# WCNSS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -228,4 +211,24 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kl_cmcc.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kl_cmcc.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze551kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze551kl.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze600kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze600kl.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_zx550kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_zx550kl.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_zx550kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_zx550kl.bin
+
+PRODUCT_PACKAGES += \
+    wcnss_service
+
+# Wifi
+PRODUCT_PACKAGES += \
+    libqsap_sdk \
+    libQWiFiSoftApCfg \
+    libwpa_client \
+
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    hostapd_default.conf \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+PRODUCT_PACKAGES += \
+    p2p_supplicant_overlay.conf \
+    wpa_supplicant_overlay.conf
