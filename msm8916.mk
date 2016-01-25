@@ -179,7 +179,6 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libshim_parcel \
     libxml2
 
 # Thermal
