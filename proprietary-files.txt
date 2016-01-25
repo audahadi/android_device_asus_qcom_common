@@ -414,12 +414,22 @@ vendor/lib/hw/sound_trigger.primary.msm8916.so
 
 # xditk - Camera dep
 lib/DataSet/ISP_lib_set/8939/libxditk_isp.bin:lib/DataSet/ISP/libxditk_isp.bin
+lib/DIT_AT_BACK_HL.cfg
+lib/DIT_AT_BACK_NORMAL.cfg
+lib/DIT_AT_BACK_PREVIEW.cfg
+lib/DIT_AT_BACK_SR.cfg
+lib/DIT_AT_BACK_VIDEO.cfg
+lib/DIT_AT_FRONT_HL.cfg
+lib/DIT_AT_FRONT_NORMAL.cfg
+lib/DIT_AT_FRONT_PRE.cfg
+lib/DIT_AT_FRONT_VIDEO.cfg
+lib/DITConfig.cfg
 lib/libsarcsoft.so
-lib/libxditk_AT.so
 lib/libxditk_ArcSoftMOD.so
+lib/libxditk_AT.so
 lib/libxditk_ISP.so
 lib/libxditk_SR.so
 vendor/lib/libxditk_DIT_MSM8916.so
 vendor/lib/libxditk_DIT_Qualcomm.so
-vendor/lib/libxditk_Network.so
 vendor/lib/libxditk_mmcamera2_stats_algorithm.so
+vendor/lib/libxditk_Network.so
