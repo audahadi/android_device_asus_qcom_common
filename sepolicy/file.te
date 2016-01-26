@@ -1,0 +1,2 @@
+# Default type for anything under /factory.
+type fac_file, fs_type, contextmount_type;
