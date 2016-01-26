@@ -388,6 +388,7 @@ lib/libstlport.so
 
 # TFA
 bin/tfamode
+etc/Tfa9887.cnt
 lib/libtfa9887.so
 lib64/libtfa9887.so
 
