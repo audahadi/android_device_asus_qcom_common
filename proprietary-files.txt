@@ -410,6 +410,8 @@ vendor/lib/libTimeService.so
 vendor/lib/hw/sound_trigger.primary.msm8916.so
 
 # xditk - Camera dep
+lib/DataSet/ispDB/ParameterDB.db
+lib/DataSet/ditSCidGen/msgchk.db
 lib/DIT_AT_BACK_HL.cfg
 lib/DIT_AT_BACK_NORMAL.cfg
 lib/DIT_AT_BACK_PREVIEW.cfg
