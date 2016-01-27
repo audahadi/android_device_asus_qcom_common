@@ -58,7 +58,7 @@ on fs
 # /sys/class/android_usb/android0/functions: Stores name of the function drivers used in usb composition.
 # Value: Passed one per function driver. e.g. diag[,adb]
 #
-#Optional parameters:
+# Optional parameters:
 #
 # /sys/class/android_usb/android0/f_serial/transports: Stores type of underlying transports used to
 # communicate to serial interface.
