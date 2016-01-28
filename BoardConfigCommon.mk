@@ -116,9 +116,6 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Malloc
-MALLOC_IMPL := dlmalloc
-
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 
