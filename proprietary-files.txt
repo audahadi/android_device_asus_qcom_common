@@ -100,6 +100,7 @@ vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_hdr_lib.so
 vendor/lib/libmmcamera_imglib.so
+vendor/lib/libmmcamera_ov5670_q5v41b.so
 vendor/lib/libmmcamera_t4k35.so
 vendor/lib/libmmcamera_t4k37f.so
 vendor/lib/libmmcamera_t4k37.so
@@ -145,6 +146,10 @@ vendor/lib/libactuator_rohm_bu64243gwz_camera.so
 vendor/lib/libactuator_rohm_bu64243gwz.so
 
 # Camera chromatix
+vendor/lib/libchromatix_ov5670_asus_common.so
+vendor/lib/libchromatix_ov5670_asus_gt_common.so
+vendor/lib/libchromatix_ov5670_asus_gt_preview_full.so
+vendor/lib/libchromatix_ov5670_asus_preview_full.so
 vendor/lib/libchromatix_t4k35_asus_common_8916.so
 vendor/lib/libchromatix_t4k35_asus_common_8939.so
 vendor/lib/libchromatix_t4k35_asus_preview_binning.so
