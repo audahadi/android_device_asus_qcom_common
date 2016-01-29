@@ -168,7 +168,8 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.qcom.bt.sh
+    init.qcom.bt.sh \
+    init.asus.cam.ditlib.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
