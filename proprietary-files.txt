@@ -73,8 +73,12 @@ vendor/lib/soundfx/libqcvirt.so
 
 # Bluetooth
 bin/btnvtool
+bin/dun-server
+bin/ftmdaemon
 bin/hci_qcomm_init
+bin/sapd
 vendor/lib64/libbtnv.so
+vendor/lib64/libCommandSvc.so
 
 # Camera
 bin/mm-qcamera-daemon
