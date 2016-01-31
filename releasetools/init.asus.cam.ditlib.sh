@@ -3,6 +3,8 @@
 cpu_id_file=/sys/devices/soc0/soc_id
 cpu_id=`cat /sys/devices/soc0/soc_id`
 
+mkdir /system/lib/DataSet/ISP
+
 if [ -f "$cpu_id_file" ]; then
     case "$cpu_id" in
         "206")
