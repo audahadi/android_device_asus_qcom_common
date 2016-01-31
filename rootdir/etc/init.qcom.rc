@@ -961,3 +961,6 @@ service spk_setmode /system/bin/tfamode 1
 
 on property:sys.config.maxxaudio=*
     start spk_setmode
+
+on property:sys.boot_completed=1
+    write /proc/boot_completed_prop 1
