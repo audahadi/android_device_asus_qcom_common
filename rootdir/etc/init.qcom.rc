@@ -155,6 +155,11 @@ on boot
     chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
     chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_level
 
+    chown root system /sys/class/power_supply/bms/current_now
+    chown root system /sys/class/power_supply/bms/voltage_ocv
+    chmod 0664 /sys/class/power_supply/bms/current_now
+    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
+
 # msm specific files that need to be created on /data
 on post-fs-data
     # Create directory for TZ Apps
@@ -869,9 +874,9 @@ on property:persist.usb.hvdcp.detect=false
     stop hvdcp
 
 service vm_bms /system/bin/vm_bms
+    class main
     user root
     group root
-    disabled
 
 # Start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -915,6 +920,8 @@ service audiod /system/bin/audiod
    group system
 
 on charger
+   wait /dev/block/bootdevice/by-name/system
+   mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
    chown root system /sys/class/power_supply/bms/current_now
    chown root system /sys/class/power_supply/bms/voltage_ocv
    chmod 0664 /sys/class/power_supply/bms/current_now
