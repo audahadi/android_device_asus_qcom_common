@@ -301,4 +301,6 @@
 
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
+
+    <integer name="config_buttonBrightnessSettingDefault">0</integer>
 </resources>
