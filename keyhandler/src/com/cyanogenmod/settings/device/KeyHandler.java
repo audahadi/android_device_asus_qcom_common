@@ -192,24 +192,13 @@ public class KeyHandler implements DeviceKeyHandler {
     private class EventHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            KeyEvent event = (KeyEvent) msg.obj;
             String action = null;
 
-            switch (event.getScanCode()) {
+            switch (msg.arg1) {
             case KEY_GESTURE_C:
-                ensureKeyguardManager();
-                mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
-                if (mKeyguardManager.isKeyguardSecure() && mKeyguardManager.isKeyguardLocked()) {
-                    action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE;
-                } else {
-                    mContext.sendBroadcastAsUser(new Intent(ACTION_DISMISS_KEYGUARD),
-                            UserHandle.CURRENT);
-                    action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA;
+                if (msg.obj != null && msg.obj instanceof DeviceHandlerCallback) {
+                    ((DeviceHandlerCallback) msg.obj).onScreenCameraGesture();
                 }
-                mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
-                Intent c_intent = new Intent(action, null);
-                startActivitySafely(c_intent);
-                doHapticFeedback();
                 break;
             case KEY_GESTURE_E:
                 ensureKeyguardManager();
@@ -285,21 +274,21 @@ public class KeyHandler implements DeviceKeyHandler {
         }
     }
 
-    public boolean handleKeyEvent(KeyEvent event) {
+    public boolean handleKeyEvent(KeyEvent event, DeviceHandlerCallback callback) {
         boolean isKeySupported = ArrayUtils.contains(sSupportedGestures, event.getScanCode());
         if (isKeySupported && !mEventHandler.hasMessages(GESTURE_REQUEST)) {
             if (event.getScanCode() == KEY_GESTURE_DOUBLECLICK && !mPowerManager.isScreenOn()) {
                 mPowerManager.wakeUpWithProximityCheck(SystemClock.uptimeMillis(), "wakeup-gesture-proximity");
                 return true;
             }
-            Message msg = getMessageForKeyEvent(event);
+            Message msg = getMessageForKeyEvent(event, callback);
             boolean defaultProximity = mContext.getResources().getBoolean(
                 org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
             boolean proximityWakeCheckEnabled = CMSettings.System.getInt(mContext.getContentResolver(),
                     CMSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
             if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
                 mEventHandler.sendMessageDelayed(msg, mProximityTimeOut);
-                processEvent(event);
+                processEvent(event, callback);
             } else {
                 mEventHandler.sendMessage(msg);
             }
@@ -307,13 +296,11 @@ public class KeyHandler implements DeviceKeyHandler {
         return isKeySupported;
     }
 
-    private Message getMessageForKeyEvent(KeyEvent keyEvent) {
-        Message msg = mEventHandler.obtainMessage(GESTURE_REQUEST);
-        msg.obj = keyEvent;
-        return msg;
+    private Message getMessageForKeyEvent(KeyEvent keyEvent, DeviceHandlerCallback callback) {
+        return mEventHandler.obtainMessage(GESTURE_REQUEST, keyEvent.getScanCode(), 0, callback);
     }
 
-    private void processEvent(final KeyEvent keyEvent) {
+    private void processEvent(final KeyEvent keyEvent, final DeviceHandlerCallback callback) {
         mProximityWakeLock.acquire();
         mSensorManager.registerListener(new SensorEventListener() {
             @Override
@@ -326,7 +313,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 }
                 mEventHandler.removeMessages(GESTURE_REQUEST);
                 if (event.values[0] == mProximitySensor.getMaximumRange()) {
-                    Message msg = getMessageForKeyEvent(keyEvent);
+                    Message msg = getMessageForKeyEvent(keyEvent, callback);
                     mEventHandler.sendMessage(msg);
                 }
             }
