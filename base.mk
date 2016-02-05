@@ -641,7 +641,6 @@ PRODUCT_PACKAGES := \
     IM \
     VoiceDialer \
     FM2 \
-    FMRadio \
     FMRecord \
     VideoEditor
 
