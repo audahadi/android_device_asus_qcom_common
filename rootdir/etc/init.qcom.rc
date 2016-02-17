@@ -289,6 +289,8 @@ on post-fs-data
     chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
     chown system system /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode
     chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode
+    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/keypad_mode
+    chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/keypad_mode
     chown system system /proc/asus_touch_proximity_status
 
     # Permissions for sensors
