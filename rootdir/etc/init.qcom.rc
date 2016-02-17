@@ -283,8 +283,8 @@ on post-fs-data
     mkdir /data/nfc/param 0770 nfc nfc
 
     # Permissions for touchscreen
-    chown system system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0038/glove_mode
-    chmod 0664 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0038/glove_mode
+    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/glove_mode
+    chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/glove_mode
     chown system radio /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
     chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode
     chown system system /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode

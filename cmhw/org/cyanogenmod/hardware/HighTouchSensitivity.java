@@ -25,7 +25,7 @@ import org.cyanogenmod.hardware.util.FileUtils;
  */
 public class HighTouchSensitivity {
 
-    private static String GLOVEMODE_PATH = "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0038/glove_mode";
+    private static String GLOVEMODE_PATH = "/sys/bus/i2c/devices/i2c-5/5-0038/glove_mode";
 
     /**
      * Whether device supports high touch sensitivity.
