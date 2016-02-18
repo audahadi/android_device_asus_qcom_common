@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.settings.device;
 
+import android.Manifest;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
@@ -192,13 +193,14 @@ public class KeyHandler implements DeviceKeyHandler {
     private class EventHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
+            KeyEvent event = (KeyEvent) msg.obj;
             String action = null;
 
-            switch (msg.arg1) {
+            switch (event.getScanCode()) {
             case KEY_GESTURE_C:
-                if (msg.obj != null && msg.obj instanceof DeviceHandlerCallback) {
-                    ((DeviceHandlerCallback) msg.obj).onScreenCameraGesture();
-                }
+                mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
+                Intent intent = new Intent(cyanogenmod.content.Intent.ACTION_SCREEN_CAMERA_GESTURE);
+                mContext.sendBroadcast(intent, Manifest.permission.STATUS_BAR_SERVICE);
                 break;
             case KEY_GESTURE_E:
                 ensureKeyguardManager();
@@ -274,27 +276,21 @@ public class KeyHandler implements DeviceKeyHandler {
         }
     }
 
-    @Override
     public boolean handleKeyEvent(KeyEvent event) {
-        return handleKeyEvent(event, null);
-    }
-
-    @Override
-    public boolean handleKeyEvent(KeyEvent event, DeviceHandlerCallback callback) {
         boolean isKeySupported = ArrayUtils.contains(sSupportedGestures, event.getScanCode());
         if (isKeySupported && !mEventHandler.hasMessages(GESTURE_REQUEST)) {
             if (event.getScanCode() == KEY_GESTURE_DOUBLECLICK && !mPowerManager.isScreenOn()) {
                 mPowerManager.wakeUpWithProximityCheck(SystemClock.uptimeMillis(), "wakeup-gesture-proximity");
                 return true;
             }
-            Message msg = getMessageForKeyEvent(event, callback);
+            Message msg = getMessageForKeyEvent(event);
             boolean defaultProximity = mContext.getResources().getBoolean(
                 org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
             boolean proximityWakeCheckEnabled = CMSettings.System.getInt(mContext.getContentResolver(),
                     CMSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
             if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
                 mEventHandler.sendMessageDelayed(msg, mProximityTimeOut);
-                processEvent(event, callback);
+                processEvent(event);
             } else {
                 mEventHandler.sendMessage(msg);
             }
@@ -302,11 +298,13 @@ public class KeyHandler implements DeviceKeyHandler {
         return isKeySupported;
     }
 
-    private Message getMessageForKeyEvent(KeyEvent keyEvent, DeviceHandlerCallback callback) {
-        return mEventHandler.obtainMessage(GESTURE_REQUEST, keyEvent.getScanCode(), 0, callback);
+    private Message getMessageForKeyEvent(KeyEvent keyEvent) {
+        Message msg = mEventHandler.obtainMessage(GESTURE_REQUEST);
+        msg.obj = keyEvent;
+        return msg;
     }
 
-    private void processEvent(final KeyEvent keyEvent, final DeviceHandlerCallback callback) {
+    private void processEvent(final KeyEvent keyEvent) {
         mProximityWakeLock.acquire();
         mSensorManager.registerListener(new SensorEventListener() {
             @Override
@@ -319,7 +317,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 }
                 mEventHandler.removeMessages(GESTURE_REQUEST);
                 if (event.values[0] == mProximitySensor.getMaximumRange()) {
-                    Message msg = getMessageForKeyEvent(keyEvent, callback);
+                    Message msg = getMessageForKeyEvent(keyEvent);
                     mEventHandler.sendMessage(msg);
                 }
             }
