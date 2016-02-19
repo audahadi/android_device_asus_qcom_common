@@ -102,6 +102,7 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
