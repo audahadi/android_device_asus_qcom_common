@@ -64,7 +64,6 @@ public class KeyHandler implements DeviceKeyHandler {
      *
      * UP, DOWN, LEFT, RIGHT, M, L aren't handled for now
      */
-    private static final int KEY_GESTURE_DOUBLECLICK = 256;
     private static final int KEY_GESTURE_UP = 257;
     private static final int KEY_GESTURE_DOWN = 258;
     private static final int KEY_GESTURE_LEFT = 259;
@@ -83,7 +82,6 @@ public class KeyHandler implements DeviceKeyHandler {
     public static final String SMS_DEFAULT_APPLICATION = "sms_default_application";
 
     private static final int[] sSupportedGestures = new int[] {
-        KEY_GESTURE_DOUBLECLICK,
         KEY_GESTURE_C,
         KEY_GESTURE_E,
         KEY_GESTURE_S,
@@ -245,10 +243,6 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         if (!mEventHandler.hasMessages(GESTURE_REQUEST)) {
-            if (event.getScanCode() == KEY_GESTURE_DOUBLECLICK && !mPowerManager.isScreenOn()) {
-                mPowerManager.wakeUpWithProximityCheck(SystemClock.uptimeMillis(), "wakeup-gesture-proximity");
-                return true;
-            }
             Message msg = getMessageForKeyEvent(event.getScanCode());
             boolean defaultProximity = mContext.getResources().getBoolean(
                 org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
