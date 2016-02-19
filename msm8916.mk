@@ -77,7 +77,7 @@ PRODUCT_PACKAGES += \
     libboringssl-compat
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/releasetools/init.asus.cam.ditlib.sh:install/bin/init.asus.cam.ditlib.sh
+    $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
 
 # Charger
 PRODUCT_PACKAGES += \
