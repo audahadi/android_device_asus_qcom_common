@@ -26,6 +26,9 @@ voice.voip.conc.disabled=true
 # Bluetooth
 ro.qualcomm.bt.hci_transport=smd
 
+# Camera
+persist.camera.cpp.duplication=false
+
 # Dexopt - limit to 4 cores
 ro.sys.fw.dex2oat_thread_count=4
 
