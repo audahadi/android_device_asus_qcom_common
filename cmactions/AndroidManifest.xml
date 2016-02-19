@@ -14,7 +14,7 @@
 
     <application
         android:allowBackup="true"
-        android:label="CMActions"
+        android:label="@*cyanogenmod.platform:string/device_settings_app_name"
         android:persistent="true"
         android:icon="@mipmap/ic_launcher_settings"
         android:theme="@android:style/Theme.Material.Settings" >
@@ -38,7 +38,6 @@
         <activity
                   android:excludeFromRecents="true"
                   android:name="CMActions"
-                  android:label="CMActions"
                   android:launchMode="singleInstance"
                   android:screenOrientation="portrait"
                   android:windowAnimationStyle="@null">
@@ -49,13 +48,13 @@
 
         <activity
             android:name=".TouchscreenGestureSettings"
-            android:label="@string/screen_gestures_panel_title">
+            android:label="@*cyanogenmod.platform:string/screen_gestures_panel_title">
             <intent-filter>
                 <action android:name="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS" />
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.title"
-                android:resource="@string/screen_gestures_panel_title"/>
+                android:resource="@*cyanogenmod.platform:string/screen_gestures_panel_title"/>
         </activity>
 
     </application>
