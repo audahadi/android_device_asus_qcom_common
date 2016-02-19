@@ -1,9 +1,3 @@
-
-# ActivityManager optimizations
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
-
 # Audio
 audio.dolby.ds2.enabled=true
 audio.offload.buffer.size.kb=64
