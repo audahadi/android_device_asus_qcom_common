@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-
 import android.util.Log;
 
 import com.cyanogenmod.settings.device.utils.FileUtils;
@@ -33,7 +32,6 @@ public class CMActionsSettings {
 
     // Preference keys
     public static final String TOUCHSCREEN_GESTURE_CONTROL_KEY = "touchscreen_gesture_control";
-    public static final String TOUCHSCREEN_HAPTIC_FEEDBACK_KEY = "touchscreen_gesture_haptic_feedback";
     public static final String TOUCHSCREEN_C_GESTURE_KEY = "touchscreen_gesture_c";
     public static final String TOUCHSCREEN_E_GESTURE_KEY = "touchscreen_gesture_e";
     public static final String TOUCHSCREEN_S_GESTURE_KEY = "touchscreen_gesture_s";
@@ -96,9 +94,6 @@ public class CMActionsSettings {
                     if (TOUCHSCREEN_GESTURE_CONTROL_KEY.equals(key)) {
                         mIsGestureEnabled = sharedPreferences.getBoolean(TOUCHSCREEN_GESTURE_CONTROL_KEY, false);
                         TouchscreenGestureSettings.gestureCat.setEnabled(areGesturesEnabled());
-                    } else if (TOUCHSCREEN_HAPTIC_FEEDBACK_KEY.equals(key)) {
-                        boolean value = sharedPreferences.getBoolean(key, true);
-                        Settings.System.putInt(mContext.getContentResolver(), TOUCHSCREEN_HAPTIC_FEEDBACK_KEY, value ? 1 : 0);
                     } else if (TOUCHSCREEN_C_GESTURE_KEY.equals(key)) {
                         mIsGesture_C_Enabled = sharedPreferences.getBoolean(TOUCHSCREEN_C_GESTURE_KEY, false);
                     } else if (TOUCHSCREEN_E_GESTURE_KEY.equals(key)) {
