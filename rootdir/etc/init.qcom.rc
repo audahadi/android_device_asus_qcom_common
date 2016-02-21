@@ -40,7 +40,6 @@ on init
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
     mkdir /factory 0775 system system
-    mkdir /asdf 0775 system system
 
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -161,15 +160,6 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    # ASUS does that on their stock ROM.
-    # Apparently it triggers the "asusdebug"
-    # to save last shutdown logs to /ASDF.
-    chmod 0777 /proc/asusdebug
-    write /proc/asusevtlog "ASDF: power on"
-    write /proc/asusdebug get_asdf_log
-    write /proc/asusdebug load
-    write /proc/asusdebug get_lastshutdown_log
-
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
