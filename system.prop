@@ -72,6 +72,7 @@ ro.min_freq_4=800000
 ro.vendor.extension_library=libqti-perfd-client.so
 
 # Qualcomm
+persist.data.qmi.adb_logmask=0
 ro.qualcomm.cabl=0
 
 # Radio
