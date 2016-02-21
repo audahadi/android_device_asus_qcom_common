@@ -178,10 +178,11 @@ set_light_locked(struct light_state_t const* state)
         brightness_level = LED_LIGHT_OFF;
 
     if (blink) {
+        write_int(RED_LED_FILE, LED_LIGHT_OFF);
         //write_int(GREEN_BLINK_FILE, blink);
         write_int(GREEN_LED_FILE, brightness_level);
     } else {
-        //write_int(RED_BLINK_FILE, blink);
+        write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
         write_int(RED_LED_FILE, brightness_level);
     }
 
