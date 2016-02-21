@@ -15,17 +15,18 @@ function extract () {
         fi
 
         if [ "$SETUP" != "1" ]; then
-            if [ -z $LDIR ]; then
-                adb pull /system/$FILE $BASE/$DEST
+            if [ "$SRC" = "adb" ]; then
+                # Try CM target first
+                adb pull /system/$DEST $2/$DEST
+                # if file does not exist try OEM target
+                if [ "$?" != "0" ]; then
+                    adb pull /system/$FILE $2/$DEST
+                fi
             else
-                cp $LDIR/system/$FILE $BASE/$DEST
-            fi
-            # if file dot not exist try destination
-            if [ "$?" != "0" ]; then
-                if [ -z $LDIR ]; then
-                    adb pull /system/$DEST $BASE/$DEST
-                else
-                    cp $LDIR/system/$DEST $BASE/$DEST
+                cp $SRC/system/$FILE $2/$DEST
+                # if file dot not exist try destination
+                if [ "$?" != "0" ]; then
+                    cp $SRC/system/$DEST $2/$DEST
                 fi
             fi
         fi
@@ -39,7 +40,7 @@ while getopts ":nhsd:" options
 do
   case $options in
     n ) NC=1 ;;
-    d ) LDIR=$OPTARG ;;
+    d ) SRC=$OPTARG ;;
     s ) SETUP=1 ;;
     h ) echo "Usage: `basename $0` [OPTIONS] "
         echo "  -n  No cleanup"
@@ -50,6 +51,10 @@ do
     * ) ;;
   esac
 done
+
+if [ -z $SRC ]; then
+  SRC=adb
+fi
 
 if [ "$NC" != "1" ]; then
   rm -rf $BASE/*
