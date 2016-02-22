@@ -1,0 +1,4 @@
+allow mm-qcamerad fac_file:file r_file_perms;
+
+allow mm-qcamerad system_data_file:dir rw_dir_perms;
+allow mm-qcamerad system_data_file:sock_file create_file_perms;

@@ -1,3 +1,12 @@
 allow mediaserver sensorservice_service:service_manager find;
 binder_call(mediaserver, servicemanager);
 binder_call(mediaserver, sensorservice_service);
+
+allow mediaserver mm-qcamerad:unix_stream_socket connectto;
+
+allow mediaserver camera_prop:property_service set;
+allow mediaserver persist_file:file r_file_perms;
+allow mediaserver proc:file write;
+
+allow mediaserver system_file:file execmod;
+allow mediaserver system_server:unix_stream_socket rw_socket_perms;

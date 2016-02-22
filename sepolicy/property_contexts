@@ -1,0 +1,2 @@
+asus.camera.recording                   u:object_r:camera_prop:s0
+sys.thermald.charging.limited           u:object_r:thermald_prop:s0
