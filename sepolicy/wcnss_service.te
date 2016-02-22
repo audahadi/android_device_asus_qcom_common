@@ -1,1 +1,2 @@
+allow wcnss_service fac_file:dir search;
 allow wcnss_service fac_file:file r_file_perms;
