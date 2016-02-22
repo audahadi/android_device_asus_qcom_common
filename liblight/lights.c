@@ -50,11 +50,8 @@ char const*const GREEN_LED_FILE
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
 
-char const*const GREEN_BLINK_FILE
+char const*const GREEN_PWM_FILE
         = "/sys/class/leds/green/pwm_us";
-
-char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/pwm_us";
 
 /**
  * device methods
@@ -140,7 +137,7 @@ static int
 set_light_locked(struct light_state_t const* state)
 {
     int onMS, offMS;
-    int blink;
+    int blink, fake_pwm, pwm;
     int brightness_level;
 
     switch (state->flashMode) {
@@ -157,18 +154,22 @@ set_light_locked(struct light_state_t const* state)
     }
 
     if (onMS > 0 && offMS > 0) {
-        /*
-         * if ON time == OFF time
-         *   use blink mode 2
-         * else
-         *   use blink mode 1
-         */
-        if (onMS == offMS)
-            blink = 2;
-        else
-            blink = 1;
+        int totalMS = onMS + offMS;
+
+        // pwm specifies the ratio of ON versus OFF
+        // pwm = 0 -> always off
+        // pwm = 255 -> always on
+        fake_pwm = (onMS * 255) / totalMS;
+
+        // the low 4 bits are ignored, so round up if necessary
+        if (fake_pwm > 0 && fake_pwm < 16)
+            fake_pwm = 16;
+
+        blink = 1;
+        pwm = offMS * 1000;
     } else {
         blink = 0;
+        pwm = 0;
     }
 
     if (is_lit(state))
@@ -179,10 +180,13 @@ set_light_locked(struct light_state_t const* state)
 
     if (blink) {
         write_int(RED_LED_FILE, LED_LIGHT_OFF);
-        //write_int(GREEN_BLINK_FILE, blink);
-        write_int(GREEN_LED_FILE, brightness_level);
+        // brightness equals to led on in ms
+        write_int(GREEN_LED_FILE, fake_pwm);
+        // pwn uquals to led off in us
+        write_int(GREEN_PWM_FILE, pwm);
     } else {
         write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
+        write_int(GREEN_PWM_FILE, 100);
         write_int(RED_LED_FILE, brightness_level);
     }
 

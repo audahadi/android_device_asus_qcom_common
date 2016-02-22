@@ -158,6 +158,9 @@ on boot
     chmod 0664 /sys/class/power_supply/bms/current_now
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
 
+    chown system system /sys/class/leds/green/pwm_us
+    chown system system /sys/class/leds/red/pwm_us
+
 # msm specific files that need to be created on /data
 on post-fs-data
     # Create directory for TZ Apps
