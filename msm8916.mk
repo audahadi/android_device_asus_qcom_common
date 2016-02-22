@@ -76,7 +76,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8916 \
     libshim_camera \
-    libboringssl-compat
+    libboringssl-compat \
+    Snap
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
