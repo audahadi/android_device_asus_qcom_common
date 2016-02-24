@@ -27,8 +27,8 @@ fi
 # ZE600/601KL needs dual speaker paths
 # Let's move replace mixer_paths.xml with it's own file
 # and remove /system/etc/mixer_paths_mtp_dual.xml on rest of zf2 family
-PRJ_ID=`cat /proc/cmdline | grep -o 'PRJ_ID=.'`
-if [ $PRJ_ID == "PRJ_ID=1" ]; then
+APID=`cat /proc/apid`
+if [ $APID -eq "1" ]; then
     mv /system/etc/mixer_paths_mtp_dual.xml /system/etc/mixer_paths_mtp.xml
 else
     rm -f /system/etc/mixer_paths_mtp_dual.xml
