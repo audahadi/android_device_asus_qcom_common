@@ -2,3 +2,5 @@
 type fac_file, fs_type, contextmount_type;
 
 type sysfs_touchscreen, sysfs_type;
+
+type proc_driver, fs_type;

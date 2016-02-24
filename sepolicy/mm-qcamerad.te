@@ -1,4 +1,8 @@
+allow mm-qcamerad fac_file:dir search;
 allow mm-qcamerad fac_file:file r_file_perms;
+
+allow mm-qcamerad proc_driver:dir search;
+allow mm-qcamerad proc_driver:file r_file_perms;
 
 allow mm-qcamerad system_data_file:dir rw_dir_perms;
 allow mm-qcamerad system_data_file:sock_file create_file_perms;
