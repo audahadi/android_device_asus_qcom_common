@@ -16,3 +16,15 @@ def FullOTA_InstallEnd(info):
   info.script.Mount("/system")
   info.script.AppendExtra('assert(run_program("/sbin/sh", "/tmp/install/bin/init.asus.sh") == 0);')
   info.script.Unmount("/system")
+
+
+def FullOTA_Assertions(info):
+  AddApidAssertion(info, info.input_zip)
+
+
+def IncrementalOTA_Assertions(info):
+  AddApidAssertion(info, info.input_zip)
+
+
+def AddApidAssertion(info, input_zip):
+  info.script.AppendExtra('run_program("/sbin/grep", "1", "/proc/apid") != "1" || abort("Can\'t install on unsupported device. Supported devices: ZE551KL, ZD551KL, ZX551KL");')
