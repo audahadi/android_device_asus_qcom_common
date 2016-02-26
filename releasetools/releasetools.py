@@ -27,4 +27,4 @@ def IncrementalOTA_Assertions(info):
 
 
 def AddApidAssertion(info, input_zip):
-  info.script.AppendExtra('run_program("/sbin/grep", "1", "/proc/apid") != "1" || abort("Can\'t install on unsupported device. Supported devices: ZE551KL, ZD551KL, ZX551KL");')
+  info.script.AppendExtra('assert(run_program("/sbin/grep", "1", "/proc/apid") != "1" || abort("Can\'t install on unsupported device. Supported devices: ZE551KL, ZD551KL, ZX551KL"););')
