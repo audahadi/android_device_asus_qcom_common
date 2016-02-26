@@ -19,6 +19,12 @@
      for different hardware or product builds. -->
 <resources>
 
+    <!-- Opens back camera using openLegacy() -->
+    <bool name="back_camera_open_legacy">false</bool>
+
+    <!-- Opens front camera using openLegacy() -->
+    <bool name="front_camera_open_legacy">false</bool>
+
     <!-- Force use a specific preview-size
          Example: 1920x1080 -->
     <string name="preview_size_for_photo">1280x960</string>
