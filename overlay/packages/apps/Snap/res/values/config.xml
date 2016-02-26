@@ -18,6 +18,11 @@
 <!-- Camera app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
+
+    <!-- Force use a specific preview-size
+         Example: 1920x1080 -->
+    <string name="preview_size_for_photo">1280x960</string>
+
     <!-- ISO values use numbers.
          Example: 50 instead of ISO50 -->
     <bool name="iso_values_use_numbers">true</bool>
