@@ -80,6 +80,7 @@ PRODUCT_PACKAGES += \
     camera.msm8916 \
     libshim_camera \
     libboringssl-compat \
+    libstlport \
     Snap
 
 PRODUCT_COPY_FILES += \
