@@ -40,9 +40,6 @@ persist.hwc.mdpcomp.enable=true
 # DRM
 drm.service.enabled=true
 
-# Factory Reset Protection
-ro.frp.pst=/dev/block/bootdevice/by-name/persistent
-
 # GPS
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1

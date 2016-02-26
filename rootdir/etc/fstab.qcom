@@ -9,7 +9,6 @@
 /dev/block/bootdevice/by-name/modem                 /firmware    vfat    ro,shortname=lower,dmask=222,fmask=333,context=u:object_r:firmware_file:s0     wait
 /dev/block/bootdevice/by-name/persist               /persist     ext4    ro,nosuid,nodev,barrier=1                                                      wait
 /dev/block/bootdevice/by-name/factory               /factory     ext4    rw,nosuid,nodev,barrier=1,context=u:object_r:fac_file:s0                       wait
-/dev/block/bootdevice/by-name/persistent            /persistent  emmc    defaults                                                                       defaults
 
 /dev/block/bootdevice/by-name/boot                  /boot        emmc    defaults                                                                       recoveryonly
 /dev/block/bootdevice/by-name/recovery              /recovery    emmc    defaults                                                                       recoveryonly
