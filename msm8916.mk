@@ -78,6 +78,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    bspcapability \
     camera.msm8916 \
     libshim_camera \
     libboringssl-compat \
