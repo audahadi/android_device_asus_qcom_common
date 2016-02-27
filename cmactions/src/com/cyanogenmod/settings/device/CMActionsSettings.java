@@ -51,7 +51,6 @@ public class CMActionsSettings {
     public static final int KEY_MASK_GESTURE_W = 0x20;
     public static final int KEY_MASK_GESTURE_Z = 0x02;
 
-    private static boolean mIsGestureEnabled;
     private static boolean mIsGesture_C_Enabled;
     private static boolean mIsGesture_E_Enabled;
     private static boolean mIsGesture_S_Enabled;
@@ -68,14 +67,7 @@ public class CMActionsSettings {
         mContext = context;
     }
 
-
-    public static boolean areGesturesEnabled() {
-        Log.d(TAG,"Are gestures enabled:" +mIsGestureEnabled);
-        return mIsGestureEnabled;
-    }
-
     public static void loadPreferences(SharedPreferences sharedPreferences) {
-        mIsGestureEnabled = sharedPreferences.getBoolean(TOUCHSCREEN_GESTURE_CONTROL_KEY, false);
         mIsGesture_C_Enabled = sharedPreferences.getBoolean(TOUCHSCREEN_C_GESTURE_KEY, false);
         mIsGesture_E_Enabled = sharedPreferences.getBoolean(TOUCHSCREEN_E_GESTURE_KEY, false);
         mIsGesture_S_Enabled = sharedPreferences.getBoolean(TOUCHSCREEN_S_GESTURE_KEY, false);
@@ -91,10 +83,7 @@ public class CMActionsSettings {
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     boolean updated = true;
 
-                    if (TOUCHSCREEN_GESTURE_CONTROL_KEY.equals(key)) {
-                        mIsGestureEnabled = sharedPreferences.getBoolean(TOUCHSCREEN_GESTURE_CONTROL_KEY, false);
-                        TouchscreenGestureSettings.gestureCat.setEnabled(areGesturesEnabled());
-                    } else if (TOUCHSCREEN_C_GESTURE_KEY.equals(key)) {
+                    if (TOUCHSCREEN_C_GESTURE_KEY.equals(key)) {
                         mIsGesture_C_Enabled = sharedPreferences.getBoolean(TOUCHSCREEN_C_GESTURE_KEY, false);
                     } else if (TOUCHSCREEN_E_GESTURE_KEY.equals(key)) {
                         mIsGesture_E_Enabled = sharedPreferences.getBoolean(TOUCHSCREEN_E_GESTURE_KEY, false);
@@ -123,8 +112,6 @@ public class CMActionsSettings {
     public static void updateGestureMode() {
         int gesture_mode = 0;
 
-        if (((gesture_mode & KEY_MASK_GESTURE_C) == 1) != mIsGestureEnabled)
-            gesture_mode = (gesture_mode ^ KEY_MASK_GESTURE_CONTROL);
         if (((gesture_mode & KEY_MASK_GESTURE_C) == 1) != mIsGesture_C_Enabled)
             gesture_mode = (gesture_mode ^ KEY_MASK_GESTURE_C);
         if (((gesture_mode & KEY_MASK_GESTURE_E) == 1) != mIsGesture_E_Enabled)
@@ -137,6 +124,8 @@ public class CMActionsSettings {
             gesture_mode = (gesture_mode ^ KEY_MASK_GESTURE_W);
         if (((gesture_mode & KEY_MASK_GESTURE_Z) == 1) != mIsGesture_Z_Enabled)
             gesture_mode = (gesture_mode ^ KEY_MASK_GESTURE_Z);
+        if (gesture_mode != 0)
+            gesture_mode = (gesture_mode ^ KEY_MASK_GESTURE_CONTROL);
 
         Log.d(TAG, "finished gesture mode: " + gesture_mode);
         FileUtils.writeLine(TOUCHSCREEN_GESTURE_MODE_NODE, String.format("%7s",

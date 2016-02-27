@@ -17,47 +17,36 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
-        android:key="touchscreen_gesture_control"
-        android:title="@string/touchscreen_control_gesture_title" />
+        android:key="touchscreen_gesture_c"
+        android:title="@string/touchscreen_c_gesture_title"
+        android:summary="@string/touchscreen_c_gesture_summary" />
+
+    <SwitchPreference
+        android:key="touchscreen_gesture_e"
+        android:title="@string/touchscreen_e_gesture_title"
+        android:summary="@string/touchscreen_e_gesture_summary" />
+
+    <SwitchPreference
+        android:key="touchscreen_gesture_s"
+        android:title="@string/touchscreen_s_gesture_title"
+        android:summary="@string/touchscreen_s_gesture_summary" />
+
+    <SwitchPreference
+        android:key="touchscreen_gesture_v"
+        android:title="@string/touchscreen_v_gesture_title"
+        android:summary="@string/touchscreen_v_gesture_summary" />
+
+    <SwitchPreference
+        android:key="touchscreen_gesture_w"
+        android:title="@string/touchscreen_w_gesture_title"
+        android:summary="@string/touchscreen_w_gesture_summary" />
+
+    <SwitchPreference
+        android:key="touchscreen_gesture_z"
+        android:title="@string/touchscreen_z_gesture_title"
+        android:summary="@string/touchscreen_z_gesture_summary" />
 
     <PreferenceCategory
-        android:key="category_gestures"
-        android:title="@string/gesture_category_title" >
-
-        <SwitchPreference
-            android:key="touchscreen_gesture_c"
-            android:title="@string/touchscreen_c_gesture_title"
-            android:summary="@string/touchscreen_c_gesture_summary" />
-
-        <SwitchPreference
-            android:key="touchscreen_gesture_e"
-            android:title="@string/touchscreen_e_gesture_title"
-            android:summary="@string/touchscreen_e_gesture_summary" />
-
-        <SwitchPreference
-            android:key="touchscreen_gesture_s"
-            android:title="@string/touchscreen_s_gesture_title"
-            android:summary="@string/touchscreen_s_gesture_summary" />
-
-        <SwitchPreference
-            android:key="touchscreen_gesture_v"
-            android:title="@string/touchscreen_v_gesture_title"
-            android:summary="@string/touchscreen_v_gesture_summary" />
-
-        <SwitchPreference
-            android:key="touchscreen_gesture_w"
-            android:title="@string/touchscreen_w_gesture_title"
-            android:summary="@string/touchscreen_w_gesture_summary" />
-
-        <SwitchPreference
-            android:key="touchscreen_gesture_z"
-            android:title="@string/touchscreen_z_gesture_title"
-            android:summary="@string/touchscreen_z_gesture_summary" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="category_gestures"
         android:title="@string/touchscreen_extras">
 
         <SwitchPreference

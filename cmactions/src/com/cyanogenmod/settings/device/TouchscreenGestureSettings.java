@@ -31,10 +31,9 @@ import cyanogenmod.providers.CMSettings;
 import org.cyanogenmod.internal.util.ScreenType;
 
 public class TouchscreenGestureSettings extends PreferenceActivity implements OnPreferenceChangeListener {
-    public static final String CATEGORY_GESTURES = "category_gestures";
+
     private static final String KEY_HAPTIC_FEEDBACK = "touchscreen_gesture_haptic_feedback";
 
-    public static PreferenceCategory gestureCat;
     private SwitchPreference mHapticFeedback;
 
     @Override
@@ -45,10 +44,6 @@ public class TouchscreenGestureSettings extends PreferenceActivity implements On
         mHapticFeedback = (SwitchPreference) findPreference(KEY_HAPTIC_FEEDBACK);
         mHapticFeedback.setOnPreferenceChangeListener(this);
 
-        gestureCat = (PreferenceCategory) findPreference(CATEGORY_GESTURES);
-        if (gestureCat != null) {
-            gestureCat.setEnabled(CMActionsSettings.areGesturesEnabled());
-        }
         final ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
@@ -69,11 +64,6 @@ public class TouchscreenGestureSettings extends PreferenceActivity implements On
     @Override
     protected void onResume() {
         super.onResume();
-
-        gestureCat = (PreferenceCategory) findPreference(CATEGORY_GESTURES);
-        if (gestureCat != null) {
-            gestureCat.setEnabled(CMActionsSettings.areGesturesEnabled());
-        }
 
         mHapticFeedback.setChecked(CMSettings.System.getInt(getContentResolver(),
                 CMSettings.System.TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK, 1) != 0);
