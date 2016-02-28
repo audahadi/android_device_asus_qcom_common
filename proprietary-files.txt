@@ -83,8 +83,12 @@ vendor/lib64/libbtnv.so
 # Camera
 bin/mm-qcamera-daemon
 lib/hw/camera.msm8916.so:lib/hw/camera.vendor.msm8916.so
+lib/libarcsoft_panorama_burstcapture.so
+lib/libarcsoft_sensorndk.so
+lib/libcameraap.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
+lib/libmorpho_panorama_gp.so
 lib/libqomx_core.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
