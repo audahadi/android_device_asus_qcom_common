@@ -173,12 +173,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8916
 
-# Qualcomm
-PRODUCT_PACKAGES += \
-    dsi_config.xml \
-    netmgr_config.xml \
-    qmi_config.xml
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -194,6 +188,11 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # RIL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+    $(LOCAL_PATH)/configs/data/qmi_config.xml:system/etc/data/qmi_config.xml \
+    $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml
+
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
