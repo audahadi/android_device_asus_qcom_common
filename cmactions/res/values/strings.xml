@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013-2014 The CyanogenMod Project
+     Copyright (C) 2013-2016 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,16 +18,16 @@
 
     <!-- Gesture shortcuts -->
     <string name="touchscreen_c_gesture_title">Camera</string>
-    <string name="touchscreen_c_gesture_summary">Draw a \"C\" to activate Camera</string>
+    <string name="touchscreen_c_gesture_summary">Draw a \"C\" to activate camera</string>
     <string name="touchscreen_e_gesture_title">Email</string>
-    <string name="touchscreen_e_gesture_summary">Draw an \"e\" to activate Email</string>
+    <string name="touchscreen_e_gesture_summary">Draw an \"e\" to open the email app</string>
     <string name="touchscreen_s_gesture_title">Messaging</string>
-    <string name="touchscreen_s_gesture_summary">Draw a \"S\" to activate Messaging</string>
-    <string name="touchscreen_v_gesture_title">Phone</string>
-    <string name="touchscreen_v_gesture_summary">Draw a \"V\" to activate Phone</string>
-    <string name="touchscreen_w_gesture_title">Web Browser</string>
-    <string name="touchscreen_w_gesture_summary">Draw a \"W\" to activate Web Search</string>
+    <string name="touchscreen_s_gesture_summary">Draw an \"S\" to open the messaging app</string>
+    <string name="touchscreen_v_gesture_title">Dialer</string>
+    <string name="touchscreen_v_gesture_summary">Draw a \"V\" to open the dialer app</string>
+    <string name="touchscreen_w_gesture_title">Browser</string>
+    <string name="touchscreen_w_gesture_summary">Draw a \"W\" to open the browser app</string>
     <string name="touchscreen_z_gesture_title">Flashlight</string>
-    <string name="touchscreen_z_gesture_summary">Draw a \"Z\" to activate Flashlight</string>
+    <string name="touchscreen_z_gesture_summary">Draw a \"Z\" to toggle flashlight</string>
 
 </resources>
