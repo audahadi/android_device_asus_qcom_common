@@ -290,9 +290,6 @@
         <item>evdo:4094,87380,524288,4096,16384,262144</item>
     </string-array>
 
-    <!-- Component name of the combo network location provider. -->
-    <string translatable="false" name="config_comboNetworkLocationProvider">com.qualcomm.location</string>
-
     <!-- The RadioAccessFamilies supported by the device.
          Empty is viewed as "all".  Only used on devices which
          don't support RIL_REQUEST_GET_RADIO_CAPABILITY
