@@ -50,7 +50,7 @@ on early-boot
     # Set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-    # Asus does this with in ssr_setup
+    # Asus does this within ssr_setup
     # for some reason this seems to fix
     # modem crashes on signal lose.
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
