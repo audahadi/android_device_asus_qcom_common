@@ -18,9 +18,6 @@ voice.playback.conc.disabled=true
 voice.record.conc.disabled=true
 voice.voip.conc.disabled=true
 
-# Bluetooth
-ro.qualcomm.bt.hci_transport=smd
-
 # Camera
 persist.camera.cpp.duplication=false
 
