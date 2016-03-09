@@ -200,7 +200,7 @@ handle_led_prioritized_locked(struct light_state_t const* state)
         return set_light_locked(&g_lights[ATTENTION]);
     } else if (is_lit(&g_lights[NOTIFICATION])) {
         return set_light_locked(&g_lights[NOTIFICATION]);
-    } else if (is_lit(&g_lights[NOTIFICATION])) {
+    } else if (is_lit(&g_lights[BATTERY])) {
         return set_light_locked(&g_lights[BATTERY]);
     } else {
         return set_light_locked(state);
