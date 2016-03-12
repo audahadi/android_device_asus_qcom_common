@@ -11,3 +11,6 @@
 
 # Touchscreen
 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0038/gesture_mode u:object_r:sysfs_touchscreen:s0
+
+# Wi-Fi
+/persist/.genmac                        u:object_r:wifi_data_file:s0
