@@ -2,6 +2,9 @@
 /system/lib/libarcsoft_panorama_burstcapture.so u:object_r:apk_data_file:s0
 /system/lib/libcameraap.so              u:object_r:apk_data_file:s0
 
+# Factory
+/factory(/.*)?                          u:object_r:fac_file:s0
+
 # Sensors
 /dev/cm3602                             u:object_r:sensors_device:s0
 /dev/lightsensor                        u:object_r:sensors_device:s0
