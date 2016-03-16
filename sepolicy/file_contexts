@@ -8,6 +8,7 @@
 # Sensors
 /dev/cm3602                             u:object_r:sensors_device:s0
 /dev/lightsensor                        u:object_r:sensors_device:s0
+/system/bin/sensorscal                  u:object_r:sensorscal_exec:s0
 
 # TFA amp
 /system/bin/tfamode                     u:object_r:tfamode_exec:s0

@@ -1,0 +1,7 @@
+type sensorscal, domain;
+type sensorscal_exec, exec_type, file_type;
+init_daemon_domain(sensorscal)
+
+allow sensorscal fac_file:dir search;
+allow sensorscal fac_file:file r_file_perms;
+allow sensorscal sensors_device:chr_file rw_file_perms;
