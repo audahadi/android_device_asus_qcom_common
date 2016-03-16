@@ -53,6 +53,8 @@ char const*const RED_LED_FILE
 char const*const GREEN_PWM_FILE
         = "/sys/class/leds/green/pwm_us";
 
+char const*const RED_PWM_FILE
+        = "/sys/class/leds/red/pwm_us";
 /**
  * device methods
  */
@@ -139,6 +141,7 @@ set_light_locked(struct light_state_t const* state)
     int onMS, offMS;
     int blink, fake_pwm, pwm;
     int brightness_level;
+    int is_battery = 0;
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
@@ -178,16 +181,21 @@ set_light_locked(struct light_state_t const* state)
     else
         brightness_level = LED_LIGHT_OFF;
 
+    if (state == &g_lights[BATTERY])
+        is_battery = 1;
+
+    // turn led off
+    write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
+    write_int(RED_LED_FILE, LED_LIGHT_OFF);
+
     if (blink) {
-        write_int(RED_LED_FILE, LED_LIGHT_OFF);
         // brightness equals to led on in ms
-        write_int(GREEN_LED_FILE, fake_pwm);
+        write_int(is_battery == 0 ? GREEN_LED_FILE : RED_LED_FILE, fake_pwm);
         // pwn uquals to led off in us
-        write_int(GREEN_PWM_FILE, pwm);
+        write_int(is_battery == 0 ? GREEN_PWM_FILE : RED_PWM_FILE, pwm);
     } else {
-        write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
-        write_int(GREEN_PWM_FILE, 100);
-        write_int(RED_LED_FILE, brightness_level);
+        write_int(is_battery == 0 ? GREEN_LED_FILE : RED_LED_FILE, brightness_level);
+        write_int(is_battery == 0 ? GREEN_PWM_FILE : RED_PWM_FILE, 100);
     }
 
     return 0;
