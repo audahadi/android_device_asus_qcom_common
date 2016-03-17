@@ -357,8 +357,8 @@ vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
 # Radio - from kipper
--app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -app/shutdownlistener/shutdownlistener.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 bin/netmgrd
 bin/qmuxd
 bin/radish
