@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Камера</string>
+  <string name="touchscreen_c_gesture_summary">Нацртај \"C\" да би активирао камеру</string>
+  <string name="touchscreen_e_gesture_title">Е-пошта</string>
+  <string name="touchscreen_e_gesture_summary">Нацртај \"e\" да отвориш е-пошту</string>
+  <string name="touchscreen_s_gesture_title">Размена порука</string>
+  <string name="touchscreen_s_gesture_summary">Нацртај \"S\" да отвориш размену порука</string>
+  <string name="touchscreen_v_gesture_title">Бирач бројева</string>
+  <string name="touchscreen_v_gesture_summary">Нацртај \"V\" да отвориш бирач бројева</string>
+  <string name="touchscreen_w_gesture_title">Претраживач</string>
+  <string name="touchscreen_w_gesture_summary">Нацртај \"W\" да отвориш претраживач</string>
+  <string name="touchscreen_z_gesture_title">Лампа</string>
+  <string name="touchscreen_z_gesture_summary">Нацртај \"Z\" да покренеш лампу</string>
 </resources>

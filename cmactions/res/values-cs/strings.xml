@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Fotoaparát</string>
+  <string name="touchscreen_c_gesture_summary">Gestem „C“ spustit fotoaparát</string>
+  <string name="touchscreen_e_gesture_title">E-mail</string>
+  <string name="touchscreen_e_gesture_summary">Gestem „e“ otevřít e-mailovou aplikaci</string>
+  <string name="touchscreen_s_gesture_title">Zprávy</string>
+  <string name="touchscreen_s_gesture_summary">Gestem „S“ otevřít aplikaci pro zprávy</string>
+  <string name="touchscreen_v_gesture_title">Telefon</string>
+  <string name="touchscreen_v_gesture_summary">Gestem „V“ otevřít aplikaci telefonu</string>
+  <string name="touchscreen_w_gesture_title">Prohlížeč</string>
+  <string name="touchscreen_w_gesture_summary">Gestem „W“ otevřít aplikaci prohlížeče</string>
+  <string name="touchscreen_z_gesture_title">Svítilna</string>
+  <string name="touchscreen_z_gesture_summary">Gestem „Z“ rozsvítit/zhasnout svítlinu</string>
 </resources>

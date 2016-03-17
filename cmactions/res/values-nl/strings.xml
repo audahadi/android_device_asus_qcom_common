@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Camera</string>
+  <string name="touchscreen_c_gesture_summary">Teken een \"C\" om camera te openen</string>
+  <string name="touchscreen_e_gesture_title">E-mail</string>
+  <string name="touchscreen_e_gesture_summary">Teken een \"e\" om e-mail-app te openen</string>
+  <string name="touchscreen_s_gesture_title">Berichten</string>
+  <string name="touchscreen_s_gesture_summary">Teken een \"S\" om berichten-app te openen</string>
+  <string name="touchscreen_v_gesture_title">Telefoon</string>
+  <string name="touchscreen_v_gesture_summary">Teken een \"V\" om telefoon-app te openen</string>
+  <string name="touchscreen_w_gesture_title">Browser</string>
+  <string name="touchscreen_w_gesture_summary">Teken een \"W\" om browser te openen</string>
+  <string name="touchscreen_z_gesture_title">Zaklamp</string>
+  <string name="touchscreen_z_gesture_summary">Teken een \"Z\" om zaklamp aan/uit te zetten</string>
 </resources>

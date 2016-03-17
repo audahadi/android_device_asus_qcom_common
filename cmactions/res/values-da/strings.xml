@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Kamera</string>
+  <string name="touchscreen_c_gesture_summary">Tegn et \"C\" for at aktivere kameraet</string>
+  <string name="touchscreen_e_gesture_title">Email</string>
+  <string name="touchscreen_e_gesture_summary">Tegn et \"e\" for at åbne email-appen</string>
+  <string name="touchscreen_s_gesture_title">Beskeder</string>
+  <string name="touchscreen_s_gesture_summary">Tegn et \"S\" for at åbne besked-appen</string>
+  <string name="touchscreen_v_gesture_title">Telefon</string>
+  <string name="touchscreen_v_gesture_summary">Tegn et \"V\" for at åbne telefon-appen</string>
+  <string name="touchscreen_w_gesture_title">Browser</string>
+  <string name="touchscreen_w_gesture_summary">Tegn et \"W\" for at åbne browser-appen</string>
+  <string name="touchscreen_z_gesture_title">Lommelygte</string>
+  <string name="touchscreen_z_gesture_summary">Tegn et \"Z\" for at slå lommelygten til/fra</string>
 </resources>

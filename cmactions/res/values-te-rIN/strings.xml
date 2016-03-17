@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">కెమెరా</string>
+  <string name="touchscreen_c_gesture_summary">కెమెరాను ఉత్తేజపరచటానికి కావలసిన ఒక \"C\" డ్రా</string>
+  <string name="touchscreen_e_gesture_title">ఇమెయిల్</string>
+  <string name="touchscreen_e_gesture_summary">ఇమెయిల్ అనువర్తనం తెరవడానికి \"e\" డ్రా</string>
+  <string name="touchscreen_s_gesture_title">సందేశం</string>
+  <string name="touchscreen_s_gesture_summary">సందేశ అనువర్తనం తెరవడానికి ఒక \"S\" డ్రా</string>
+  <string name="touchscreen_v_gesture_title">డయలర్</string>
+  <string name="touchscreen_v_gesture_summary">డయలర్ అనువర్తనం తెరవడానికి ఒక \"V\" డ్రా</string>
+  <string name="touchscreen_w_gesture_title">బ్రౌజర్</string>
+  <string name="touchscreen_w_gesture_summary">బ్రౌజర్ అనువర్తనం తెరవడానికి ఒక \"W\" డ్రా</string>
+  <string name="touchscreen_z_gesture_title">ఫ్లాష్లైట్</string>
+  <string name="touchscreen_z_gesture_summary">ఫ్లాష్లైట్ మార్చడానికి ఒక \"Z\" డ్రా</string>
 </resources>

@@ -21,8 +21,12 @@
   <string name="touchscreen_c_gesture_summary">\"V\" zeichnen, um die Kamera zu starten</string>
   <string name="touchscreen_e_gesture_title">E-Mail</string>
   <string name="touchscreen_e_gesture_summary">\"e\" zeichnen, um die E-Mail-App zu starten</string>
+  <string name="touchscreen_s_gesture_title">SMS/MMS</string>
+  <string name="touchscreen_s_gesture_summary">\"S\" zeichnen, um SMS/MMS zu starten</string>
+  <string name="touchscreen_v_gesture_title">Telefon</string>
+  <string name="touchscreen_v_gesture_summary">\"V\" zeichnen, um die Telefon-App zu starten</string>
   <string name="touchscreen_w_gesture_title">Browser</string>
   <string name="touchscreen_w_gesture_summary">\"W\" zeichnen, um den Browser zu starten</string>
   <string name="touchscreen_z_gesture_title">Taschenlampe</string>
-  <string name="touchscreen_z_gesture_summary">„Z“ zeichnen, um die Taschenlampe ein-/auszuschalten</string>
+  <string name="touchscreen_z_gesture_summary">\"Z\" zeichnen, um die Taschenlampe ein-/auszuschalten</string>
 </resources>

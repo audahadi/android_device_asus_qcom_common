@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Kamera</string>
+  <string name="touchscreen_c_gesture_summary">Rajzoljon egy \"C\" betűt a kamera indításához</string>
+  <string name="touchscreen_e_gesture_title">E-mail</string>
+  <string name="touchscreen_e_gesture_summary">Rajzoljon egy \"e\" betűt a levelező indításához</string>
+  <string name="touchscreen_s_gesture_title">Üzenetváltás</string>
+  <string name="touchscreen_s_gesture_summary">Rajzoljon egy \"S\" betűt az üzenetváltás indításához</string>
+  <string name="touchscreen_v_gesture_title">Tárcsázó</string>
+  <string name="touchscreen_v_gesture_summary">Rajzoljon egy \"V\" betűt a tárcsázó indításához</string>
+  <string name="touchscreen_w_gesture_title">Böngésző</string>
+  <string name="touchscreen_w_gesture_summary">Rajzoljon egy \"W\" betűt a böngésző indításához</string>
+  <string name="touchscreen_z_gesture_title">Zseblámpa</string>
+  <string name="touchscreen_z_gesture_summary">Rajzoljon egy \"Z\" betűt a zseblámpához</string>
 </resources>

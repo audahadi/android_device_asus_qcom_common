@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">কেমেৰা</string>
+  <string name="touchscreen_c_gesture_summary">কেমেৰা সক্ৰিয় কৰিবলৈ \"C\" আঁকক</string>
+  <string name="touchscreen_e_gesture_title">ইমেইল</string>
+  <string name="touchscreen_e_gesture_summary">ইমেইল এপ্পটো খোলিবলৈ \"e\" আঁকক</string>
+  <string name="touchscreen_s_gesture_title">মেছেজিং</string>
+  <string name="touchscreen_s_gesture_summary">মেছেজিং এপ্পটো খোলিবলৈ \"S\" আঁকক</string>
+  <string name="touchscreen_v_gesture_title">ডায়েলাৰ</string>
+  <string name="touchscreen_v_gesture_summary">ডায়েলাৰ এপ্পটো খোলিবলৈ \"V\" আঁকক</string>
+  <string name="touchscreen_w_gesture_title">ব্ৰাউজাৰ</string>
+  <string name="touchscreen_w_gesture_summary">ব্ৰাউজাৰ এপ্পটো খোলিবলৈ \"W\" আঁকক</string>
+  <string name="touchscreen_z_gesture_title">ফ্লেশলাইট</string>
+  <string name="touchscreen_z_gesture_summary">ফ্লেশলাইট টগল কৰিবলৈ \"Z\" আঁকক</string>
 </resources>

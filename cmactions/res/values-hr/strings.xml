@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Fotoaparat</string>
+  <string name="touchscreen_c_gesture_summary">Nacrtajte \"C\" da biste aktivirali Fotoaparat</string>
+  <string name="touchscreen_e_gesture_title">E-pošta</string>
+  <string name="touchscreen_e_gesture_summary">Nacrtajte \"e\" da biste otvorili aplikaciju e-pošte</string>
+  <string name="touchscreen_s_gesture_title">Poruke</string>
+  <string name="touchscreen_s_gesture_summary">Nacrtajte \"S\" za otvaranje aplikacije Poruke</string>
+  <string name="touchscreen_v_gesture_title">Brojčana tipkovnica</string>
+  <string name="touchscreen_v_gesture_summary">Nacrtajte \"V\" da biste otvorili aplikaciju Brojčana tipkovnica</string>
+  <string name="touchscreen_w_gesture_title">Preglednik</string>
+  <string name="touchscreen_w_gesture_summary">Nacrtajte \"W\" za otvaranje aplikacije Preglednik</string>
+  <string name="touchscreen_z_gesture_title">Bljeskalica</string>
+  <string name="touchscreen_z_gesture_summary">Nacrtajte \"Z\" za upravljanje svjetiljkom</string>
 </resources>

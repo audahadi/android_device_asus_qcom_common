@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">カメラ</string>
+  <string name="touchscreen_c_gesture_summary">Cを描いてカメラを有効にする</string>
+  <string name="touchscreen_e_gesture_title">メール</string>
+  <string name="touchscreen_e_gesture_summary">eを描いてメールアプリを開く</string>
+  <string name="touchscreen_s_gesture_title">メッセージ</string>
+  <string name="touchscreen_s_gesture_summary">Sを描いてメッセージアプリを開く</string>
+  <string name="touchscreen_v_gesture_title">電話</string>
+  <string name="touchscreen_v_gesture_summary">Vを描いて電話アプリを開く</string>
+  <string name="touchscreen_w_gesture_title">ブラウザ</string>
+  <string name="touchscreen_w_gesture_summary">Wを描いてブラウザアプリを開く</string>
+  <string name="touchscreen_z_gesture_title">フラッシュライト</string>
+  <string name="touchscreen_z_gesture_summary">Zを描いてフラッシュライトを切り替える</string>
 </resources>
