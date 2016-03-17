@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import re
+
 def FullOTA_InstallEnd(info):
   info.script.Mount("/system")
   info.script.AppendExtra('assert(run_program("/sbin/sh", "/tmp/install/bin/init.asus.sh") == 0);')
@@ -27,4 +29,8 @@ def IncrementalOTA_Assertions(info):
 
 
 def AddApidAssertion(info, input_zip):
-  info.script.AppendExtra('assert(run_program("/sbin/grep", "1", "/proc/apid") != "1" || abort("Can\'t install on unsupported device. Supported devices: ZE551KL, ZD551KL, ZX551KL"););')
+  android_info = input_zip.read("OTA/android-info.txt")
+  m = re.search(r"require\s+version-variant\s*=\s*(\S+)", android_info)
+  if m:
+    variants = m.group(1).replace("|", ", ")
+    info.script.AppendExtra('assert(run_program("/sbin/grep", "1", "/proc/apid") != "1" || abort("Can\'t install on unsupported device. Supported devices: %s"););' % variants)
