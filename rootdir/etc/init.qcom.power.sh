@@ -61,7 +61,6 @@ case "$soc_id" in
         echo 1 > /sys/devices/system/cpu/cpu1/online
         echo 1 > /sys/devices/system/cpu/cpu2/online
         echo 1 > /sys/devices/system/cpu/cpu3/online
-        echo 1 > /sys/devices/system/cpu/cpu4/online
     ;;
     "239" | "241" | "263" | "268" | "269" | "270" | "271")
         # Apply MSM8939 specific Sched & Governor settings
