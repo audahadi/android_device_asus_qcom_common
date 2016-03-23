@@ -1,7 +1,7 @@
 key 158     BACK                      VIRTUAL
 key 102     HOME                      VIRTUAL
 key 580     APP_SWITCH                VIRTUAL
-key 116     POWER                     VIRTUAL
+key 143     WAKEUP                    VIRTUAL
 # key 46      GESTURE_C                 VIRTUAL
 # key 18      GESTURE_E                 VIRTUAL
 # key 31      GESTURE_S                 VIRTUAL
