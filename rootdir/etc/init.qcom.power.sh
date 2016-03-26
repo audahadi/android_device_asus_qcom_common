@@ -203,3 +203,9 @@ case $soc_id in
         setprop ro.min_freq_4 800000
     ;;
 esac
+
+case "$soc_id" in
+    "239" | "241" | "263" | "268" | "269" | "270" | "271")
+        start msm_irqbalance
+    ;;
+esac
