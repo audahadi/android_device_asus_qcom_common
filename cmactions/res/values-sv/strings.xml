@@ -24,6 +24,7 @@
   <string name="touchscreen_s_gesture_title">Meddelanden</string>
   <string name="touchscreen_s_gesture_summary">Rita ett \"S\" för att öppna meddelandeappen</string>
   <string name="touchscreen_v_gesture_title">Uppringare</string>
+  <string name="touchscreen_v_gesture_summary">Rita ett \"V\" för att öppna ringappen</string>
   <string name="touchscreen_w_gesture_title">Webbläsare</string>
   <string name="touchscreen_w_gesture_summary">Rita ett \"W\" för att öppna webbläsaren</string>
   <string name="touchscreen_z_gesture_title">Ficklampa</string>

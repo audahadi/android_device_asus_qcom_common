@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">الكاميرا</string>
+  <string name="touchscreen_c_gesture_summary">رسم \"C\" لتنشيط الكاميرا</string>
+  <string name="touchscreen_e_gesture_title">البريد الإلكتروني</string>
+  <string name="touchscreen_e_gesture_summary">رسم \"e\" لفتح تطبيق البريد الإلكتروني</string>
+  <string name="touchscreen_s_gesture_title">المراسلة</string>
+  <string name="touchscreen_s_gesture_summary">رسم حرف \"S\" لفتح تطبيق المراسلة</string>
+  <string name="touchscreen_v_gesture_title">المتصل</string>
+  <string name="touchscreen_v_gesture_summary">رسم \"V\" لفتح تطبيق المتصل</string>
+  <string name="touchscreen_w_gesture_title">المستعرض</string>
+  <string name="touchscreen_w_gesture_summary">رسم \"W\" لفتح تطبيق المستعرض</string>
+  <string name="touchscreen_z_gesture_title">كشاف</string>
+  <string name="touchscreen_z_gesture_summary">رسم \'Z\' للتبديل بين الكشاف</string>
 </resources>

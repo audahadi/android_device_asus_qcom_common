@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">กล้องถ่ายรูป</string>
+  <string name="touchscreen_c_gesture_summary">วาด \"C\" เพื่อเปิดกล้อง</string>
+  <string name="touchscreen_e_gesture_title">อีเมล</string>
+  <string name="touchscreen_e_gesture_summary">วาดตัว \"e\" เพื่อเปิดแอปอีเมล</string>
+  <string name="touchscreen_s_gesture_title">ส่งข้อความ</string>
+  <string name="touchscreen_s_gesture_summary">วาดตัว \"S\" เพื่อเปิดแอปสำหรับส่งข้อความ</string>
+  <string name="touchscreen_v_gesture_title">โทรออก</string>
+  <string name="touchscreen_v_gesture_summary">วาดตัว \"V\" เพื่อเปิดแอปสำหรับโทรออก</string>
+  <string name="touchscreen_w_gesture_title">เบราว์เซอร์</string>
+  <string name="touchscreen_w_gesture_summary">วาดตัว \"W\" เพื่อเปิดแอปเบราว์เซอร์</string>
+  <string name="touchscreen_z_gesture_title">ไฟฉาย</string>
+  <string name="touchscreen_z_gesture_summary">วาดตัว \"Z\" เพื่อสลับไฟฉาย</string>
 </resources>

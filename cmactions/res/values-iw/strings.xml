@@ -18,15 +18,15 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
   <string name="touchscreen_c_gesture_title">מצלמה</string>
-  <string name="touchscreen_c_gesture_summary">ציירו \"C\" כדי להפעיל את המצלמה</string>
+  <string name="touchscreen_c_gesture_summary">צייר \"C\" כדי להפעיל את המצלמה</string>
   <string name="touchscreen_e_gesture_title">דוא\"ל</string>
-  <string name="touchscreen_e_gesture_summary">ציירו \"e\" כדי להפעיל את יישום הדוא\"ל</string>
+  <string name="touchscreen_e_gesture_summary">צייר \"e\" כדי להפעיל את יישום הדוא\"ל</string>
   <string name="touchscreen_s_gesture_title">הודעות</string>
-  <string name="touchscreen_s_gesture_summary">ציירו \"S\" כדי להפעיל את יישום ההודעות</string>
+  <string name="touchscreen_s_gesture_summary">צייר \"S\" כדי להפעיל את יישום ההודעות</string>
   <string name="touchscreen_v_gesture_title">חייגן</string>
-  <string name="touchscreen_v_gesture_summary">ציירו \"V\" כדי להפעיל את החייגן</string>
+  <string name="touchscreen_v_gesture_summary">צייר \"V\" כדי להפעיל את החייגן</string>
   <string name="touchscreen_w_gesture_title">דפדפן</string>
-  <string name="touchscreen_w_gesture_summary">ציירו \"W\" כדי להפעיל את הדפדפן</string>
+  <string name="touchscreen_w_gesture_summary">צייר \"W\" כדי להפעיל את הדפדפן</string>
   <string name="touchscreen_z_gesture_title">פנס</string>
-  <string name="touchscreen_z_gesture_summary">ציירו \"Z\" כדי להפעיל את הפנס</string>
+  <string name="touchscreen_z_gesture_summary">צייר \"Z\" כדי להפעיל את הפנס</string>
 </resources>
