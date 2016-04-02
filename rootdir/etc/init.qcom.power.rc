@@ -1,3 +1,7 @@
+on boot
+    # Allow the powerhal to control cluster plug
+    chown system system /sys/module/cluster_plug/parameters/low_power_mode
+
 on enable-low-power
     exec u:r:qti_init_shell:s0 -- /init.qcom.power.sh
 
