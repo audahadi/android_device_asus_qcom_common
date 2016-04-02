@@ -201,25 +201,23 @@ etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
-# DRM - from kipper
+# DRM
 bin/qseecomd
-lib/libdrmdecrypt.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
-vendor/lib/libwvdrm_L3.so
+vendor/lib/libdrmdecrypt.so
+vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
-# GPS - from kipper
+# GPS
 -lib64/libloc_api_v02.so
--lib64/libloc_ds_api.so
 -lib/libloc_api_v02.so
--lib/libloc_ds_api.so
 vendor/lib64/hw/flp.default.so
 vendor/lib64/libflp.so
 vendor/lib64/libgeofence.so
@@ -231,9 +229,7 @@ vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
-# Graphics - from kipper
-# Adreno 400 - from kipper
-# Adreno 300 - from crackling
+# Graphics
 vendor/lib64/egl/eglsubAndroid.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
@@ -324,7 +320,7 @@ vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
 
-# Qualcomm framework - from kipper
+# Qualcomm framework
 bin/irsc_util
 vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
@@ -359,7 +355,7 @@ vendor/lib/libqmiservices.so
 vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
-# Radio - from kipper
+# Radio
 -app/shutdownlistener/shutdownlistener.apk
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 bin/netmgrd
