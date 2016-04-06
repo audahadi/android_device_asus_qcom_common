@@ -18,7 +18,6 @@ QCOM_BOARD_PLATFORMS += msm8909w
 QSD8K_BOARD_PLATFORMS := qsd8k
 
 TARGET_USE_VENDOR_CAMERA_EXT := true
-ANDROID_COMPILE_WITH_JACK := false
 
 #List of targets that use video hw
 MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909
@@ -676,7 +675,7 @@ PRODUCT_PACKAGES += $(CHARGER)
 PRODUCT_PACKAGES += $(CURL)
 PRODUCT_PACKAGES += $(CM)
 PRODUCT_PACKAGES += $(RCS)
-PRODUCT_PACKAGES += $(DASH)
+#PRODUCT_PACKAGES += $(DASH)
 PRODUCT_PACKAGES += $(DATA_OS)
 PRODUCT_PACKAGES += $(E2FSPROGS)
 PRODUCT_PACKAGES += $(EBTABLES)
@@ -823,7 +822,7 @@ PRODUCT_COPY_FILES += \
 
 # enable overlays to use our version of
 # source/resources etc.
-DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
+#DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
 PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
 
 # include additional build utilities
