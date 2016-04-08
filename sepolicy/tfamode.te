@@ -1,3 +1,0 @@
-type tfamode, domain;
-type tfamode_exec, exec_type, file_type;
-init_daemon_domain(tfamode)
