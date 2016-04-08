@@ -929,5 +929,8 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
     writepid /dev/cpuset/system-background/tasks
     disabled
 
+on property:sys.boot_completed=1
+    write /proc/boot_completed_prop 1
+
 on load_system_props_action
     exec u:r:qti_init_shell:s0 -- /init.qcom.opengles.sh
