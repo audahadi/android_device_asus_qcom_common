@@ -37,7 +37,7 @@
 #include <dlfcn.h>
 #include <stdlib.h>
 
-#define LOG_TAG "Kiwi/QCOM PowerHAL"
+#define LOG_TAG "ASUS/QCOM PowerHAL"
 #include <utils/Log.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
@@ -55,13 +55,19 @@
 
 #define LOW_POWER_MODE_PATH "/sys/module/cluster_plug/parameters/low_power_mode"
 
+static int is_8916 = -1;
+
 int get_number_of_profiles() {
     return 3;
 }
 
 static int current_power_profile = PROFILE_BALANCED;
 
-static int profile_high_performance[11] = {
+static int profile_high_performance_8916[3] = {
+    0x1C00, 0x0901, CPU0_MIN_FREQ_TURBO_MAX,
+};
+
+static int profile_high_performance_8939[11] = {
     SCHED_BOOST_ON, 0x1C00, 0x0901,
     CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
     CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX,
@@ -69,11 +75,44 @@ static int profile_high_performance[11] = {
     CPU6_MIN_FREQ_TURBO_MAX, CPU7_MIN_FREQ_TURBO_MAX,
 };
 
-static int profile_power_save[5] = {
+static int profile_power_save_8916[1] = {
+    CPU0_MAX_FREQ_NONTURBO_MAX,
+};
+
+static int profile_power_save_8939[5] = {
     CPUS_ONLINE_MAX_LIMIT_2,
     CPU0_MAX_FREQ_NONTURBO_MAX, CPU1_MAX_FREQ_NONTURBO_MAX,
     CPU2_MAX_FREQ_NONTURBO_MAX, CPU3_MAX_FREQ_NONTURBO_MAX,
 };
+
+static int is_target_8916()
+{
+    int fd;
+    char buf[10] = {0};
+
+    if (is_8916 >= 0)
+        return is_8916;
+
+    fd = open("/sys/devices/soc0/soc_id", O_RDONLY);
+    if (fd >= 0) {
+        if (read(fd, buf, sizeof(buf) - 1) == -1) {
+            ALOGW("Unable to read soc_id");
+            is_8916 = 1;
+        } else {
+            int soc_id = atoi(buf);
+            if (soc_id == 206 || (soc_id >= 247 && soc_id <= 250))  {
+                is_8916 = 1;
+            } else {
+                is_8916 = 0;
+            }
+        }
+    } else {
+      is_8916 = 1;
+    }
+
+    close(fd);
+    return is_8916;
+}
 
 static void set_power_profile(int profile) {
 
@@ -88,14 +127,16 @@ static void set_power_profile(int profile) {
     }
 
     if (profile == PROFILE_HIGH_PERFORMANCE) {
-        int *resource_values = profile_high_performance;
+        int *resource_values = is_target_8916() ?
+            profile_high_performance_8916 : profile_high_performance_8939;
 
         perform_hint_action(DEFAULT_PROFILE_HINT_ID,
             resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
         ALOGD("%s: set performance mode", __func__);
 
     } else if (profile == PROFILE_POWER_SAVE) {
-        int* resource_values = profile_power_save;
+        int *resource_values = is_target_8916() ?
+            profile_power_save_8916 : profile_power_save_8939;
 
         perform_hint_action(DEFAULT_PROFILE_HINT_ID,
             resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
@@ -109,8 +150,10 @@ extern void interaction(int duration, int num_args, int opt_list[]);
 
 int set_interactive_override(struct power_module *module __unused, int on)
 {
-    ALOGD("%s: %s cluster-plug low power mode", __func__, !on ? "enabling" : "disabling");
-    sysfs_write(LOW_POWER_MODE_PATH, on ? "0" : "1");
+    if (!is_target_8916()) {
+        ALOGD("%s: %s cluster-plug low power mode", __func__, !on ? "enabling" : "disabling");
+        sysfs_write(LOW_POWER_MODE_PATH, on ? "0" : "1");
+    }
 
     return HINT_HANDLED;
 }
@@ -187,7 +230,7 @@ int power_hint_override(struct power_module *module __unused, power_hint_t hint,
         }
 
         return HINT_HANDLED;
-	}
+    }
 
     if (hint == POWER_HINT_VIDEO_ENCODE) {
         return HINT_HANDLED;
