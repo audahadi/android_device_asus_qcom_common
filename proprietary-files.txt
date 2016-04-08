@@ -230,6 +230,8 @@ vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
 # Graphics
+# a300 - from crackling
+# a420 - from kipper
 vendor/lib64/egl/eglsubAndroid.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
@@ -286,6 +288,8 @@ vendor/lib/libsc-a3xx.so
 vendor/lib/libscale.so
 
 # Graphics firmware
+# a300 - from crackling
+# a420 - from kipper
 etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 etc/firmware/a420_pfp.fw
