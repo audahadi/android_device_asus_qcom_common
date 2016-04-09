@@ -190,16 +190,6 @@ case "$soc_id" in
     ;;
 esac
 
-case "$soc_id" in
-    "239" | "241" | "263" | "268" | "269" | "270" | "271")
-        # Configure foreground and background cpuset
-        echo "0-7" > /dev/cpuset/foreground/cpus
-        echo "4-7" > /dev/cpuset/foreground/boost/cpus
-        echo "0" > /dev/cpuset/background/cpus
-        echo "0-3" > /dev/cpuset/system-background/cpus
-    ;;
-esac
-
 case $soc_id in
     "206" | "247" | "248" | "249" | "250" | "233" | "240" | "242")
         setprop ro.min_freq_0 800000
