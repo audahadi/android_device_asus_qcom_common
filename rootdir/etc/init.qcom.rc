@@ -920,8 +920,16 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi radio
     oneshot
 
+service qcom-opengles /system/bin/sh /system/etc/init.qcom.opengles.sh
+    disabled
+    oneshot
+
+service qcom-power /system/bin/sh /system/etc/init.qcom.power.sh
+    disabled
+    oneshot
+
 on property:sys.boot_completed=1
     write /proc/boot_completed_prop 1
 
 on load_system_props_action
-    exec u:r:qti_init_shell:s0 -- /init.qcom.opengles.sh
+    start qcom-opengles
