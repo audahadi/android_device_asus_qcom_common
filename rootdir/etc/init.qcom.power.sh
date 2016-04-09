@@ -118,7 +118,7 @@ case "$soc_id" in
         echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
         echo 1113600 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-        echo "80 800000:85 1113600:90 1344000:90" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+        echo "960000:85 1113600:90 1344000:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
         echo 50000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
         echo 533333 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
@@ -130,7 +130,7 @@ case "$soc_id" in
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
         echo 998400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-        echo "85 800000:90" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+        echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
         echo 50000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
         echo 200000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
