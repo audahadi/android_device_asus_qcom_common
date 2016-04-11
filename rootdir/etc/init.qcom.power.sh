@@ -22,6 +22,10 @@ else
     soc_id=`cat /sys/devices/system/soc/soc0/id`
 fi
 
+# Enable adaptive LMK and set vmpressure_file_min
+echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+
 # HMP scheduler settings for 8916, 8939
 echo 3 > /proc/sys/kernel/sched_window_stats_policy
 echo 3 > /proc/sys/kernel/sched_ravg_hist_size
