@@ -52,8 +52,6 @@ on fs
     start qcom-factory
 
 on post-fs
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
 # msm specific files that need to be created on /data
