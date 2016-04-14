@@ -1,4 +1,3 @@
 asus.camera.metering                    u:object_r:camera_prop:s0
 asus.camera.recording                   u:object_r:camera_prop:s0
-persist.asus.agps.injecttime            u:object_r:gps_prop:s0
 sys.thermald.charging.limited           u:object_r:thermald_prop:s0

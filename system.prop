@@ -73,10 +73,8 @@ ro.qualcomm.cabl=0
 
 # Radio
 DEVICE_PROVISIONED=1
-persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.dont_use_dsd=true
-persist.radio.flexmap_type=none
 persist.radio.multisim.config=dsds
 rild.libargs=-d /dev/smd0
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so

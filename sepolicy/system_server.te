@@ -1,4 +1,2 @@
 allow system_server fac_file:dir search;
 allow system_server fac_file:file r_file_perms;
-
-allow system_server gps_prop:property_service set;
