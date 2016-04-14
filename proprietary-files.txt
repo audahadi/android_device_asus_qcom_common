@@ -76,7 +76,7 @@ vendor/lib/soundfx/libqcvirt.so
 bin/vm_bms
 
 # Bluetooth
-# bin/hci_qcom_init - from kipper
+# bin/hci_qcomm_init - from kipper with inversed BT address
 bin/btnvtool
 bin/hci_qcomm_init
 vendor/lib64/libbtnv.so
