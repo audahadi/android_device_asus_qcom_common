@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Kamera</string>
+  <string name="touchscreen_c_gesture_summary">Gambar \"C\" untuk mengaktifkan kamera</string>
+  <string name="touchscreen_e_gesture_title">Surel</string>
+  <string name="touchscreen_e_gesture_summary">Gambar \"e\" untuk membuka aplikasi surel</string>
+  <string name="touchscreen_s_gesture_title">Pesan</string>
+  <string name="touchscreen_s_gesture_summary">Gambar \"S\" untuk membuka aplikasi pesan</string>
+  <string name="touchscreen_v_gesture_title">Pendial</string>
+  <string name="touchscreen_v_gesture_summary">Gambar \"V\" untuk membuka aplikasi pendial</string>
+  <string name="touchscreen_w_gesture_title">Peramban</string>
+  <string name="touchscreen_w_gesture_summary">Gambar \"W\" untuk membuka aplikasi peramban</string>
+  <string name="touchscreen_z_gesture_title">Senter</string>
+  <string name="touchscreen_z_gesture_summary">Gambar \"Z\" untuk mengaktifkan/menonaktifkan senter</string>
 </resources>
