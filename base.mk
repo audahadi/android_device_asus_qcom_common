@@ -822,7 +822,7 @@ PRODUCT_COPY_FILES += \
 
 # enable overlays to use our version of
 # source/resources etc.
-#DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
+DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
 PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
 
 # include additional build utilities
