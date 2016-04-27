@@ -65,6 +65,10 @@ config_bt ()
   fi
   btsoc=`getprop qcom.bluetooth.soc`
 
+  if ls /sys/class/leds/bt; then
+    chmod 0666 /sys/class/leds/bt/brightness
+  fi
+
   case $baseband in
     "apq")
         setprop ro.qualcomm.bluetooth.opp true
@@ -114,8 +118,8 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.pbap true
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.bluetooth.sap false
-        setprop ro.bluetooth.dun false
+        setprop ro.bluetooth.sap true
+        setprop ro.bluetooth.dun true
         case $btsoc in
           "ath3k")
               setprop ro.qualcomm.bluetooth.map false
@@ -150,7 +154,7 @@ config_bt ()
     "msm8974" | "msm8226" | "msm8610" | "msm8916" | "msm8909" )
        if [ "$btsoc" != "ath3k" ]
        then
-           setprop ro.bluetooth.hfp.ver 1.6
+           setprop ro.bluetooth.hfp.ver 1.7
            setprop ro.qualcomm.bt.hci_transport smd
        fi
        ;;
@@ -173,17 +177,17 @@ fi
 
 case "$stack" in
     "bluez")
-       logi "Bluetooth stack is $stack"
-       setprop ro.qc.bluetooth.stack $stack
-       reason=`getprop vold.decrypt`
-       case "$reason" in
-           "trigger_restart_framework")
-               start dbus
-               ;;
-       esac
+	   logi "Bluetooth stack is $stack"
+	   setprop ro.qc.bluetooth.stack $stack
+	   reason=`getprop vold.decrypt`
+	   case "$reason" in
+	       "trigger_restart_framework")
+	           start dbus
+	           ;;
+	   esac
         ;;
     *)
-       logi "Bluetooth stack is Bluedroid"
+	   logi "Bluetooth stack is Bluedroid"
         ;;
 esac
 
