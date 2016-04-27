@@ -69,6 +69,8 @@ on fs
 
     restorecon_recursive /factory
 
+    start qcom-factory
+
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -921,6 +923,11 @@ service qcom-opengles /system/bin/sh /system/etc/init.qcom.opengles.sh
 
 service qcom-power /system/bin/sh /system/etc/init.qcom.power.sh
     disabled
+    oneshot
+
+service qcom-factory /system/bin/sh /system/etc/init.qcom.factory.sh
+    disabled
+    seclabel u:r:qcom_factory:s0
     oneshot
 
 on property:sys.boot_completed=1
