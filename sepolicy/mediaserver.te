@@ -4,14 +4,14 @@ binder_call(mediaserver, sensorservice_service);
 
 allow mediaserver mm-qcamerad:unix_stream_socket connectto;
 
-allow mediaserver camera_prop:property_service set;
-
 allow mediaserver persist_file:dir search;
 allow mediaserver persist_file:file r_file_perms;
 allow mediaserver proc_driver:dir search;
 allow mediaserver proc_driver:file rw_file_perms;
 
-dontaudit mediaserver proc_asusevtlog:file *;
-
 allow mediaserver system_file:file execmod;
 allow mediaserver system_server:unix_stream_socket rw_socket_perms;
+
+dontaudit mediaserver proc_asusevtlog:file *;
+
+set_prop(mediaserver, camera_prop)
