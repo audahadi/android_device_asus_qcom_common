@@ -41,8 +41,6 @@ on init
     mkdir /firmware 0771 system system
     mkdir /factory 0775 system system
 
-    symlink /sdcard /mnt/sdcard
-
     export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8916.so|libshim_camera.so:/system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so"
 
 on fs
@@ -54,6 +52,11 @@ on fs
     restorecon_recursive /factory
 
     start qcom-factory
+
+on post-fs
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 # msm specific files that need to be created on /data
 on post-fs-data
