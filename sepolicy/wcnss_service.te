@@ -1,5 +1,5 @@
 allow wcnss_service persist_file:dir create_dir_perms;
-allow wcnss_service fac_file:dir search;
-allow wcnss_service fac_file:file r_file_perms;
+
+r_dir_file(wcnss_service, fac_file)
 
 type_transition wcnss_service persist_file:file wifi_data_file ".genmac";
