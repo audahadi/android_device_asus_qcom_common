@@ -827,17 +827,6 @@ service charger /charger -c
     critical
     seclabel u:r:healthd:s0
 
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
 service vm_bms /system/bin/vm_bms
     class main
     user root
