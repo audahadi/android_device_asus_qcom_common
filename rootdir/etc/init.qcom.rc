@@ -71,6 +71,12 @@ on fs
 
     start qcom-factory
 
+    # Remove cached stackIDs as they cause sims to be swapped after second boot
+    rm /data/property/persist.radio.msim.stackid_0
+    rm /data/property/persist.radio.msim.stackid_1
+    rm /data/property/persist.radio.stack_id_0
+    rm /data/property/persist.radio.stack_id_1
+
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
