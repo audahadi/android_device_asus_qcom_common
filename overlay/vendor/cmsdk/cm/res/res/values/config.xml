@@ -33,4 +33,6 @@
     <integer name="config_proximityCheckTimeout">150</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
+    <bool name="config_useSegmentedBatteryLed">true</bool>
+
 </resources>

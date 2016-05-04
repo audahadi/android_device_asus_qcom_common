@@ -141,7 +141,6 @@ set_light_locked(struct light_state_t const* state)
     int onMS, offMS;
     int blink, fake_pwm, pwm;
     int brightness_level;
-    int is_battery = 0;
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
@@ -181,21 +180,18 @@ set_light_locked(struct light_state_t const* state)
     else
         brightness_level = LED_LIGHT_OFF;
 
-    if (state == &g_lights[BATTERY])
-        is_battery = 1;
-
     // turn led off
     write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
     write_int(RED_LED_FILE, LED_LIGHT_OFF);
 
     if (blink) {
         // brightness equals to led on in ms
-        write_int(is_battery == 0 ? GREEN_LED_FILE : RED_LED_FILE, fake_pwm);
+        write_int(GREEN_LED_FILE, fake_pwm);
         // pwn uquals to led off in us
-        write_int(is_battery == 0 ? GREEN_PWM_FILE : RED_PWM_FILE, pwm);
+        write_int(GREEN_PWM_FILE, pwm);
     } else {
-        write_int(is_battery == 0 ? GREEN_LED_FILE : RED_LED_FILE, brightness_level);
-        write_int(is_battery == 0 ? GREEN_PWM_FILE : RED_PWM_FILE, 100);
+        write_int(GREEN_LED_FILE, brightness_level);
+        write_int(GREEN_PWM_FILE, 100);
     }
 
     return 0;
@@ -208,8 +204,6 @@ handle_led_prioritized_locked(struct light_state_t const* state)
         return set_light_locked(&g_lights[ATTENTION]);
     } else if (is_lit(&g_lights[NOTIFICATION])) {
         return set_light_locked(&g_lights[NOTIFICATION]);
-    } else if (is_lit(&g_lights[BATTERY])) {
-        return set_light_locked(&g_lights[BATTERY]);
     } else {
         return set_light_locked(state);
     }
@@ -244,9 +238,40 @@ set_light_battery(__attribute__((unused)) struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
+
+    if (!dev)
+        return -1;
+
     pthread_mutex_lock(&g_lock);
-    g_lights[BATTERY] = *state;
-    err = handle_led_prioritized_locked(state);
+
+    int level = (state->color & 0xff);
+    ALOGV("%s: color=%x level=%d", __func__, state->color, level);
+
+    // sanity check
+    if (level < 0)
+        level = 0;
+    else if (level > 100)
+        level = 100;
+
+    // turn led off
+    write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
+    write_int(RED_LED_FILE, LED_LIGHT_OFF);
+
+    if (level > 0) {
+        if (level <= 15) {
+            write_int(RED_LED_FILE, 255);
+            write_int(RED_PWM_FILE, 100);
+        } else if (level <= 99) {
+            write_int(GREEN_LED_FILE, 255);
+            write_int(GREEN_PWM_FILE, 100);
+            write_int(RED_LED_FILE, 255);
+            write_int(RED_PWM_FILE, 100);
+        } else {
+            write_int(GREEN_LED_FILE, 255);
+            write_int(GREEN_PWM_FILE, 100);
+        }
+    }
+
     pthread_mutex_unlock(&g_lock);
     return err;
 }
