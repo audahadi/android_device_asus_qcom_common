@@ -23,7 +23,5 @@
 #define _BDROID_BUILDCFG_H
 #define BTM_DEF_LOCAL_NAME   "Zenfone 2 Laser"
 #define BLUETOOTH_QTI_SW TRUE
-#define MAX_ACL_CONNECTIONS    7
-#define MAX_L2CAP_CHANNELS    16
 #define BLE_VND_INCLUDED   TRUE
 #endif
