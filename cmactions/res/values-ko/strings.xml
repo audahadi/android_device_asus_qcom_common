@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">카메라</string>
+  <string name="touchscreen_c_gesture_summary">\"C\"를 그려 카메라 열기</string>
+  <string name="touchscreen_e_gesture_title">이메일</string>
+  <string name="touchscreen_e_gesture_summary">\"e\"를 그려 이메일 앱 열기</string>
+  <string name="touchscreen_s_gesture_title">메시지</string>
+  <string name="touchscreen_s_gesture_summary">\"S\"를 그려 메시지 앱 열기</string>
+  <string name="touchscreen_v_gesture_title">전화 걸기</string>
+  <string name="touchscreen_v_gesture_summary">\"V\"를 그려 전화 앱 열기</string>
+  <string name="touchscreen_w_gesture_title">브라우저</string>
+  <string name="touchscreen_w_gesture_summary">\"W\"를 그려 브라우저 앱 열기</string>
+  <string name="touchscreen_z_gesture_title">손전등</string>
+  <string name="touchscreen_z_gesture_summary">\'V\'를 그려 손전등 토글</string>
 </resources>
