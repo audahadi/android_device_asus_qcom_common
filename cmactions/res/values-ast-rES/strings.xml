@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Cámara</string>
+  <string name="touchscreen_c_gesture_summary">Dibuxar una \"C\" p\'activar la cámara</string>
+  <string name="touchscreen_e_gesture_title">Corréu-e</string>
+  <string name="touchscreen_e_gesture_summary">Dibuxar una \"e\" p\'abrir el corréu-e</string>
+  <string name="touchscreen_s_gesture_title">Mensaxería</string>
+  <string name="touchscreen_s_gesture_summary">Dibuxar una \"S\" p\'abrir la mensaxería</string>
+  <string name="touchscreen_v_gesture_title">Marcador</string>
+  <string name="touchscreen_v_gesture_summary">Dibuxar una \"V\" p\'abrir el marcador</string>
+  <string name="touchscreen_w_gesture_title">Restolador</string>
+  <string name="touchscreen_w_gesture_summary">Dibuxar una \"W\" p\'abrir el restolador</string>
+  <string name="touchscreen_z_gesture_title">Llinterna</string>
+  <string name="touchscreen_z_gesture_summary">Dibuxa una \"Z\" p\'abrir la llinterna</string>
 </resources>
