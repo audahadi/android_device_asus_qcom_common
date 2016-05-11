@@ -27,6 +27,66 @@
 #
 
 target=`getprop ro.board.platform`
+
+function configure_memory_parameters() {
+# Set Memory paremeters.
+#
+# Set per_process_reclaim tuning parameters
+# 2GB 64-bit will have aggressive settings when compared to 1GB 32-bit
+# 1GB and less will use vmpressure range 50-70, 2GB will use 10-70
+# 1GB and less will use 512 pages swap size, 2GB will use 1024
+#
+# Set Low memory killer minfree parameters
+# 32 bit all memory configurations will use 15K series
+# 64 bit all memory configurations will use 18K series
+#
+# Set ALMK parameters (usually above the highest minfree values)
+# 32 bit will have 53K & 64 bit will have 81K
+#
+
+ProductName=`getprop ro.product.name`
+
+if [ "$ProductName" == "msm8909_512" ] || [ "$ProductName" == "msm8909w" ]; then
+      echo "8192,11264,14336,17408,20480,26624" > /sys/module/lowmemorykiller/parameters/minfree
+      echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+      echo 32768 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+else
+    arch_type=`uname -m`
+    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+    MemTotal=${MemTotalStr:16:8}
+
+    echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
+    echo 70 > /sys/module/process_reclaim/parameters/pressure_max
+    echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
+    echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+
+    if [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 1048576 ]; then
+        echo 10 > /sys/module/process_reclaim/parameters/pressure_min
+        echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
+        echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+    elif [ "$arch_type" == "aarch64" ] && [ $MemTotal -lt 1048576 ]; then
+        echo 50 > /sys/module/process_reclaim/parameters/pressure_min
+        echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
+        echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+    else
+        echo 50 > /sys/module/process_reclaim/parameters/pressure_min
+        echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
+        echo "15360,19200,23040,26880,34415,43737" > /sys/module/lowmemorykiller/parameters/minfree
+        echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+    fi
+
+    # Zram disk - 512MB size
+    zram_enable=`getprop ro.config.zram`
+    if [ "$zram_enable" == "true" ]; then
+        echo 536870912 > /sys/block/zram0/disksize
+        mkswap /dev/block/zram0
+        swapon /dev/block/zram0 -p 32758
+    fi
+fi
+}
+
 case "$target" in
     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627a"  | "msm7627_surf" | \
     "qsd8250_surf" | "qsd8250_ffa" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "qsd8650a_st1x")
@@ -503,16 +563,6 @@ case "$target" in
            soc_id=`cat /sys/devices/system/soc/soc0/id`
         fi
 
-        #Enable adaptive LMK and set vmpressure_file_min
-        ProductName=`getprop ro.product.name`
-        if [ "$ProductName" == "msm8916_32" ] || [ "$ProductName" == "msm8916_32_LMT" ]; then
-            echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-            echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-        elif [ "$ProductName" == "msm8916_64" ] || [ "$ProductName" == "msm8916_64_LMT" ]; then
-            echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-            echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-        fi
-
         # HMP scheduler settings for 8916, 8936, 8939, 8929
         echo 3 > /proc/sys/kernel/sched_window_stats_policy
 	echo 3 > /proc/sys/kernel/sched_ravg_hist_size
@@ -809,7 +859,8 @@ case "$target" in
             fi
             ;;
         esac
-
+        # Set Memory parameters
+        configure_memory_parameters
     ;;
 esac
 
@@ -1221,17 +1272,6 @@ case "$target" in
 		echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
 	fi
 
-        #Enable adaptive LMK and set vmpressure_file_min
-        ProductName=`getprop ro.product.name`
-	if [ "$ProductName" == "msm8909" ] || [ "$ProductName" == "msm8909_LMT" ]; then
-		echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-		echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-	elif [ "$ProductName" == "msm8909_512" ] || [ "$ProductName" == "msm8909w" ]; then
-		echo "8192,11264,14336,17408,20480,26624" > /sys/module/lowmemorykiller/parameters/minfree
-		echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-		echo 32768 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-	fi
-
 	if [ "$ProductName" != "msm8909w" ]; then
 		# HMP scheduler settings for 8909 similiar to 8916
 		echo 3 > /proc/sys/kernel/sched_window_stats_policy
@@ -1331,6 +1371,9 @@ case "$target" in
 	do
 		echo 30 > $gpu_bimc_guard_band_mbps
 	done
+
+        # Set Memory parameters
+        configure_memory_parameters
 	;;
 esac
 
