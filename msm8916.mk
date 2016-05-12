@@ -83,9 +83,6 @@ PRODUCT_PACKAGES += \
     libstlport \
     Snap
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -183,6 +180,10 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
+
+# Releasetools
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
 
 # RIL
 PRODUCT_COPY_FILES += \
