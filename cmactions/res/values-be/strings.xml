@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Камера</string>
+  <string name="touchscreen_c_gesture_summary">Намалюй \"C\" для ўключэння камеры</string>
+  <string name="touchscreen_e_gesture_title">Электронная пошта</string>
+  <string name="touchscreen_e_gesture_summary">Намалюй \"e\" для адкрыцця дадатка пошты</string>
+  <string name="touchscreen_s_gesture_title">Абмен паведамленнямі</string>
+  <string name="touchscreen_s_gesture_summary">Намалюй \"S\" для адкрыцця дадатка паведамленняў</string>
+  <string name="touchscreen_v_gesture_title">Тэлефон</string>
+  <string name="touchscreen_v_gesture_summary">Намалюй \"V\" для адкрыцця тэлефона</string>
+  <string name="touchscreen_w_gesture_title">Аглядальнік</string>
+  <string name="touchscreen_w_gesture_summary">Намалюй \"W\" для адкрыцця браўзэра</string>
+  <string name="touchscreen_z_gesture_title">Ліхтарык</string>
+  <string name="touchscreen_z_gesture_summary">Намалюй «Z» для ўключэння ці выключэння ліхтарыка</string>
 </resources>
