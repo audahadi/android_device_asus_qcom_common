@@ -450,7 +450,9 @@ vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
 # Radio - from kipper
+# Telephony extension - from oneplus3
 -app/shutdownlistener/shutdownlistener.apk
+-app/QtiTelephonyService/QtiTelephonyService.apk
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 bin/netmgrd
 bin/qmuxd
@@ -461,8 +463,11 @@ etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
+etc/permissions/qti_telephony_common.xml
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
+framework/qti-telephony-common.jar
+framework/QtiTelephonyServicelibrary.jar
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/libmdmdetect.so
