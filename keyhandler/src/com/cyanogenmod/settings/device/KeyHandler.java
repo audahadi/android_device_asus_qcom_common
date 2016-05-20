@@ -238,7 +238,7 @@ public class KeyHandler implements DeviceKeyHandler {
 
     public boolean handleKeyEvent(KeyEvent event) {
         boolean isKeySupported = ArrayUtils.contains(sSupportedGestures, event.getScanCode());
-        if (!isKeySupported) {
+        if (!isKeySupported || event.getAction() != KeyEvent.ACTION_DOWN) {
             return false;
         }
 
