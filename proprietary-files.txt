@@ -326,6 +326,7 @@ vendor/lib/libmm-qdcm.so
 
 # Qualcomm framework - from kipper
 bin/irsc_util
+etc/data/dsi_config.xml
 vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
@@ -367,6 +368,8 @@ bin/qmuxd
 bin/radish
 bin/rfs_access
 bin/rmt_storage
+etc/data/netmgr_config.xml
+etc/data/qmi_config.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 -framework/qcnvitems.jar
