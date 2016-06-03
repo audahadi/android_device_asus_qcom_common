@@ -42,7 +42,6 @@ on init
     mkdir /factory 0775 system system
 
     symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
 
     export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8916.so|libshim_camera.so:/system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so"
 
