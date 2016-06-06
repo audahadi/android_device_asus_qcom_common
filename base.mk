@@ -487,6 +487,7 @@ MM_VIDEO += liblasic
 MM_VIDEO += libOmxSwVencMpeg4
 MM_VIDEO += libOmxVdec
 MM_VIDEO += libOmxVdecHevc
+MM_VIDEO += libOmxSwVdec
 MM_VIDEO += libOmxVdpp
 MM_VIDEO += libOmxVenc
 MM_VIDEO += libOmxVidEnc
