@@ -1,28 +1,7 @@
 #!/sbin/sh
 
-# With this tree we support whole msm8916 family
-# Let's symlink correct ditlib based on soc_id
 cpu_id_file=/sys/devices/soc0/soc_id
 cpu_id=`cat /sys/devices/soc0/soc_id`
-
-mkdir /system/lib/DataSet/ISP
-
-if [ -f "$cpu_id_file" ]; then
-    case "$cpu_id" in
-        "206" | "247" | "248" | "249" | "250")
-            # msm8916
-            ln -fs /system/lib/DataSet/ISP_lib_set/8916/libxditk_isp.bin /system/lib/DataSet/ISP/libxditk_isp.bin
-            ;;
-        "268")
-            # msm8929
-            ln -fs /system/lib/DataSet/ISP_lib_set/8929/libxditk_isp.bin /system/lib/DataSet/ISP/libxditk_isp.bin
-            ;;
-        "239" | "241" | "263" | "268" | "269" | "270" | "271")
-            # msm8939
-            ln -fs /system/lib/DataSet/ISP_lib_set/8939/libxditk_isp.bin /system/lib/DataSet/ISP/libxditk_isp.bin
-            ;;
-    esac
-fi
 
 # OpenGLES AEP is supported only by msm8939
 # Remove it for the other targets

@@ -6,13 +6,5 @@
   {
     "repository": "android_kernel_asus_msm8916",
     "target_path": "kernel/asus/msm8916"
-  },
-  {
-    "repository": "android_external_sony_boringssl-compat",
-    "target_path": "external/sony/boringssl-compat"
-  },
-  {
-    "repository": "android_external_stlport",
-    "target_path": "external/stlport"
   }
 ]

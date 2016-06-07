@@ -80,9 +80,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bspcapability \
     camera.msm8916 \
-    libshim_camera \
-    libboringssl-compat \
-    libstlport \
     Snap
 
 # Charger

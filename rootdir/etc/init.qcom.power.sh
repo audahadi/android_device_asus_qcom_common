@@ -39,6 +39,8 @@ case "$soc_id" in
 
         # HMP Task packing settings for 8916
         echo 20 > /proc/sys/kernel/sched_small_task
+        echo 30 > /proc/sys/kernel/sched_mostly_idle_load
+        echo 3 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run
 
         # Disable thermal core_control to update scaling_min_freq
         echo 0 > /sys/module/msm_thermal/core_control/enabled
@@ -63,18 +65,6 @@ case "$soc_id" in
         echo 1 > /sys/devices/system/cpu/cpu1/online
         echo 1 > /sys/devices/system/cpu/cpu2/online
         echo 1 > /sys/devices/system/cpu/cpu3/online
-
-        # CPU idle load threshold
-        echo 30 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu1/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu3/sched_mostly_idle_load
-
-        # CPU idle nr run threshold
-        echo 3 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu1/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu3/sched_mostly_idle_nr_run
     ;;
     "239" | "241" | "263" | "268" | "269" | "270" | "271")
         # Apply MSM8939 specific Sched & Governor settings
@@ -87,6 +77,8 @@ case "$soc_id" in
 
         # HMP Task packing settings for 8939, 8929
         echo 20 > /proc/sys/kernel/sched_small_task
+        echo 30 > /proc/sys/kernel/sched_mostly_idle_load
+        echo 3 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run
 
         echo bw_hwmon > /sys/class/devfreq/cpubw/governor
         echo 20 > /sys/class/devfreq/cpubw/bw_hwmon/io_percent
@@ -144,26 +136,6 @@ case "$soc_id" in
         # HMP scheduler (big.Little cluster related) settings
         echo 75 > /proc/sys/kernel/sched_upmigrate
         echo 60 > /proc/sys/kernel/sched_downmigrate
-
-        # CPU idle load threshold
-        echo 30 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu1/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu3/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu5/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu6/sched_mostly_idle_load
-        echo 30 > /sys/devices/system/cpu/cpu7/sched_mostly_idle_load
-
-        # CPU idle nr run threshold
-        echo 3 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu1/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu3/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu5/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu6/sched_mostly_idle_nr_run
-        echo 3 > /sys/devices/system/cpu/cpu7/sched_mostly_idle_nr_run
     ;;
 esac
 

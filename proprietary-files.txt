@@ -1,25 +1,18 @@
 # ACDB Data
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Bluetooth_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_General_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Global_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Handset_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Hdmi_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Headset_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Speaker_cal.acdb
-etc/acdbdata/MTP/MTP_Bluetooth_cal_default.acdb
-etc/acdbdata/MTP/MTP_Bluetooth_cal_ZD550KL.acdb
-etc/acdbdata/MTP/MTP_General_cal_default.acdb
-etc/acdbdata/MTP/MTP_General_cal_ZD550KL.acdb
-etc/acdbdata/MTP/MTP_Global_cal_default.acdb
-etc/acdbdata/MTP/MTP_Global_cal_ZD550KL.acdb
-etc/acdbdata/MTP/MTP_Handset_cal_default.acdb
-etc/acdbdata/MTP/MTP_Handset_cal_ZD550KL.acdb
-etc/acdbdata/MTP/MTP_Hdmi_cal_default.acdb
-etc/acdbdata/MTP/MTP_Hdmi_cal_ZD550KL.acdb
-etc/acdbdata/MTP/MTP_Headset_cal_default.acdb
-etc/acdbdata/MTP/MTP_Headset_cal_ZD550KL.acdb
-etc/acdbdata/MTP/MTP_Speaker_cal_default.acdb
-etc/acdbdata/MTP/MTP_Speaker_cal_ZD550KL.acdb
+etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
+etc/acdbdata/MTP/MTP_General_cal.acdb
+etc/acdbdata/MTP/MTP_Global_cal.acdb
+etc/acdbdata/MTP/MTP_Handset_cal.acdb
+etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
+etc/acdbdata/MTP/MTP_Headset_cal.acdb
+etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_Bluetooth_cal_ZD550KL.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_General_cal_ZD550KL.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_Global_cal_ZD550KL.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_Handset_cal_ZD550KL.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_Hdmi_cal_ZD550KL.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_Headset_cal_ZD550KL.acdb
+etc/acdbdata/MTP/ZD550KL/MTP_Speaker_cal_ZD550KL.acdb
 etc/acdbdata/MTP/ZE550KL/MTP_Bluetooth_cal_ZE550KL.acdb
 etc/acdbdata/MTP/ZE550KL/MTP_General_cal_ZE550KL.acdb
 etc/acdbdata/MTP/ZE550KL/MTP_Global_cal_ZE550KL.acdb
@@ -27,13 +20,6 @@ etc/acdbdata/MTP/ZE550KL/MTP_Handset_cal_ZE550KL.acdb
 etc/acdbdata/MTP/ZE550KL/MTP_Hdmi_cal_ZE550KL.acdb
 etc/acdbdata/MTP/ZE550KL/MTP_Headset_cal_ZE550KL.acdb
 etc/acdbdata/MTP/ZE550KL/MTP_Speaker_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_Bluetooth_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_General_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_Global_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_Handset_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_Hdmi_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_Headset_cal_ZE550KL.acdb
-etc/acdbdata/MTP/ZE550KL/PR/MTP_PR_Speaker_cal_ZE550KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Bluetooth_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_General_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Global_cal_ZE600KL.acdb
@@ -41,6 +27,13 @@ etc/acdbdata/MTP/ZE600KL/MTP_Handset_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Hdmi_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Headset_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Speaker_cal_ZE600KL.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Bluetooth_cal.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_General_cal.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Global_cal.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Handset_cal.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Hdmi_cal.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Headset_cal.acdb
+etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Speaker_cal.acdb
 etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
 etc/acdbdata/QRD/QRD_General_cal.acdb
 etc/acdbdata/QRD/QRD_Global_cal.acdb
@@ -48,12 +41,41 @@ etc/acdbdata/QRD/QRD_Handset_cal.acdb
 etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
 etc/acdbdata/QRD/QRD_Headset_cal.acdb
 etc/acdbdata/QRD/QRD_Speaker_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Bluetooth_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_General_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Global_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Handset_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Hdmi_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Headset_cal.acdb
+etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Speaker_cal.acdb
 
 # ADSP
 bin/adsprpcd
 vendor/lib64/libadsprpc.so
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvopt.so
+
+# Arcsoft - Camera effects
+etc/gallery_arcsoft_config.cng
+lib/libarcsoft_beautyshot.so
+lib/libarcsoft_face_tracking.so
+lib/libarcsoft_hdr.so
+lib/libarcsoft_nighthawk.so
+lib/libarcsoft_night_shot.so
+lib/libarcsoft_panorama_burstcapture.so
+lib/libarcsoft_piczoom.so
+lib/libarcsoft_videostabilizer.so
+lib/libcameraap.so
+lib/libcamera_defocus.so
+lib/libcamera_pano.so
+lib/libjpeggifcodec.so
+lib/libmorpho_panorama_gp.so
+lib/libmpbase.so
+lib/libsarcsoftface.so
+lib/libsarcsoft_gallery.so
+lib/libsarcsoft.so
+lib/libsphere3.so
+lib/style.cng
 
 # Audio
 lib/soundfx/libicepower.so
@@ -75,7 +97,6 @@ vendor/lib/soundfx/libqcvirt.so
 bin/vm_bms
 
 # Bluetooth
-# bin/hci_qcomm_init - from kipper with inversed BT address
 bin/btnvtool
 bin/hci_qcomm_init
 vendor/lib64/libbtnv.so
@@ -83,19 +104,9 @@ vendor/lib64/libbtnv.so
 # Camera
 bin/mm-qcamera-daemon
 lib/hw/camera.msm8916.so:lib/hw/camera.vendor.msm8916.so
-lib/libarcsoft_beautyshot.so
-lib/libarcsoft_panorama_burstcapture.so
-lib/libcameraap.so
-lib/libcamera_defocus.so
-lib/libcamera_pano.so
-lib/libjpeggifcodec.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
-lib/libmorpho_panorama_gp.so
-lib/libmpbase.so
-lib/libsphere3.so
 lib/libqomx_core.so
-lib/style.cng
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
@@ -236,6 +247,28 @@ vendor/lib/libdpmnsrm.so
 vendor/lib/libNimsWrap.so
 vendor/lib/libvendorconn.so
 
+# DIT - Camera Laser
+lib/DataSet/ispDB/ParameterDB.db
+lib/DataSet/ditSCidGen/msgchk.db
+lib/DIT_AT_BACK_HL.cfg
+lib/DIT_AT_BACK_NORMAL.cfg
+lib/DIT_AT_BACK_PREVIEW.cfg
+lib/DIT_AT_BACK_SR.cfg
+lib/DIT_AT_BACK_VIDEO.cfg
+lib/DIT_AT_FRONT_HL.cfg
+lib/DIT_AT_FRONT_NORMAL.cfg
+lib/DIT_AT_FRONT_PRE.cfg
+lib/DIT_AT_FRONT_VIDEO.cfg
+lib/DITConfig.cfg
+lib/libxditk_ArcSoftMOD.so
+lib/libxditk_AT.so
+lib/libxditk_ISP.so
+lib/libxditk_SR.so
+vendor/lib/libxditk_DIT_MSM8916.so
+vendor/lib/libxditk_DIT_Qualcomm.so
+vendor/lib/libxditk_mmcamera2_stats_algorithm.so
+vendor/lib/libxditk_Network.so
+
 # DRM - from kipper
 bin/qseecomd
 lib/libdrmdecrypt.so
@@ -355,17 +388,15 @@ etc/firmware/a420_pfp.fw
 etc/firmware/a420_pm4.fw
 
 # Media
-vendor/lib/libDivxDrm.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmmosal.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libSHIMDivxDrm.so
 
 # Perf
-bin/perfd:vendor/bin/perfd
+vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 vendor/lib64/libqti-perfd-client.so
 
@@ -455,7 +486,7 @@ lib/hw/sensors.msm8916.so
 lib64/hw/sensors.msm8916.so
 
 # Thermal
-bin/thermal-engine:vendor/bin/thermal-engine
+vendor/bin/thermal-engine
 vendor/lib64/libthermalclient.so
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalioctl.so
@@ -470,29 +501,3 @@ vendor/lib/libTimeService.so
 
 # Voice recognition
 vendor/lib/hw/sound_trigger.primary.msm8916.so
-
-# xditk - Camera dep
-lib/DataSet/ISP_lib_set/8916/libxditk_isp.bin
-lib/DataSet/ISP_lib_set/8929/libxditk_isp.bin
-lib/DataSet/ISP_lib_set/8939/libxditk_isp.bin
-lib/DataSet/ispDB/ParameterDB.db
-lib/DataSet/ditSCidGen/msgchk.db
-lib/DIT_AT_BACK_HL.cfg
-lib/DIT_AT_BACK_NORMAL.cfg
-lib/DIT_AT_BACK_PREVIEW.cfg
-lib/DIT_AT_BACK_SR.cfg
-lib/DIT_AT_BACK_VIDEO.cfg
-lib/DIT_AT_FRONT_HL.cfg
-lib/DIT_AT_FRONT_NORMAL.cfg
-lib/DIT_AT_FRONT_PRE.cfg
-lib/DIT_AT_FRONT_VIDEO.cfg
-lib/DITConfig.cfg
-lib/libsarcsoft.so
-lib/libxditk_ArcSoftMOD.so
-lib/libxditk_AT.so
-lib/libxditk_ISP.so
-lib/libxditk_SR.so
-vendor/lib/libxditk_DIT_MSM8916.so
-vendor/lib/libxditk_DIT_Qualcomm.so
-vendor/lib/libxditk_mmcamera2_stats_algorithm.so
-vendor/lib/libxditk_Network.so
