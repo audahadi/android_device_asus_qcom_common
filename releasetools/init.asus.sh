@@ -16,14 +16,18 @@ if [ -f "$cpu_id_file" ]; then
     esac
 fi
 
-# ZE600/601KL needs dual speaker paths
-# Let's move replace mixer_paths.xml with it's own file
-# and remove /system/etc/mixer_paths_mtp_dual.xml on rest of zf2 family
+# We support 3 different devices with this repository
+# Let's replace /system/etc/mixer_paths_mtp.xml with correct config
 APID=`cat /proc/apid`
 if [ $APID -eq "1" ]; then
-    mv /system/etc/mixer_paths_mtp_dual.xml /system/etc/mixer_paths_mtp.xml
+    mv /system/etc/mixer_paths_mtp_ZE600KL.xml /system/etc/mixer_paths_mtp.xml
+    rm -f /system/etc/mixer_paths_mtp_ZD551KL.xml
+elif [ $APID -eq "3" ]; then
+    mv /system/etc/mixer_paths_mtp_ZD551KL.xml /system/etc/mixer_paths_mtp.xml
+    rm -f /system/etc/mixer_paths_mtp_ZE600KL.xml
 else
-    rm -f /system/etc/mixer_paths_mtp_dual.xml
+    rm -f /system/etc/mixer_paths_mtp_ZD551KL.xml
+    rm -f /system/etc/mixer_paths_mtp_ZE600KL.xml
 fi
 
 # Use proper media_codecs by SOC

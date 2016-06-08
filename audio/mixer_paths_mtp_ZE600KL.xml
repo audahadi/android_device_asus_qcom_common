@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- ZE600KL 20151117 WW -->
+<!-- ZE600KL 20160303 WW -->
 <mixer>
     <!-- These are the initial mixer settings -->
     <ctl name="Voice Rx Device Mute" id="0" value="0" />
@@ -30,9 +30,9 @@
     <ctl name="IIR1 INP2 Volume" value="84" />
     <ctl name="IIR1 INP3 Volume" value="84" />
     <ctl name="IIR1 INP4 Volume" value="84" />
-    <ctl name="ADC1 Volume" value="8" />
-    <ctl name="ADC2 Volume" value="8" />
-    <ctl name="ADC3 Volume" value="8" />
+    <ctl name="ADC1 Volume" value="4" />
+    <ctl name="ADC2 Volume" value="4" />
+    <ctl name="ADC3 Volume" value="4" />
     <ctl name="DEC1 Volume" value="84" />
     <ctl name="DEC2 Volume" value="84" />
     <ctl name="DEC2 MUX" value="ZERO" />
@@ -59,7 +59,7 @@
     <ctl name="EAR PA Boost" value="ENABLE" />
     <ctl name="MI2S_RX Channels" value="One" />
     <ctl name="MI2S_TX Channels" value="One" />
-
+	
     <!--asus-yusheng20150420 add for dual-speaker paths-->
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="0" />
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia4" value="0" />
@@ -69,7 +69,7 @@
     <ctl name="QUAT_MI2S_RX_Voice Mixer Voip" value="0" />
     <ctl name="QUAT_MI2S_RX Port Mixer INTERNAL_FM_TX" value="0" />
     <ctl name="QUAT_MI2S_RX_DL_HL Switch" value="0" />
-    <ctl name="VOC_EXT_EC MUX" value="NONE" />
+	<ctl name="VOC_EXT_EC MUX" value="NONE" />
     <!--asus-yusheng20150420 add for dual-speaker paths-->
 
     <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="0" />
@@ -192,43 +192,44 @@
     </path>
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
+	
     <path name="deep-buffer-playback">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
-
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="deep-buffer-playback speaker">
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
     <!--asus-yusheng20150420 add for dual-speaker paths-->
-
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="deep-buffer-playback speaker-for-ringtone">
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
     <!--asus-yusheng20150420 add for dual-speaker paths-->
-
-    <!--asus-yusheng20150520 add for voice-call dual-speaker paths-->
+	
+	<!--asus-yusheng20150520 add for voice-call dual-speaker paths-->
     <path name="deep-buffer-playback speaker-and-headphones-for-ringtone">
-        <path name="deep-buffer-playback speaker-for-ringtone" />
-        <path name="deep-buffer-playback" />
+         <path name="deep-buffer-playback speaker-for-ringtone" />
+	 <path name="deep-buffer-playback" />
     </path>
-
+	
     <path name="deep-buffer-playback speaker-and-headphones-three-poles-for-ringtone">
-        <path name="deep-buffer-playback speaker-for-ringtone" />
-        <path name="deep-buffer-playback" />
+         <path name="deep-buffer-playback speaker-for-ringtone" />
+	 <path name="deep-buffer-playback" />
     </path>
-
+	
     <path name="deep-buffer-playback speaker-and-headphones">
          <path name="deep-buffer-playback speaker" />
          <path name="deep-buffer-playback" />
     </path>
-
+	
     <path name="deep-buffer-playback speaker-and-headphones-three-poles">
-        <path name="deep-buffer-playback speaker" />
-        <path name="deep-buffer-playback" />
+         <path name="deep-buffer-playback speaker" />
+	 <path name="deep-buffer-playback" />
     </path>
-
+	
     <path name="deep-buffer-playback voice-speaker">
          <path name="deep-buffer-playback speaker" />
     </path>
@@ -250,13 +251,13 @@
     <path name="deep-buffer-playback usb-headphones">
         <path name="deep-buffer-playback afe-proxy" />
     </path>
-
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+    
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="deep-buffer-playback speaker-and-usb-headphones">
         <path name="deep-buffer-playback usb-headphones" />
         <path name="deep-buffer-playback speaker" /> 
     </path>
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
 
     <path name="deep-buffer-playback transmission-fm">
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia1" value="1" />
@@ -266,19 +267,19 @@
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
 
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="low-latency-playback speaker">
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
     <!--asus-yusheng20150420 add for dual-speaker paths-->
 
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="low-latency-playback speaker-for-ringtone">
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
     <!--asus-yusheng20150420 add for dual-speaker paths-->
 
-    <!--asus-yusheng20150520 add for voice-call dual-speaker paths-->
+	<!--asus-yusheng20150520 add for voice-call dual-speaker paths-->
     <path name="low-latency-playback voice-speaker">
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
@@ -294,15 +295,15 @@
     </path>
 
     <path name="low-latency-playback speaker-and-headphones">
-        <path name="low-latency-playback"/>
+	<path name="low-latency-playback"/>
         <!--<path name="low-latency-playback speaker"/>-->
     </path>
 
     <path name="low-latency-playback speaker-and-headphones-three-poles">
-        <path name="low-latency-playback"/>
+	<path name="low-latency-playback"/>
         <!--<path name="low-latency-playback speaker"/>-->
     </path>
-    <!--asus-yusheng20150520 add for voice-call dual-speaker paths-->
+	<!--asus-yusheng20150520 add for voice-call dual-speaker paths-->
 
     <path name="low-latency-playback bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia5" value="1" />
@@ -321,18 +322,18 @@
         <path name="low-latency-playback afe-proxy" />
     </path>
 
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="low-latency-playback speaker-and-usb-headphones">
         <path name="low-latency-playback usb-headphones" />
         <path name="low-latency-playback speaker" />
     </path>
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
 
     <path name="low-latency-playback transmission-fm">
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia5" value="1" />
     </path>
-
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="compress-offload-playback speaker">
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia4" value="1" />
     </path>
@@ -359,12 +360,12 @@
         <path name="compress-offload-playback afe-proxy" />
     </path>
 
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
     <path name="compress-offload-playback speaker-and-usb-headphones">
         <path name="compress-offload-playback usb-headphones" />
         <path name="compress-offload-playback speaker" />
     </path>
-    <!--asus-yusheng20150420 add for dual-speaker paths-->
+	<!--asus-yusheng20150420 add for dual-speaker paths-->
 
     <path name="compress-offload-playback transmission-fm">
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia4" value="1" />
@@ -403,26 +404,26 @@
         <ctl name="PRI_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
     </path>
-
+	
     <!--asus-yusheng20150519 add for voice-call dual-speaker paths-->
     <path name="voice-call voice-speaker">
-        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
-        <ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
+	<ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
+	<ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
     </path>
-
-    <path name="voice-call speaker-and-headphones">
-        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
-        <ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
+		
+	<path name="voice-call speaker-and-headphones">
+		<ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
+		<ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
     </path>
-
-    <path name="voice-call speaker-and-headphones-three-poles">
-        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
-        <ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
+	
+	<path name="voice-call speaker-and-headphones-three-poles">
+		<ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
+		<ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
     </path>
-    <!--asus-yusheng20150519 add for voice-call dual-speaker paths-->
+	<!--asus-yusheng20150519 add for voice-call dual-speaker paths-->
 
     <path name="voice-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer CSVoice" value="1" />
@@ -446,24 +447,24 @@
 
     <!--asus-yusheng20150522 add for voice2-call dual-speaker paths-->
     <path name="voice2-call voice-speaker">
+		<ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
+        <ctl name="QUAT_MI2S_RX_Voice Mixer Voice2" value="1" />
+        <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
+    </path>
+		
+	<path name="voice2-call speaker-and-headphones">
         <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
         <ctl name="QUAT_MI2S_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
     </path>
-
-    <path name="voice2-call speaker-and-headphones">
-        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
-        <ctl name="QUAT_MI2S_RX_Voice Mixer Voice2" value="1" />
-        <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
-    </path>
-
-    <path name="voice2-call speaker-and-headphones-three-poles">
+	
+	<path name="voice2-call speaker-and-headphones-three-poles">
         <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
         <ctl name="QUAT_MI2S_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
     </path>
     <!--asus-yusheng20150522 add for voice2-call dual-speaker paths-->
-
+	
     <path name="voice2-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer INTERNAL_BT_SCO_TX_Voice2" value="1" />
@@ -478,13 +479,13 @@
        <ctl name="AFE_PCM_RX_Voice Mixer Voice2" value="1" />
        <ctl name="Voice2_Tx Mixer AFE_PCM_TX_Voice2" value="1" />
     </path>
-
+    
     <path name="play-fm">
         <ctl name="Internal FM RX Volume" value="1" />
         <ctl name="PRI_MI2S_RX Port Mixer INTERNAL_FM_TX" value="1" />
         <ctl name="MI2S_DL_HL Switch" value="1" />
     </path>
-
+	
     <!--asus-yusheng20150525 add for play-fm dual-speaker paths-->
     <path name="play-fm speaker">
         <ctl name="Internal FM RX Volume" value="1" />
@@ -510,7 +511,7 @@
         <ctl name="MI2S_DL_HL Switch" value="1" />
     </path>
     <!--asus-yusheng20150525 add for play-fm dual-speaker paths-->
-
+	
     <path name="vowlan-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer VoWLAN" value="1" />
         <ctl name="VoWLAN_Tx Mixer TERT_MI2S_TX_VoWLAN" value="1" />
@@ -631,7 +632,7 @@
         <path name="low-latency-playback speaker" />
     </path>
     <path name="compress-voip-call speaker-for-voip">
-        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
+	<ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
         <ctl name="QUAT_MI2S_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer TERT_MI2S_TX_Voip" value="1" />
     </path>
@@ -676,16 +677,16 @@
         <ctl name="ADC2 MUX" value="INP3" />
     </path>
 
-    <!--asus-yusheng20150520 add for dual-speaker paths-->
-    <path name="speaker">
+	<!--asus-yusheng20150520 add for dual-speaker paths-->
+	<path name="speaker">
     </path>
-    <!--
+	<!--
     <path name="speaker">
         <ctl name="RX3 MIX1 INP1" value="RX1" />
         <ctl name="SPK DAC Switch" value="1" />
     </path>
-    -->
-    <!--asus-yusheng20150520 add for dual-speaker paths-->
+	-->
+	<!--asus-yusheng20150520 add for dual-speaker paths-->
 
     <path name="speaker-for-ringtone">
         <path name="speaker" />
@@ -707,6 +708,7 @@
     <path name="handset-mic">
         <path name="adc3" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="headphones">
@@ -727,6 +729,7 @@
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="ADC2 Volume" value="6" />
     </path>
 
     <path name="sidetone-iir">
@@ -767,15 +770,18 @@
     </path>
     <path name="voice-speaker-mic">
         <path name="speaker-mic" />
+        <ctl name="ADC1 Volume" value="6" />
     </path>
 
     <path name="voice-speaker-bmic">
-        <path name="adc1" />
+        <path name="adc1" />	
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
+	<ctl name="ADC1 Volume" value="6" />
     </path>
 
     <path name="speaker-bmic-for-voip">
         <path name="voice-speaker-bmic" />
+        <ctl name="ADC1 Volume" value="6" />
     </path>
     <path name="voice-headphones">
         <path name="headphones" />
@@ -790,6 +796,7 @@
     </path>
     <path name="headphones-mic-for-voip">
         <path name="voice-headset-mic" />
+        <ctl name="ADC2 Volume" value="6" />
     </path>
 
     <path name="speaker-and-headphones">
@@ -889,8 +896,8 @@
 
     <path name="voice-dmic-ef">
         <path name="dmic-endfire" />
-        <ctl name="ADC1 Volume" value="6" />
-        <ctl name="ADC3 Volume" value="6" />
+	<ctl name="ADC1 Volume" value="6" />
+	<ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="voice-speaker-dmic-ef">
@@ -912,9 +919,11 @@
     <path name="speaker-stereo-dmic-ef">
         <path name="speaker-dmic-endfire" />
     </path>
-
+    
     <path name="handset-dmic-for-voip">
         <path name="voice-dmic-ef" />
+        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="speaker-dmic-broadside">
@@ -934,33 +943,34 @@
     <path name="echo-reference">
         <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
     </path>
+	
     <!--<asus-yusheng20150723+> Enable audio path echo cancellation for external dual spk through quat mi2s-->
     <path name="echo-reference-low-latency-record speaker">
         <ctl name="AUDIO_REF_EC_UL5 MUX" value="QUAT_MI2S_TX" />
     </path>
-
+	
     <path name="echo-reference-audio-record speaker">
         <ctl name="AUDIO_REF_EC_UL1 MUX" value="QUAT_MI2S_TX" />
-    </path>
-
-    <path name="echo-reference-low-latency-record handset">
+    </path> 
+	
+	<path name="echo-reference-low-latency-record handset">
         <ctl name="AUDIO_REF_EC_UL5 MUX" value="I2S_RX" />
     </path>
-
+	
     <path name="echo-reference-audio-record handset">
         <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
-    </path>
-
-    <path name="echo-reference-low-latency-record headphone">
+    </path> 
+	
+	<path name="echo-reference-low-latency-record headphone">
         <ctl name="AUDIO_REF_EC_UL5 MUX" value="I2S_RX" />
     </path>
-
+	
     <path name="echo-reference-audio-record headphone">
         <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
-    </path>
+    </path> 
     <!--<asus-yusheng20150723+> Enable audio path echo cancellation for external dual spk through quat mi2s-->
-
-    <!-- TTY devices -->
+    
+	<!-- TTY devices -->
 
     <path name="tty-headphones">
         <ctl name="RX1 MIX1 INP1" value="RX1" />
@@ -1000,15 +1010,15 @@
     </path>
 
     <path name="line">
-          <path name="headphones" />
+        <path name="headphones" />
     </path>
 
     <path name="voice-line">
-          <path name="voice-headphones" />
+        <path name="voice-headphones" />
     </path>
 
     <path name="speaker-and-line">
-          <path name="speaker-and-headphones" />
+        <path name="speaker-and-headphones" />
     </path>
 
 </mixer>
