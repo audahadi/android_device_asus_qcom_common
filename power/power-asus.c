@@ -53,6 +53,8 @@
 #define MAX_INTERACTION_BOOST_MS        100
 #define MAX_CPU_BOOST_MS                100
 
+#define LOW_POWER_MODE_PATH "/sys/module/cluster_plug/parameters/low_power_mode"
+
 static int is_8916 = -1;
 
 int get_number_of_profiles() {
@@ -145,6 +147,16 @@ static void set_power_profile(int profile) {
 }
 
 extern void interaction(int duration, int num_args, int opt_list[]);
+
+int set_interactive_override(struct power_module *module __unused, int on)
+{
+    if (!is_target_8916()) {
+        ALOGD("%s: %s cluster-plug low power mode", __func__, !on ? "enabling" : "disabling");
+        sysfs_write(LOW_POWER_MODE_PATH, on ? "0" : "1");
+    }
+
+    return HINT_HANDLED;
+}
 
 int power_hint_override(struct power_module *module __unused, power_hint_t hint, void *data)
 {
