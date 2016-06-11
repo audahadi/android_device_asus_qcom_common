@@ -42,8 +42,6 @@ on init
     mkdir /asdf 0755 system system
     mkdir /factory 0775 system system
 
-    export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8916.so|libshim_camera.so:/system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so"
-
 on fs
     mount_all fstab.qcom
 
