@@ -1,3 +1,6 @@
+# Default type for anything under /asdf.
+type asdf_data_file, file_type;
+
 # Default type for anything under /factory.
 type fac_file, file_type;
 

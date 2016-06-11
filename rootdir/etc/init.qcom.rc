@@ -39,6 +39,7 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
+    mkdir /asdf 0755 system system
     mkdir /factory 0775 system system
 
     export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8916.so|libshim_camera.so:/system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so"
@@ -49,6 +50,7 @@ on fs
     mkdir /persist/data 0700 system system
     restorecon_recursive /persist
 
+    restorecon_recursive /asdf
     restorecon_recursive /factory
 
     start qcom-factory
@@ -103,10 +105,12 @@ on post-fs-data
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
 
-    # Mounting of persist and factory is moved to 'on emmc-fs' and 'on fs' sections
+    # Mounting of persist, asdf and factory is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod them again so because mount is run as root + defaults
     chown system system /persist
     chmod 0771 /persist
+    chown system system /asdf
+    chmod 0775 /asdf
     chown system system /factory
     chmod 0775 /factory
 

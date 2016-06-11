@@ -11,6 +11,9 @@
 /factory(/.*)?                          u:object_r:fac_file:s0
 /system/etc/init.qcom.factory.sh        u:object_r:qcom_factory_exec:s0
 
+# ASDF
+/asdf(/.*)?                             u:object_r:asdf_data_file:s0
+
 # Sensors
 /dev/cm3602                             u:object_r:sensors_device:s0
 /dev/lightsensor                        u:object_r:sensors_device:s0

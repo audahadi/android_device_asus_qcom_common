@@ -8,6 +8,7 @@
 /dev/block/bootdevice/by-name/cache                 /cache       ext4    rw,nosuid,nodev,noatime,nodiratime,barrier=1,data=ordered                      wait,check,formattable
 /dev/block/bootdevice/by-name/modem                 /firmware    vfat    ro,shortname=lower,dmask=222,fmask=333,context=u:object_r:firmware_file:s0     wait
 /dev/block/bootdevice/by-name/persist               /persist     ext4    rw,nosuid,nodev,barrier=1                                                      wait
+/dev/block/bootdevice/by-name/asdf                  /asdf        ext4    rw,nosuid,nodev,barrier=1                                                      wait
 /dev/block/bootdevice/by-name/factory               /factory     ext4    rw,nosuid,nodev,barrier=1                                                      wait
 
 /dev/block/bootdevice/by-name/boot                  /boot        emmc    defaults                                                                       recoveryonly
