@@ -38,6 +38,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         Log.d(TAG, "Booting");
         enableComponent(context, TouchscreenGestureSettings.class.getName());
         context.startService(new Intent(context, ServiceWrapper.class));
+        context.startService(new Intent(context, SensorsDozeService.class));
         // Set sane default, for whatever reason gesture_mode loads with garbage at boot
         FileUtils.writeLine(CMActionsSettings.TOUCHSCREEN_GESTURE_MODE_NODE, String.format("%7s",
                 Integer.toBinaryString(0)).replace(' ', '0'));
