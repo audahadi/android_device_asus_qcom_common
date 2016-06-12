@@ -82,6 +82,9 @@ ro.telephony.default_network=9,9
 # Time
 persist.timed.enable=true
 
+# UART
+sys.uart.enable=0
+
 # WiFi
 ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
