@@ -88,9 +88,6 @@ case "$soc_id" in
         # Disable thermal core_control to update interactive gov settings
         echo 0 > /sys/module/msm_thermal/core_control/enabled
 
-        # Disable cluster plug to update interactive gov settings
-        echo 0 > /sys/module/cluster_plug/parameters/active
-
         # Enable governor for perf cluster
         echo 1 > /sys/devices/system/cpu/cpu0/online
         echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -118,9 +115,6 @@ case "$soc_id" in
         # Enable thermal core_control now
         echo 1 > /sys/module/msm_thermal/core_control/enabled
 
-        # Enable cluster plug now
-        echo 1 > /sys/module/cluster_plug/parameters/active
-
         # Bring up all cores online
         echo 1 > /sys/devices/system/cpu/cpu1/online
         echo 1 > /sys/devices/system/cpu/cpu2/online
@@ -132,6 +126,14 @@ case "$soc_id" in
 
         # Enable low power modes
         echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
+
+        # Enable core control
+        echo 0 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+        echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+        echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
+        echo 50 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
+        echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
+        echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
 
         # HMP scheduler (big.Little cluster related) settings
         echo 75 > /proc/sys/kernel/sched_upmigrate
