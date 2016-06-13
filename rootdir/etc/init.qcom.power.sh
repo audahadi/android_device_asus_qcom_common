@@ -127,13 +127,17 @@ case "$soc_id" in
         # Enable low power modes
         echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
-        # Enable core control
-        echo 0 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+        # Enable core control and set userspace permission
         echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+        echo 0 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
         echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
         echo 50 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
         echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
         echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
+        chown system:system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
+        chown system:system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+        chown system:system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+        chown system:system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
 
         # HMP scheduler (big.Little cluster related) settings
         echo 75 > /proc/sys/kernel/sched_upmigrate

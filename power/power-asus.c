@@ -53,6 +53,9 @@
 #define MAX_INTERACTION_BOOST_MS        100
 #define MAX_CPU_BOOST_MS                100
 
+#define BIG_CLUSTER_CTL_PATH "/sys/devices/system/cpu/cpu0/core_ctl/"
+#define SMALL_CLUSTER_CTL_PATH "/sys/devices/system/cpu/cpu4/core_ctl/"
+
 static int is_8916 = -1;
 
 int get_number_of_profiles() {
@@ -145,6 +148,18 @@ static void set_power_profile(int profile) {
 }
 
 extern void interaction(int duration, int num_args, int opt_list[]);
+
+int set_interactive_override(struct power_module *module __unused, int on)
+{
+    if (!is_target_8916()) {
+        ALOGD("%s low power mode", on ? "Disabling" : "Enabling");
+        sysfs_write(BIG_CLUSTER_CTL_PATH "max_cpus", on ? "4" : "0");
+        sysfs_write(BIG_CLUSTER_CTL_PATH "min_cpus", on ? "4" : "0");
+        sysfs_write(SMALL_CLUSTER_CTL_PATH "min_cpus", on ? "0" : "4");
+    }
+
+    return HINT_HANDLED;
+}
 
 int power_hint_override(struct power_module *module __unused, power_hint_t hint, void *data)
 {
