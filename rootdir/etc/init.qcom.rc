@@ -266,12 +266,6 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    # Change ownership and permission for vibrator
-    chown system system /sys/class/timed_output/vibrator/enable
-    chmod 0660 /sys/class/timed_output/vibrator/enable
-    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
-    chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_level
-
     # VM BMS
     chown root system /sys/class/power_supply/bms/current_now
     chown root system /sys/class/power_supply/bms/voltage_ocv
