@@ -17,7 +17,10 @@
 package com.cyanogenmod.settings.device;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.SwitchPreference;
@@ -37,11 +40,21 @@ public class TouchscreenGestureSettings extends PreferenceActivity {
     private static final String KEY_GESTURE_POCKET = "gesture_pocket";
     private static final String KEY_HAPTIC_FEEDBACK = "touchscreen_gesture_haptic_feedback";
 
+    private Context mContext;
+    private Handler mGestureHandler = new Handler();
+
     private SwitchPreference mAmbientDisplayPreference;
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mHapticFeedback;
     private SwitchPreference mPickupPreference;
     private SwitchPreference mPocketPreference;
+
+    private SwitchPreference mCGesturePreference;
+    private SwitchPreference mEGesturePreference;
+    private SwitchPreference mSGesturePreference;
+    private SwitchPreference mVGesturePreference;
+    private SwitchPreference mWGesturePreference;
+    private SwitchPreference mZGesturePreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,9 +72,29 @@ public class TouchscreenGestureSettings extends PreferenceActivity {
         mPocketPreference.setEnabled(dozeEnabled);
         mHapticFeedback = (SwitchPreference) findPreference(KEY_HAPTIC_FEEDBACK);
         mHapticFeedback.setOnPreferenceChangeListener(mHapticPrefListener);
+        mCGesturePreference =
+                (SwitchPreference) findPreference(CMActionsSettings.TOUCHSCREEN_C_GESTURE_KEY);
+        mCGesturePreference.setOnPreferenceChangeListener(mGesturePrefListener);
+        mEGesturePreference =
+                (SwitchPreference) findPreference(CMActionsSettings.TOUCHSCREEN_E_GESTURE_KEY);
+        mEGesturePreference.setOnPreferenceChangeListener(mGesturePrefListener);
+        mSGesturePreference =
+                (SwitchPreference) findPreference(CMActionsSettings.TOUCHSCREEN_S_GESTURE_KEY);
+        mSGesturePreference.setOnPreferenceChangeListener(mGesturePrefListener);
+        mVGesturePreference =
+                (SwitchPreference) findPreference(CMActionsSettings.TOUCHSCREEN_V_GESTURE_KEY);
+        mVGesturePreference.setOnPreferenceChangeListener(mGesturePrefListener);
+        mWGesturePreference =
+                (SwitchPreference) findPreference(CMActionsSettings.TOUCHSCREEN_W_GESTURE_KEY);
+        mWGesturePreference.setOnPreferenceChangeListener(mGesturePrefListener);
+        mZGesturePreference =
+                (SwitchPreference) findPreference(CMActionsSettings.TOUCHSCREEN_Z_GESTURE_KEY);
+        mZGesturePreference.setOnPreferenceChangeListener(mGesturePrefListener);
 
         final ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        mContext = getApplicationContext();
     }
 
     @Override
@@ -124,4 +157,23 @@ public class TouchscreenGestureSettings extends PreferenceActivity {
         }
     };
 
+    private Preference.OnPreferenceChangeListener mGesturePrefListener =
+        new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                mGestureHandler.postDelayed(mUpdateGestures, 500);
+                return true;
+            }
+        };
+
+    private final Runnable mUpdateGestures = new Runnable() {
+        public void run(){
+            try {
+                CMActionsSettings.updateGestureMode(mContext);
+            }
+            catch (Exception e) {
+                // Can't do much anyway
+            }
+        }
+    };
 }
