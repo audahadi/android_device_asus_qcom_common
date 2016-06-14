@@ -21,7 +21,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.cyanogenmod.settings.device.utils.FileUtils;
+import org.cyanogenmod.internal.util.FileUtils;
 
 public final class CMActionsSettings {
     private static final String TAG = "CMActions";
