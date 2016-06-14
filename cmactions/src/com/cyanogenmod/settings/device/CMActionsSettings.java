@@ -26,50 +26,55 @@ import com.cyanogenmod.settings.device.utils.FileUtils;
 public final class CMActionsSettings {
     private static final String TAG = "CMActions";
 
-    // Preference keys
-    public static final String TOUCHSCREEN_C_GESTURE_KEY = "touchscreen_gesture_c";
-    public static final String TOUCHSCREEN_E_GESTURE_KEY = "touchscreen_gesture_e";
-    public static final String TOUCHSCREEN_S_GESTURE_KEY = "touchscreen_gesture_s";
-    public static final String TOUCHSCREEN_V_GESTURE_KEY = "touchscreen_gesture_v";
-    public static final String TOUCHSCREEN_W_GESTURE_KEY = "touchscreen_gesture_w";
-    public static final String TOUCHSCREEN_Z_GESTURE_KEY = "touchscreen_gesture_z";
-
     // Proc nodes
     private static final String TOUCHSCREEN_GESTURE_MODE_NODE =
             "/sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode";
 
-    // Key Masks
-    public static final int KEY_MASK_GESTURE_CONTROL = 0x40;
-    public static final int KEY_MASK_GESTURE_C = 0x04;
-    public static final int KEY_MASK_GESTURE_E = 0x08;
-    public static final int KEY_MASK_GESTURE_S = 0x10;
-    public static final int KEY_MASK_GESTURE_V = 0x01;
-    public static final int KEY_MASK_GESTURE_W = 0x20;
-    public static final int KEY_MASK_GESTURE_Z = 0x02;
+    // Preference keys
+    public static final String[] ALL_GESTURE_KEYS = {
+        "touchscreen_gesture_c",
+        "touchscreen_gesture_e",
+        "touchscreen_gesture_s",
+        "touchscreen_gesture_v",
+        "touchscreen_gesture_w",
+        "touchscreen_gesture_z",
+    };
 
-    public CMActionsSettings() {
+    // Key Masks
+    private static final int KEY_MASK_GESTURE_CONTROL = 0x40;
+    public static final int[] ALL_GESTURE_MASKS = {
+        0x04, // c gesture mask
+        0x08, // e gesture mask
+        0x10, // s gesture mask
+        0x01, // v gesture mask
+        0x20, // w gesture mask
+        0x02, // z gesture mask
+    };
+
+    private CMActionsSettings() {
         // this class is not supposed to be instantiated
     }
 
     /* Use bitwise logic to set gesture_mode in kernel driver */
     public static void updateGestureMode(Context context) {
         int gestureMode = 0;
+
+        // Make sure both arrays are set up correctly
+        if (ALL_GESTURE_KEYS.length != ALL_GESTURE_MASKS.length) {
+            Log.w(TAG, "Array lengths do not match!");
+            return;
+        }
+
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        if (sharedPrefs.getBoolean(TOUCHSCREEN_C_GESTURE_KEY, false))
-            gestureMode = gestureMode ^ KEY_MASK_GESTURE_C;
-        if (sharedPrefs.getBoolean(TOUCHSCREEN_E_GESTURE_KEY, false))
-            gestureMode = gestureMode ^ KEY_MASK_GESTURE_E;
-        if (sharedPrefs.getBoolean(TOUCHSCREEN_S_GESTURE_KEY, false))
-            gestureMode = gestureMode ^ KEY_MASK_GESTURE_S;
-        if (sharedPrefs.getBoolean(TOUCHSCREEN_V_GESTURE_KEY, false))
-            gestureMode = gestureMode ^ KEY_MASK_GESTURE_V;
-        if (sharedPrefs.getBoolean(TOUCHSCREEN_W_GESTURE_KEY, false))
-            gestureMode = gestureMode ^ KEY_MASK_GESTURE_W;
-        if (sharedPrefs.getBoolean(TOUCHSCREEN_Z_GESTURE_KEY, false))
-            gestureMode = gestureMode ^ KEY_MASK_GESTURE_Z;
+        for (int i = 0; i < ALL_GESTURE_KEYS.length; i++) {
+            if (sharedPrefs.getBoolean(ALL_GESTURE_KEYS[i], false)) {
+                gestureMode |= ALL_GESTURE_MASKS[i];
+            }
+        }
+
         if (gestureMode != 0)
-            gestureMode = (gestureMode ^ KEY_MASK_GESTURE_CONTROL);
+            gestureMode |= KEY_MASK_GESTURE_CONTROL;
 
         Log.d(TAG, "finished gesture mode: " + gestureMode);
         FileUtils.writeLine(TOUCHSCREEN_GESTURE_MODE_NODE, String.format("%7s",
