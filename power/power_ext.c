@@ -19,8 +19,7 @@
 #include <utils/Log.h>
 #include "utils.h"
 
-#define BIG_CLUSTER_CTL_PATH "/sys/devices/system/cpu/cpu0/core_ctl/"
-#define SMALL_CLUSTER_CTL_PATH "/sys/devices/system/cpu/cpu4/core_ctl/"
+#define BIG_MAX_CPU_PATH "/sys/devices/system/cpu/cpu0/core_ctl/max_cpus"
 
 /**
  * If target is 8916:
@@ -48,9 +47,7 @@ static int is_target_8916(void)
 void cm_power_set_interactive_ext(int on)
 {
     if (!is_target_8916()) {
-        ALOGD("%s low power mode", on ? "Disabling" : "Enabling");
-        sysfs_write(BIG_CLUSTER_CTL_PATH "max_cpus", on ? "4" : "0");
-        sysfs_write(BIG_CLUSTER_CTL_PATH "min_cpus", on ? "4" : "0");
-        sysfs_write(SMALL_CLUSTER_CTL_PATH "min_cpus", on ? "0" : "4");
+        ALOGD("%sabling big CPU cluster", on ? "En" : "Dis");
+        sysfs_write(BIG_MAX_CPU_PATH, on ? "4" : "0");
     }
 }
