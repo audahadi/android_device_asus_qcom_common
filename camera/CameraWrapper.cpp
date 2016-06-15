@@ -108,6 +108,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
 #endif
 
     params.set("longshot-supported", "false");
+    params.set("scene-mode-values", "auto,hdr");
 
     const char *manualFocusPosition = params.get("manual-focus-position");
     const char *manualFocusPositionType = params.get("manual-focus-pos-type");
