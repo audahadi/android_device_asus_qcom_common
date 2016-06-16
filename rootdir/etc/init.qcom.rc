@@ -821,6 +821,11 @@ service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     oneshot
     disabled
 
+service loc_launcher /system/bin/loc_launcher
+    #loc_launcher will start as root and set its uid to gps
+    class late_start
+    group gps inet net_raw qcom_diag net_admin wifi
+
 service ril-daemon1 /system/bin/rild -c 2
     class main
     socket rild2 stream 660 root radio
