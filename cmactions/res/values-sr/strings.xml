@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Гестови екрана</string>
   <string name="touchscreen_c_gesture_title">Камера</string>
   <string name="touchscreen_c_gesture_summary">Нацртај \"C\" да би активирао камеру</string>
   <string name="touchscreen_e_gesture_title">Е-пошта</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Нацртај \"W\" да отвориш претраживач</string>
   <string name="touchscreen_z_gesture_title">Лампа</string>
   <string name="touchscreen_z_gesture_summary">Нацртај \"Z\" да покренеш лампу</string>
+  <string name="ambient_display_title">Амбијент приказ</string>
+  <string name="ambient_display_enable_title">Амбијент приказ</string>
+  <string name="ambient_display_enable_summary">Пробуди екран кад добијеш обавештење</string>
+  <string name="hand_wave_gesture_title">Покрет руком</string>
+  <string name="hand_wave_gesture_summary">Пулсно обавештење при покрету руком</string>
+  <string name="pick_up_gesture_title">Купљење</string>
+  <string name="pick_up_gesture_summary">Пулсно обавештење при купљењу</string>
+  <string name="pocket_gesture_title">Џеп</string>
+  <string name="pocket_gesture_summary">Пулсно обавештење при уклањању из џепа</string>
 </resources>

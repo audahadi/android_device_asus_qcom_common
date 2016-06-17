@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Χειρονομίες οθόνης</string>
   <string name="touchscreen_c_gesture_title">Φωτογραφ. μηχανή</string>
   <string name="touchscreen_c_gesture_summary">Σχεδιάστε ένα \"C\" για εκκίνηση της φωτογρ. μηχανής</string>
   <string name="touchscreen_e_gesture_title">Ηλεκτρονικό ταχυδρομείο</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Σχεδιάστε ένα \"W\" για εκκίνηση του προγράμματος περιήγησης</string>
   <string name="touchscreen_z_gesture_title">Φακός</string>
   <string name="touchscreen_z_gesture_summary">Σχεδιάστε ένα \"Z\" για ενεργοποίηση του φακού</string>
+  <string name="ambient_display_title">Οθόνη ambient</string>
+  <string name="ambient_display_enable_title">Οθόνη ambient</string>
+  <string name="ambient_display_enable_summary">Ενεργοποίηση της οθόνης όταν λαμβάνετε ειδοποιήσεις</string>
+  <string name="hand_wave_gesture_title">Αιώρηση χεριού</string>
+  <string name="hand_wave_gesture_summary">Παλμός ειδοποιήσεων κατά την αιώρηση του χεριού</string>
+  <string name="pick_up_gesture_title">Σήκωμα συσκευής</string>
+  <string name="pick_up_gesture_summary">Παλμός ειδοποιήσεων κατά το σήκωμα της συσκευής</string>
+  <string name="pocket_gesture_title">Τσέπη</string>
+  <string name="pocket_gesture_summary">Παλμός ειδοποιήσεων κατά την έξοδο από την τσέπη</string>
 </resources>

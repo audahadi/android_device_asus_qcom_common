@@ -29,4 +29,5 @@
   <string name="touchscreen_w_gesture_summary">צייר \"W\" כדי להפעיל את הדפדפן</string>
   <string name="touchscreen_z_gesture_title">פנס</string>
   <string name="touchscreen_z_gesture_summary">צייר \"Z\" כדי להפעיל את הפנס</string>
+  <string name="pocket_gesture_title">כיס</string>
 </resources>
