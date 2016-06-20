@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Geste isključenog zaslona</string>
   <string name="touchscreen_c_gesture_title">Fotoaparat</string>
   <string name="touchscreen_c_gesture_summary">Nacrtajte \"C\" da biste aktivirali Fotoaparat</string>
   <string name="touchscreen_e_gesture_title">E-pošta</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Nacrtajte \"W\" za otvaranje aplikacije Preglednik</string>
   <string name="touchscreen_z_gesture_title">Bljeskalica</string>
   <string name="touchscreen_z_gesture_summary">Nacrtajte \"Z\" za upravljanje svjetiljkom</string>
+  <string name="ambient_display_title">Ambijentni zaslon</string>
+  <string name="ambient_display_enable_title">Ambijentni zaslon</string>
+  <string name="ambient_display_enable_summary">Probudi zaslon kada primite obavijesti</string>
+  <string name="hand_wave_gesture_title">Zamah rukom</string>
+  <string name="hand_wave_gesture_summary">Prikaz obavijesti na zamah rukom</string>
+  <string name="pick_up_gesture_title">Podizanje</string>
+  <string name="pick_up_gesture_summary">Prikaz obavijesti kod podizanja</string>
+  <string name="pocket_gesture_title">Džep</string>
+  <string name="pocket_gesture_summary">Prikaz obavijesti kada izvadite uređaj iz džepa</string>
 </resources>

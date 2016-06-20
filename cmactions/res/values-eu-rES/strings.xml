@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Pantaila itzaltzeko keinuak</string>
   <string name="touchscreen_c_gesture_title">Kamera</string>
   <string name="touchscreen_c_gesture_summary">Marraztu \"C\" bat kamera abiatzeko</string>
   <string name="touchscreen_e_gesture_title">Eposta</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Marraztu \"W\" bat nabigatzailea irekitzeko</string>
   <string name="touchscreen_z_gesture_title">Linterna</string>
   <string name="touchscreen_z_gesture_summary">Marraztu \"Z\" bat linterna txandakatzeko</string>
+  <string name="ambient_display_title">Ambient display</string>
+  <string name="ambient_display_enable_title">Ambient display</string>
+  <string name="ambient_display_enable_summary">Esnatu pantaila jakinarazpenak jasotzean</string>
+  <string name="hand_wave_gesture_title">Agurtu eskuarekin</string>
+  <string name="hand_wave_gesture_summary">Jakinarazpen argia eskuarekin agurtzean</string>
+  <string name="pick_up_gesture_title">Hartu</string>
+  <string name="pick_up_gesture_summary">Bistarazi jakinarazpenak hartzean</string>
+  <string name="pocket_gesture_title">Poltsikoratu</string>
+  <string name="pocket_gesture_summary">Jakinarazpen argia poltsikotik ateratzean</string>
 </resources>

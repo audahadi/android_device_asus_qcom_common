@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Suljetun näytön eleet</string>
   <string name="touchscreen_c_gesture_title">Kamera</string>
   <string name="touchscreen_c_gesture_summary">Piirrä \"C\" aktivoidaksesi kameran</string>
   <string name="touchscreen_e_gesture_title">Sähköposti</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Piirrä \"W\" avataksesi selaimen</string>
   <string name="touchscreen_z_gesture_title">Taskulamppu</string>
   <string name="touchscreen_z_gesture_summary">Piirrä \"Z\" avataksesi taskulampun</string>
+  <string name="ambient_display_title">Ambient-näyttö</string>
+  <string name="ambient_display_enable_title">Ambient-näyttö</string>
+  <string name="ambient_display_enable_summary">Herätä näyttö kun saat ilmoituksia</string>
+  <string name="hand_wave_gesture_title">Käden heilautus</string>
+  <string name="hand_wave_gesture_summary">Näytä ilmoitukset heilautettaessa kättä</string>
+  <string name="pick_up_gesture_title">Nosto</string>
+  <string name="pick_up_gesture_summary">Näytä ilmoitukset nostaessa laitetta</string>
+  <string name="pocket_gesture_title">Tasku</string>
+  <string name="pocket_gesture_summary">Näytä ilmoitukset kun laite otetaan taskusta</string>
 </resources>

@@ -29,4 +29,12 @@
   <string name="touchscreen_w_gesture_summary">Tegn et \"W\" for at åbne browser-appen</string>
   <string name="touchscreen_z_gesture_title">Lommelygte</string>
   <string name="touchscreen_z_gesture_summary">Tegn et \"Z\" for at slå lommelygten til/fra</string>
+  <string name="ambient_display_title">Inaktivitetsvisning</string>
+  <string name="ambient_display_enable_title">Inaktivitetsvisning</string>
+  <string name="ambient_display_enable_summary">Tænder skærmen, når du modtager notifikationer</string>
+  <string name="hand_wave_gesture_title">Vink med hånden</string>
+  <string name="hand_wave_gesture_summary">Vibrér, hvis der er notifikationer, når du vinker over skærmen</string>
+  <string name="pick_up_gesture_title">Samle op</string>
+  <string name="pocket_gesture_title">Lomme</string>
+  <string name="pocket_gesture_summary">Vibrér, hvis der er notifikationer, når telefonen tages op ad lommen</string>
 </resources>

@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Изключване на екрана с жестове</string>
   <string name="touchscreen_c_gesture_title">Камера</string>
   <string name="touchscreen_c_gesture_summary">Изпишете буквата \"C\", за да активирате камерата</string>
   <string name="touchscreen_e_gesture_title">Имейл</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Изпишете буквата \"W\", за да отворите браузъра</string>
   <string name="touchscreen_z_gesture_title">Фенерче</string>
   <string name="touchscreen_z_gesture_summary">Изпишете буквата \"Z\", за превключване на фенерчето</string>
+  <string name="ambient_display_title">Атмосферен екран</string>
+  <string name="ambient_display_enable_title">Атмосферен екран</string>
+  <string name="ambient_display_enable_summary">Събуждане на екрана при получаване на известие</string>
+  <string name="hand_wave_gesture_title">Махане с ръка</string>
+  <string name="hand_wave_gesture_summary">Светлинна индикация при махане с ръка</string>
+  <string name="pick_up_gesture_title">Повдигане</string>
+  <string name="pick_up_gesture_summary">Светлинна индикация при входящо повикване</string>
+  <string name="pocket_gesture_title">Джоб</string>
+  <string name="pocket_gesture_summary">Светлинна индикация при изваждане от джоб</string>
 </resources>
