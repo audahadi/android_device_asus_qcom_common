@@ -40,7 +40,7 @@ case "$soc_id" in
         # HMP Task packing settings for 8916
         echo 20 > /proc/sys/kernel/sched_small_task
         echo 30 > /proc/sys/kernel/sched_mostly_idle_load
-        echo 3 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run
+        echo 3 > /proc/sys/kernel/sched_mostly_idle_nr_run
 
         # Disable thermal core_control to update scaling_min_freq
         echo 0 > /sys/module/msm_thermal/core_control/enabled
@@ -78,7 +78,7 @@ case "$soc_id" in
         # HMP Task packing settings for 8939, 8929
         echo 20 > /proc/sys/kernel/sched_small_task
         echo 30 > /proc/sys/kernel/sched_mostly_idle_load
-        echo 3 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run
+        echo 3 > /proc/sys/kernel/sched_mostly_idle_nr_run
 
         echo bw_hwmon > /sys/class/devfreq/cpubw/governor
         echo 20 > /sys/class/devfreq/cpubw/bw_hwmon/io_percent
