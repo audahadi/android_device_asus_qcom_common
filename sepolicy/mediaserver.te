@@ -3,10 +3,10 @@ allow mediaserver mm-qcamerad:unix_stream_socket connectto;
 allow mediaserver proc_driver:dir search;
 allow mediaserver proc_driver:file rw_file_perms;
 
+allow mediaserver proc_asusevtlog:file w_file_perms;
+
 allow mediaserver system_file:file execmod;
 allow mediaserver system_server:unix_stream_socket rw_socket_perms;
-
-dontaudit mediaserver proc_asusevtlog:file *;
 
 r_dir_file(mediaserver, persist_file)
 
