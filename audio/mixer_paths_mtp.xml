@@ -681,8 +681,8 @@
         <ctl name="DEC1 MUX" value="ADC1" />
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
-        <ctl name="ADC1 Volume" value="6" />
-        <ctl name="ADC2 Volume" value="6" />
+        <ctl name="ADC1 Volume" value="8" />
+        <ctl name="ADC2 Volume" value="8" />
         <ctl name="MI2S_TX Channels" value="Two" />
 	</path>
 
@@ -690,8 +690,8 @@
         <ctl name="DEC1 MUX" value="ADC2" />
         <ctl name="DEC2 MUX" value="ADC1" />
         <ctl name="ADC2 MUX" value="INP3" />
-        <ctl name="ADC1 Volume" value="6" />
-        <ctl name="ADC2 Volume" value="6" />
+        <ctl name="ADC1 Volume" value="8" />
+        <ctl name="ADC2 Volume" value="8" />
         <ctl name="MI2S_TX Channels" value="Two" />
 	</path>
 
