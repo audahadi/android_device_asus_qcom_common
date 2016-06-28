@@ -7,4 +7,9 @@ type fac_file, file_type;
 type sysfs_touchscreen, sysfs_type;
 
 type proc_driver, fs_type;
+type proc_driver_audio, fs_type;
+type proc_driver_battery, fs_type;
+type proc_driver_camera, fs_type;
+type proc_driver_laf, fs_type;
+
 type proc_asusevtlog, fs_type;
