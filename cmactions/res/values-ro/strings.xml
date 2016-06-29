@@ -21,4 +21,5 @@
   <string name="touchscreen_e_gesture_title">E-mail</string>
   <string name="touchscreen_s_gesture_title">Mesagerie</string>
   <string name="touchscreen_z_gesture_title">Lanternă</string>
+  <string name="pocket_gesture_title">Buzunar</string>
 </resources>
