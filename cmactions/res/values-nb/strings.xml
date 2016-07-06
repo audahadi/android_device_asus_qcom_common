@@ -25,7 +25,7 @@
   <string name="touchscreen_s_gesture_title">Meldinger</string>
   <string name="touchscreen_s_gesture_summary">Tegn en \"S\" for å åpne meldinger</string>
   <string name="touchscreen_v_gesture_title">Telefon</string>
-  <string name="touchscreen_v_gesture_summary">Tegn en \"V\" for å åpne telefon</string>
+  <string name="touchscreen_v_gesture_summary">Tegn en \"V\" for å åpne telefon appen</string>
   <string name="touchscreen_w_gesture_title">Nettleser</string>
   <string name="touchscreen_w_gesture_summary">Tegn en \"W\" for å åpne internett</string>
   <string name="touchscreen_z_gesture_title">Lommelykt</string>
