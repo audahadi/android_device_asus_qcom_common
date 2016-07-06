@@ -81,7 +81,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     bspcapability \
-    camera.msm8916
+    camera.msm8916 \
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
