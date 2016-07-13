@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Жесты выключенного экрана</string>
   <string name="touchscreen_c_gesture_title">Камера</string>
   <string name="touchscreen_c_gesture_summary">Нарисуйте букву «C», чтобы включить камеру</string>
   <string name="touchscreen_e_gesture_title">Эл. почта</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Нарисуйте букву «W», чтобы открыть браузер</string>
   <string name="touchscreen_z_gesture_title">Фонарик</string>
   <string name="touchscreen_z_gesture_summary">Нарисуйте букву «Z», чтобы включить или выключить фонарик</string>
+  <string name="ambient_display_title">Индикация событий</string>
+  <string name="ambient_display_enable_title">Индикация событий</string>
+  <string name="ambient_display_enable_summary">Включать экран при получении уведомлений</string>
+  <string name="hand_wave_gesture_title">Взмах</string>
+  <string name="hand_wave_gesture_summary">Проведите ладонью над экраном для просмотра уведомлений</string>
+  <string name="pick_up_gesture_title">Поднять</string>
+  <string name="pick_up_gesture_summary">Отображать уведомления при поднятии устройства</string>
+  <string name="pocket_gesture_title">Карман</string>
+  <string name="pocket_gesture_summary">Отображать уведомления при извлечении устройства из кармана</string>
 </resources>

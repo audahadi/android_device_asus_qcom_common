@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Gesta vypnutí obrazovky</string>
   <string name="touchscreen_c_gesture_title">Fotoaparát</string>
   <string name="touchscreen_c_gesture_summary">Gestem „C“ spustit fotoaparát</string>
   <string name="touchscreen_e_gesture_title">E-mail</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Gestem „W“ otevřít aplikaci prohlížeče</string>
   <string name="touchscreen_z_gesture_title">Svítilna</string>
   <string name="touchscreen_z_gesture_summary">Gestem „Z“ rozsvítit/zhasnout svítlinu</string>
+  <string name="ambient_display_title">Ambientní displej</string>
+  <string name="ambient_display_enable_title">Ambientní displej</string>
+  <string name="ambient_display_enable_summary">Probudit obrazovku při upozornění</string>
+  <string name="hand_wave_gesture_title">Mávání rukou</string>
+  <string name="hand_wave_gesture_summary">Upozornit pulsováním při zamáváním rukou</string>
+  <string name="pick_up_gesture_title">Sebrání</string>
+  <string name="pick_up_gesture_summary">Upozornit pulsováním při sebrání</string>
+  <string name="pocket_gesture_title">Kapsa</string>
+  <string name="pocket_gesture_summary">Upozornit pulsováním při vyjmutí z kapsy</string>
 </resources>
