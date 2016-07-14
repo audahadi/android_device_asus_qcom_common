@@ -269,17 +269,16 @@ vendor/lib/libxditk_DIT_Qualcomm.so
 vendor/lib/libxditk_mmcamera2_stats_algorithm.so
 vendor/lib/libxditk_Network.so
 
-# DRM - from kipper
+# DRM
 bin/qseecomd
-lib/libdrmdecrypt.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
-vendor/lib/libwvdrm_L3.so
+vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
@@ -320,6 +319,9 @@ vendor/lib/libquipc_os_api.so
 vendor/lib/libulp2.so
 vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_ulp_adaptor.so
+
+# Gatekeeper
+vendor/lib64/hw/gatekeeper.msm8916.so
 
 # Graphics
 # Adreno 300 - from crackling
@@ -386,6 +388,9 @@ etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 etc/firmware/a420_pfp.fw
 etc/firmware/a420_pm4.fw
+
+# Keystore
+vendor/lib64/hw/keystore.msm8916.so
 
 # Media
 vendor/lib/libI420colorconvert.so
