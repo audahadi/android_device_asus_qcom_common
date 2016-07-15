@@ -17,4 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="touchscreen_c_gesture_title">Fotoapparat</string>
+  <string name="touchscreen_c_gesture_summary">\'C\' zeechnen, fir de Fotoapparat z\'aktivéieren</string>
+  <string name="touchscreen_e_gesture_title">E-Mail</string>
+  <string name="touchscreen_e_gesture_summary">\'e\' zeechnen, fir d\'Email-App z\'aktivéieren</string>
+  <string name="touchscreen_s_gesture_title">Messagen</string>
+  <string name="touchscreen_s_gesture_summary">\'S\' zeechnen, fir d\'SMS-App z\'aktivéieren</string>
+  <string name="touchscreen_v_gesture_title">Telefon</string>
+  <string name="touchscreen_v_gesture_summary">\'V\' zeechnen, fir d\'Telefons-App z\'aktivéieren</string>
+  <string name="touchscreen_w_gesture_title">Browser</string>
+  <string name="touchscreen_w_gesture_summary">\'W\' zeechnen, fir d\'Browser-App z\'aktivéieren</string>
+  <string name="touchscreen_z_gesture_title">Täscheluucht</string>
+  <string name="touchscreen_z_gesture_summary">\'Z\' zeechnen, fir d\'Täscheluucht un-/auszemaachen</string>
 </resources>
