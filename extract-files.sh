@@ -73,5 +73,5 @@ else
         extract "$MY_DIR"/../$DEVICE/proprietary-files.txt "$SRC"
     fi
 
-    "$MY_DIR"/setup-makefiles.sh "$NC"
+    "$MY_DIR"/setup-makefiles.sh "$CLEANUP"
 fi
