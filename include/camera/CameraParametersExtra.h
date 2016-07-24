@@ -28,4 +28,4 @@ const char CameraParameters::KEY_QC_HDR_NEED_1X[] = "hdr-need-1x"; \
     static const char KEY_QC_MANUAL_FOCUS_POS_TYPE[]; \
     static const char KEY_QC_FOCUS_POSITION_SCALE[]; \
     static const char KEY_QC_FOCUS_POSITION_DIOPTER[]; \
-    static const char KEY_QC_SUPPORTED_HDR_NEED_1X[]; \
+    static const char KEY_QC_HDR_NEED_1X[]; \
