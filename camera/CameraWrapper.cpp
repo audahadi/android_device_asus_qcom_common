@@ -155,7 +155,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
     const char *sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);
     if (sceneMode != NULL) {
         if (!strcmp(sceneMode, android::CameraParameters::SCENE_MODE_HDR)) {
-            params.set(android::CameraParameters::KEY_QC_SUPPORTED_HDR_NEED_1X, "false");
+            params.set(android::CameraParameters::KEY_QC_HDR_NEED_1X, "false");
         }
     }
 

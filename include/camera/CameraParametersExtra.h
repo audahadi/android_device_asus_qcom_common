@@ -20,7 +20,7 @@ const char CameraParameters::KEY_QC_MANUAL_FOCUS_POSITION[] = "manual-focus-posi
 const char CameraParameters::KEY_QC_MANUAL_FOCUS_POS_TYPE[] = "manual-focus-pos-type"; \
 const char CameraParameters::KEY_QC_FOCUS_POSITION_SCALE[] = "cur-focus-scale"; \
 const char CameraParameters::KEY_QC_FOCUS_POSITION_DIOPTER[] = "cur-focus-diopter"; \
-const char CameraParameters::KEY_QC_SUPPORTED_HDR_NEED_1X[] = "hdr-need-1x-values"; \
+const char CameraParameters::KEY_QC_HDR_NEED_1X[] = "hdr-need-1x"; \
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char KEY_QC_LONGSHOT_SUPPORTED[]; \
