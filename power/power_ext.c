@@ -16,10 +16,6 @@
 
 #define LOG_TAG "PowerHAL_MSM8939_Ext"
 
-#include <errno.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fcntl.h>
 #include <utils/Log.h>
 #include "utils.h"
 
