@@ -78,7 +78,11 @@ lib/libsphere3.so
 lib/style.cng
 
 # Audio
+bin/tfamode
+etc/Tfa9887.cnt
+lib/libtfa9887.so
 lib/soundfx/libicepower.so
+lib64/libtfa9887.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so

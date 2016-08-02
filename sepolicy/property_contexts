@@ -1,3 +1,4 @@
 asus.camera.                            u:object_r:camera_prop:s0
 sys.thermald.charging.limited           u:object_r:thermald_prop:s0
+tfa9887.                                u:object_r:audio_prop:s0
 qualcomm.bt.                            u:object_r:bluetooth_prop:s0

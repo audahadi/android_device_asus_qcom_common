@@ -10,4 +10,5 @@ allow mediaserver system_server:unix_stream_socket rw_socket_perms;
 
 r_dir_file(mediaserver, persist_file)
 
+set_prop(mediaserver, audio_prop)
 set_prop(mediaserver, camera_prop)

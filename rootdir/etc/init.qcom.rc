@@ -932,10 +932,27 @@ service qcom-factory /system/bin/sh /system/etc/init.qcom.factory.sh
     seclabel u:r:qcom_factory:s0
     oneshot
 
+service spk_calibration /system/bin/tfamode 0
+    disabled
+    user root
+    oneshot
+
+service spk_setmode system/bin/tfamode 1
+    disabled
+    user root
+    oneshot
+
+on property:init.svc.spk_calibration=stopped
+    setprop sys.config.maxxaudio 6
+    start spk_setmode
+
 on property:sys.boot_completed=1
     write /proc/boot_completed_prop 1
+
     # Disable/Enable UART
     write /proc/driver/audio_debug ${sys.uart.enable}
+
+    start spk_calibration
 
 on load_system_props_action
     start qcom-opengles
