@@ -44,43 +44,41 @@ char const *family;
 
 void check_device()
 {
-    char PRJ_ID[PROP_VALUE_MAX];
-    char PRJ_SKU[PROP_VALUE_MAX];
-    char PRJ_HD[PROP_VALUE_MAX];
+    int PRJ_ID, PRJ_SKU, PRJ_HD;
     FILE *fp;
 
     fp = fopen("/proc/apid", "r");
-    fgets(PRJ_ID, sizeof(PRJ_ID), fp);
+    fscanf(fp, "%d", &PRJ_ID);
     pclose(fp);
 
     fp = fopen("/proc/aprf", "r");
-    fgets(PRJ_SKU, sizeof(PRJ_SKU), fp);
+    fscanf(fp, "%d", &PRJ_SKU);
     pclose(fp);
 
     fp = fopen("/proc/aphd", "r");
-    fgets(PRJ_HD, sizeof(PRJ_HD), fp);
+    fscanf(fp, "%d", &PRJ_HD);
     pclose(fp);
 
-    if (ISMATCH(PRJ_HD, "1\n")) {
+    if (PRJ_HD == 1) {
         family = "Z00L";
-        if (ISMATCH(PRJ_ID, "0\n")) {
-            if (ISMATCH(PRJ_SKU, "3\n")) {
+        if (PRJ_ID == 0) {
+            if (PRJ_SKU == 3) {
                 device = "Z00W"; // ZE550KG
             } else {
                 device = "Z00L"; // ZE550KL
             }
-        } else if (ISMATCH(PRJ_ID, "1\n")) {
+        } else if (PRJ_ID == 1) {
             device = "Z00M"; // ZE600KL
         }
-    } else if (ISMATCH(PRJ_HD, "0\n")) {
+    } else if (PRJ_HD == 0) {
         family = "Z00T";
-        if (ISMATCH(PRJ_ID, "0\n")) {
+        if (PRJ_ID == 0) {
             device = "Z00T"; // ZE551KL
-        } else if (ISMATCH(PRJ_ID, "1\n")) {
+        } else if (PRJ_ID == 1) {
             device = "Z011"; // ZE601KL
-        } else if (ISMATCH(PRJ_ID, "2\n")) {
+        } else if (PRJ_ID == 2) {
             device = "Z00C"; // ZX550KL
-        } else if (ISMATCH(PRJ_ID, "3\n")) {
+        } else if (PRJ_ID == 3) {
             device = "Z00U"; // ZD551KL
         }
     }
