@@ -609,8 +609,8 @@ CRDA += linville.key.pub.pem
 CRDA += init.crda.sh
 
 #WLAN
-WLAN := prima_wlan.ko
-WLAN += pronto_wlan.ko
+#WLAN := prima_wlan.ko
+#WLAN += pronto_wlan.ko
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \

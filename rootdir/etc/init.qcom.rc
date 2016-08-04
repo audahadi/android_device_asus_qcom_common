@@ -25,7 +25,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom.usb.rc
+#+++ ASUS_BSP : Add ASUS user/eng rc
+import init.asus.rc
+#--- ASUS_BSP : Add ASUS user/eng rc
+
+#import init.qcom.usb.rc
 import init.target.rc
 import init.qcom.factory.rc
 
@@ -90,6 +94,17 @@ on boot
 
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+
+    #ASUS_BSP +++ "Light/Proximity sensor"
+    chown system shell /sys/devices/virtual/sensors/psensor/switch
+    chown system shell /sys/devices/virtual/sensors/lsensor/switch
+    chown system shell /sys/devices/virtual/sensors/psensor/hi_cal
+    chown system shell /sys/devices/virtual/sensors/psensor/low_cal
+    chown system shell /sys/devices/virtual/sensors/psensor/proxm
+    chown system shell /sys/devices/virtual/sensors/lsensor/200lux_cal
+    chown system shell /sys/devices/virtual/sensors/lsensor/1000lux_cal
+    chown system shell /sys/devices/virtual/sensors/lsensor/adc
+    #ASUS_BSP ---
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -798,6 +813,10 @@ service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     oneshot
     disabled
 
+# ASUS_BSP LanceHuang+ write imei to device id
+on property:persist.radio.device.imei=*
+    setprop ro.deviceid ${persist.radio.device.imei}
+
 service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
     class late_start
     group radio wifi inet
@@ -895,6 +914,26 @@ service ssr_diag /system/bin/ssr_diag
     user system
     group system
     disabled
+
+#ASUS-BBSP Dynamic config SSR+
+# config subsystem restart
+on property:persist.sys.modem.restart=*
+    restart ssr_cfg
+
+service ssr_cfg /system/xbin/ssr_cfg.sh
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+
+service ssr_ui /system/xbin/ssr_ui.sh
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+#ASUS-BBSP Dynamic config SSR-
 
 service hvdcp /system/bin/hvdcp
     class core

@@ -1234,3 +1234,14 @@ on property:sys.usb.config=midi,adb
      write /sys/class/android_usb/android0/enable 1
      start adbd
      setprop sys.usb.state ${sys.usb.config}
+
+#ASUS_BSP+++ ShowWang "[ZC550KL][USB][NA][Spec] set otg current type: 0=SDP, 1=DCP-2mA, 2=DCP-1mA"
+on property:sys.usb.otg.chargetype=0
+     write /proc/msm_otg/otg_chargetype 0
+
+on property:sys.usb.otg.chargetype=1
+     write /proc/msm_otg/otg_chargetype 1
+
+on property:sys.usb.otg.chargetype=2
+     write /proc/msm_otg/otg_chargetype 2
+#ASUS_BSP--- ShowWang "[ZC550KL][USB][NA][Spec] set otg current type: 0=SDP, 1=DCP-2mA, 2=DCP-1mA"
