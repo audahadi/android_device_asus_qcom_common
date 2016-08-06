@@ -19,7 +19,6 @@
 /dev/lightsensor                        u:object_r:sensors_device:s0
 
 # Tfa amp
-/dev/i2c-6                              u:object_r:audio_device:s0
 /system/bin/tfamode                     u:object_r:tfamode_exec:s0
 
 # Touchscreen
