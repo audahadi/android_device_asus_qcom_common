@@ -84,10 +84,6 @@ PRODUCT_PACKAGES += \
     camera.msm8916 \
     Snap
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
