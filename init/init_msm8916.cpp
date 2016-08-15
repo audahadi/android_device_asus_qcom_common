@@ -31,6 +31,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/sysinfo.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -41,10 +42,15 @@
 
 char const *device;
 char const *family;
+char const *heapstartsize;
+char const *heapgrowthlimit;
+char const *heapsize;
+char const *heapminfree;
 
 void check_device()
 {
     int PRJ_ID, PRJ_SKU, PRJ_HD;
+    struct sysinfo sys;
     FILE *fp;
 
     fp = fopen("/proc/apid", "r");
@@ -59,6 +65,8 @@ void check_device()
     fscanf(fp, "%d", &PRJ_HD);
     pclose(fp);
 
+    sysinfo(&sys);
+
     if (PRJ_HD == 1) {
         family = "Z00L";
         if (PRJ_ID == 0) {
@@ -70,6 +78,12 @@ void check_device()
         } else if (PRJ_ID == 1) {
             device = "Z00M"; // ZE600KL
         }
+
+        // from - phone-xhdpi-2048-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heapminfree = "512k";
     } else if (PRJ_HD == 0) {
         family = "Z00T";
         if (PRJ_ID == 0) {
@@ -80,6 +94,20 @@ void check_device()
             device = "Z00C"; // ZX550KL
         } else if (PRJ_ID == 3) {
             device = "Z00U"; // ZD551KL
+        }
+
+        if (sys.totalram > 2048ull * 1024 * 1024) {
+            // from - phone-xxhdpi-3072-dalvik-heap.mk
+            heapstartsize = "8m";
+            heapgrowthlimit = "384m";
+            heapsize = "1024m";
+            heapminfree = "512k";
+        } else {
+            // from - phone-xxhdpi-2048-dalvik-heap.mk
+            heapstartsize = "16m";
+            heapgrowthlimit = "192m";
+            heapsize = "512m";
+            heapminfree = "2m";
         }
     }
 }
@@ -109,6 +137,13 @@ void vendor_load_properties()
     property_set("ro.product.carrier", p_carrier);
     property_set("ro.product.device", p_device);
     property_set("ro.product.model", p_model);
+
+    property_set("dalvik.vm.heapstartsize", heapstartsize);
+    property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
+    property_set("dalvik.vm.heapsize", heapsize);
+    property_set("dalvik.vm.heaptargetutilization", "0.75");
+    property_set("dalvik.vm.heapminfree", heapminfree);
+    property_set("dalvik.vm.heapmaxfree", "8m");
 
     INFO("Setting build properties for %s device of %s family\n", device, family);
 }
