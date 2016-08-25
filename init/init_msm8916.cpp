@@ -147,11 +147,9 @@ void vendor_load_properties()
 {
     char b_description[PROP_VALUE_MAX], b_fingerprint[PROP_VALUE_MAX];
     char p_carrier[PROP_VALUE_MAX], p_device[PROP_VALUE_MAX], p_model[PROP_VALUE_MAX];
-    char platform[PROP_VALUE_MAX];
-    int rc;
 
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
+    std::string platform = property_get("ro.board.platform");
+    if (!ISMATCH(platform.c_str(), ANDROID_TARGET))
         return;
 
     check_device();
