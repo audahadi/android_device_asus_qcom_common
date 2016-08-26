@@ -38,8 +38,6 @@
 #include "log.h"
 #include "util.h"
 
-#define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
-
 char const *device;
 char const *family;
 char const *heapstartsize;
@@ -149,7 +147,7 @@ void vendor_load_properties()
     char p_carrier[PROP_VALUE_MAX], p_device[PROP_VALUE_MAX], p_model[PROP_VALUE_MAX];
 
     std::string platform = property_get("ro.board.platform");
-    if (!ISMATCH(platform.c_str(), ANDROID_TARGET))
+    if (platform != ANDROID_TARGET)
         return;
 
     check_device();
