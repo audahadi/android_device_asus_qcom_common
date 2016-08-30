@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2009-2014, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -229,6 +229,29 @@ case "$target" in
         start_msm_irqbalance
         ;;
     "msm8909")
+        if [ -f /sys/devices/soc0/platform_version ]; then
+             platform_version=`cat /sys/devices/soc0/platform_version`
+             major_hw_version=$(($platform_version >> 16))
+        fi
+        if [ -f /sys/devices/soc0/platform_subtype_id ]; then
+             platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
+        fi
+        if [ -f /sys/devices/soc0/hw_platform ]; then
+             hw_platform=`cat /sys/devices/soc0/hw_platform`
+        fi
+        case "$hw_platform" in
+             "QRD")
+                  case "$platform_subtype_id" in
+                       "0")
+                       case "$major_hw_version" in
+                            "6")
+                                setprop qemu.hw.mainkeys 0
+                                ;;
+                       esac
+                       ;;
+                  esac
+                  ;;
+        esac
         ;;
 esac
 
