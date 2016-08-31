@@ -31,7 +31,7 @@ $(CMN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(CMN_SYMLINKS)
+MSM8916_SYMLINKS += $(CMN_SYMLINKS)
 
 ISDB_IMAGES := \
     isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.mdt
@@ -43,7 +43,7 @@ $(ISDB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(ISDB_SYMLINKS)
+MSM8916_SYMLINKS += $(ISDB_SYMLINKS)
 
 KM_IMAGES := \
     keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
@@ -55,7 +55,7 @@ $(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
+MSM8916_SYMLINKS += $(KM_SYMLINKS)
 
 MBA_IMAGES := mba.mbn
 
@@ -66,7 +66,7 @@ $(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
+MSM8916_SYMLINKS += $(MBA_SYMLINKS)
 
 MODEM_IMAGES := \
     modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
@@ -81,7 +81,7 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
+MSM8916_SYMLINKS += $(MODEM_SYMLINKS)
 
 VENUS_IMAGES := \
     venus.b00 venus.b01 venus.b02 venus.b03 venus.b04 venus.mdt
@@ -93,7 +93,7 @@ $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(VENUS_SYMLINKS)
+MSM8916_SYMLINKS += $(VENUS_SYMLINKS)
 
 WCNSS_CONFIG_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 $(WCNSS_CONFIG_SYMLINK): $(LOCAL_INSTALLED_MODULE)
@@ -102,7 +102,7 @@ $(WCNSS_CONFIG_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_CONFIG_SYMLINK)
+MSM8916_SYMLINKS += $(WCNSS_CONFIG_SYMLINK)
 
 WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b03 wcnss.b04 wcnss.b05 \
@@ -116,7 +116,7 @@ $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
+MSM8916_SYMLINKS += $(WCNSS_SYMLINKS)
 
 WV_IMAGES := \
     widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
@@ -128,6 +128,11 @@ $(WV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WV_SYMLINKS)
+MSM8916_SYMLINKS += $(WV_SYMLINKS)
+
+.PHONY: msm8916-symlinks
+msm8916-symlinks: $(MSM8916_SYMLINKS)
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MSM8916_SYMLINKS)
 
 endif
