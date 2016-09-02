@@ -162,6 +162,8 @@ ___________________________________________________
         </MediaCodec>
     </Encoders>
     <Decoders>
+        <!-- Audio Software  -->
+        <MediaCodec name="OMX.qti.audio.decoder.flac" type="audio/flac" />
         <!-- Video Hardware  -->
         <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -231,7 +233,6 @@ ___________________________________________________
             <Feature name="adaptive-playback" />
             <Limit name="concurrent-instances" max="8" />
         </MediaCodec>
-        <!--
         <MediaCodec name="OMX.qcom.video.decoder.vc1" type="video/x-ms-wmv" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
@@ -255,7 +256,6 @@ ___________________________________________________
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="6" />
         </MediaCodec>
-     
         <MediaCodec name="OMX.qcom.video.decoder.divx" type="video/divx" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
@@ -289,7 +289,6 @@ ___________________________________________________
             <Feature name="adaptive-playback" />
             <Limit name="concurrent-instances" max="8" />
         </MediaCodec>
-        -->
         <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
