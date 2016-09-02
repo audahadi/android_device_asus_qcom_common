@@ -655,14 +655,6 @@ service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     seclabel u:r:bluetooth_loader:s0
     oneshot
 
-service cnd /system/bin/cnd
-    class late_start
-    socket cnd stream 660 root inet
-
-service dpmd /system/bin/dpmd
-    class main
-    socket dpmd stream 660 root system
-
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
@@ -736,11 +728,6 @@ service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     group root
     oneshot
     disabled
-
-service loc_launcher /system/bin/loc_launcher
-    #loc_launcher will start as root and set its uid to gps
-    class late_start
-    group gps inet net_raw qcom_diag net_admin wifi
 
 service ril-daemon1 /system/bin/rild -c 2
     class main
