@@ -4,7 +4,7 @@ type asdf_data_file, file_type;
 # Default type for anything under /factory.
 type fac_file, file_type;
 
-type sysfs_touchscreen, sysfs_type;
+type sysfs_touchscreen, sysfs_type, fs_type;
 
 type proc_driver, fs_type;
 type proc_driver_audio, fs_type;
