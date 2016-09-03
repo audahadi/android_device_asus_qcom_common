@@ -34,3 +34,9 @@ if [ ! -f /persist/.bt_nv.bin ]; then
     chown bluetooth:bluetooth /persist/.bt_nv.bin
     restorecon /persist/.bt_nv.bin
 fi
+
+# Create /persist/alarm if necessary
+if [ ! -d /persist/alarm ]; then
+    mkdir /persist/alarm
+    chown system:system /persist/alarm
+fi
