@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2009-2014, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -229,6 +229,29 @@ case "$target" in
         start_msm_irqbalance
         ;;
     "msm8909")
+        if [ -f /sys/devices/soc0/platform_version ]; then
+             platform_version=`cat /sys/devices/soc0/platform_version`
+             major_hw_version=$(($platform_version >> 16))
+        fi
+        if [ -f /sys/devices/soc0/platform_subtype_id ]; then
+             platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
+        fi
+        if [ -f /sys/devices/soc0/hw_platform ]; then
+             hw_platform=`cat /sys/devices/soc0/hw_platform`
+        fi
+        case "$hw_platform" in
+             "QRD")
+                  case "$platform_subtype_id" in
+                       "0")
+                       case "$major_hw_version" in
+                            "6")
+                                setprop qemu.hw.mainkeys 0
+                                ;;
+                       esac
+                       ;;
+                  esac
+                  ;;
+        esac
         ;;
 esac
 
@@ -252,9 +275,22 @@ echo 1 > /data/misc/radio/db_check_done
 #
 # Make modem config folder and copy firmware config to that folder for RIL
 #
-rm -rf /data/misc/radio/modem_config
-mkdir /data/misc/radio/modem_config
-chmod 770 /data/misc/radio/modem_config
-cp -r /firmware/image/modem_pr/mbn_ota/* /data/misc/radio/modem_config
-chown -hR radio.radio /data/misc/radio/modem_config
+if [ -f /data/misc/radio/ver_info.txt ]; then
+    prev_version_info=`cat /data/misc/radio/ver_info.txt`
+else
+    prev_version_info=""
+fi
+
+cur_version_info=`cat /firmware/verinfo/ver_info.txt`
+if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
+    rm -rf /data/misc/radio/modem_config
+    mkdir /data/misc/radio/modem_config
+    chmod 770 /data/misc/radio/modem_config
+    cp -r /firmware/image/modem_pr/mcfg/configs/* /data/misc/radio/modem_config
+    chown -hR radio.radio /data/misc/radio/modem_config
+    cp /firmware/verinfo/ver_info.txt /data/misc/radio/ver_info.txt
+    chown radio.radio /data/misc/radio/ver_info.txt
+fi
+cp /firmware/image/modem_pr/mbn_ota.txt /data/misc/radio/modem_config
+chown radio.radio /data/misc/radio/modem_config/mbn_ota.txt
 echo 1 > /data/misc/radio/copy_complete
