@@ -1,3 +1,8 @@
+genfscon proc /aphd  u:object_r:proc_aphd:s0
+genfscon proc /apid  u:object_r:proc_apid:s0
+genfscon proc /aplte u:object_r:proc_aplte:s0
+genfscon proc /aprf  u:object_r:proc_aprf:s0
+
 genfscon proc /driver u:object_r:proc_driver:s0
 
 genfscon proc /driver/audio_debug u:object_r:proc_driver_audio:s0
@@ -13,3 +18,5 @@ genfscon proc /driver/RearModule u:object_r:proc_driver_camera:s0
 genfscon proc /driver/LaserFocus_ u:object_r:proc_driver_laf:s0
 
 genfscon proc /asusevtlog u:object_r:proc_asusevtlog:s0
+
+genfscon proc /sys/kernel/boot_reason u:object_r:proc_boot_reason:s0

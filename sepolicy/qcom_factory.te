@@ -6,12 +6,18 @@ init_daemon_domain(qcom_factory)
 # Allow copying files from /factory/ to /persist
 allow qcom_factory fac_file:dir ra_dir_perms;
 allow qcom_factory fac_file:file r_file_perms;
-allow qcom_factory persist_file:dir ra_dir_perms;
+allow qcom_factory persist_file:dir { create_dir_perms relabelfrom };
 allow qcom_factory persist_file:file { create_file_perms relabelfrom };
+allow qcom_factory persist_alarm_file:dir { ra_dir_perms relabelto };
+allow qcom_factory persist_alarm_file:file w_file_perms;
 allow qcom_factory bluetooth_data_file:file { r_file_perms relabelto };
 
 # Allow running init.qcom.factory.sh
-allow qcom_factory shell_exec:file { entrypoint read };
+allow qcom_factory shell_exec:file { entrypoint getattr read };
+allow qcom_factory toolbox_exec:file rx_file_perms;
+
+# Allow reading SELinux files
+allow qcom_factory rootfs:file r_file_perms;
 
 # Allow changing permissions of files
 allow qcom_factory self:capability { fowner chown dac_override };
