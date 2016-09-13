@@ -1,1 +1,5 @@
+allow system_server mpctl_data_file:dir search;
+allow system_server mpctl_data_file:sock_file write;
+
 r_dir_file(system_server, fac_file)
+r_dir_file(system_server, persist_file)

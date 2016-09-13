@@ -1,2 +1,9 @@
+allow domain proc_aphd:file r_file_perms;
+allow domain proc_apid:file r_file_perms;
+allow domain proc_aplte:file r_file_perms;
+allow domain proc_aprf:file r_file_perms;
+
+allow domain proc_boot_reason:file r_file_perms;
+
 allow domain proc_driver:dir search;
 allow domain proc_driver_laf:file r_file_perms;

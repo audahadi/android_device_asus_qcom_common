@@ -1,0 +1,2 @@
+# allow perfd self:capability sys_ptrace;
+allow perfd mpctl_data_file:sock_file create_file_perms;
