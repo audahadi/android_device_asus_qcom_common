@@ -58,6 +58,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
              FALSE - default capabilities will be retained
              TRUE - remove modify call capabilities which will hide modify call button -->
         <boolean name="remove_modify_call_capability" value="false" />
+        <!-- Config to show/hide Video quality toast -->
+        <bool name="show_video_quality_toast">true</bool>
+        <!-- Config to show/hide call session event toast like player start/stop -->
+        <bool name="show_call_session_event_toast">true</bool>
+        <!-- Config to show/hide data usage toast -->
+        <bool name="show_data_usage_toast">true</bool>
+
     </carrier_config>
 
     <carrier_config mcc="222" mnc="01">
@@ -72,6 +79,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="854">
@@ -81,6 +91,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="855">
@@ -90,6 +103,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="856">
@@ -99,6 +115,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="857">
@@ -108,6 +127,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="858">
@@ -117,6 +139,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="859">
@@ -126,6 +151,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="860">
@@ -135,6 +163,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="861">
@@ -144,6 +175,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="862">
@@ -153,6 +187,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="863">
@@ -162,6 +199,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="864">
@@ -171,6 +211,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="865">
@@ -180,6 +223,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="866">
@@ -189,6 +235,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="867">
@@ -198,6 +247,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="868">
@@ -207,6 +259,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="869">
@@ -216,6 +271,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="870">
@@ -225,6 +283,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="871">
@@ -234,6 +295,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="872">
@@ -243,6 +307,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="873">
@@ -252,6 +319,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="405" mnc="874">
@@ -261,6 +331,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="450" mnc="05">
@@ -282,6 +355,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="check_mobile_data_for_cf" value="true" />
         <boolean name="config_enable_callbarring_over_ims" value="true" />
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="460" mnc="01">
@@ -293,6 +369,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="check_mobile_data_for_cf" value="true" />
         <boolean name="config_enable_callbarring_over_ims" value="true" />
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="460" mnc="03">
@@ -318,6 +397,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="check_mobile_data_for_cf" value="true" />
         <boolean name="config_enable_callbarring_over_ims" value="true" />
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="460" mnc="08">
@@ -325,6 +407,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="check_mobile_data_for_cf" value="true" />
         <boolean name="config_enable_callbarring_over_ims" value="true" />
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true"/>
+        <boolean name="show_video_quality_toast" value="false"/>
+        <boolean name="show_call_session_event_toast" value="false"/>
+        <boolean name="show_data_usage_toast" value="false"/>
     </carrier_config>
 
     <carrier_config mcc="460" mnc="09">
