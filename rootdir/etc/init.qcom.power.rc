@@ -1,6 +1,4 @@
 on enable-low-power
-    insmod /system/lib/modules/msm_core_ctl.ko
-
     start qcom-power
 
     rm /data/misc/perfd/default_values
