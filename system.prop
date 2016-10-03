@@ -29,6 +29,9 @@ audio.offload.video=true
 av.offload.enable=true
 av.streaming.offload.enable=false
 
+# Bluetooth
+qcom.bluetooth.soc=smd
+
 # Camera
 persist.camera.cpp.duplication=false
 
