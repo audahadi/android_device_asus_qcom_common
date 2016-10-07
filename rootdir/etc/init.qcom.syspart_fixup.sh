@@ -61,9 +61,9 @@ if [ -f /system/etc/init.qcom.mdm_links.sh ]; then
 fi
 
 # Run wifi script
-if [ -f /system/etc/init.qcom.wifi.sh ]; then
-  /system/bin/sh /system/etc/init.qcom.wifi.sh "$target" "$serial"
-fi
+#if [ -f /system/etc/init.qcom.wifi.sh ]; then
+#  /system/bin/sh /system/etc/init.qcom.wifi.sh "$target" "$serial"
+#fi
 
 # Run the sensor script
 if [ -f /system/etc/init.qcom.sensor.sh ]; then

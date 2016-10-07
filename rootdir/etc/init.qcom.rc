@@ -25,16 +25,34 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+#ASUS_BSP+++ "[USB][NA][Spec] Add ASUS USB support"
+#import init.qcom.usb.rc
+import init.asus.usb.rc
+#ASUS_BSP--- "[USB][NA][Spec] Add ASUS USB support"
+import init.target.rc
+#ASUS_BSP +++ ShawnHuang "[Thermal] Thermal Service"
+import init.asus.thermald.rc
+#ASUS_BSP --- ShawnHuang "[Thermal] Thermal Service"
+import init.qcom.factory.rc
 #+++ ASUS_BSP : Add ASUS user/eng rc
 import init.asus.rc
 #--- ASUS_BSP : Add ASUS user/eng rc
+import /init.cm.rc
 
-#import init.qcom.usb.rc
-import init.target.rc
-import init.qcom.factory.rc
-
+#ASUS_BSP Wei +++
+import init.asus.debugtool.rc
+#ASUS_BSP Wei +++
 on early-init
     mount debugfs debugfs /sys/kernel/debug
+
+#ASUS_BSP Johnny +++ "add tcpdump tool"
+# tcpdump_warp service to save tcpdump to /sdcard
+service tcpdump-warp /system/bin/sh /system/xbin/netlog.sh
+    class late_start
+    user root
+    group root
+    disabled
+#ASUS_BSP Johnny --- "add tcpdump tool"
 
 on init
     # Set permissions for persist partition
@@ -66,6 +84,13 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
     chown root audio /sys/kernel/boot_adsp/boot
     exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
+    # set wifi link file.
+    setprop wlan.driver.ath 0
+    setprop wlan.driver.status unloaded
+    setprop wlan.softap.driver.status unloaded
+    setprop persist.debug.wifi_user_list 1
+    symlink /system/lib/modules/pronto/pronto_wlan.ko /system/lib/modules/wlan.ko
+    setprop wlan.driver.config /system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -104,7 +129,7 @@ on boot
     chown system shell /sys/devices/virtual/sensors/lsensor/200lux_cal
     chown system shell /sys/devices/virtual/sensors/lsensor/1000lux_cal
     chown system shell /sys/devices/virtual/sensors/lsensor/adc
-    #ASUS_BSP ---
+#ASUS_BSP ---
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -142,9 +167,9 @@ on boot
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.default 4096,87380,524288,4096,16384,110208
-    setprop net.tcp.buffersize.lte     2097152,4194304,8388608,262144,524288,1048576
-    setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
+    setprop net.tcp.buffersize.default 4096,87380,110208,4096,16384,110208
+    setprop net.tcp.buffersize.lte     524288,1048576,2560000,262144,524288,1220608
+    setprop net.tcp.buffersize.umts    4094,87380,220416,4096,16384,110208
     setprop net.tcp.buffersize.hspa    4094,87380,1220608,4096,16384,1220608
     setprop net.tcp.buffersize.hsupa   4094,87380,1220608,4096,16384,1220608
     setprop net.tcp.buffersize.hsdpa   4094,87380,1220608,4096,16384,1220608
@@ -190,10 +215,15 @@ on boot
 
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
-    write /proc/sys/kernel/printk "6 6 1 7"
+    write /proc/sys/kernel/printk "8 6 1 7"
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
+
+    # Mark the copy complete flag to not completed
+    write /data/misc/radio/copy_complete 0
+    chown radio radio /data/misc/radio/copy_complete
+    chmod 0660 /data/misc/radio/copy_complete
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -290,6 +320,8 @@ on post-fs-data
     mkdir /data/camera 0770 media camera
 
     #Create PERFD deamon related dirs
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
     mkdir /persist/drm 0770 system system
@@ -313,29 +345,11 @@ on post-fs-data
     mkdir /data/misc/SelfHost/Running/ 2750 system shell
     mkdir /data/misc/SelfHost/socket/ 2770 system system
 
-    # Mark the copy complete flag to not completed
-    write /data/misc/radio/copy_complete 0
-    chown radio radio /data/misc/radio/copy_complete
-    chmod 0660 /data/misc/radio/copy_complete
-
-    # File flags for prebuilt ril db file
-    write /data/misc/radio/prebuilt_db_support 1
-    chown radio radio /data/misc/radio/prebuilt_db_support
-    chmod 0400 /data/misc/radio/prebuilt_db_support
-    write /data/misc/radio/db_check_done 0
-    chown radio radio /data/misc/radio/db_check_done
-    chmod 0660 /data/misc/radio/db_check_done
-
-service perfd /system/vendor/bin/perfd
-    class main
-    user root
-    disabled
-    socket perfd seqpacket 0666 root system
-
 service qcomsysd /system/bin/qcom-system-daemon
     class main
     user root
     group root qcom_diag
+    disabled
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
@@ -344,7 +358,7 @@ service ssr_setup /system/bin/ssr_setup
 service ss_ramdump /system/bin/subsystem_ramdump
     class main
     user system
-    group system
+    group system sdcard_rw sdcard_r media_rw
     disabled
 
 on property:persist.sys.ssr.restart_level=*
@@ -357,6 +371,7 @@ on property:persist.sys.ssr.enable_ramdumps=1
 
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
+    stop ss_ramdump
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
@@ -439,13 +454,15 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service cnd /system/bin/cnd
-    class main
-    socket cnd stream 660 root inet
+#service cnd /system/bin/cnd
+#    class late_start
+#    socket cnd stream 660 root inet
 
-service dpmd /system/bin/dpmd
-    class late_start
-    socket dpmd stream 660 root system
+#ASUS_BSP Lance +++ "remove dpmd"
+#service dpmd /system/bin/dpmd
+#    class late_start
+#    socket dpmd stream 660 root system
+#ASUS_BSP Lance --- "remove dpmd"
 
 service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
@@ -624,7 +641,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf -N \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 -dd \
+    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
@@ -638,7 +655,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -dd \
+    -O/data/misc/wifi/sockets \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     #   we will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT
@@ -673,6 +690,7 @@ service ptt_socket_app /system/bin/ptt_socket_app -d
     class main
     user root
     group root
+    disabled
     oneshot
 
 service ptt_ffbm /system/bin/ptt_socket_app -f -d
@@ -680,6 +698,12 @@ service ptt_ffbm /system/bin/ptt_socket_app -f -d
     group root
     disabled
     oneshot
+
+#ASUS_BSP_WIFI +++ init a service with root permission to execute wifitest command
+service wifitest_runcmd /system/bin/wifitest_runcmd.sh
+    disabled
+    oneshot
+#ASUS_BSP_WIFI --- init a service with root permission to execute wifitest command
 
 service wifi_ftmd /system/bin/wifi_ftmd
     user system
@@ -794,6 +818,13 @@ service config-zram /system/bin/sh /system/etc/init.qcom.zram.sh
    disabled
    oneshot
 
+service modem-check /system/bin/modem_country
+    class late_start
+    user bluetooth
+    group net_bt
+    disabled
+    oneshot
+
 service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
@@ -804,6 +835,7 @@ on property:sys.boot_completed=1
     start qcom-post-boot
     start qti-testscripts
     start config-zram
+    start modem-check
     start atfwd
 
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
@@ -889,6 +921,7 @@ service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw
 
 service fuse_uicc0 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/uicc0 /storage/uicc0
     class late_start
+    disabled
 
 service fuse_uicc1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/uicc1 /storage/uicc1
     class late_start
@@ -906,7 +939,10 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service charger /charger
     class charger
-    group system graphics
+    seclabel u:r:healthd:s0
+
+service bank /bank
+    class bank
     seclabel u:r:healthd:s0
 
 service ssr_diag /system/bin/ssr_diag
@@ -963,7 +999,7 @@ on property:sys.qbcharger.enable=false
     write /sys/power/wake_unlock QuickBoot
     stop qbcharger
 
-service diag_mdlog_start /system/bin/diag_mdlog
+service diag_mdlog_start /system/bin/diag_mdlog -c
     class late_start
     user shell
     group system qcom_diag sdcard_rw sdcard_r media_rw
@@ -976,6 +1012,20 @@ service diag_mdlog_stop /system/bin/diag_mdlog -k
     group system qcom_diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
+
+#ASUS_BSP +++ Yujoe "[A60K][Diag][N/A][Improve]Improve the process of saving QXDM log to SD card."
+on property:persist.asus.qxdmlog.enable=1
+    start diag_mdlog_start
+
+on property:persist.asus.qxdmlog.enable=0
+    start diag_mdlog_stop
+
+on property:debug.asus.qxdmlog.enable=1
+    start diag_mdlog_start
+
+on property:debug.asus.qxdmlog.enable=0
+    start diag_mdlog_stop
+#ASUS_BSP --- Yujoe "[A60K][Diag][N/A][Improve]Improve the process of saving QXDM log to SD card."
 
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
@@ -1042,11 +1092,3 @@ service fidodaemon /system/vendor/bin/fidodaemon
     class late_start
     user system
     group system
-
-#add poweroffhandler
-service poweroffhandler /system/bin/poweroffhandler
-    class core
-    user media
-    group graphics audio
-    disabled
-    oneshot

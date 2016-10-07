@@ -36,7 +36,16 @@ service srvmag_ffbm /system/bin/servicemanager
     user root
     disabled
     oneshot
-
+ 
+#service surfaceflinger /system/bin/surfaceflinger    
+#    user root
+#    disabled
+#   group graphics drmrpc 
+    
+#service sensorservice /system/bin/sensorservice    
+#    user root
+#    disabled
+    
 # Creating a scratch storage on /data for factory testing.
 on factory-fs
     mount tmpfs tmpfs /data
@@ -83,9 +92,6 @@ on mmi
     chmod 2770 /dev/socket/qmux_gps
 
     setprop wifi.interface wlan0
-
-    #disable camera read sensors data on FFBM
-    setprop persist.camera.gyro.disable 1
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -261,28 +267,15 @@ on mmi
 
     #mkdir for factory data files.
     mkdir /cache/FTM_AP 0750 root root
-    #sensor settings
-    chmod 775 /persist/sensors
-    chmod 664 /persist/sensors/sensors_settings
-    chown system root /persist/sensors/sensors_settings
-    mkdir /data/misc/sensors 775 system root
-
-    #Create NETMGR daemon socket area
-    mkdir /dev/socket/netmgr 0750 radio radio
 
     #Start the following services needed for fftm
     start qcom-usb-sh
     start logd
     start debuggerd
     start debuggerd64
-    start per_mgr
-    start ril-daemon
     start config_bluetooth
-    start sensors
     start media
-    start srvmag_ffbm
     start surfaceflinger
-    start fastmmi
     start wcnss-service
     start qcom-post-boot
     start rmt_storage
@@ -290,27 +283,22 @@ on mmi
     start irsc_util
     start qcamerasvr
     start qcomsysd
+    start srvmag_ffbm
+    start fastmmi 
     start ptt_ffbm
-    start tftp_server
+    start akmd
 
 on ffbm
     trigger early-fs
     trigger factory-fs
     trigger fs
     trigger post-fs
+    trigger post-fs-data
 
     # Load properties from /system/ + /factory after fs mount. Place
     # this in another action so that the load will be scheduled after the prior
     # issued fs triggers have completed.
     trigger load_system_props_action
-
-    # Now we can mount /data. File encryption requires keymaster to decrypt
-    # /data, which in turn can only be loaded when system properties are present
-    trigger post-fs-data
-    trigger load_persist_props_action
-
-    # Remove a file to wake up anything waiting for firmware.
-    trigger firmware_mounts_complete
 
     trigger early-boot
     trigger mmi
