@@ -95,15 +95,6 @@ $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(VENUS_SYMLINKS)
 
-WCNSS_CONFIG_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-$(WCNSS_CONFIG_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS config link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_CONFIG_SYMLINK)
-
 WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b03 wcnss.b04 wcnss.b05 \
     wcnss.b06 wcnss.b07 wcnss.b08 wcnss.b09 wcnss.b10 wcnss.b11 \
