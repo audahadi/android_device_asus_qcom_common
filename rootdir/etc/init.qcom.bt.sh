@@ -124,7 +124,7 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.pbap true
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.bluetooth.sap true
+        setprop ro.bluetooth.sap false
         setprop ro.bluetooth.dun true
         case $btsoc in
           "ath3k")
@@ -162,6 +162,8 @@ config_bt ()
        then
            setprop ro.bluetooth.hfp.ver 1.7
            setprop ro.qualcomm.bt.hci_transport smd
+           setprop bt.version.driver WCNSS-PR-2-0-1-1-c1-1-00004
+           setprop wifi.version.driver WCNSS-PR-2-0-1-1-c1-1-00004
        fi
        ;;
     "apq8084" | "mpq8092" | "msm8994" )

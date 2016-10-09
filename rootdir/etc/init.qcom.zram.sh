@@ -37,8 +37,8 @@ IsLargeMemory=0
 setprop ro.config.zram true
 #Set per_process_reclaim tuning parameters
 echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-ProductName=`getprop ro.product.name`
-if [ "$ProductName" == "msm8916_64" ] && [ $IsLargeMemory -eq 1 ]; then
+ProductBoard=`getprop ro.product.board`
+if [ "$ProductBoard" == "msm8916" ] && [ $IsLargeMemory -eq 1 ]; then
     echo 10 > /sys/module/process_reclaim/parameters/pressure_min
     echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
 else

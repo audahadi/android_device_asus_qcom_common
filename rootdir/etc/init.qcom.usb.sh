@@ -89,59 +89,59 @@ target=`getprop ro.board.platform`
 #
 baseband=`getprop ro.baseband`
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
-usb_config=`getprop persist.sys.usb.config`
-case "$usb_config" in
-    "" | "adb") #USB persist config not set, select default configuration
-      case "$esoc_link" in
-          "HSIC")
-              setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
-              setprop persist.rmnet.mux enabled
-          ;;
-          "HSIC+PCIe")
-              setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,rmnet_qti_ether,mass_storage,adb
-          ;;
-          "PCIe")
-              setprop persist.sys.usb.config diag,diag_mdm,serial_tty,rmnet_qti_ether,mass_storage,adb
-          ;;
-          *)
-          case "$baseband" in
-              "mdm")
-                   setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
-              ;;
-              "mdm2")
-                   setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
-              ;;
-              "sglte")
-                   setprop persist.sys.usb.config diag,diag_qsc,serial_smd,serial_tty,serial_hsuart,rmnet_hsuart,mass_storage,adb
-              ;;
-              "dsda" | "sglte2")
-                   setprop persist.sys.usb.config diag,diag_mdm,diag_qsc,serial_hsic,serial_hsuart,rmnet_hsic,rmnet_hsuart,mass_storage,adb
-              ;;
-              "dsda2")
-                   setprop persist.sys.usb.config diag,diag_mdm,diag_mdm2,serial_hsic,serial_hsusb,rmnet_hsic,rmnet_hsusb,mass_storage,adb
-              ;;
-              *)
-		case "$target" in
-                        "msm8916")
-                            setprop persist.sys.usb.config diag,serial_smd,rmnet_bam,adb
-                        ;;
-                        "msm8994")
-                            setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb
-                        ;;
-                        "msm8909")
-                            setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
-                        ;;
-                        *)
-                            setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
-                        ;;
-                    esac
-              ;;
-          esac
-          ;;
-      esac
-    ;;
-    * ) ;; #USB persist config exists, do nothing
-esac
+#usb_config=`getprop persist.sys.usb.config`
+#case "$usb_config" in
+#    "" | "adb") #USB persist config not set, select default configuration
+#      case "$esoc_link" in
+#          "HSIC")
+#              setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
+#              setprop persist.rmnet.mux enabled
+#          ;;
+#          "HSIC+PCIe")
+#              setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,rmnet_qti_ether,mass_storage,adb
+#          ;;
+#          "PCIe")
+#              setprop persist.sys.usb.config diag,diag_mdm,serial_tty,rmnet_qti_ether,mass_storage,adb
+#          ;;
+#          *)
+#          case "$baseband" in
+#              "mdm")
+#                   setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
+#              ;;
+#              "mdm2")
+#                   setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
+#              ;;
+#              "sglte")
+#                   setprop persist.sys.usb.config diag,diag_qsc,serial_smd,serial_tty,serial_hsuart,rmnet_hsuart,mass_storage,adb
+#              ;;
+#              "dsda" | "sglte2")
+#                   setprop persist.sys.usb.config diag,diag_mdm,diag_qsc,serial_hsic,serial_hsuart,rmnet_hsic,rmnet_hsuart,mass_storage,adb
+#              ;;
+#             "dsda2")
+#                  setprop persist.sys.usb.config diag,diag_mdm,diag_mdm2,serial_hsic,serial_hsusb,rmnet_hsic,rmnet_hsusb,mass_storage,adb
+#              ;;
+#             *)
+#		case "$target" in
+#                        "msm8916")
+#                            setprop persist.sys.usb.config diag,serial_smd,rmnet_bam,adb
+#                        ;;
+#                        "msm8994")
+#                            setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb
+#                        ;;
+#                        "msm8909")
+#                            setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
+#                        ;;
+#                        *)
+#                            setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
+#                        ;;
+#                    esac
+#              ;;
+#          esac
+#          ;;
+#      esac
+#    ;;
+#    * ) ;; #USB persist config exists, do nothing
+#esac
 
 #
 # Do target specific things
@@ -212,22 +212,66 @@ case "$baseband" in
     ;;
 esac
 
+# ASUS BSP+++"[ZE500KL][USB][NA][Other] Set SSN to USB serial number"
+project=`getprop ro.build.product`
+if [ "$project" != "ZC550KL" ]; then
+ls_ssn=`ls /factory/SSN`
+case "$ls_ssn" in
+	*SSN*)
+		ssn_value=`cat /factory/SSN`
+		echo "$ssn_value" > /sys/class/android_usb/android0/iSerial
+		;;
+	* )
+		echo "C4ATAS000000" > /sys/class/android_usb/android0/iSerial
+	;;
+esac
+fi
+# ASUS BSP---"[ZE500KL][USB][NA][Other] Set SSN to USB serial number"
+
 #
 # Add support for exposing lun0 as cdrom in mass-storage
 #
+#cdromname="/system/etc/cdrom_install.iso"
+#platformver=`cat /sys/devices/soc0/hw_platform`
+#case "$target" in
+#	"msm8226" | "msm8610" | "msm8916" | "msm8909")
+#		case $platformver in
+#			"QRD")
+#				echo "mounting usbcdrom lun"
+#				echo $cdromname > /sys/class/android_usb/android0/f_mass_storage/rom/file
+#				chmod 0444 /sys/class/android_usb/android0/f_mass_storage/rom/file
+#				;;
+#		esac
+#		;;
+#esac
 cdromname="/system/etc/cdrom_install.iso"
-platformver=`cat /sys/devices/soc0/hw_platform`
-case "$target" in
-	"msm8226" | "msm8610" | "msm8916" | "msm8909")
-		case $platformver in
-			"QRD")
-				echo "mounting usbcdrom lun"
-				echo $cdromname > /sys/class/android_usb/android0/f_mass_storage/rom/file
-				chmod 0444 /sys/class/android_usb/android0/f_mass_storage/rom/file
-				;;
-		esac
+per_sysusbconfig=`getprop persist.sys.usb.config`
+if [ -f $cdromname ]; then
+	setprop persist.service.cdrom.enable 1
+	echo "mounting usbcdrom lun" > /dev/kmsg
+	echo $cdromname > /sys/class/android_usb/android0/f_mass_storage/rom/file
+	chmod 0444 /sys/class/android_usb/android0/f_mass_storage/rom/file
+	case "$per_sysusbconfig" in
+		"mtp,adb")
+			setprop persist.sys.usb.config mtp,adb,mass_storage
 		;;
-esac
+		"mtp")
+			setprop persist.sys.usb.config mtp,mass_storage
+		;;
+	esac
+else
+	setprop persist.service.cdrom.enable 0
+	echo "" > /sys/class/android_usb/android0/f_mass_storage/rom/file
+	case "$per_sysusbconfig" in
+		"mtp,adb,mass_storage")
+			setprop persist.sys.usb.config mtp,adb
+		;;
+		"mtp,mass_storage")
+			setprop persist.sys.usb.config mtp
+		;;
+	esac
+fi
+
 
 #
 # Initialize RNDIS Diag option. If unset, set it to 'none'.
@@ -254,3 +298,15 @@ case "$soc_id" in
 		setprop sys.usb.rps_mask 4
 	;;
 esac
+
+# ASUS BSP "[ZE500KL][USB][NA][Other] Detect ADB=Y to add adb function"
+CMDLINE=`cat /proc/cmdline`
+case "$CMDLINE" in
+	*ADB=Y*)
+		setprop sys.usb.adbon 1
+	;;
+esac
+
+#ASUS_BSP+++ ShowWang "[ZC550KL][USB][NA][Spec] set otg current type: 0=SDP(default), 1=DCP"
+setprop sys.usb.otg.chargetype 0
+#ASUS_BSP--- ShowWang "[ZC550KL][USB][NA][Spec] set otg current type: 0=SDP, 1=DCP"

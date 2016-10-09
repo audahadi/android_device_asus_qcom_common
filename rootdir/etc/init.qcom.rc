@@ -37,7 +37,6 @@ import init.qcom.factory.rc
 #+++ ASUS_BSP : Add ASUS user/eng rc
 import init.asus.rc
 #--- ASUS_BSP : Add ASUS user/eng rc
-import /init.cm.rc
 
 #ASUS_BSP Wei +++
 import init.asus.debugtool.rc
