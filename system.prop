@@ -52,6 +52,8 @@ drm.service.enabled=true
 mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
 
 # Netmgrd
 persist.data.netmgrd.qos.enable=true
