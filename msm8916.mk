@@ -204,10 +204,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
-# WCNSS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
-
 PRODUCT_PACKAGES += \
     wcnss_service
 
@@ -220,11 +216,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
-    hostapd_default.conf \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
 
-PRODUCT_PACKAGES += \
-    p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf
