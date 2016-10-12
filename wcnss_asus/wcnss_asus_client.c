@@ -21,7 +21,7 @@
 #define SUCCESS 0
 #define FAILED -1
 
-#define MAC_ADDR_PATH "/factory/wifimac.txt"
+#define MAC_ADDR_PATH "/factory/wifi.nv"
 #define GENMAC_FILE "/persist/.genmac"
 #define MAC_ADDR_SIZE 12
 #define MAX_WAIT_COUNT 10
