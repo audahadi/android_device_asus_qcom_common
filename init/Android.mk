@@ -15,6 +15,9 @@ ifeq ($(LIBINIT_USE_MSM_DEFAULT),true)
 else
   LOCAL_SRC_FILES += init_$(TARGET_BOARD_PLATFORM).c
 endif
+ifeq (PRODUCT_DEVICE),Z010D)
+  LOCAL_C_INCLUDES := device/asus/Z010D/init/init_z010d.cpp
+endif
 LOCAL_MODULE := libinit_msm
 include $(BUILD_STATIC_LIBRARY)
 
