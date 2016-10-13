@@ -27,6 +27,7 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <errno.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
@@ -131,7 +132,7 @@ void setOwners(char *path, int owner, int group)
 
 void init_alarm_boot_properties()
 {
-    char *alarm_file = "/proc/sys/kernel/boot_reason";
+    char const *alarm_file = "/proc/sys/kernel/boot_reason";
     char buf[BUF_SIZE];
     char tmp[PROP_VALUE_MAX]="";
 
