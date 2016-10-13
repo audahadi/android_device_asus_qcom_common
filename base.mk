@@ -603,6 +603,11 @@ CRDA += regulatory.bin
 CRDA += linville.key.pub.pem
 CRDA += init.crda.sh
 
+#CM
+CM := CMFileManager
+CM += Trebuchet
+CM += Eleven
+
 #WLAN
 WLAN := prima_wlan.ko
 WLAN += pronto_wlan.ko
@@ -832,9 +837,6 @@ PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
 # dm-verity definitions
 PRODUCT_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
-
-# CM SDK
--include device/qcom/common/cmsdk_common.mk
 
 #skip boot jars check
 SKIP_BOOT_JARS_CHECK := true
