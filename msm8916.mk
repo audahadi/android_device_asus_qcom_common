@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# inherit from the proprietary version
-$(call inherit-product, vendor/asus/msm8916-common/msm8916-common-vendor.mk)
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
