@@ -663,7 +663,6 @@ PRODUCT_PACKAGES := \
     FMRecord \
     VideoEditor \
     SnapdragonGallery \
-    SnapdragonLauncher \
     SnapdragonMusic
 
 
