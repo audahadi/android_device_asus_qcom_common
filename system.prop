@@ -75,6 +75,9 @@ ril.subscription.types=NV,RUIM
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9,9
 
+# Storage
+ro.sys.sdcardfs=true
+
 # Time
 persist.timed.enable=true
 
