@@ -1021,4 +1021,11 @@
         <path name="speaker-and-headphones" />
     </path>
 
+    <path name="unprocessed-handset-mic">
+        <path name="handset-mic" />
+    </path>
+
+    <path name="unprocessed-mic">
+        <path name="unprocessed-handset-mic" />
+    </path>
 </mixer>
