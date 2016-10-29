@@ -84,6 +84,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     bspcapability \
+    libshims_camera \
     camera.msm8916
 
 # Charger
