@@ -32,20 +32,6 @@ service fastmmi /system/bin/mmi
     group root
     disabled
 
-service srvmag_ffbm /system/bin/servicemanager
-    user root
-    disabled
-    oneshot
- 
-#service surfaceflinger /system/bin/surfaceflinger    
-#    user root
-#    disabled
-#   group graphics drmrpc 
-    
-#service sensorservice /system/bin/sensorservice    
-#    user root
-#    disabled
-    
 # Creating a scratch storage on /data for factory testing.
 on factory-fs
     mount tmpfs tmpfs /data

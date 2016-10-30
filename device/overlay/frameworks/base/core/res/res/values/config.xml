@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Copyright (c) 2012-2015, The Linux Foundation. All rights reserved
+<!--Copyright (c) 2012-2016, The Linux Foundation. All rights reserved
 
     Not a Contribution.
 
@@ -37,7 +37,6 @@
        <item><xliff:g id="id">mute</xliff:g></item>
        <item><xliff:g id="id">volume</xliff:g></item>
        <item><xliff:g id="id">wifi</xliff:g></item>
-       <item><xliff:g id="id">vowifi</xliff:g></item>
        <item><xliff:g id="id">cdma_eri</xliff:g></item>
        <item><xliff:g id="id">data_connection</xliff:g></item>
        <item><xliff:g id="id">phone_evdo_signal</xliff:g></item>
@@ -134,10 +133,6 @@
     <!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true-->
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
-
-    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
-    on the headphone/microphone jack. When false use the older uevent framework -->
-    <bool name="config_useDevInputEventForAudioJack">true</bool>
 
     <!-- Is the device capable of hot swapping an ICC Card -->
     <bool name="config_hotswapCapable">true</bool>
@@ -244,6 +239,9 @@
          provisioning, availability etc -->
     <bool name="config_carrier_vt_available">true</bool>
 
+    <!-- Flag specifying whether WFC is available on device -->
+    <bool name="config_device_wfc_ims_available">true</bool>
+
     <string-array name="config_mobile_tcp_buffers">
         <item>"lte:2097152,4194304,8388608,262144,524288,1048576"</item>
         <item>"umts:4094,87380,1220608,4096,16384,1220608"</item>
@@ -269,13 +267,4 @@
     state changes. Voice radio tech change will always trigger an update of
     phone object irrespective of this config -->
     <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
-
-    <!--Fully qualified class name of the plugin which would be
-         dynamically loaded by TelephonyPluginDelegate-->
-    <string name="telephony_plugin_class_name" translatable="false">com.qti.internal.telephony.QtiTelephonyPlugin</string>
-
-    <!--The locatiotion of .jar file which has the extended implementation
-         of telephony base classes.-->
-    <string name="telephony_plugin_lib_path" translatable="false">/system/framework/qti-telephony-common.jar</string>
-
 </resources>

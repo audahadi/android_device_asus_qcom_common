@@ -18,7 +18,6 @@ QCOM_BOARD_PLATFORMS += msm8909w
 QSD8K_BOARD_PLATFORMS := qsd8k
 
 TARGET_USE_VENDOR_CAMERA_EXT := true
-ANDROID_COMPILE_WITH_JACK := false
 
 #List of targets that use video hw
 MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909
@@ -132,6 +131,7 @@ BT := javax.btobex
 BT += libattrib_static
 BT += hcidump.sh
 BT += libbt-vendor
+BT += libbthost_if
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
 
 #C2DColorConvert
@@ -151,6 +151,14 @@ CONNECTIVITY += services-ext
 #CURL
 CURL := libcurl
 CURL += curl
+
+#CM
+CM := CMFileManager
+#CM += Trebuchet
+CM += Eleven
+
+#Default Launcher
+DELAUN := Launcher3
 
 #DASH
 DASH := libdashplayer
@@ -248,7 +256,6 @@ INIT += init.mdm.sh
 INIT += init.qcom.uicc.sh
 INIT += fstab.qcom
 INIT += init.qcom.debug.sh
-INIT += init.qcom.zram.sh
 INIT += init.qti.memcheck.sh
 INIT += init.qti.synaptics_dsx_qhd.sh
 INIT += init.qcom.bms.sh
@@ -480,7 +487,7 @@ MM_VIDEO += liblasic
 MM_VIDEO += libOmxSwVencMpeg4
 MM_VIDEO += libOmxVdec
 MM_VIDEO += libOmxVdecHevc
-MM_VIDEO += libOmxVdpp
+MM_VIDEO += libOmxSwVdec
 MM_VIDEO += libOmxVenc
 MM_VIDEO += libOmxVidEnc
 MM_VIDEO += libstagefrighthw
@@ -491,14 +498,28 @@ MM_VIDEO += mm-venc-omx-test720p
 MM_VIDEO += mm-video-driver-test
 MM_VIDEO += mm-video-encdrv-test
 
+#NQ_NFC
+NQ_NFC := NQNfcNci
+NQ_NFC += libnqnfc-nci
+NQ_NFC += libnqnfc_nci_jni
+NQ_NFC += nfc_nci.nqx.default
+NQ_NFC += libp61-jcop-kit
+NQ_NFC += com.nxp.nfc.nq
+NQ_NFC += com.nxp.nfc.nq.xml
+NQ_NFC += libpn547_fw.so
+NQ_NFC += libpn548ad_fw.so
+NQ_NFC += libnfc-brcm.conf
+NQ_NFC += libnfc-nxp.conf
+NQ_NFC += nqnfcee_access.xml
+NQ_NFC += nqnfcse_access.xml
+NQ_NFC += Tag
+NQ_NFC += com.android.nfc_extras
+
 #OPENCORE
 OPENCORE := libomx_aacdec_sharedlibrary
-OPENCORE += libomx_amrdec_sharedlibrary
-OPENCORE += libomx_amrenc_sharedlibrary
 OPENCORE += libomx_avcdec_sharedlibrary
 OPENCORE += libomx_m4vdec_sharedlibrary
 OPENCORE += libomx_mp3dec_sharedlibrary
-OPENCORE += libomx_sharedlibrary
 OPENCORE += libopencore_author
 OPENCORE += libopencore_common
 OPENCORE += libopencore_download
@@ -509,11 +530,8 @@ OPENCORE += libopencore_net_support
 OPENCORE += libopencore_player
 OPENCORE += libopencore_rtsp
 OPENCORE += libopencore_rtspreg
-OPENCORE += libpvdecoder_gsmamr
 OPENCORE += libpvplayer_engine
-OPENCORE += libpvamrwbdecoder
 OPENCORE += libpvauthorengine
-OPENCORE += libomx_amr_component_lib
 OPENCORE += pvplayer
 OPENCORE += pvplayer_engine_test
 
@@ -642,9 +660,11 @@ PRODUCT_PACKAGES := \
     IM \
     VoiceDialer \
     FM2 \
-    FMRadio \
     FMRecord \
-    VideoEditor
+    VideoEditor \
+    SnapdragonGallery \
+    SnapdragonLauncher \
+    SnapdragonMusic
 
 
 ifneq ($(TARGET_USES_AOSP),true)
@@ -672,6 +692,7 @@ PRODUCT_PACKAGES += $(CONNECTIVITY)
 PRODUCT_PACKAGES += $(CHARGER)
 PRODUCT_PACKAGES += $(CURL)
 PRODUCT_PACKAGES += $(CM)
+PRODUCT_PACKAGES += $(DELAUN)
 PRODUCT_PACKAGES += $(RCS)
 PRODUCT_PACKAGES += $(DASH)
 PRODUCT_PACKAGES += $(DATA_OS)
@@ -714,6 +735,9 @@ PRODUCT_PACKAGES += $(MEDIA_PROFILES)
 PRODUCT_PACKAGES += $(MM_AUDIO)
 PRODUCT_PACKAGES += $(MM_CORE)
 PRODUCT_PACKAGES += $(MM_VIDEO)
+ifeq ($(strip $(TARGET_USES_NQ_NFC)),true)
+PRODUCT_PACKAGES += $(NQ_NFC)
+endif
 PRODUCT_PACKAGES += $(OPENCORE)
 PRODUCT_PACKAGES += $(PPP)
 PRODUCT_PACKAGES += $(PVOMX)
@@ -820,6 +844,15 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     device/qcom/common/media/media_profiles.xml:system/etc/media_profiles.xml \
     device/qcom/common/media/media_codecs.xml:system/etc/media_codecs.xml
+
+ifeq ($(strip $(TARGET_USES_NQ_NFC)),true)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:system/etc/permissions/android.hardware.nfc.hcef.xml
+endif
 
 # enable overlays to use our version of
 # source/resources etc.
