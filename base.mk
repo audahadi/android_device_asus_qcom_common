@@ -627,8 +627,8 @@ CM += Trebuchet
 CM += Eleven
 
 #WLAN
-WLAN := prima_wlan.ko
-WLAN += pronto_wlan.ko
+#WLAN := prima_wlan.ko
+#WLAN += pronto_wlan.ko
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
