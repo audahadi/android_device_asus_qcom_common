@@ -882,6 +882,14 @@ $(call inherit-product, build/target/product/verity.mk)
 #skip boot jars check
 SKIP_BOOT_JARS_CHECK := true
 
-# APN Config From CyanogenMod
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
+    ro.adb.secure=1
+endif
+
+# Pixel Sounds
 PRODUCT_COPY_FILES += \
-    device/qcom/common/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+    $(call find-copy-subdir-files,*,device/qcom/common/sounds/alarms,system/media/audio/alarms/) \
+    $(call find-copy-subdir-files,*,device/qcom/common/sounds/notifications,system/media/audio/notifications/) \
+    $(call find-copy-subdir-files,*,device/qcom/common/sounds/ringtones,system/media/audio/ringtones/) \
+    $(call find-copy-subdir-files,*,device/qcom/common/sounds/ui,system/media/audio/ui/)
