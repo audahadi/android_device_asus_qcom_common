@@ -882,6 +882,10 @@ $(call inherit-product, build/target/product/verity.mk)
 #skip boot jars check
 SKIP_BOOT_JARS_CHECK := true
 
+# APN Config From CyanogenMod
+PRODUCT_COPY_FILES += \
+    device/qcom/common/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
     ro.adb.secure=1
