@@ -56,3 +56,16 @@ LOCAL_C_INCLUDES += \
 LOCAL_MODULE:= libshims_camera
 
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := wvm.c
+
+LOCAL_SHARED_LIBRARIES := libstagefright_foundation
+
+LOCAL_MODULE := libshims_wvm
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_32_BIT_ONLY := true
+
+include $(BUILD_SHARED_LIBRARY)
