@@ -190,15 +190,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:system/etc/thermal-engine-8916-ze550kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8929-ze600kl.conf:system/etc/thermal-engine-8929-ze600kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939.conf:system/etc/thermal-engine-8939.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-zd550kl.conf:system/etc/thermal-engine-8939-zd550kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze550kl.conf:system/etc/thermal-engine-8939-ze550kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze551kl.conf:system/etc/thermal-engine-8939-ze551kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:system/etc/thermal-engine-8939-ze600kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:system/etc/thermal-engine-8939-ze601kl.conf
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf
 
 # Voice recognition
 PRODUCT_COPY_FILES += \
