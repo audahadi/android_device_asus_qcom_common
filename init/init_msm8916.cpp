@@ -53,15 +53,15 @@ void check_device()
 
     fp = fopen("/proc/apid", "r");
     fscanf(fp, "%d", &PRJ_ID);
-    pclose(fp);
+    fclose(fp);
 
     fp = fopen("/proc/aprf", "r");
     fscanf(fp, "%d", &PRJ_SKU);
-    pclose(fp);
+    fclose(fp);
 
     fp = fopen("/proc/aphd", "r");
     fscanf(fp, "%d", &PRJ_HD);
-    pclose(fp);
+    fclose(fp);
 
     sysinfo(&sys);
 
@@ -117,7 +117,7 @@ static void init_alarm_boot_properties()
 
     fp = fopen("/proc/sys/kernel/boot_reason", "r");
     fscanf(fp, "%d", &boot_reason);
-    pclose(fp);
+    fclose(fp);
 
     /*
      * Setup ro.alarm_boot value to true when it is RTC triggered boot up
