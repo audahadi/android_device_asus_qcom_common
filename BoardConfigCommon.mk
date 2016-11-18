@@ -165,8 +165,3 @@ BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Tap-to-Wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
-
-# Vendor Unification Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8916
-TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
-TARGET_UNIFIED_DEVICE := true
