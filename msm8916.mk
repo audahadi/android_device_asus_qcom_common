@@ -185,8 +185,10 @@ PRODUCT_PACKAGES += \
     resize2fs_static
 
 # Releasetools
+ifneq ($(filter Z00T Z00L ,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
+endif
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -194,8 +196,22 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Thermal
+ifneq ($(filter Z00T Z00L ,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:system/etc/thermal-engine-8916-ze550kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8929-ze600kl.conf:system/etc/thermal-engine-8929-ze600kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939.conf:system/etc/thermal-engine-8939.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-zd550kl.conf:system/etc/thermal-engine-8939-zd550kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze550kl.conf:system/etc/thermal-engine-8939-ze550kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze551kl.conf:system/etc/thermal-engine-8939-ze551kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:system/etc/thermal-engine-8939-ze600kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:system/etc/thermal-engine-8939-ze601kl.conf
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf \
+		$(LOCAL_PATH)/thermal/thermal-engine-8939.conf:system/etc/thermal-engine-8939.conf
+endif
 
 # Voice recognition
 PRODUCT_COPY_FILES += \
@@ -217,4 +233,3 @@ PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
-
