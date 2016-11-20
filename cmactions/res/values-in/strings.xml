@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Gerakan layar mati</string>
   <string name="touchscreen_c_gesture_title">Kamera</string>
   <string name="touchscreen_c_gesture_summary">Gambar \"C\" untuk mengaktifkan kamera</string>
   <string name="touchscreen_e_gesture_title">Surel</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Gambar \"W\" untuk membuka aplikasi peramban</string>
   <string name="touchscreen_z_gesture_title">Senter</string>
   <string name="touchscreen_z_gesture_summary">Gambar \"Z\" untuk mengaktifkan/menonaktifkan senter</string>
+  <string name="ambient_display_title">Tampilan ambien</string>
+  <string name="ambient_display_enable_title">Tampilan ambien</string>
+  <string name="ambient_display_enable_summary">Hidupkan layar ketika menerima pemberitahuan</string>
+  <string name="hand_wave_gesture_title">Lambaian tangan</string>
+  <string name="hand_wave_gesture_summary">Kedipakan pemberitahuan saat melambaikan tangan</string>
+  <string name="pick_up_gesture_title">Ambil</string>
+  <string name="pick_up_gesture_summary">Kedipkan pemberitahuan saat diambil</string>
+  <string name="pocket_gesture_title">Saku</string>
+  <string name="pocket_gesture_summary">Pemberitahuan berkedip pada saat keluar dari saku</string>
 </resources>

@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Képernyő-kikapcsoló gesztusok</string>
   <string name="touchscreen_c_gesture_title">Kamera</string>
   <string name="touchscreen_c_gesture_summary">Rajzoljon egy \"C\" betűt a kamera indításához</string>
   <string name="touchscreen_e_gesture_title">E-mail</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Rajzoljon egy \"W\" betűt a böngésző indításához</string>
   <string name="touchscreen_z_gesture_title">Zseblámpa</string>
   <string name="touchscreen_z_gesture_summary">Rajzoljon egy \"Z\" betűt a zseblámpához</string>
+  <string name="ambient_display_title">Környezeti kijelző</string>
+  <string name="ambient_display_enable_title">Környezeti kijelző</string>
+  <string name="ambient_display_enable_summary">Képernyő felébresztése értesítések fogadásakor</string>
+  <string name="hand_wave_gesture_title">Lebegő simítás</string>
+  <string name="hand_wave_gesture_summary">Értesítések felvillantása lebegő simításnál</string>
+  <string name="pick_up_gesture_title">Kézbevétel</string>
+  <string name="pick_up_gesture_summary">Értesítések felvillantása kézbevételkor</string>
+  <string name="pocket_gesture_title">Zseb</string>
+  <string name="pocket_gesture_summary">Értesítések felvillantása zsebből való kivételkor</string>
 </resources>

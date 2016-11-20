@@ -29,4 +29,9 @@
   <string name="touchscreen_w_gesture_summary">Dessiner un « W » pour ouvrir l\'application navigateur</string>
   <string name="touchscreen_z_gesture_title">Lampe de poche</string>
   <string name="touchscreen_z_gesture_summary">Dessiner un « Z » pour activer/désactiver la lampe de poche</string>
+  <string name="ambient_display_title">Affichage ambiant</string>
+  <string name="ambient_display_enable_title">Affichage ambiant</string>
+  <string name="hand_wave_gesture_title">Passage de la main</string>
+  <string name="pick_up_gesture_title">Prise en main</string>
+  <string name="pocket_gesture_title">Poche</string>
 </resources>

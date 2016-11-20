@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Gesty wyłączenia ekranu</string>
   <string name="touchscreen_c_gesture_title">Aparat</string>
   <string name="touchscreen_c_gesture_summary">Narysuj \"C\", aby włączyć aparat</string>
   <string name="touchscreen_e_gesture_title">E-mail</string>
@@ -29,4 +30,13 @@
   <string name="touchscreen_w_gesture_summary">Narysuj \"W\", aby otworzyć przeglądarkę</string>
   <string name="touchscreen_z_gesture_title">Latarka</string>
   <string name="touchscreen_z_gesture_summary">Narysuj \"Z\", aby włączyć latarkę</string>
+  <string name="ambient_display_title">Aktywny wyświetlacz</string>
+  <string name="ambient_display_enable_title">Aktywny wyświetlacz</string>
+  <string name="ambient_display_enable_summary">Wybudź ekran po odebraniu powiadomienia</string>
+  <string name="hand_wave_gesture_title">Gest fali</string>
+  <string name="hand_wave_gesture_summary">Pulsujące powiadomienia po geście fali</string>
+  <string name="pick_up_gesture_title">Podniesienie</string>
+  <string name="pick_up_gesture_summary">Pulsujące powiadomienia podczas podnoszenia</string>
+  <string name="pocket_gesture_title">Kieszeń</string>
+  <string name="pocket_gesture_summary">Pulsowanie powiadomienia po wyjęciu z kieszeni</string>
 </resources>

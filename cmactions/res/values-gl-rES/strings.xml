@@ -17,4 +17,26 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">Gestos de apagado</string>
+  <string name="touchscreen_c_gesture_title">Cámara</string>
+  <string name="touchscreen_c_gesture_summary">Debuxar un \"C\" para activar a cámara</string>
+  <string name="touchscreen_e_gesture_title">Correo electrónico</string>
+  <string name="touchscreen_e_gesture_summary">Debuxar un \"e\" para abrir a aplicación do correo electrónico</string>
+  <string name="touchscreen_s_gesture_title">Mensaxes</string>
+  <string name="touchscreen_s_gesture_summary">Debuxar un \"S\" para abrir a aplicación de mensaxes</string>
+  <string name="touchscreen_v_gesture_title">Teléfono</string>
+  <string name="touchscreen_v_gesture_summary">Debuxar un \"V\" para abrir a aplicación do teléfono</string>
+  <string name="touchscreen_w_gesture_title">Navegador</string>
+  <string name="touchscreen_w_gesture_summary">Debuxar un \"W\" para abrir a aplicación do navegador</string>
+  <string name="touchscreen_z_gesture_title">Lanterna</string>
+  <string name="touchscreen_z_gesture_summary">Debuxar un \"Z\" para des/activar a lanterna</string>
+  <string name="ambient_display_title">Visualización ambiente</string>
+  <string name="ambient_display_enable_title">Visualización ambiente</string>
+  <string name="ambient_display_enable_summary">Activar a pantalla ao recibir notificacións</string>
+  <string name="hand_wave_gesture_title">Pasar a man</string>
+  <string name="hand_wave_gesture_summary">Amosar notificacións ao pasar a man</string>
+  <string name="pick_up_gesture_title">Contestar</string>
+  <string name="pick_up_gesture_summary">Amosar notificacións ao contestar</string>
+  <string name="pocket_gesture_title">Peto</string>
+  <string name="pocket_gesture_summary">Amosar notificacións ao sacar do peto</string>
 </resources>

@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Gesture shortcuts -->
+  <string name="gesture_display_title">מחוות לכיבוי המסך</string>
   <string name="touchscreen_c_gesture_title">מצלמה</string>
   <string name="touchscreen_c_gesture_summary">צייר \"C\" כדי להפעיל את המצלמה</string>
   <string name="touchscreen_e_gesture_title">דוא\"ל</string>
@@ -33,7 +34,9 @@
   <string name="ambient_display_enable_title">תצוגת התראות עמומה</string>
   <string name="ambient_display_enable_summary">הפעל את המסך בעת קבלת התראות</string>
   <string name="hand_wave_gesture_title">נפנוף יד</string>
+  <string name="hand_wave_gesture_summary">הצג התראות בנפנוף יד</string>
   <string name="pick_up_gesture_title">הרמה</string>
   <string name="pick_up_gesture_summary">הצג התראות בעת הרמה</string>
   <string name="pocket_gesture_title">כיס</string>
+  <string name="pocket_gesture_summary">הצג התראות בהוצאה מהכיס</string>
 </resources>

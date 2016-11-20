@@ -30,4 +30,6 @@
   <string name="touchscreen_w_gesture_summary">Rita ett \"W\" för att öppna webbläsaren</string>
   <string name="touchscreen_z_gesture_title">Ficklampa</string>
   <string name="touchscreen_z_gesture_summary">Rita ett \'Z\' för att slå på ficklampa</string>
+  <string name="hand_wave_gesture_title">Handrörelse</string>
+  <string name="pick_up_gesture_title">Plocka upp</string>
 </resources>

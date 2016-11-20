@@ -30,8 +30,8 @@
   <string name="touchscreen_w_gesture_summary">Изпишете буквата \"W\", за да отворите браузъра</string>
   <string name="touchscreen_z_gesture_title">Фенерче</string>
   <string name="touchscreen_z_gesture_summary">Изпишете буквата \"Z\", за превключване на фенерчето</string>
-  <string name="ambient_display_title">Атмосферен екран</string>
-  <string name="ambient_display_enable_title">Атмосферен екран</string>
+  <string name="ambient_display_title">Активен дисплей</string>
+  <string name="ambient_display_enable_title">Активен дисплей</string>
   <string name="ambient_display_enable_summary">Събуждане на екрана при получаване на известие</string>
   <string name="hand_wave_gesture_title">Махане с ръка</string>
   <string name="hand_wave_gesture_summary">Показва известията при прекарване на ръка над екрана</string>
