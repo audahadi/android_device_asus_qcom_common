@@ -6,5 +6,9 @@
   {
     "repository": "android_kernel_asus_msm8916",
     "target_path": "kernel/asus/msm8916"
+  },
+  {
+    "repository": "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
   }
 ]

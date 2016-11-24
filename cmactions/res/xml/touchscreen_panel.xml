@@ -53,7 +53,7 @@
 
     <PreferenceCategory
         android:key="ambient_display_key"
-        android:title="@string/ambient_display_title" >
+        android:title="@string/ambient_display_title">
 
         <SwitchPreference
             android:key="ambient_display_enable"
@@ -82,13 +82,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@*cyanogenmod.platform:string/touchscreen_gesture_extras">
+        android:title="@string/touchscreen_gesture_extras">
 
         <SwitchPreference
             android:key="touchscreen_gesture_haptic_feedback"
             android:persistent="false"
-            android:title="@*cyanogenmod.platform:string/touchscreen_gesture_haptic_feedback"
-            android:summary="@*cyanogenmod.platform:string/touchscreen_gesture_haptic_feedback_summary" />
+            android:title="@string/touchscreen_gesture_haptic_feedback"
+            android:summary="@string/touchscreen_gesture_haptic_feedback_summary" />
 
     </PreferenceCategory>
 </PreferenceScreen>
