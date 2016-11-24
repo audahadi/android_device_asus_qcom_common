@@ -246,20 +246,20 @@ vendor/lib64/librpmb.so|3b997aa65fe0dfbdca73cf6b2fc881fb54b3bfa2
 vendor/lib64/libssd.so|b9b74375796f931355c54e99dc946a6f1d025b02
 
 # GPS - from kipper
--lib64/libloc_api_v02.so|e32918e3263796819916ecfe2e5d4735758b05a8
+-lib64/libloc_api_v02.so|9a978ba095a8c22b90127815a04b4c57e662bca9
 -lib64/libloc_ds_api.so|6d2cc2dd6f1435955648fe0626ce79a7b6411416
--lib/libloc_api_v02.so|42aab2457c678f59c97498a161a42915b3365e12
+-lib/libloc_api_v02.so|b948d5ec82280f111d728a61a1308a0754b93814
 -lib/libloc_ds_api.so|3a6c1b1393bda6710d64b87a8a96ff561e5d33b1
 vendor/lib64/hw/flp.default.so|22300e06491cb1fdf9bbf8c816d3c789790d09b9
 vendor/lib64/libflp.so|4bd0052875205a4b106169ddd8451e2e0151a7fe
 vendor/lib64/libgeofence.so|5be57ed7ddb8005a06a0779c3104cacaf52f607b
 vendor/lib64/libizat_core.so|2516fd1cbaa2e2ec9e374076c907ab3aed345ba5
-vendor/lib64/liblbs_core.so|b7e95b2a828362bc8ac9a92168e8a0412868faf7
+vendor/lib64/liblbs_core.so|7276e848ac44a22744ea9227bc80b9dd100081c5
 vendor/lib/hw/flp.default.so|6d0fbc257f55373274a970f7081c3504a0a5178f
 vendor/lib/libflp.so|aec819da2d22967c4b2c49ca55b4f3f74c4af0f8
 vendor/lib/libgeofence.so|b91de149da071fddb42772bb10439077d7b0b39a
 vendor/lib/libizat_core.so|bf23714f97dbe611148c592c6677ee0171d36336
-vendor/lib/liblbs_core.so|e82e804baaff20c8c1e46e183a1bd923247ec83e
+vendor/lib/liblbs_core.so|3d8b57d39bf143cc5cce96cd11af34ec621044cb
 
 # Graphics firmware
 # Adreno 300 - from crackling
@@ -425,7 +425,7 @@ vendor/lib/libwvdrm_L1.so|3eaf8ed1cb337608a1ccdb80d2c95804e7aea323
 vendor/lib/libwvm.so|59c4c078f4b897ddac8f665309b7a3f25522f207
 vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
 vendor/lib/drm/libdrmwvmplugin.so|3bee766222895f524421eb996ca6a08bcf95f19f
-vendor/lib/mediadrm/libwvdrmengine.so|301e0ef26cfc3a22efd52ebf4bb095d0a33bc68d
+vendor/lib/mediadrm/libwvdrmengine.so|6bdcc4d59b07ccbdd7b07a99677406ade3d2e232
 
 # VOLTE firmware
 etc/firmware/8916_volte_modem/mba.mbn
