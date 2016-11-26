@@ -139,7 +139,6 @@ case "$soc_id" in
         echo 5 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
         echo 5000 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
         echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/not_preferred
-        chown system:system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
 
         # HMP scheduler (big.Little cluster related) settings
         echo 75 > /proc/sys/kernel/sched_upmigrate
