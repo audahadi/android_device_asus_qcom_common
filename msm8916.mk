@@ -151,7 +151,6 @@ PRODUCT_COPY_FILES += \
 
 # Keyhandler
 PRODUCT_PACKAGES += \
-    CMActions \
     com.cyanogenmod.keyhandler
 
 #PRODUCT_PACKAGES += \
