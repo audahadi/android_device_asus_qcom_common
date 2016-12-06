@@ -18,10 +18,10 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := wcnss_asus_client.c
+LOCAL_SRC_FILES := wcnss_asus_client.cpp
 
 LOCAL_C_INCLUDES += $(call project-path-for,wlan)/wcnss_service
-LOCAL_CFLAGS += -Wall
+LOCAL_CFLAGS += -Wall -std=c++11
 
 LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
 
