@@ -28,7 +28,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-set -o errexit
+#set -o errexit
 
 usage() {
 cat <<USAGE
