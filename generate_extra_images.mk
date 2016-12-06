@@ -132,42 +132,6 @@ ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_USBIMAGE_TARGET)
 ALL_MODULES.$(LOCAL_MODULE).INSTALLED += $(INSTALLED_DTIMAGE_TARGET)
 endif
 
-#----------------------------------------------------------------------
-# Generate CDROM image
-#----------------------------------------------------------------------
-CDROM_RES_FILE := $(TARGET_DEVICE_DIR)/cdrom_res
-CDROM_DUMMY_FILE := $(TARGET_DEVICE_DIR)/cdrom_res/zero.bin
-
-ifneq ($(wildcard $(CDROM_RES_FILE)),)
-CDROM_ISO_TARGET := $(PRODUCT_OUT)/system/etc/cdrom_install.iso
-#delete the dummy file if it already exists.
-ifneq ($(wildcard $(CDROM_DUMMY_FILE)),)
-$(shell rm -f $(CDROM_DUMMY_FILE))
-endif
-CDROM_RES_SIZE := $(shell du -bs $(CDROM_RES_FILE) | egrep -o '^[0-9]+')
-#At least 300 sectors, 2048Bytes per Sector, set as 310 here
-CDROM_MIN_SIZE := 634880
-CDROM_CAPACITY_IS_ENOUGH := $(shell expr $(CDROM_RES_SIZE) / $(CDROM_MIN_SIZE))
-ifeq ($(CDROM_CAPACITY_IS_ENOUGH),0)
-CDROM_DUMMY_SIZE := $(shell expr $(CDROM_MIN_SIZE) - $(CDROM_RES_SIZE))
-CDROM_DUMMY_SIZE_KB := $(shell expr `expr $(CDROM_DUMMY_SIZE) + 1023` / 1024)
-$(shell dd if=/dev/zero of=$(CDROM_RES_FILE)/zero.bin bs=1024 count=$(CDROM_DUMMY_SIZE_KB))
-endif
-
-define build-cdrom-target
-    @mkdir -p $(PRODUCT_OUT)/system/etc
-    $(hide) mkisofs -o $(CDROM_ISO_TARGET)  $(CDROM_RES_FILE)
-endef
-
-$(CDROM_ISO_TARGET): $(CDROM_RES_FILE)
-	$(build-cdrom-target)
-
-ALL_DEFAULT_INSTALLED_MODULES += $(CDROM_ISO_TARGET)
-ALL_MODULES.$(LOCAL_MODULE).INSTALLED += $(CDROM_ISO_TARGET)
-endif
-#---------------------------------------------------------------------
-#Generate the SingleImage.bin / MMC_FLASHMEM1.dat
-#---------------------------------------------------------------------
 ifeq ($(strip $(BOARD_DISK_ANDROID_IMG)),true)
 DISK_IMG_TOOL := $(HOST_OUT_EXECUTABLES)/singleimage.py
 $(call pretty,"Android Disk Image for simulator: $(DISK_IMG_TOOL)")
