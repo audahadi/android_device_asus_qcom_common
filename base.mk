@@ -890,10 +890,3 @@ ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
     ro.adb.secure=1
 endif
-
-# Pixel Sounds
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/qcom/common/sounds/alarms,system/media/audio/alarms/) \
-    $(call find-copy-subdir-files,*,device/qcom/common/sounds/notifications,system/media/audio/notifications/) \
-    $(call find-copy-subdir-files,*,device/qcom/common/sounds/ringtones,system/media/audio/ringtones/) \
-    $(call find-copy-subdir-files,*,device/qcom/common/sounds/ui,system/media/audio/ui/)
