@@ -119,6 +119,9 @@ USE_OPENGL_RENDERER := true
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
+# Filesystem
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
+
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
