@@ -95,11 +95,11 @@ static int check_vendor_module()
     rv = hw_get_module_by_class("camera", "vendor",
             (const hw_module_t**)&gVendorModule);
     if (rv)
-        ALOGE("failed to open vendor camera module", __FUNCTION__);
+        ALOGE("%s: failed to open vendor camera module", __FUNCTION__);
     return rv;
 }
 
-static char *camera_fixup_getparams(int id, const char *settings)
+static char *camera_fixup_getparams(int id __unused, const char *settings)
 {
     CameraParameters params;
     params.unflatten(String8(settings));
