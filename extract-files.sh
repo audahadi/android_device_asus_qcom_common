@@ -75,3 +75,6 @@ else
 
     "$MY_DIR"/setup-makefiles.sh "$CLEANUP"
 fi
+
+# Extract common graphic libs
+"$CM_ROOT"/device/qcom/common/extractors/extract-files.sh "$SRC" msm8916 graphics
