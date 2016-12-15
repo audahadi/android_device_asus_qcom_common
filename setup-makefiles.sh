@@ -39,7 +39,8 @@ write_headers "Z00L Z00T"
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
 
-printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8916/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
+printf '\n%s' "\$(call inherit-product, vendor/qcom/binaries/msm8916-32/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
+printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8916-64/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
 
 # We are done!
 write_footers
