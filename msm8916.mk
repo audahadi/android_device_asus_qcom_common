@@ -138,9 +138,11 @@ PRODUCT_PACKAGES += \
     CMActions \
     com.cyanogenmod.keyhandler
 
+ifneq ($(TARGET_DEVICE),Z00ED)
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8916
+endif
 
 # Light
 PRODUCT_PACKAGES += \
