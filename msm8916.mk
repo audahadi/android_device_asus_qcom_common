@@ -276,3 +276,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     kernel/asus/msm8916/drivers/staging/prima-Z010/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     kernel/asus/msm8916/drivers/staging/prima-Z010/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+
+# Keylayout
+PRODUCT_COPY_FILES += \
+    device/asus/msm8916-common/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
+    device/asus/msm8916-common/keylayout/focal-touchscreen.kl:system/usr/keylayout/focal-touchscreen.kl \
+    device/asus/msm8916-common/keylayout/ft5x06_ts.kl:system/usr/keylayout/ft5x06_ts.kl \
+    device/asus/msm8916-common/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/asus/msm8916-common/keylayout/i-rocks_Bluetooth_Keyboard.kl:system/usr/keylayout/i-rocks_Bluetooth_Keyboard.kl \
+    device/asus/msm8916-common/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl \
+    device/asus/msm8916-common/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl
