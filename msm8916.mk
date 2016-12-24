@@ -244,11 +244,11 @@ PRODUCT_PACKAGES += \
     hostapd_default.conf \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf \
-		WCNSS_qcom_wlan_nv.bin
+    WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_COPY_FILES += \
-    kernel/asus/msm8916/drivers/staging/prima-Z010/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/asus/msm8916/drivers/staging/prima-Z010/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 # Keylayout
 PRODUCT_COPY_FILES += \
