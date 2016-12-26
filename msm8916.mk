@@ -243,8 +243,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
     p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf \
-    WCNSS_qcom_wlan_nv.bin
+    wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
     kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
