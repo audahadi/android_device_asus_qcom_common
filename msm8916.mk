@@ -135,9 +135,11 @@ PRODUCT_PACKAGES += \
     CMActions \
     com.cyanogenmod.keyhandler
 
-# Keystore
+ifeq ($(TARGET_DEVICE),Z010D)
+# Keystore (use prebuilt for Z00ED/Z00RD)
 PRODUCT_PACKAGES += \
     keystore.msm8916
+endif
 
 # Light
 PRODUCT_PACKAGES += \
@@ -223,9 +225,15 @@ PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
 
+ifeq ($(TARGET_DEVICE),Z010D)
 PRODUCT_COPY_FILES += \
     kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+endif
 
 # Keylayout
 PRODUCT_COPY_FILES += \
