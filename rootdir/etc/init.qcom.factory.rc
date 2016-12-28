@@ -265,6 +265,9 @@ on mmi
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
+    #set property for sys.usb.config
+    setprop sys.usb.config diag,adb
+
     #Start the following services needed for fftm
     start qcom-usb-sh
     start logd
