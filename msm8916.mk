@@ -156,9 +156,11 @@ PRODUCT_PACKAGES += \
     com.cyanogenmod.keyhandler
 
 ifeq ($(TARGET_DEVICE),Z010D)
-# Keystore (use prebuilt for Z00ED/Z00RD) 
 PRODUCT_PACKAGES += \
     keystore.msm8916
+else
+PRODUCT_PACKAGES += \
+    keystore.qcom
 endif
 
 # Light
