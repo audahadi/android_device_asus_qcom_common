@@ -155,8 +155,8 @@ PRODUCT_PACKAGES += \
     CMActions \
     com.cyanogenmod.keyhandler
 
-PRODUCT_PACKAGES += \
-    keystore.msm8916
+#PRODUCT_PACKAGES += \
+#    keystore.msm8916
 
 # Light
 PRODUCT_PACKAGES += \
