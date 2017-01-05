@@ -1,11 +1,4 @@
 # ACDB Data
-etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
-etc/acdbdata/MTP/MTP_General_cal.acdb
-etc/acdbdata/MTP/MTP_Global_cal.acdb
-etc/acdbdata/MTP/MTP_Handset_cal.acdb
-etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
-etc/acdbdata/MTP/MTP_Headset_cal.acdb
-etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 etc/acdbdata/MTP/ZD550KL/MTP_Bluetooth_cal_ZD550KL.acdb
 etc/acdbdata/MTP/ZD550KL/MTP_General_cal_ZD550KL.acdb
 etc/acdbdata/MTP/ZD550KL/MTP_Global_cal_ZD550KL.acdb
@@ -27,27 +20,6 @@ etc/acdbdata/MTP/ZE600KL/MTP_Handset_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Hdmi_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Headset_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Speaker_cal_ZE600KL.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Bluetooth_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_General_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Global_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Handset_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Hdmi_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Headset_cal.acdb
-etc/acdbdata/MTP/msm8939-tapan-snd-card/MTP_WCD9306_Speaker_cal.acdb
-etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
-etc/acdbdata/QRD/QRD_General_cal.acdb
-etc/acdbdata/QRD/QRD_Global_cal.acdb
-etc/acdbdata/QRD/QRD_Handset_cal.acdb
-etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
-etc/acdbdata/QRD/QRD_Headset_cal.acdb
-etc/acdbdata/QRD/QRD_Speaker_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Bluetooth_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_General_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Global_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Handset_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Hdmi_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Headset_cal.acdb
-etc/acdbdata/QRD/msm8939-snd-card-skul/QRD_SKUL_Speaker_cal.acdb
 
 # ADSP
 bin/adsprpcd
