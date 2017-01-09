@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2016 The CyanogenMod Project
 #
@@ -124,11 +125,7 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_UNIFIED_DEVICE := true
 
 # Keymaster
-ifeq ($(TARGET_DEVICE),Z010D)
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-else
 TARGET_PROVIDES_KEYMASTER := true
-endif
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
