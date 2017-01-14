@@ -1,3 +1,5 @@
+allow init debugfs:file write;
+
 allow init sysfs_touchscreen:file setattr;
 
 allow init proc_driver_audio:file w_file_perms;
