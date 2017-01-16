@@ -126,8 +126,10 @@ TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_UNIFIED_DEVICE := true
 
+ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
 # Keymaster
-TARGET_PROVIDES_KEYMASTER := true
+TARGET_PROVIDES_KEYMASTER := true #keymater break on Z00ED/RD - revisit
+#endif
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
