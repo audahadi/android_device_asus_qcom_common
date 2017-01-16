@@ -94,6 +94,7 @@ BOARD_HARDWARE_CLASS += \
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_SWV8_DISK_ENCRYPTION := true
 
 # Dex
 ifeq ($(HOST_OS),linux)
@@ -126,10 +127,10 @@ TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_UNIFIED_DEVICE := true
 
-ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
 # Keymaster
+ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
 TARGET_PROVIDES_KEYMASTER := true #keymater break on Z00ED/RD - revisit
-#endif
+endif
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
