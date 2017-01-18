@@ -287,6 +287,17 @@ vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
+# Firmware
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a420_pfp.fw
+etc/firmware/Signedrompatch_v21.bin
+etc/firmware/a225_pfp.fw
+etc/firmware/a420_pm4.fw
+etc/firmware/Signedrompatch_v24.bin
+etc/firmware/a225_pm4.fw
+etc/firmware/Signedrompatch_v20.bin
+etc/firmware/Signedrompatch_v30.bin
+
 # GPS - from kipper
 bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
