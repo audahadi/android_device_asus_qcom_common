@@ -253,17 +253,6 @@ vendor/lib/libWVStreamControlAPI_L3.so|61673304827483d44b735a3dd08f0783d10ce92d
 vendor/lib/drm/libdrmwvmplugin.so|9f11ef67ea76ee95a43ed317a5cf479b9321d6d0
 vendor/lib/mediadrm/libwvdrmengine.so|70b94e8514f45c25a9a53f21186138a4026f4d67
 
-# Firmware
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/Signedrompatch_v21.bin
-etc/firmware/a225_pfp.fw
-etc/firmware/a420_pm4.fw
-etc/firmware/Signedrompatch_v24.bin
-etc/firmware/a225_pm4.fw
-etc/firmware/Signedrompatch_v20.bin
-etc/firmware/Signedrompatch_v30.bin
-
 # GPS - from kipper
 -lib64/libloc_api_v02.so|e32918e3263796819916ecfe2e5d4735758b05a8
 -lib64/libloc_ds_api.so|6d2cc2dd6f1435955648fe0626ce79a7b6411416
