@@ -539,6 +539,12 @@
         <path name="headphones" />
     </path>
 
+    <path name="headphones-for-ringtone">
+        <path name="headphones" />
+        <ctl name="RX1 Digital Volume" value="64" />
+        <ctl name="RX2 Digital Volume" value="64" />
+    </path>
+
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />

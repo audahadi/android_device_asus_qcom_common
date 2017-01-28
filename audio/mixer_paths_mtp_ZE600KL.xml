@@ -286,12 +286,12 @@
 
     <path name="low-latency-playback speaker-and-headphones-for-ringtone">
         <path name="low-latency-playback"/>
-        <path name="low-latency-playback speaker-for-ringtone"/>
+        <!--<path name="low-latency-playback speaker-for-ringtone"/>-->
     </path>
 
     <path name="low-latency-playback speaker-and-headphones-three-poles-for-ringtone">
         <path name="low-latency-playback"/>
-        <path name="low-latency-playback speaker-for-ringtone"/>
+        <!--<path name="low-latency-playback speaker-for-ringtone"/>-->
     </path>
 
     <path name="low-latency-playback speaker-and-headphones">
