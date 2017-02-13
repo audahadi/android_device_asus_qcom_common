@@ -152,11 +152,6 @@ CONNECTIVITY += services-ext
 CURL := libcurl
 CURL += curl
 
-#CM
-CM := CMFileManager
-#CM += Trebuchet
-CM += Eleven
-
 #Default Launcher
 DELAUN := Launcher3
 
@@ -664,13 +659,6 @@ PRODUCT_PACKAGES := \
     SnapdragonGallery \
     SnapdragonMusic
 
-
-ifneq ($(TARGET_USES_AOSP),true)
-PRODUCT_PACKAGES += \
-       BluetoothExt \
-       BTLogSave
-endif
-
 PRODUCT_PACKAGES += $(ALSA_HARDWARE)
 PRODUCT_PACKAGES += $(ALSA_UCM)
 PRODUCT_PACKAGES += $(ANGLE)
@@ -886,9 +874,16 @@ SKIP_BOOT_JARS_CHECK := true
 PRODUCT_COPY_FILES += \
     device/qcom/common/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-ifeq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-    ro.adb.secure=1
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    device/qcom/common/bootanimation.zip:system/media/bootanimation.zip
+
+# Development settings
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
+    ro.adb.secure=0 \
+    ro.secure=0
 endif
 
 # Google property overides
