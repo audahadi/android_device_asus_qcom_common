@@ -183,6 +183,9 @@ esac
 # 32 bit will have 53K & 64 bit will have 81K
 #
 
+MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+MemTotal=${MemTotalStr:16:8}
+
 # Read adj series and set adj threshold for PPR and ALMK.
 # This is required since adj values change from framework to framework.
 adj_series=`cat /sys/module/lowmemorykiller/parameters/adj`
@@ -202,7 +205,14 @@ echo 70 > /sys/module/process_reclaim/parameters/pressure_max
 echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
 echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 
-echo 10 > /sys/module/process_reclaim/parameters/pressure_min
-echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
-echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
-echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+if [ $MemTotal -gt 1048576 ]; then
+    echo 10 > /sys/module/process_reclaim/parameters/pressure_min
+    echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
+    echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+    echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+elif [ $MemTotal -lt 1048576 ]; then
+    echo 50 > /sys/module/process_reclaim/parameters/pressure_min
+    echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
+    echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+    echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+fi
