@@ -305,7 +305,7 @@ vendor/lib/libsmemlog.so|b87c633d0faa143db4744bd17de5b03d600df15e
 
 # Radio - from kipper
 -app/shutdownlistener/shutdownlistener.apk|39061bdec43a83c496f7ad4d8faed54317efb0ef
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|33e16de924c288db5d7f50495252f072d6d196b6
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|38d8b9635b4e34d10e1e289fa82ab3b1a852ea5c
 bin/netmgrd|e500d52c6629145af0daeaf884ce8c031d09b72f
 bin/qmuxd|bb7e0d13cf1229e40754b84539ca2c396300f5c8
 bin/radish|61ac905ce0b0056d0c954e6197cd930dd75ea2c4
