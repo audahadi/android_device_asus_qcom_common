@@ -361,7 +361,7 @@ vendor/lib/libsmemlog.so|b87c633d0faa143db4744bd17de5b03d600df15e
 # bin/netmgrd - from ASUS_Z00T
 -app/shutdownlistener/shutdownlistener.apk|39061bdec43a83c496f7ad4d8faed54317efb0ef
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|38d8b9635b4e34d10e1e289fa82ab3b1a852ea5c
-bin/netmgrd|808c0a6e29ab202f252c103ce1d9890e7934a699
+bin/netmgrd|9408c268f9c70143247efa9ea540ede214cb38cc
 bin/qmuxd|bb7e0d13cf1229e40754b84539ca2c396300f5c8
 bin/radish|61ac905ce0b0056d0c954e6197cd930dd75ea2c4
 bin/rmt_storage|08011978c658b72068edc3b47c215440af06c196
