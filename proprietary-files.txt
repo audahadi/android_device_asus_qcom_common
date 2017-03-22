@@ -208,30 +208,27 @@ vendor/lib/libxditk_DIT_Qualcomm.so
 vendor/lib/libxditk_mmcamera2_stats_algorithm.so
 vendor/lib/libxditk_Network.so
 
-# DRM - from kipper
-bin/qseecomd|2423ad273f52311dbd2f3bb7e810734744e2e6ff
-lib/libdrmdecrypt.so|0cc6e6da79782fc4eeabc7c90d51dc5da7c12e7a
-vendor/lib64/libdrmfs.so|eb296e141d540b3ce53b79d1cf65365704914840
-vendor/lib64/libdrmtime.so|7473d9ce55ffca308eef83d7c3b1562c3b7adbee
-vendor/lib64/libQSEEComAPI.so|20d5a7ee87a26330be174eeb57b1fbd6f5f1f1e6
-vendor/lib64/librpmb.so|3b997aa65fe0dfbdca73cf6b2fc881fb54b3bfa2
-vendor/lib64/libssd.so|b9b74375796f931355c54e99dc946a6f1d025b02
+# DRM
+bin/qseecomd
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libQSEEComAPI.so
+vendor/lib64/librpmb.so
+vendor/lib64/libssd.so
 
-# GPS - from kipper
--lib64/libloc_api_v02.so|9a978ba095a8c22b90127815a04b4c57e662bca9
--lib64/libloc_ds_api.so|6d2cc2dd6f1435955648fe0626ce79a7b6411416
--lib/libloc_api_v02.so|b948d5ec82280f111d728a61a1308a0754b93814
--lib/libloc_ds_api.so|3a6c1b1393bda6710d64b87a8a96ff561e5d33b1
-vendor/lib64/hw/flp.default.so|22300e06491cb1fdf9bbf8c816d3c789790d09b9
-vendor/lib64/libflp.so|4bd0052875205a4b106169ddd8451e2e0151a7fe
-vendor/lib64/libgeofence.so|5be57ed7ddb8005a06a0779c3104cacaf52f607b
-vendor/lib64/libizat_core.so|2516fd1cbaa2e2ec9e374076c907ab3aed345ba5
-vendor/lib64/liblbs_core.so|7276e848ac44a22744ea9227bc80b9dd100081c5
-vendor/lib/hw/flp.default.so|6d0fbc257f55373274a970f7081c3504a0a5178f
-vendor/lib/libflp.so|aec819da2d22967c4b2c49ca55b4f3f74c4af0f8
-vendor/lib/libgeofence.so|b91de149da071fddb42772bb10439077d7b0b39a
-vendor/lib/libizat_core.so|bf23714f97dbe611148c592c6677ee0171d36336
-vendor/lib/liblbs_core.so|3d8b57d39bf143cc5cce96cd11af34ec621044cb
+# GPS
+-lib64/libloc_api_v02.so|9c4e0d48cc864bd68c0bed4196552ac6dc75e0be
+-lib/libloc_api_v02.so|8d1ab88f2201cfda188717892ba4de90acd55c4f
+vendor/lib64/hw/flp.default.so
+vendor/lib64/libflp.so
+vendor/lib64/libgeofence.so
+vendor/lib64/libizat_core.so
+vendor/lib64/liblbs_core.so|51377fba02da30f38b5e962d3753960d60d2ece7
+vendor/lib/hw/flp.default.so
+vendor/lib/libflp.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so|46b788cfefc125a7fe8e238a1362746554975636
 
 # Graphics
 vendor/lib64/egl/eglsubAndroid.so
@@ -321,67 +318,65 @@ vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
 
-# Qualcomm framework - from kipper
-bin/irsc_util|245ce5dc3473131d9a6f535bdfe06df692f77186
-etc/data/dsi_config.xml|d13162d50565af560811c8c253041d702af01d8e
-vendor/lib64/libdiag.so|e5f10c1331389e2c42a31a410ec03a0d7cc2f29f
-vendor/lib64/libdsi_netctrl.so|ecb40bf0d161583a6c07e53aed2d6ea6816cdbca
-vendor/lib64/libdsutils.so|ef6e31bec71ed92633ae0b8c6020254c2f8e4157
-vendor/lib64/libidl.so|91f217b00615074f176c629d7e55fdd2b043882b
-vendor/lib64/libqcci_legacy.so|00469d21530b187342683d6121074290d6785ded
-vendor/lib64/libqdi.so|8b02dd31d4ac7ab1d6c01f0cbbb1432a7ded9dbe
-vendor/lib64/libqdp.so|116b393b4da55ab9917dafe54cca8c71c14c6bc2
-vendor/lib64/libqmi_cci.so|3977ad1c96212fecda566bae0ec96710a550a9dc
-vendor/lib64/libqmi_client_helper.so|03256c8c0e49db57230da9d4b6f96cd764a6d92c
-vendor/lib64/libqmi_client_qmux.so|e6fb88dbc2a59d308a6e10145fdd978aa397254a
-vendor/lib64/libqmi_common_so.so|99b0875ef7f990aad3a12f85c8d83b04774f7f08
-vendor/lib64/libqmi_csi.so|ad6fc697d2a48cbf2ba58e71170f0fd3d9647c9d
-vendor/lib64/libqmi_encdec.so|2af5e4037e1ca0961a6afc4d49f39ad95e65ba80
-vendor/lib64/libqmiservices.so|ed9a8ad8a497f03dc4ab816f87b43df20e648f0d
-vendor/lib64/libqmi.so|acdfceb8e88fba0e4b151c5cdaac3a2e3a3e1163
-vendor/lib64/libsmemlog.so|2bbf6b1ba45e4c045a8ed478ad772be7547455e8
-vendor/lib/libdiag.so|eb5fb4740cf372950afb1651c4235d6eaf60edeb
-vendor/lib/libdsi_netctrl.so|4c257da07ffe3a4a46ca04da2894bd26424dc087
-vendor/lib/libdsutils.so|03cc1c591913c59c16ca79a75bb7276534badb73
-vendor/lib/libidl.so|ebbfe34beebb25e6178e3dc0d79152cdd81a93e1
-vendor/lib/libqcci_legacy.so|e7995fa019dadac9d0b880bb8cdfe8977671a9f2
-vendor/lib/libqdi.so|8ca9ccc62a9667d0580087b6d58de37bbdef662e
-vendor/lib/libqdp.so|d2a3e8728fe9e2e1ac3ec1bd5658a75e206739f6
-vendor/lib/libqmi_cci.so|e8d9e1b2f0fe8b3c82730db6c12dc5623946d266
-vendor/lib/libqmi_client_helper.so|7531f125ee8f97b8a00aad73204aa88e60316522
-vendor/lib/libqmi_client_qmux.so|75b87048e84eb4d97b0a2dd8aaebcdd147c51d43
-vendor/lib/libqmi_common_so.so|e756f9640d0661446c8bf184d0e24b8c315f6c78
-vendor/lib/libqmi_csi.so|1f557cfe4c55603a1b8b32a1690a0adc6551f890
-vendor/lib/libqmi_encdec.so|124cd8ab6ed24f2b315ece15e18a2345815d6901
-vendor/lib/libqmiservices.so|472bf5a9d61998d492cf309ca94e0c36b9ff3f28
-vendor/lib/libqmi.so|c7e6fdce02808c8ce8a0a82a6970e77a23cc5686
-vendor/lib/libsmemlog.so|b87c633d0faa143db4744bd17de5b03d600df15e
+# Qualcomm framework
+bin/irsc_util
+etc/data/dsi_config.xml
+vendor/lib64/libdiag.so
+vendor/lib64/libdsi_netctrl.so
+vendor/lib64/libdsutils.so
+vendor/lib64/libidl.so
+vendor/lib64/libqcci_legacy.so
+vendor/lib64/libqdi.so
+vendor/lib64/libqdp.so
+vendor/lib64/libqmi_cci.so
+vendor/lib64/libqmi_client_helper.so
+vendor/lib64/libqmi_client_qmux.so
+vendor/lib64/libqmi_common_so.so
+vendor/lib64/libqmi_csi.so
+vendor/lib64/libqmi_encdec.so
+vendor/lib64/libqmiservices.so
+vendor/lib64/libqmi.so
+vendor/lib64/libsmemlog.so
+vendor/lib/libdiag.so
+vendor/lib/libdsi_netctrl.so
+vendor/lib/libdsutils.so
+vendor/lib/libidl.so
+vendor/lib/libqcci_legacy.so
+vendor/lib/libqdi.so
+vendor/lib/libqdp.so
+vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_client_helper.so
+vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_common_so.so
+vendor/lib/libqmi_csi.so
+vendor/lib/libqmi_encdec.so
+vendor/lib/libqmiservices.so
+vendor/lib/libqmi.so
+vendor/lib/libsmemlog.so
 
-# Radio - from kipper
-# bin/netmgrd - from ASUS_Z00T
--app/shutdownlistener/shutdownlistener.apk|39061bdec43a83c496f7ad4d8faed54317efb0ef
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|38d8b9635b4e34d10e1e289fa82ab3b1a852ea5c
-bin/netmgrd|9408c268f9c70143247efa9ea540ede214cb38cc
-bin/qmuxd|bb7e0d13cf1229e40754b84539ca2c396300f5c8
-bin/radish|61ac905ce0b0056d0c954e6197cd930dd75ea2c4
-bin/rmt_storage|08011978c658b72068edc3b47c215440af06c196
-etc/data/netmgr_config.xml|e28e1fe3cfbe89c89d66560160a10d53b11b8f61
-etc/data/qmi_config.xml|36966f438b68068eefbd4c314df5212f37d92af9
-etc/permissions/qcnvitems.xml|dc0e70cace2317b5169a454cbc2bbf8887c18d55
-etc/permissions/qcrilhook.xml|9fc58a3d54d20ac1d53bab14608815121aefbce5
--framework/qcnvitems.jar|930fb60defd600bcf6b353ccfa33b3d1a4af6b8a
--framework/qcrilhook.jar|730ea285996fbb46f67af687c478a833a42e668b
-vendor/lib64/libcneapiclient.so|38112f63d242165de6908ed21a07dfde87c1807c
-vendor/lib64/libconfigdb.so|2fe46de7e0c9c72e04156e842da7487b387da446
-vendor/lib64/libmdmdetect.so|1c354db8b3b7ab9de2f80a9867dce375869fa26d
-vendor/lib64/liblqe.so|a82a2515b9e59eae010419b0f8b27ddee073902b
-vendor/lib64/libnetmgr.so|f692ba6fdddf2dd37dbaa9d71e983ed934cf2f88
-vendor/lib64/libperipheral_client.so|f05e771b2ad9568e9c8ded01036083bba1a41362
-vendor/lib64/libril-qc-qmi-1.so|3a353a42a1da3ae1c81b3850939962b978455084
-vendor/lib64/libril-qc-radioconfig.so|0117c27403045abc2a1225a6fb10c0da033daa39
-vendor/lib64/libril-qcril-hook-oem.so|a69877b93164229de10260559aa2e02fcd9700f7
-vendor/lib64/libsystem_health_mon.so|9ad529e01e048da5df35e7dca85b14078f75a4f3
-vendor/lib64/libxml.so|00c701f4003f037f5c6e96c4c97f172e18b96038
+# Radio
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|8e319e3577474868e5a261c6a1ad971a85a35703
+bin/netmgrd
+bin/qmuxd
+bin/radish
+bin/rmt_storage
+etc/data/netmgr_config.xml
+etc/data/qmi_config.xml
+etc/permissions/qcnvitems.xml
+etc/permissions/qcrilhook.xml
+-framework/qcnvitems.jar
+-framework/qcrilhook.jar
+vendor/lib64/libcneapiclient.so
+vendor/lib64/libconfigdb.so
+vendor/lib64/libmdmdetect.so
+vendor/lib64/liblqe.so
+vendor/lib64/libnetmgr.so
+vendor/lib64/libperipheral_client.so
+vendor/lib64/libril-qc-qmi-1.so
+vendor/lib64/libril-qc-radioconfig.so
+vendor/lib64/libril-qcril-hook-oem.so
+vendor/lib64/libsystem_health_mon.so
+vendor/lib64/libxml.so
 
 # Radio - IMS
 # ims.apk - from oneplus3
