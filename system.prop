@@ -74,6 +74,9 @@ persist.media.treble_omx=false
 persist.data.netmgrd.qos.enable=true
 ro.use_data_netmgrd=true
 
+# OMX properties
+persist.media.treble_omx=false
+
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
