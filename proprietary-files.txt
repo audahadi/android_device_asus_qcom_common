@@ -208,89 +208,89 @@ vendor/lib/libxditk_DIT_Qualcomm.so
 vendor/lib/libxditk_mmcamera2_stats_algorithm.so
 vendor/lib/libxditk_Network.so
 
-# DRM
-bin/qseecomd
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/librpmb.so
-vendor/lib64/libssd.so
+# DRM - from crackling
+bin/qseecomd|ac14b419bcac711330014dc147df8719fe9d44da
+vendor/lib64/libdrmfs.so|645998dfcb0d204ef7eb5a2f7ccd96d71eb045be
+vendor/lib64/libdrmtime.so|71b44bd96e194b43b7c6e50a97eb5efd5f5f95e4
+vendor/lib64/libQSEEComAPI.so|5ec09d3085cc6a7157ed094d677bbfd1479fbac4
+vendor/lib64/librpmb.so|25bfd9f541db45756cf0b03bcc8284a90408ff18
+vendor/lib64/libssd.so|4e1ca3d1f0dc7deaa0fd58e1dc6407d8cd020852
 
-# GPS
--lib64/libloc_api_v02.so|9c4e0d48cc864bd68c0bed4196552ac6dc75e0be
--lib/libloc_api_v02.so|8d1ab88f2201cfda188717892ba4de90acd55c4f
-vendor/lib64/hw/flp.default.so
-vendor/lib64/libflp.so
-vendor/lib64/libgeofence.so
-vendor/lib64/libizat_core.so
-vendor/lib64/liblbs_core.so|51377fba02da30f38b5e962d3753960d60d2ece7
-vendor/lib/hw/flp.default.so
-vendor/lib/libflp.so
-vendor/lib/libgeofence.so
-vendor/lib/libizat_core.so
-vendor/lib/liblbs_core.so|46b788cfefc125a7fe8e238a1362746554975636
+# GPS - from crackling
+-lib64/libloc_api_v02.so|ca97a81ea91ca5c7d8dd8c9a9054121ce1446b8a
+-lib/libloc_api_v02.so|74df1667c42701ef550ba73db6c5ae63542913ac
+vendor/lib64/hw/flp.default.so|03784211a3d7c144c0bc6f86b50d1cc5eb97f8c5
+vendor/lib64/libflp.so|33793c405cf39858854c8023dec4b4e0d9d79ff0
+vendor/lib64/libgeofence.so|23cb999eb444971170ff60873392706cf003ed23
+vendor/lib64/libizat_core.so|8d911c3ebf57e5179a3e37b610c055787d8d90bd
+vendor/lib64/liblbs_core.so|07a6b4bb7ae17e2bc26376a9b6eeb70126a50b0d
+vendor/lib/hw/flp.default.so|c281157957565dc35f7e1731b2c71a71a532a821
+vendor/lib/libflp.so|776aae670ffc63b1fbe27420729ee7bd9a6fbb0e
+vendor/lib/libgeofence.so|bd34516de3c933d81267822716235c358ab6695d
+vendor/lib/libizat_core.so|8a948e4f2aa38463050c6399f04ecb38564689d6
+vendor/lib/liblbs_core.so|10caf0d54768114cd471c33a1e2dc6385d3c7707
 
-# Graphics
-vendor/lib64/egl/eglsubAndroid.so
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so
-vendor/lib64/egl/libESXEGL_adreno.so
-vendor/lib64/egl/libESXGLESv1_CM_adreno.so
-vendor/lib64/egl/libESXGLESv2_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so
-vendor/lib64/egl/libq3dtools_adreno.so
-vendor/lib64/egl/libQTapGLES.so
-vendor/lib64/egl/libRBEGL_adreno.so
-vendor/lib64/egl/libRBGLESv1_CM_adreno.so
-vendor/lib64/egl/libRBGLESv2_adreno.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libC2D2.so
-vendor/lib64/libc2d30-a3xx.so
-vendor/lib64/libc2d30-a4xx.so
-vendor/lib64/libCB.so
-vendor/lib64/libgsl.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/librs_adreno_sha1.so
-vendor/lib64/librs_adreno.so
-vendor/lib64/libRSDriver_adreno.so
-vendor/lib64/libsc-a3xx.so
-vendor/lib64/libscale.so
-vendor/lib/egl/eglsubAndroid.so
-vendor/lib/egl/eglSubDriverAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libESXEGL_adreno.so
-vendor/lib/egl/libESXGLESv1_CM_adreno.so
-vendor/lib/egl/libESXGLESv2_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/egl/libQTapGLES.so
-vendor/lib/egl/libRBEGL_adreno.so
-vendor/lib/egl/libRBGLESv1_CM_adreno.so
-vendor/lib/egl/libRBGLESv2_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libC2D2.so
-vendor/lib/libc2d30-a3xx.so
-vendor/lib/libc2d30-a4xx.so
-vendor/lib/libCB.so
-vendor/lib/libgsl.so
-vendor/lib/libllvm-glnext.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenCL.so
-vendor/lib/librs_adreno_sha1.so
-vendor/lib/librs_adreno.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/libsc-a3xx.so
-vendor/lib/libscale.so
+# Graphics - from crackling
+vendor/lib64/egl/eglsubAndroid.so|1043fd1935186ef1d54328e17bbbce810ba8e8fa
+vendor/lib64/egl/eglSubDriverAndroid.so|951e33adb393a0acab1b260846e8364bad3a5453
+vendor/lib64/egl/libEGL_adreno.so|1c16185c27b4c143fee1fb42c650cb67a098f459
+vendor/lib64/egl/libESXEGL_adreno.so|2c1bed968825848bf976b5c1b5dbb547bf7fee83
+vendor/lib64/egl/libESXGLESv1_CM_adreno.so|d96ef62da1b5d2fb1b3a1dde020b04b9262e55ed
+vendor/lib64/egl/libESXGLESv2_adreno.so|39dfe0771d2803f12a9392948e624ef24baa3226
+vendor/lib64/egl/libGLESv1_CM_adreno.so|989b37ecbd527cd2eebf0a75c3f866135ef4cabb
+vendor/lib64/egl/libGLESv2_adreno.so|65e308bfebd1cda65f75e0c20fb52fc4c8e6e8a9
+vendor/lib64/egl/libq3dtools_adreno.so|38f331fbb2226a965454adf8743d3e8d96d3bf08
+vendor/lib64/egl/libQTapGLES.so|501a56719ca4751a31ed129aa40c01efd456436a
+vendor/lib64/egl/libRBEGL_adreno.so|206683ef320adeefca152f295f3f50962cdc4a9a
+vendor/lib64/egl/libRBGLESv1_CM_adreno.so|c06b86bb8498e075264ac89335fd4855f520ecb6
+vendor/lib64/egl/libRBGLESv2_adreno.so|3b148a5690527cdd36fa148bd429a4416ed9ce25
+vendor/lib64/libadreno_utils.so|783e04277c34666d35f0303f8eca769fd77982bc
+vendor/lib64/libC2D2.so|dffd5298977b3c4c1e86b54ce878da1afa869824
+vendor/lib64/libc2d30-a3xx.so|4e927e5d50737dc3ec8c8605b49ac053649fe8d1
+vendor/lib64/libc2d30-a4xx.so|797424c2a010602ab5a45d25ebc187403dd15fb9
+vendor/lib64/libCB.so|781f60c2ae5d81a9062319e66b36234c0802320b
+vendor/lib64/libgsl.so|cb907d63bc1ea324090c2f5e3328b474c10ea16d
+vendor/lib64/libllvm-glnext.so|3b36887cbbe812661a8eaeeedcb3b2e65d731e7c
+vendor/lib64/libllvm-qcom.so|17356e4dd8c60e847ec96893cf5e73fb076f2c0a
+vendor/lib64/libOpenCL.so|9c1b3a8182d3a54d37f4fe875132b7738edcbec6
+vendor/lib64/librs_adreno_sha1.so|581ce2ccd2cec714b235ac21a27c875c1754c875
+vendor/lib64/librs_adreno.so|a529eaeed785049313c4ea09ebeff8dffdd5bf88
+vendor/lib64/libRSDriver_adreno.so|a4cb02110531c6c6d4f38a126f9fdaa5b023ea0c
+vendor/lib64/libsc-a3xx.so|7c65bbae865b7dc70a4ab8b5fecb0e160db1a087
+vendor/lib64/libscale.so|56b3c898de4c72dfcd483ed90bf9176b8b8edc70
+vendor/lib/egl/eglsubAndroid.so|b164a3a31ec30498babb25f731e0a8225be8d0aa
+vendor/lib/egl/eglSubDriverAndroid.so|6f5ae2f50bae4917173bc1f23eedbb932e068994
+vendor/lib/egl/libEGL_adreno.so|c30e4b0741e48c424aea23bf74dbf0e8b3a99369
+vendor/lib/egl/libESXEGL_adreno.so|7fb1078f65d5ccec000e90466e347308d7faa98b
+vendor/lib/egl/libESXGLESv1_CM_adreno.so|817a1ecda830c46c170b2733b2fbc26f97b04180
+vendor/lib/egl/libESXGLESv2_adreno.so|61ba345a1eff7ef153269dd88399e32950173d0f
+vendor/lib/egl/libGLESv1_CM_adreno.so|629e554170807f47a6790d559952ede06df0c9a6
+vendor/lib/egl/libGLESv2_adreno.so|70c7d8a44042fd0a9280c8ed2e9e738c3f14b0c3
+vendor/lib/egl/libq3dtools_adreno.so|4c3a394cd397e05b0794aa1bb16531da4c03855d
+vendor/lib/egl/libQTapGLES.so|900229ff94bbc44722d0df2a685b8ad2fbf1c51e
+vendor/lib/egl/libRBEGL_adreno.so|8c33769c191c889179f76663b8be63d300d26606
+vendor/lib/egl/libRBGLESv1_CM_adreno.so|8c8491f0f4decb8658af866e32fc083322095f20
+vendor/lib/egl/libRBGLESv2_adreno.so|4bd77c04fc435de9d198da0233513dda6e557dab
+vendor/lib/libadreno_utils.so|522db7791ef53fc0747fc66274e3d9d01ac7b406
+vendor/lib/libC2D2.so|cea171dbb9aa813fb1d2255a8816cd67555bfded
+vendor/lib/libc2d30-a3xx.so|39569008421b7841f567c0a4525638d81d32ffe7
+vendor/lib/libc2d30-a4xx.so|f9afec859c654cb646a27af8f9e16e8a8c412055
+vendor/lib/libCB.so|7c0a1a9363e7e212aa67e0f9aed2acee65d4ec39
+vendor/lib/libgsl.so|252cd2ec1006268a45df66bdce947e647d1efe5b
+vendor/lib/libllvm-glnext.so|2e5785200004df231403074c0f6d7d87bf395745
+vendor/lib/libllvm-qcom.so|77f2a0adf9c36291a02055be3fcd1cf5fa82a113
+vendor/lib/libOpenCL.so|9c3f63df298c155a526d075c9d2643d01b59f98a
+vendor/lib/librs_adreno_sha1.so|3289659eb1307377b20fb33ca4b8d42e15532612
+vendor/lib/librs_adreno.so|7f0fe9802d2bd832b98848d7436ae1aafbe52221
+vendor/lib/libRSDriver_adreno.so|2c9d23e4555f76c1aa28eb5aea2fa919081a8654
+vendor/lib/libsc-a3xx.so|a03fc9f0c929cb4adf013f8a463cfbef68d48090
+vendor/lib/libscale.so|972cbd87794b4ce0a5c23db946acbafd4cd6d073
 
-# Graphics firmware
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
+# Graphics firmware - from crackling
+etc/firmware/a300_pfp.fw|899dbfad4812084971cfc1ff30f06a4b45c2d34c
+etc/firmware/a300_pm4.fw|94529206b45b6e9f6ed30dadabe4244a88a60975
+etc/firmware/a420_pfp.fw|ceb61d9f1385b3f2956d72f33e0bd43cb12f72f0
+etc/firmware/a420_pm4.fw|96addc1f5cb6dd3a57fc40ef0a6ba8721d5b601f
 
 # Media
 vendor/lib/libI420colorconvert.so
@@ -318,65 +318,69 @@ vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
 
-# Qualcomm framework
-bin/irsc_util
-etc/data/dsi_config.xml
-vendor/lib64/libdiag.so
-vendor/lib64/libdsi_netctrl.so
-vendor/lib64/libdsutils.so
-vendor/lib64/libidl.so
-vendor/lib64/libqcci_legacy.so
-vendor/lib64/libqdi.so
-vendor/lib64/libqdp.so
-vendor/lib64/libqmi_cci.so
-vendor/lib64/libqmi_client_helper.so
-vendor/lib64/libqmi_client_qmux.so
-vendor/lib64/libqmi_common_so.so
-vendor/lib64/libqmi_csi.so
-vendor/lib64/libqmi_encdec.so
-vendor/lib64/libqmiservices.so
-vendor/lib64/libqmi.so
-vendor/lib64/libsmemlog.so
-vendor/lib/libdiag.so
-vendor/lib/libdsi_netctrl.so
-vendor/lib/libdsutils.so
-vendor/lib/libidl.so
-vendor/lib/libqcci_legacy.so
-vendor/lib/libqdi.so
-vendor/lib/libqdp.so
-vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_client_helper.so
-vendor/lib/libqmi_client_qmux.so
-vendor/lib/libqmi_common_so.so
-vendor/lib/libqmi_csi.so
-vendor/lib/libqmi_encdec.so
-vendor/lib/libqmiservices.so
-vendor/lib/libqmi.so
-vendor/lib/libsmemlog.so
+# Qualcomm framework - from crackling
+bin/irsc_util|9f92211cb3f8f76195aec1081f8a58aa8d456b07
+etc/data/dsi_config.xml|c4f6518596a519e9838159b1eaa99fa2ad86e24d
+vendor/lib64/libdiag.so|0dfd85d01bd529f97b03876d90447773dad2704e
+vendor/lib64/libdsi_netctrl.so|bfbfcb7e90c99466fa76d96881fc8f62baa0a7e2
+vendor/lib64/libdsutils.so|0bea6dcf5a98c12cf673ad8107c7eef25591832f
+vendor/lib64/libidl.so|43d91e413fa07de511f3fb304b22072dbb0c911d
+vendor/lib64/libqcci_legacy.so|c0542292ba8adc3a5825d84a1143658ebf1d7646
+vendor/lib64/libqdi.so|d50b1f829870c85467d7f684808ad267f9eb402e
+vendor/lib64/libqdp.so|52876cd0cc9a819189d2dd7527eee45c07478cee
+vendor/lib64/libqmi_cci.so|675860d5887cedfb407dd985aea1b87747fa777e
+vendor/lib64/libqmi_client_helper.so|786a4938ec7e746d6cb48c6cce210efc05151232
+vendor/lib64/libqmi_client_qmux.so|924eb4d9f9ba65f43d59950be13f212bd0b2e5db
+vendor/lib64/libqmi_common_so.so|d865eb4fefd7cf4d5ed644f8ba856f81d650efae
+vendor/lib64/libqmi_csi.so|69773218c9229f6df08351bc8ae937e847039762
+vendor/lib64/libqmi_encdec.so|8325f566002ce8f2ad56391d06d352c2069b6896
+vendor/lib64/libqmiservices.so|464aacc228a3a8250ce8541cc2cd81c78daad555
+vendor/lib64/libqmi.so|3a606bbbc3982fab9fc9a4dfebc6335eab8965cf
+vendor/lib64/libsmemlog.so|a3d41f6a599c1a359ab2ae01c29652e7e2d7a115
+vendor/lib/libdiag.so|43673eb124d36f914f90c9890d1686ac9fa7b74f
+vendor/lib/libdsi_netctrl.so|422c9826a41cf99706afb5c923ce2eddcd12a4bf
+vendor/lib/libdsutils.so|e63ed341bdecc8ebbc5447756303a4c6ec5609df
+vendor/lib/libidl.so|eadf4f3f7d25ec642cc457d4f6d16912682b0508
+vendor/lib/libqcci_legacy.so|db5073c8def409d9759151e399093cbf78446f97
+vendor/lib/libqdi.so|ce8e9e062ef27a86048ee005d8572d7cadd0eabb
+vendor/lib/libqdp.so|f85599882d929f64808431444db5d2571b485f68
+vendor/lib/libqmi_cci.so|57efe30b5dbe97798f30b41c9be96457d0391e5e
+vendor/lib/libqmi_client_helper.so|2428a9f369b6c76d0b4e8439fecb39d0c49ddde1
+vendor/lib/libqmi_client_qmux.so|9148c00d66e548a04ac7386c1957491caa178c71
+vendor/lib/libqmi_common_so.so|1f38f77da048d51297091bb9f4ccac7462edaf91
+vendor/lib/libqmi_csi.so|e6ff69bdcf6eeec677935801a7cb746119b14338
+vendor/lib/libqmi_encdec.so|cab1c426bd8673f5e98f847cb0a95adc5d2978f4
+vendor/lib/libqmiservices.so|0cd60f295e272269933b20a7acded475f60d1b6a
+vendor/lib/libqmi.so|b88e70492f9a8e7882650afb0dc10621b8de0b3d
+vendor/lib/libsmemlog.so|c632a70764ee1d6416ce1758f4d10cd6983d204d
 
-# Radio
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|8e319e3577474868e5a261c6a1ad971a85a35703
-bin/netmgrd
-bin/qmuxd
-bin/radish
-bin/rmt_storage
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
-etc/permissions/qcnvitems.xml
-etc/permissions/qcrilhook.xml
--framework/qcnvitems.jar
--framework/qcrilhook.jar
+# Radio - from crackling
+# libcneapiclient.so - from ASUS
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|f46412bf5ca63d6e3f647a43ef06c2f83606a481
+bin/netmgrd|e7206cb250f354e51920750b501dc48b106f1f20
+bin/qmuxd|c8e8ca85084e90cf41a609f9f0a6f3ad5896c186
+bin/radish|100a2d58d0f9b87a9d3698e7b5b00d264aa8b852
+bin/rmt_storage|7eb5b81e499e456e5723c0f5fcc1e6ae0b1af73e
+etc/data/netmgr_config.xml|b2d7410f8f357ca38477d41f012fcc72b8e27cf7
+etc/data/qmi_config.xml|c5a3fbd2f4149a6ce34f84dc94b58fe59d1fb90f
+etc/permissions/qcnvitems.xml|dc0e70cace2317b5169a454cbc2bbf8887c18d55
+etc/permissions/qcrilhook.xml|9fc58a3d54d20ac1d53bab14608815121aefbce5
+-framework/qcnvitems.jar|b50c25a4760313acd6ad770bf1ee207b5376b53e
+-framework/qcrilhook.jar|4ac8f925c1e76da54279867a14c32e5bc868b6df
+lib64/librilqmiservices.so|746bfe2e7a14d5502f9dd0ce7e5103e60acd1442
 vendor/lib64/libcneapiclient.so
-vendor/lib64/libconfigdb.so
-vendor/lib64/libmdmdetect.so
-vendor/lib64/liblqe.so
-vendor/lib64/libnetmgr.so
-vendor/lib64/libperipheral_client.so
-vendor/lib64/libril-qc-qmi-1.so
-vendor/lib64/libril-qc-radioconfig.so
-vendor/lib64/libril-qcril-hook-oem.so
-vendor/lib64/libsystem_health_mon.so
-vendor/lib64/libxml.so
+vendor/lib64/libconfigdb.so|b0bc70762dd5e1bc92df336f96599b4a041f6089
+vendor/lib64/libmdmdetect.so|72025f61807b20dae75ce626d9c9ed20d631add6
+vendor/lib64/liblqe.so|16c442f34033f91ccdeb4a87b07bbc6bf93ddfeb
+vendor/lib64/libnetmgr.so|9b52c85cc911841ef7039449b0c80b7ddfad2385
+vendor/lib64/libperipheral_client.so|caf532a15b756f7665d3b62802197f8159485a97
+vendor/lib64/libril-qc-ltedirectdisc.so|0f737f5ddc0eeb810e8d6f074907574765227665
+vendor/lib64/libril-qc-qmi-1.so|acc322a2736b4797ff52ec563c375eea4fd2ce22
+vendor/lib64/libril-qc-radioconfig.so|33e543ea9602680bbf7f1e3be7c66cd0669d593a
+vendor/lib64/libril-qcril-hook-oem.so|290cc05093ff7f2f378eddcfeff7bee6a7935ec7
+vendor/lib64/libsettings.so|dfbf9b0cca65134dc79b1151bbbda85c79fe5c71
+vendor/lib64/libsystem_health_mon.so|587aac68db68635d5daa9f02c651bae6a55102db
+vendor/lib64/libxml.so|ca5f99d9fd4e44dd5bc357d0b84272bb365cd629
 
 # Radio - IMS
 # ims.apk - from oneplus3
@@ -441,12 +445,10 @@ vendor/lib/libTimeService.so
 vendor/lib/hw/sound_trigger.primary.msm8916.so
 vendor/lib/libsmwrapper.so
 
-# WideVine - from bullhead
-vendor/lib/libwvdrm_L1.so|3eaf8ed1cb337608a1ccdb80d2c95804e7aea323
-vendor/lib/libwvm.so|59c4c078f4b897ddac8f665309b7a3f25522f207
-vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
-vendor/lib/drm/libdrmwvmplugin.so|3bee766222895f524421eb996ca6a08bcf95f19f
-vendor/lib/mediadrm/libwvdrmengine.so|301e0ef26cfc3a22efd52ebf4bb095d0a33bc68d
+# WideVine - from crackling
+vendor/lib/libwvdrm_L3.so|7e77482481197997294a834bfbc817a01b6075cd
+vendor/lib/libWVStreamControlAPI_L3.so|61673304827483d44b735a3dd08f0783d10ce92d
+vendor/lib/mediadrm/libwvdrmengine.so|b88c5df27094314c39ff208fdd30c9e37042c70c
 
 # VOLTE firmware
 etc/firmware/8916_volte_modem/mba.mbn
