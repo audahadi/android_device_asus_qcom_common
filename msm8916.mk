@@ -17,17 +17,6 @@
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay/common
 
-ifneq ($(PRODUCT_NAME),lineage_$(PRODUCT_DEVICE)) # LineageOS Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay/lineage
-
-else ifneq ($(PRODUCT_NAME),aokp_$(PRODUCT_DEVICE)) # AOKP Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay/aokp
-
-else ifneq ($(PRODUCT_NAME),slim_$(PRODUCT_DEVICE)) # Slim Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay/slim
-endif
-
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
