@@ -124,7 +124,6 @@ TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_UNIFIED_DEVICE := true
 
 # Keymaster
 ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
