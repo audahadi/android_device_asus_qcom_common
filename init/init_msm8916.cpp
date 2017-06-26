@@ -178,12 +178,12 @@ void vendor_load_properties()
     sprintf(p_device, "ASUS_%s", device);
     sprintf(p_carrier, "US-ASUS_%s-WW_%s", device, device);
 
-    property_set("ro.build.product", family);
-    property_set("ro.build.description", b_description);
-    property_set("ro.build.fingerprint", b_fingerprint);
-    property_set("ro.product.carrier", p_carrier);
-    property_set("ro.product.device", p_device);
-    property_set("ro.product.model", p_model);
+    property_override("ro.build.product", family);
+    property_override("ro.build.description", b_description);
+    property_override("ro.build.fingerprint", b_fingerprint);
+    property_override("ro.product.carrier", p_carrier);
+    property_override("ro.product.device", p_device);
+    property_override("ro.product.model", p_model);
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
     property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
