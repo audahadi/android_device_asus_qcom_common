@@ -94,7 +94,7 @@ BOARD_USES_QCNE := true
 TARGET_LDPRELOAD := libNimsWrap.so
 
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
+# FDE works well w/o HW-based encryption flag
 TARGET_SWV8_DISK_ENCRYPTION := true
 
 # Dex
