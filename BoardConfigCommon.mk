@@ -91,7 +91,7 @@ BOARD_HARDWARE_CLASS += \
     $(VENDOR_PATH)/cmhw
 
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
+# FDE works only in software mode, disable HW.
 TARGET_SWV8_DISK_ENCRYPTION := true
 
 # Dex
