@@ -128,6 +128,7 @@ TARGET_UNIFIED_DEVICE := true
 
 # Keymaster
 ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
+TARGET_HW_DISK_ENCRYPTION := true
 TARGET_PROVIDES_KEYMASTER := true #keymater break on Z00ED/RD - revisit
 endif
 
