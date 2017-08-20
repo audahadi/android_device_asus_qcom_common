@@ -21,13 +21,14 @@ def FullOTA_PostValidate(info):
 
 def FullOTA_InstallEnd(info):
   info.script.AppendExtra('if getprop("ro.product.device") == "Z010DD" then');
+  info.script.AppendExtra('ui_print("installing Z010DD kernel and firmware....");');
   info.script.Mount("/system")
-  info.script.AppendExtra('run_program("/sbin/cp", "-f", "/tmp/install/bin/firmware/*", "/system/etc/firmware");')
-  info.script.AppendExtra('run_program("/sbin/cp", "-f", "/tmp/install/bin/prima/*", "/system/etc/firmware/wlan/prima");')
-  info.script.AppendExtra('run_program("/sbin/cp", "-f", "/tmp/install/bin/wifi/WCNSS_qcom_cfg.ini", "/system/etc/wifi/WCNSS_qcom_cfg.ini");')
+  info.script.AppendExtra('run_program("/sbin/cp", "-rf", "/tmp/install/bin/firmware", "/system/etc/firmware");')
+  info.script.AppendExtra('run_program("/sbin/cp", "-rf", "/tmp/install/bin/prima", "/system/etc/firmware/wlan/prima");')
+  info.script.AppendExtra('run_program("/sbin/cp", "-rf", "/tmp/install/bin/wifi/WCNSS_qcom_cfg.ini", "/system/etc/wifi/WCNSS_qcom_cfg.ini");')
   info.script.Unmount("/system")
   info.script.AppendExtra('run_program("/sbin/dd", "if=/tmp/install/bin/boot.img", "of=/dev/block/bootdevice/by-name/boot");');
-  info.script.AppendExtra('ui_print("installing Z010DD kernel and firmware....");');
+  info.script.AppendExtra('endif;');
 
 def FullOTA_Assertions(info):
   AddApidAssertion(info, info.input_zip)
