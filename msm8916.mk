@@ -128,10 +128,15 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
     copybit.msm8916 \
     gralloc.msm8916 \
     hwcomposer.msm8916 \
-    libtinyxml \
+    libgenlock \
     memtrack.msm8916
 
 # DRM
@@ -195,6 +200,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8916
 
+# QMI
+PRODUCT_PACKAGES += \
+    libtinyxml
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -214,6 +223,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librecovery_updater_asus \
     resize2fs_static
+
+# Releasetools
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
