@@ -183,6 +183,10 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_PACKAGES += \
 #    keystore.msm8916
 
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Light
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
