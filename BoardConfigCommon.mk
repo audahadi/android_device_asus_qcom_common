@@ -122,6 +122,9 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 # Filesystem
 TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
+
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
