@@ -670,7 +670,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
     group bluetooth net_bt_admin
     disabled
-    seclabel u:r:bluetooth_loader:s0
+#    seclabel u:r:bluetooth_loader:s0
     oneshot
 
 on property:bluetooth.hciattach=true
@@ -846,7 +846,7 @@ service qcom-power /system/bin/sh /system/etc/init.qcom.power.sh
 
 service qcom-factory /system/bin/sh /system/etc/init.qcom.factory.sh
     disabled
-    seclabel u:r:qcom_factory:s0
+#    seclabel u:r:qcom_factory:s0
     oneshot
 
 service spk_calibration /system/bin/tfamode 0
