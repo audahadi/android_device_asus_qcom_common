@@ -157,10 +157,10 @@ err_ret:
 }
 
 /* verify_trustzone("TZ_VERSION", "TZ_VERSION", ...) */
-Value * VerifyTrustZoneFn(const char *name, State *state, int argc, Expr *argv[]) {
+Value * VerifyTrustZoneFn(const char *name, State *state,
+                          const std::vector<std::unique_ptr<Expr>>& argv) {
     char current_tz_version[TZ_VER_BUF_LEN];
-    char *tz_version;
-    int i, ret;
+    int ret;
 
     ret = get_tz_version(current_tz_version, TZ_VER_BUF_LEN);
     if (ret) {
@@ -168,16 +168,15 @@ Value * VerifyTrustZoneFn(const char *name, State *state, int argc, Expr *argv[]
                 name, ret);
     }
 
-    for (i = 1; i <= argc; i++) {
-        ret = ReadArgs(state, argv, i, &tz_version);
-        if (ret < 0) {
-            return ErrorAbort(state, kArgsParsingFailure, "%s() error parsing arguments: %d",
-                name, ret);
-        }
+    std::vector<std::string> args;
+    if (!ReadArgs(state, argv, &args)) {
+        return ErrorAbort(state, kArgsParsingFailure, "%s() error parsing arguments", name);
+    }
 
+    for (auto& tz_version : args) {
         uiPrintf(state, "Comparing TZ version %s to %s",
-                tz_version, current_tz_version);
-        if (strncmp(tz_version, current_tz_version, strlen(tz_version)) == 0) {
+                tz_version.c_str(), current_tz_version);
+        if (strncmp(tz_version.c_str(), current_tz_version, tz_version.length()) == 0) {
             return StringValue(strdup("1"));
         }
     }
