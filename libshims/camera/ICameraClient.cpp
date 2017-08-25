@@ -30,6 +30,16 @@ enum {
     DATA_CALLBACK_TIMESTAMP,
 };
 
+/**
+ * The information of a data type received in a camera frame.
+ */
+typedef enum {
+    /** Data buffer */
+    CAMERA_FRAME_DATA_BUF = 0x000,
+    /** File descriptor */
+    CAMERA_FRAME_DATA_FD = 0x100
+} camera_frame_data_type_t;
+
 class BpCameraClient: public BpInterface<ICameraClient>
 {
 public:
