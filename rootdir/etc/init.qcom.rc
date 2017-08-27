@@ -136,9 +136,6 @@ on post-fs-data
     # Create directory for FOTA
     mkdir /data/fota 0771 system system
 
-    # Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
-
     # Create /data/time folder for time-services
     mkdir /data/time 0700 system system
 
@@ -740,13 +737,6 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
-
-service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
-    class late_start
-    user root
-    group root
-    oneshot
-    disabled
 
 service ril-daemon1 /vendor/bin/hw/rild -c 2
     class main
