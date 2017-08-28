@@ -117,6 +117,7 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8916 \
+    libshims_flp \
     libshims_get_process_name
 
 PRODUCT_PACKAGES += \
