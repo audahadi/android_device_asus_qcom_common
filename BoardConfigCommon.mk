@@ -120,7 +120,7 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Filesystem
-TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
+TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
