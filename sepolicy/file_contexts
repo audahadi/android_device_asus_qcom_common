@@ -22,6 +22,3 @@
 
 # Touchscreen
 /sys/devices/soc\.0/78b9000\.i2c/i2c-5/5-0038/gesture_mode u:object_r:sysfs_touchscreen:s0
-
-# GPU device
-/sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpuclk u:object_r:gpu_device:s0
