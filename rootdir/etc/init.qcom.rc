@@ -64,6 +64,8 @@ on fs
 on post-fs
     symlink /sdcard /storage/sdcard0
 
+    start qcom-opengles
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/fdAlbum 0770 camera camera
@@ -859,6 +861,3 @@ on property:sys.boot_completed=1
     write /proc/driver/audio_debug ${sys.uart.enable}
 
     start spk_calibration
-
-on load_system_props_action
-    start qcom-opengles
