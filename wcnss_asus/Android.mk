@@ -18,11 +18,15 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifneq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
+LOCAL_SRC_FILES := wcnss_Z00xD.cpp
+LOCAL_CFLAGS += -Wall -std=c++11
+else
 LOCAL_SRC_FILES := wcnss_asus_client.c
+LOCAL_CFLAGS += -Wall
+endif
 
 LOCAL_C_INCLUDES += $(call project-path-for,wlan)/wcnss_service
-LOCAL_CFLAGS += -Wall
-
 LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
 
 LOCAL_MODULE_TAGS := optional
