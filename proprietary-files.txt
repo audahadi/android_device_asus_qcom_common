@@ -420,8 +420,8 @@ lib/libmplmpu.so
 lib64/libinvensense_hal.so
 lib64/libmllite.so
 lib64/libmplmpu.so
-lib/hw/sensors.msm8916.so
-lib64/hw/sensors.msm8916.so
+lib/hw/sensors.msm8916.so:lib/sensors.asus.so
+lib64/hw/sensors.msm8916.so:lib64/sensors.asus.so
 
 # Thermal
 vendor/bin/thermal-engine
