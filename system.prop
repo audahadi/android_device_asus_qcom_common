@@ -55,6 +55,8 @@ debug.sf.hw=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
+debug.hwui.use_buffer_age=false
+ro.opengles.version=196608
 
 # DRM
 drm.service.enabled=true

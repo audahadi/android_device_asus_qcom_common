@@ -236,7 +236,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.bt.sh \
-    init.qcom.opengles.sh \
     init.qcom.power.sh \
     init.qcom.factory.sh
 
