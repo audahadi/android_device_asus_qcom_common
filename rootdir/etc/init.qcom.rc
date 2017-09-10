@@ -839,10 +839,6 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi radio
     oneshot
 
-service qcom-opengles /system/bin/sh /system/etc/init.qcom.opengles.sh
-    disabled
-    oneshot
-
 service qcom-power /system/bin/sh /system/etc/init.qcom.power.sh
     disabled
     oneshot

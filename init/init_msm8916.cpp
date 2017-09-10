@@ -28,6 +28,8 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -162,6 +164,24 @@ static void init_alarm_boot_properties()
     property_set("ro.alarm_boot", boot_reason == 3 ? "true" : "false");
 }
 
+bool is_target_8916()
+{
+    int fd;
+    int soc_id = -1;
+    char buf[10] = { 0 };
+
+    if (access("/sys/devices/soc0/soc_id", F_OK) == 0)
+        fd = open("/sys/devices/soc0/soc_id", O_RDONLY);
+    else
+        fd = open("/sys/devices/system/soc/soc0/id", O_RDONLY);
+
+    if (fd >= 0 && read(fd, buf, sizeof(buf) - 1) != -1)
+        soc_id = atoi(buf);
+
+    close(fd);
+    return soc_id == 206 || (soc_id >= 247 && soc_id <= 250);
+}
+
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
@@ -204,4 +224,11 @@ void vendor_load_properties()
     property_set("dalvik.vm.heaptargetutilization", "0.75");
     property_set("dalvik.vm.heapminfree", heapminfree);
     property_set("dalvik.vm.heapmaxfree", "8m");
+
+    if (is_target_8916()) {
+        property_set("debug.hwui.use_buffer_age", "false");
+        property_set("ro.opengles.version", "196608");
+    } else {
+        property_set("ro.opengles.version", "196610");
+    }
 }
