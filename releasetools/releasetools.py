@@ -20,7 +20,7 @@ def FullOTA_PostValidate(info):
   info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/bootdevice/by-name/system");');
 
 def FullOTA_InstallEnd(info):
-  info.script.AppendExtra('if getprop("ro.product.device") == "Z010DD" then');
+  info.script.AppendExtra('if getprop("ro.product.device") == "ASUS_Z010DD" then');
   info.script.AppendExtra('ui_print("installing Z010DD kernel and firmware....");');
   info.script.AppendExtra('package_extract_file("install/bin/etc", "/tmp/install/bin/etc");');
   info.script.Mount("/system")
