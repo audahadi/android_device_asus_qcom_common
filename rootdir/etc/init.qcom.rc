@@ -634,17 +634,17 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service irsc_util /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
 
-service config_bt_addr /system/bin/btnvtool -O
+service config_bt_addr /vendor/bin/btnvtool -O
     class core
     user bluetooth
     group bluetooth radio
@@ -661,7 +661,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
 on property:bluetooth.hciattach=true
     start hciattach
 
-service ims_rtp_daemon /system/bin/ims_rtp_daemon
+service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    socket ims_rtpd stream 0660 system radio
@@ -671,7 +671,7 @@ service ims_rtp_daemon /system/bin/ims_rtp_daemon
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
 
-service imscmservice /system/bin/imscmservice
+service imscmservice /vendor/bin/imscmservice
     class main
     user system
     group radio diag diag log
@@ -680,7 +680,7 @@ service imscmservice /system/bin/imscmservice
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start imscmservice
 
-service imsdatadaemon /system/bin/imsdatadaemon
+service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -690,7 +690,7 @@ service imsdatadaemon /system/bin/imsdatadaemon
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
-service imsqmidaemon /system/bin/imsqmidaemon
+service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
@@ -704,12 +704,12 @@ on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps qcom_diag wakelock
 
-service netmgrd /system/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     group wakelock
 
@@ -749,13 +749,13 @@ service charger /charger
     group log
     seclabel u:r:charger:s0
 
-service vm_bms /system/bin/vm_bms
+service vm_bms /vendor/bin/vm_bms
     class main
     user root
     group root wakelock
 
 # Start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
@@ -767,7 +767,7 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
@@ -783,7 +783,7 @@ service thermal-engine /vendor/bin/thermal-engine
     user root
     group root
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
     class late_start
     user root
     group root
@@ -815,7 +815,7 @@ on property:init.svc.surfaceflinger=stopped
 on property:init.svc.surfaceflinger=running
     start ppd
 
-service wcnss-service /system/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service
     class late_start
     user system
     group system wifi radio
@@ -830,12 +830,12 @@ service qcom-factory /system/bin/sh /system/etc/init.qcom.factory.sh
     seclabel u:r:qcom_factory:s0
     oneshot
 
-service spk_calibration /system/bin/tfamode 0
+service spk_calibration /vendor/bin/tfamode 0
     disabled
     user root
     oneshot
 
-service spk_setmode system/bin/tfamode 1
+service spk_setmode /vendor/bin/tfamode 1
     disabled
     user root
     oneshot

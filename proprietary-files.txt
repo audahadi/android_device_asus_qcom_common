@@ -22,7 +22,7 @@ etc/acdbdata/MTP/ZE600KL/MTP_Headset_cal_ZE600KL.acdb
 etc/acdbdata/MTP/ZE600KL/MTP_Speaker_cal_ZE600KL.acdb
 
 # ADSP
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib64/libadsprpc.so
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvopt.so
@@ -50,7 +50,7 @@ lib/libsphere3.so
 lib/style.cng
 
 # Audio
-bin/tfamode
+bin/tfamode:vendor/bin/tfamode
 etc/Tfa9887.cnt
 lib/libtfa9887.so
 lib64/libtfa9887.so
@@ -69,15 +69,15 @@ vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
 # Battery
-bin/vm_bms
+bin/vm_bms:vendor/bin/vm_bms
 
 # Bluetooth
-bin/btnvtool
-bin/hci_qcomm_init
+bin/btnvtool:vendor/bin/btnvtool
+bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 vendor/lib64/libbtnv.so
 
 # Camera
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 lib/hw/camera.msm8916.so:lib/hw/camera.vendor.msm8916.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
@@ -209,7 +209,7 @@ vendor/lib/libxditk_mmcamera2_stats_algorithm.so
 vendor/lib/libxditk_Network.so
 
 # DRM - from crackling
-bin/qseecomd|ac14b419bcac711330014dc147df8719fe9d44da
+bin/qseecomd:vendor/bin/qseecomd|ac14b419bcac711330014dc147df8719fe9d44da
 vendor/lib64/libdrmfs.so|645998dfcb0d204ef7eb5a2f7ccd96d71eb045be
 vendor/lib64/libdrmtime.so|71b44bd96e194b43b7c6e50a97eb5efd5f5f95e4
 vendor/lib64/libQSEEComAPI.so|5ec09d3085cc6a7157ed094d677bbfd1479fbac4
@@ -319,7 +319,7 @@ vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
 
 # Qualcomm framework - from crackling
-bin/irsc_util
+bin/irsc_util:vendor/bin/irsc_util
 etc/data/dsi_config.xml
 vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
@@ -356,10 +356,10 @@ vendor/lib/libsmemlog.so
 
 # Radio
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|8e319e3577474868e5a261c6a1ad971a85a35703
-bin/netmgrd
-bin/qmuxd
-bin/radish
-bin/rmt_storage
+bin/netmgrd:vendor/bin/netmgrd
+bin/qmuxd:vendor/bin/qmuxd
+bin/radish:vendor/bin/radish
+bin/rmt_storage:vendor/bin/rmt_storage
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
 etc/permissions/qcnvitems.xml
@@ -380,10 +380,10 @@ vendor/lib64/libxml.so
 
 # Radio - IMS
 # ims.apk - from oneplus3
-bin/imscmservice
-bin/imsdatadaemon
-bin/imsqmidaemon
-bin/ims_rtp_daemon
+bin/imscmservice:vendor/bin/imscmservice
+bin/imsdatadaemon:vendor/bin/imsdatadaemon
+bin/imsqmidaemon:vendor/bin/imsqmidaemon
+bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
 etc/permissions/imscm.xml
 etc/permissions/qti_permissions.xml
 -framework/imscmlibrary.jar
@@ -431,7 +431,7 @@ vendor/lib64/libthermalioctl.so
 
 # Time services
 -app/TimeService/TimeService.apk
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
 -vendor/lib64/libtime_genoff.so
 -vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
