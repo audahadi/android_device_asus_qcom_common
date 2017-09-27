@@ -1,3 +1,4 @@
+ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
 ifneq ($(BUILD_TINY_ANDROID),true)
 #Compile this library only for builds with the latest modem image
 
@@ -24,7 +25,6 @@ LOCAL_SRC_FILES += \
     MsgTask.cpp \
     loc_misc_utils.cpp
 
-# Flag -std=c++11 is not accepted by compiler when LOCAL_CLANG is set to true
 LOCAL_CFLAGS += \
      -fno-short-enums \
      -D_ANDROID_
@@ -66,3 +66,4 @@ LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 endif # not BUILD_TINY_ANDROID
+endif # BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE

@@ -31,7 +31,7 @@
 
 #include <gps_extended.h>
 
-struct FlpExtLocation_s;
+struct FlpExtLocation;
 struct FlpExtBatchOptions;
 
 namespace loc_core {
@@ -54,50 +54,29 @@ public:
         return false;
     }
 
-    inline virtual bool reportPosition(UlpLocation &location,
-                                       GpsLocationExtended &locationExtended,
-                                       void* locationExt,
-                                       enum loc_sess_status status,
-                                       LocPosTechMask loc_technology_mask) {
-        (void)location;
-        (void)locationExtended;
-        (void)locationExt;
-        (void)status;
-        (void)loc_technology_mask;
+    inline virtual bool reportPosition(UlpLocation& /* location */,
+                                       GpsLocationExtended& /* locationExtended */,
+                                       void* /* locationExt */,
+                                       enum loc_sess_status /* status */,
+                                       LocPosTechMask /* loc_technology_mask */) {
         return false;
     }
-    inline virtual bool reportSv(GnssSvStatus &svStatus,
-                                 GpsLocationExtended &locationExtended,
-                                 void* svExt) {
-        (void)svStatus;
-        (void)locationExtended;
-        (void)svExt;
+    inline virtual bool reportSv(GnssSvStatus& /* svStatus */,
+                                 GpsLocationExtended& /* locationExtended */,
+                                 void* /* svExt */) {
         return false;
     }
-    inline virtual bool reportStatus(GpsStatusValue status) {
-
-        (void)status;
+    inline virtual bool reportStatus(GpsStatusValue /* status*/) {
         return false;
     }
-    inline virtual void setAdapter(LocAdapterBase* adapter) {
-
-        (void)adapter;
-    }
-    inline virtual void setCapabilities(unsigned long capabilities) {
-
-        (void)capabilities;
-    }
-    inline virtual bool reportBatchingSession(FlpExtBatchOptions &options,
-                                              bool active) {
-
-        (void)options;
-        (void)active;
+    inline virtual void setAdapter(LocAdapterBase* /* adapter */) {}
+    inline virtual void setCapabilities(unsigned long /* capabilities */) {}
+    inline virtual bool reportBatchingSession(FlpExtBatchOptions& /* options */,
+                                              bool /* active */) {
         return false;
     }
-    inline virtual bool reportPositions(const struct FlpExtLocation_s* locations,
-                                        int32_t number_of_locations) {
-        (void)locations;
-        (void)number_of_locations;
+    inline virtual bool reportPositions(const FlpExtLocation* /* locations */,
+                                        int32_t /* number_of_locations */) {
         return false;
     }
 };
