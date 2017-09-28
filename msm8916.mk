@@ -139,10 +139,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8916
-
 PRODUCT_PACKAGES += \
     flp.conf \
     gps.conf \
