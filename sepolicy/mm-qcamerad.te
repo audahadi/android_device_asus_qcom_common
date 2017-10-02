@@ -1,3 +1,5 @@
+allow mm-qcamerad camera_data_file:sock_file { create unlink };
+
 allow mm-qcamerad camera_db_file:file r_file_perms;
 
 allow mm-qcamerad system_data_file:dir rw_dir_perms;
