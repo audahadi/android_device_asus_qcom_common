@@ -98,6 +98,9 @@ on post-fs-data
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
 
+    #Create folder for mm-qcamera-daemon
+    mkdir /data/vendor/camera 0770 camera camera
+
     # Mounting of persist, asdf and factory is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod them again so because mount is run as root + defaults
     chown system system /persist
@@ -739,7 +742,7 @@ on property:ro.use_data_netmgrd=false
 on property:ro.data.large_tcp_window_size=true
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf -N \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -755,7 +758,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service ril-daemon1 /vendor/bin/hw/rild -c 2
+service ril-daemon1 /system/vendor/bin/hw/rild -c 2
     class main
     user radio
     group radio cache inet misc audio log readproc wakelock
@@ -789,13 +792,13 @@ service qseecomd /system/bin/qseecomd
     user root
     group root
 
-service perfd /vendor/bin/perfd
+service perfd /system/vendor/bin/perfd
     class main
     user root
     group root
     disabled
 
-service thermal-engine /vendor/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine
     class main
     user root
     group root
@@ -819,7 +822,7 @@ on charger
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
     start vm_bms
 
-service ppd /vendor/bin/mm-pp-daemon
+service ppd /system/vendor/bin/mm-pp-daemon
     class late_start
     disabled
     user system
