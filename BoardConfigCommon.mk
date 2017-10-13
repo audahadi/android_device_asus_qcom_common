@@ -165,10 +165,6 @@ TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Release tools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_asus
-TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)/releasetools
-
 # Render
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
