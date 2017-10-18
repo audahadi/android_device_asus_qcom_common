@@ -47,9 +47,6 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">64</integer>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
-
     <integer name="config_buttonBrightnessSettingDefault">0</integer>
 
 </resources>
