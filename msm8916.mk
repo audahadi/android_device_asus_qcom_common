@@ -222,6 +222,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Default OMX service to non-Treble
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.media.treble_omx=false
+
 # Power HAL
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
