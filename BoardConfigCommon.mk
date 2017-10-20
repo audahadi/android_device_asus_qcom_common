@@ -91,10 +91,10 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 WITH_LINEAGE_CHARGER := false
 
 # CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw \
-    $(VENDOR_PATH)/cmhw
+#BOARD_USES_CYANOGEN_HARDWARE := true
+#BOARD_HARDWARE_CLASS += \
+#    hardware/cyanogen/cmhw \
+#    $(VENDOR_PATH)/cmhw
 
 # Crypto
 # FDE works only in software mode, disable HW.

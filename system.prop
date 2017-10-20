@@ -112,4 +112,3 @@ sys.uart.enable=0
 ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
 
-
