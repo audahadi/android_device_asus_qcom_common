@@ -385,7 +385,7 @@ bin/imsdatadaemon:vendor/bin/imsdatadaemon
 bin/imsqmidaemon:vendor/bin/imsqmidaemon
 bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
 etc/permissions/imscm.xml
-etc/permissions/qti_permissions.xml
+etc/permissions/qti_permissions.xml|a283406bc196ef3420b779543d01b83a73f63f98
 -framework/imscmlibrary.jar
 -vendor/app/ims/ims.apk|5ec3279994f4dfcfc79a7d44f1d968b0d52940a4
 -vendor/app/imssettings/imssettings.apk

@@ -707,7 +707,7 @@ on property:hw.fm.init=1
 service qmuxd /vendor/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps qcom_diag wakelock
+    group radio audio bluetooth gps oem_2950 wakelock
 
 service netmgrd /vendor/bin/netmgrd
     class main
