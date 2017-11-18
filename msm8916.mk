@@ -124,12 +124,13 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl.legacy \
+    camera.device@2.4-impl.legacy \
     bspcapability \
     libshims_camera \
     camera.msm8916
 
 PRODUCT_PACKAGES += \
-    Snap
+    Camera2
 
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
