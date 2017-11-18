@@ -135,6 +135,11 @@ extern char* get_timestamp(char* str, unsigned long buf_size);
         }                                                                     \
     } while(0)
 
+#define LOC_LOG_HEAD(tag,fmt) "%s:%d][" tag "] " fmt "\n"
+#define LOC_LOGv(tag,fmt,...) LOC_LOGV(LOC_LOG_HEAD(tag,fmt), __func__, __LINE__, ##__VA_ARGS__)
+#define LOC_LOGw(tag,fmt,...) LOC_LOGW(LOC_LOG_HEAD(tag,fmt), __func__, __LINE__, ##__VA_ARGS__)
+#define LOC_LOGd(tag,fmt,...) LOC_LOGD(LOC_LOG_HEAD(tag,fmt), __func__, __LINE__, ##__VA_ARGS__)
+#define LOC_LOGe(tag,fmt,...) LOC_LOGE(LOC_LOG_HEAD(tag,fmt), __func__, __LINE__, ##__VA_ARGS__)
 
 #define LOG_I(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGI, ID, WHAT, SPEC, VAL)
 #define LOG_V(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGV, ID, WHAT, SPEC, VAL)
