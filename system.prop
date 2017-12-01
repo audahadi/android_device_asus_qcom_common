@@ -94,6 +94,9 @@ ril.subscription.types=NV,RUIM
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9,9
 
+# Shutdown timeout
+ro.build.shutdown_timeout=0
+
 # Storage
 ro.sys.sdcardfs=true
 
