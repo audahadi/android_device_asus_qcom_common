@@ -42,6 +42,7 @@
 #include "property_service.h"
 
 using android::base::GetProperty;
+using android::init::property_set;
 
 char const *device;
 char const *family;
