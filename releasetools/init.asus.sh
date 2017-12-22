@@ -11,7 +11,7 @@ if [ -f "$cpu_id_file" ]; then
             # Stub
             ;;
         *)
-            rm -f /system/etc/permissions/android.hardware.opengles.aep.xml
+            rm -f /system/vendor/etc/permissions/android.hardware.opengles.aep.xml
             ;;
     esac
 fi
