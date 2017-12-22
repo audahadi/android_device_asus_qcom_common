@@ -34,12 +34,12 @@ fi
 if [ -f "$cpu_id_file" ]; then
     case "$cpu_id" in
         "239" | "241" | "263" | "268" | "269" | "270" | "271")
-            mv /system/etc/media_codecs_8939.xml /system/etc/media_codecs.xml
-            mv /system/etc/media_codecs_performance_8939.xml /system/etc/media_codecs_performance.xml
+            mv /system/vendor/etc/media_codecs_8939.xml /system/vendor/etc/media_codecs.xml
+            mv /system/vendor/etc/media_codecs_performance_8939.xml /system/vendor/etc/media_codecs_performance.xml
             ;;
         *)
-            rm -f /system/etc/media_codecs_8939.xml
-            rm -f /system/etc/media_codecs_performance_8939.xml
+            rm -f /system/vendor/etc/media_codecs_8939.xml
+            rm -f /system/vendor/etc/media_codecs_performance_8939.xml
             ;;
     esac
 fi
