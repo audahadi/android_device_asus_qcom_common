@@ -1,3 +1,5 @@
+genfscon debugfs /rmt_storage u:object_r:debugfs_rmt:s0
+
 genfscon proc /aphd  u:object_r:proc_aphd:s0
 genfscon proc /apid  u:object_r:proc_apid:s0
 genfscon proc /aplte u:object_r:proc_aplte:s0
