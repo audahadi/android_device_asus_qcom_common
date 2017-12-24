@@ -297,17 +297,17 @@ PRODUCT_COPY_FILES += \
 
 # WCNSS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/vendor/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_cmcc_zd550kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_cmcc_zd550kl.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_cucc_zd550kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_cucc_zd550kl.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kg.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kg.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kl.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kl_cmcc.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kl_cmcc.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze551kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze551kl.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze600kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze600kl.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_zx550kl.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_zx550kl.bin
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_wlan_dictionary.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_cmcc_zd550kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_cmcc_zd550kl.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_cucc_zd550kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_cucc_zd550kl.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kg.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kg.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kl.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze550kl_cmcc.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze550kl_cmcc.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze551kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze551kl.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze600kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze600kl.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_zx550kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_zx550kl.bin
 
 PRODUCT_PACKAGES += \
     wcnss_service
