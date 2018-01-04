@@ -46,6 +46,8 @@ char const *heapstartsize;
 char const *heapgrowthlimit;
 char const *heapsize;
 char const *heapminfree;
+char const *buildnumber;
+char const *builddate;
 
 void check_device()
 {
@@ -72,11 +74,17 @@ void check_device()
         if (PRJ_ID == 0) {
             if (PRJ_SKU == 3) {
                 device = "Z00W"; // ZE550KG
+                buildnumber = "2179";
+                builddate = "20170803";
             } else {
                 device = "Z00L"; // ZE550KL
+                buildnumber = "2179";
+                builddate = "20170803";
             }
         } else if (PRJ_ID == 1) {
             device = "Z00M"; // ZE600KL
+            buildnumber = "2171";
+            builddate = "20170719";
         }
 
         // from - phone-xhdpi-2048-dalvik-heap.mk
@@ -88,12 +96,20 @@ void check_device()
         family = "Z00T";
         if (PRJ_ID == 0) {
             device = "Z00T"; // ZE551KL
+            buildnumber = "2056";
+            builddate = "20170224";
         } else if (PRJ_ID == 1) {
             device = "Z011"; // ZE601KL
+            buildnumber = "2170";
+            builddate = "20170719";
         } else if (PRJ_ID == 2) {
             device = "Z00C"; // ZX550KL
+            buildnumber = "2056";
+            builddate = "20170224";
         } else if (PRJ_ID == 3) {
             device = "Z00U"; // ZD551KL
+            buildnumber = "2214";
+            builddate = "20171110";
         }
 
         if (sys.totalram > 2048ull * 1024 * 1024) {
@@ -172,8 +188,8 @@ void vendor_load_properties()
     check_device();
     init_alarm_boot_properties();
 
-    sprintf(b_description, "%s-user 6.0.1 MMB29P WW_user_21.40.1220.2156_20170622 release-keys", family);
-    sprintf(b_fingerprint, "asus/WW_%s/ASUS_%s:6.0.1/MMB29P/WW_user_21.40.1220.2156_20170622:user/release-keys", device, device);
+    sprintf(b_description, "%s-user 6.0.1 MMB29P WW_user_21.40.1220.%s_%s release-keys", family, buildnumber, builddate);
+    sprintf(b_fingerprint, "asus/WW_%s/ASUS_%s:6.0.1/MMB29P/WW_user_21.40.1220.%s_%s:user/release-keys", device, device, buildnumber, builddate);
     sprintf(p_model, "ASUS_%sD", device);
     sprintf(p_device, "ASUS_%s", device);
     sprintf(p_carrier, "US-ASUS_%s-WW_%s", device, device);
