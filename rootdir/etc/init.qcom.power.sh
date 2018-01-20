@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 #
 # Copyright (C) 2016 The CyanogenMod Project
 #
@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export PATH=/system/bin
+export PATH=/vendor/bin
 
 if [ -f /sys/devices/soc0/soc_id ]; then
     soc_id=`cat /sys/devices/soc0/soc_id`

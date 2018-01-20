@@ -8,8 +8,8 @@
 
 # Factory
 /factory(/.*)?                                                u:object_r:fac_file:s0
-/system/bin/init\.qcom\.factory\.sh                           u:object_r:qcom_factory_exec:s0
-/system/bin/init\.qcom\.power\.sh                             u:object_r:qcom_power_exec:s0
+/(vendor|system/vendor)/bin/init\.qcom\.factory\.sh           u:object_r:qcom_factory_exec:s0
+/(vendor|system/vendor)/bin/init\.qcom\.power\.sh             u:object_r:qcom_power_exec:s0
 
 # Lights
 /sys/devices/soc\.0/leds-qpnp-[0-9]+(/.*)?                    u:object_r:sysfs_leds:s0

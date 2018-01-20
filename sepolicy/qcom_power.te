@@ -44,5 +44,5 @@ allow qcom_power proc_meminfo:file r_file_perms;
 allow qcom_power system_file:file rx_file_perms;
 
 # Allow running init.qcom.power.sh
-allow qcom_power shell_exec:file rx_file_perms;
-allow qcom_power toolbox_exec:file rx_file_perms;
+allow qcom_power vendor_shell_exec:file rx_file_perms;
+allow qcom_power vendor_toolbox_exec:file rx_file_perms;

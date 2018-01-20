@@ -813,11 +813,11 @@ service wcnss-service /vendor/bin/wcnss_service
     group system wifi radio
     oneshot
 
-service qcom-power /system/bin/init.qcom.power.sh
+service qcom-power /vendor/bin/init.qcom.power.sh
     disabled
     oneshot
 
-service qcom-factory /system/bin/init.qcom.factory.sh
+service qcom-factory /vendor/bin/init.qcom.factory.sh
     disabled
     oneshot
 

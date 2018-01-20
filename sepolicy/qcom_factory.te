@@ -1,5 +1,5 @@
 type qcom_factory, domain;
-type qcom_factory_exec, exec_type, file_type;
+type qcom_factory_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(qcom_factory)
 
@@ -13,8 +13,8 @@ allow qcom_factory persist_alarm_file:file w_file_perms;
 allow qcom_factory bluetooth_data_file:file { r_file_perms relabelto };
 
 # Allow running init.qcom.factory.sh
-allow qcom_factory shell_exec:file { entrypoint getattr read };
-allow qcom_factory toolbox_exec:file rx_file_perms;
+allow qcom_factory vendor_shell_exec:file rx_file_perms;
+allow qcom_factory vendor_toolbox_exec:file rx_file_perms;
 
 # Allow reading SELinux files
 allow qcom_factory rootfs:file r_file_perms;
