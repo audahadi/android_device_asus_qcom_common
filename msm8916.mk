@@ -342,3 +342,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl
 
+###########Some stuffs from Anroid GO common config
+#Low RAM
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.config.low_ram=true \
+     ro.lmk.critical_upgrade=true \
+     ro.lmk.upgrade_pressure=40
+     
+# Default heap sizes. Allow up to 256m for large heaps to make sure a single app
+# doesn't take all of the RAM.
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.heapgrowthlimit=128m
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.heapsize=256m
+
+# Always preopt extracted APKs to prevent extracting out of the APK for gms
+# modules.
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+###########Some stuffs from Anroid GO common config
