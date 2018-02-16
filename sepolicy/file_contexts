@@ -11,12 +11,18 @@
 /system/bin/init\.qcom\.factory\.sh                           u:object_r:qcom_factory_exec:s0
 /system/bin/init\.qcom\.power\.sh                             u:object_r:qcom_power_exec:s0
 
+# Lights
+/sys/devices/soc\.0/leds-qpnp-[0-9]+(/.*)?                    u:object_r:sysfs_leds:s0
+
 # Sensors
-/dev/cm3602                                                   u:object_r:sensors_device:s0
-/dev/lightsensor                                              u:object_r:sensors_device:s0
+/data/inv_cal_data.bin                                           u:object_r:sensors_data_file:s0
+/dev/cm3602                                                      u:object_r:sensors_device:s0
+/dev/lightsensor                                                 u:object_r:sensors_device:s0
+/sys/devices/.*/i2c-[0-9]/[0-9]-[0-9a-f]+/iio:device[0-9](/.*)?  u:object_r:sysfs_sensors:s0
 
 # Tfa amp
 /system/vendor/bin/tfamode                                    u:object_r:tfamode_exec:s0
 
 # Touchscreen
+/sys/devices/soc\.0/78b9000\.i2c/i2c-5/5-0038/dclick_mode     u:object_r:sysfs_touchscreen:s0
 /sys/devices/soc\.0/78b9000\.i2c/i2c-5/5-0038/gesture_mode    u:object_r:sysfs_touchscreen:s0
