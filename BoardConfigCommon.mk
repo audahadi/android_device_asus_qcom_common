@@ -187,7 +187,10 @@ include device/qcom/sepolicy/legacy-sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Shims
-TARGET_LD_SHIM_LIBS := /system/vendor/lib64/lib-imscamera.so|libshims_camera.so:/system/vendor/lib64/libflp.so|libshims_flp.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib64/lib-imscamera.so|libshims_camera.so \
+    /system/vendor/lib64/libflp.so|libshims_flp.so \
+    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -206,12 +209,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 #GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
-
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-include device/qcom/sepolicy/legacy-sepolicy.mk
-
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Tap-to-Wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
