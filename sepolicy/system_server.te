@@ -1,1 +1,6 @@
+allow system_server sensors_device:chr_file rw_file_perms;
+
 allow system_server sysfs_touchscreen:file rw_file_perms;
+
+r_dir_file(system_server, fac_file)
+r_dir_file(system_server, persist_file)
