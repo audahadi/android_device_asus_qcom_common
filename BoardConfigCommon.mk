@@ -62,13 +62,9 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
-BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
-BOARD_USES_GENERIC_AUDIO := true
-TARGET_USES_QCOM_MM_AUDIO := true
-USE_XML_AUDIO_POLICY_CONF := 1
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
@@ -113,12 +109,19 @@ WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
+
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
-TARGET_USES_ION := true
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
-TARGET_USES_NEW_ION_API :=true
+TARGET_USES_ION := true
+TARGET_USES_NEW_ION_API := true
+
+# Render
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+USE_OPENGL_RENDERER := true
 
 # FM Radio
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
@@ -126,12 +129,13 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Filesystem
-TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Keymaster
+TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_PROVIDES_KEYMASTER := true #keymater break on Z00ED/RD - revisit
@@ -190,6 +194,12 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 #include device/qcom/sepolicy/sepolicy.mk
 
 #BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib64/lib-imscamera.so|libshims_camera.so \
+    /system/vendor/lib64/libflp.so|libshims_flp.so \
+    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
 
 # Tap-to-Wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"

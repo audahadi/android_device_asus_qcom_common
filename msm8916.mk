@@ -151,7 +151,15 @@ PRODUCT_PACKAGES += \
     gralloc.msm8916 \
     hwcomposer.msm8916 \
     libgenlock \
+    libtinyxml \
     memtrack.msm8916
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_buffer_age=false
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -258,10 +266,6 @@ PRODUCT_PACKAGES += \
 # Releasetools
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
-
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
