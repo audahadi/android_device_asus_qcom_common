@@ -1,0 +1,18 @@
+allow hal_camera_default mm-qcamerad:unix_stream_socket connectto;
+
+allow hal_camera_default camera_data_file:sock_file write;
+allow hal_camera_default camera_db_file:file r_file_perms;
+
+allow hal_camera_default system_data_file:dir search;
+allow hal_camera_default system_data_file:sock_file w_file_perms;
+
+allow hal_camera_default proc_driver_camera:file rw_file_perms;
+allow hal_camera_default proc_driver_laf:file rw_file_perms;
+
+allow hal_camera_default proc_asusevtlog:file w_file_perms;
+
+allow hal_camera_default system_file:file execmod;
+
+r_dir_file(hal_camera_default, fac_file)
+r_dir_file(hal_camera_default, persist_file)
+

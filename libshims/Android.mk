@@ -18,8 +18,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES:= \
-	atomic.cpp \
-        camera/Camera.cpp \
+	camera/Camera.cpp \
 	camera/CameraMetadata.cpp \
 	camera/CaptureResult.cpp \
 	camera/CameraParameters2.cpp \

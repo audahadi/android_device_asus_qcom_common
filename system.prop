@@ -61,6 +61,10 @@ ro.opengles.version=196608
 # DRM
 drm.service.enabled=true
 
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+
 # Media
 mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
@@ -91,13 +95,8 @@ ril.subscription.types=NV,RUIM
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9,9
 
-# IMS
-service.qti.ims.enabled=1
-persist.radio.calls.on.ims=0
-persist.radio.jbims=0
-persist.radio.imsregrequired=1
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
+# Shutdown timeout
+ro.build.shutdown_timeout=0
 
 # Storage
 ro.sys.sdcardfs=true
@@ -111,4 +110,8 @@ sys.uart.enable=0
 # WiFi
 ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
+
+ro.debuggable=1
+ro.adb.secure=0
+ro.secure=0
 

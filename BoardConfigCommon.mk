@@ -48,7 +48,6 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_DTBTOOL_ARGS := -3
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_ARCH := arm64
@@ -64,7 +63,10 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_GENERIC_AUDIO := true
+TARGET_USES_QCOM_MM_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
+USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
@@ -80,17 +82,10 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-TARGET_USES_NON_TREBLE_CAMERA := true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 WITH_LINEAGE_CHARGER := false
-
-# CMHW
-#BOARD_USES_CYANOGEN_HARDWARE := true
-#BOARD_HARDWARE_CLASS += \
-#    hardware/cyanogen/cmhw \
-#    $(VENDOR_PATH)/cmhw
 
 # Crypto
 # FDE works only in software mode, disable HW.
@@ -104,20 +99,17 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
-
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
-TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+TARGET_USES_ION := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
-TARGET_USES_ION := true
-TARGET_USES_NEW_ION_API := true
+TARGET_USES_NEW_ION_API :=true
 
 # Render
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -129,7 +121,10 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
+
+# HIDL
+DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
@@ -144,11 +139,16 @@ endif
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Lineage hardware
+BOARD_HARDWARE_CLASS += \
+    $(VENDOR_PATH)/lineagehw
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12530449408 # 12530465792 - 16384
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 33554432
 BOARD_FLASH_BLOCK_SIZE := 131072
 
@@ -165,16 +165,23 @@ MALLOC_SVELTE := true
 
 # Recovery
 BOARD_NO_SECURE_DISCARD := true
-TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.full
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Render
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-USE_OPENGL_RENDERER := true
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/legacy-sepolicy.mk
 
-# RIL
-TARGET_RIL_VARIANT := caf
+#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+
+# Shims
+TARGET_LD_SHIM_LIBS := /system/vendor/lib64/lib-imscamera.so|libshims_camera.so:/system/vendor/lib64/libflp.so|libshims_flp.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
+
+# Tap-to-Wake
+TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
+
+PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -184,22 +191,10 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_USES_WCNSS_CTRL := true
 #TARGET_USES_QCOM_WCNSS_QMI := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
-
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib64/lib-imscamera.so|libshims_camera.so \
-    /system/vendor/lib64/libflp.so|libshims_flp.so \
-    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
-
-# Tap-to-Wake
-TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
