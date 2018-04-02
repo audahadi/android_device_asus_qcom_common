@@ -126,6 +126,8 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_PROVIDES_KEYMASTER := true #keymater break on Z00ED/RD - revisit
+TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 endif
 
 # Lights
