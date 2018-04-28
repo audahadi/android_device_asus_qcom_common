@@ -104,9 +104,6 @@ persist.dbg.vt_avail_ovr=1
 # Shutdown timeout
 ro.build.shutdown_timeout=7
 
-# Storage
-ro.sys.sdcardfs=true
-
 # Time
 persist.timed.enable=true
 
