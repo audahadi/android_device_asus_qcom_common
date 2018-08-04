@@ -1,0 +1,118 @@
+# Art
+dalvik.vm.dex2oat-flags=--no-watch-dog
+ro.sys.fw.dex2oat_thread_count=4
+
+# Audio
+af.fast_track_multiplier=1
+audio_hal.period_size=192
+audio.deep_buffer.media=true
+persist.audio.fluence.speaker=true
+persist.audio.fluence.voicecall=false
+persist.audio.fluence.voicerec=false
+ro.config.vc_call_vol_steps=8
+
+ro.qc.sdk.audio.ssr=false
+tunnel.audio.encode=false
+use.voice.path.for.pcm.voip=true
+vidc.enc.narrow.searchrange=1
+voice.playback.conc.disabled=true
+voice.record.conc.disabled=true
+voice.voip.conc.disabled=true
+
+# Audio offload
+audio.offload.buffer.size.kb=64
+audio.offload.gapless.enabled=true
+audio.offload.min.duration.secs=30
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+audio.offload.video=true
+av.offload.enable=true
+av.streaming.offload.enable=false
+
+# Bluetooth
+qcom.bluetooth.soc=smd
+ro.bluetooth.dun=true
+ro.bluetooth.hfp.ver=1.7
+ro.bluetooth.sap=true
+ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.hfp=true
+ro.qualcomm.bluetooth.hsp=true
+ro.qualcomm.bluetooth.map=true
+ro.qualcomm.bluetooth.nap=true
+ro.qualcomm.bluetooth.opp=true
+ro.qualcomm.bluetooth.pbap=true
+ro.qualcomm.bt.hci_transport=smd
+
+# Camera
+persist.camera.cpp.duplication=false
+camera2.portability.force_api=1
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+
+# Display
+debug.egl.hw=0
+debug.enable.sglscale=1
+debug.mdpcomp.idletime=600
+debug.mdpcomp.logs=0
+debug.sf.hw=0
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+persist.hwc.mdpcomp.enable=true
+
+# DRM
+drm.service.enabled=true
+
+# Media
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+persist.media.treble_omx=false
+
+# Netmgrd
+persist.data.netmgrd.qos.enable=true
+ro.use_data_netmgrd=true
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
+# Qualcomm
+persist.data.qmi.adb_logmask=0
+ro.qualcomm.cabl=0
+
+# Radio
+DEVICE_PROVISIONED=1
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.dont_use_dsd=true
+persist.radio.flexmap_type=dds
+persist.radio.multisim.config=dsds
+rild.libargs=-d /dev/smd0
+rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+ril.subscription.types=NV,RUIM
+ro.telephony.call_ring.multiple=false
+ro.telephony.default_network=9,9
+
+# IMS
+service.qti.ims.enabled=1
+persist.radio.calls.on.ims=0
+persist.radio.jbims=0
+persist.radio.imsregrequired=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+
+# Shutdown timeout
+ro.build.shutdown_timeout=7
+
+# Storage
+ro.sys.sdcardfs=true
+
+# Time
+persist.timed.enable=true
+
+# UART
+sys.uart.enable=0
+
+# WiFi
+ro.disableWifiApFirmwareReload=true
+wifi.interface=wlan0

@@ -1,0 +1,30 @@
+# ASDF
+/asdf(/.*)?                                                   u:object_r:asdf_data_file:s0
+
+# Camera
+/system/lib/libarcsoft_panorama_burstcapture\.so              u:object_r:apk_data_file:s0
+/system/lib/libcameraap\.so                                   u:object_r:apk_data_file:s0
+/system/lib/DataSet/ispDB/ParameterDB\.db                     u:object_r:camera_db_file:s0
+
+# Debug
+/sys/kernel/debug/rmt_storage(/.*)?                           u:object_r:debugfs_rmt:s0
+
+# Factory
+/factory(/.*)?                                                u:object_r:fac_file:s0
+/system/etc/init\.qcom\.factory\.sh                           u:object_r:qcom_factory_exec:s0
+
+# Perfd
+/system/vendor/bin/perfd                                      u:object_r:perfd_exec:s0
+
+# Sensors
+/dev/cm3602                                                   u:object_r:sensors_device:s0
+/dev/lightsensor                                              u:object_r:sensors_device:s0
+
+# Tfa amp
+/system/bin/tfamode                     u:object_r:tfamode_exec:s0
+
+# Touchscreen
+/sys/devices/soc\.0/78b9000\.i2c/i2c-5/5-0038/gesture_mode u:object_r:sysfs_touchscreen:s0
+
+# GPU device
+/sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpuclk u:object_r:gpu_device:s0
