@@ -5,6 +5,8 @@ allow mm-qcamerad camera_db_file:file r_file_perms;
 allow mm-qcamerad system_data_file:dir rw_dir_perms;
 allow mm-qcamerad system_data_file:sock_file create_file_perms;
 
+allow mm-qcamerad sysfs:file { read open };
+
 r_dir_file(mm-qcamerad, fac_file)
 
 allow mm-qcamerad proc_driver_camera:file r_file_perms;

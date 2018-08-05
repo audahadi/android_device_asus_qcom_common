@@ -1,0 +1,5 @@
+allow vold persist_file:dir { read };
+
+allow vold asdf_data_file:dir { read };
+
+allow vold fac_file:dir { read };

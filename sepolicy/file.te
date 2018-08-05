@@ -4,8 +4,6 @@ type asdf_data_file, file_type;
 # Default type for anything under /factory.
 type fac_file, file_type;
 
-type debugfs_rmt, debugfs_type, fs_type;
-
 type sysfs_touchscreen, sysfs_type, fs_type;
 
 type proc_aphd, fs_type;
@@ -20,10 +18,7 @@ type proc_driver_camera, fs_type;
 type proc_driver_laf, fs_type;
 
 type proc_asusevtlog, fs_type;
-type asusevtlog, file_type;
 
 type proc_boot_reason, fs_type;
 
 type camera_db_file, file_type;
-
-type imsdatadaemon, file_type;

@@ -32,6 +32,7 @@ import init.target.rc
 on early-init
     # Turn off backlight on blank
     write /sys/class/leds/lcd-backlight/trigger "backlight"
+    write /sys/proc/asusklog "1"
 
 on init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755

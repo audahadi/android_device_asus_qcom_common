@@ -8,4 +8,6 @@ allow tfamode shell_exec:file rx_file_perms;
 allow tfamode system_file:file execute_no_trans;
 allow tfamode self:capability dac_override;
 
+allow tfamode i2c_device:chr_file { read write open };
+
 set_prop(tfamode, audio_prop)

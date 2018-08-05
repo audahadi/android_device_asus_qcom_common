@@ -1,1 +1,1 @@
-allow mediacodec mpctl_data_file:dir search;
+allow mediacodec vfat:file { read open getattr };

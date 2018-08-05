@@ -1,4 +1,4 @@
-type perfd, domain;
-type perfd_exec, exec_type, vendor_file_type, file_type;
+allow perfd self:capability fsetid;
 
-init_daemon_domain(perfd)
+allow perfd sysfs_thermal:dir search;
+allow perfd sysfs_thermal:file w_file_perms;

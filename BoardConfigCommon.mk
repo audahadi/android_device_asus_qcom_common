@@ -97,7 +97,7 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -187,7 +187,7 @@ TARGET_RIL_VARIANT := caf
 include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/legacy-sepolicy.mk
 
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS := \

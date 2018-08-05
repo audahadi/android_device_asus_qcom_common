@@ -1,5 +1,5 @@
 allow thermal-engine proc_driver_battery:file r_file_perms;
 
-allow thermal-engine asusevtlog:file rw_file_perms;
+r_dir_file(thermal-engine, sysfs_spmi_dev)
 
-set_prop(thermal-engine, thermald_prop, sys.thermald.mode)
+set_prop(thermal-engine, thermald_prop)
