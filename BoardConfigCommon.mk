@@ -52,7 +52,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/asus/msm8916
+TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -83,7 +83,6 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-WITH_LINEAGE_CHARGER := false
 
 # Crypto
 # FDE works only in software mode, disable HW.
