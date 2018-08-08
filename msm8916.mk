@@ -291,9 +291,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
-PRODUCT_PACKAGES += \
-    wcnss_service
-
 # WiFi HAL
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
@@ -302,8 +299,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
     libwpa_client \
-    wificond \
-    wifilogd
+    wificond
+
+PRODUCT_PACKAGES += \
+    wcnss_service
 
 PRODUCT_PACKAGES += \
     hostapd \
@@ -312,18 +311,17 @@ PRODUCT_PACKAGES += \
 
 # wifi
 PRODUCT_PACKAGES += \
-    hostapd_default.conf \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
 
 ifneq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 else
 PRODUCT_COPY_FILES += \
-    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/vendor/etc/wifi/WCNSS_qcom_cfg.ini
+    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/vendor/etc/wifi/WCNSS_qcom_cfg.ini
 endif
 
 # Keylayout
