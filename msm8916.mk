@@ -189,8 +189,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-#PRODUCT_PACKAGES += \
-#    keystore.msm8916
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+
+# Keystore
+PRODUCT_PACKAGES += \
+    keystore.msm8916
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -320,7 +326,7 @@ PRODUCT_COPY_FILES += \
 else
 PRODUCT_COPY_FILES += \
     kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/vendor/etc/wifi/WCNSS_qcom_cfg.ini
+    kernel/asus/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 endif
 
 # Keylayout

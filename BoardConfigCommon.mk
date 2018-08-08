@@ -85,10 +85,6 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
-# Crypto
-# FDE works only in software mode, disable HW.
-TARGET_SWV8_DISK_ENCRYPTION := true
-
 # Dex
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
@@ -120,13 +116,9 @@ TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
-# Keymaster
-ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
+# Crypto
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_PROVIDES_KEYMASTER := true #keymater break on Z00ED/RD - revisit
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-TARGET_LEGACY_HW_DISK_ENCRYPTION := true
-endif
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
