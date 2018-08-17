@@ -50,6 +50,31 @@ on fs
     mount_all fstab.qcom
 
     mkdir /persist/data 0700 system system
+    mkdir /persist/data 0700 system system
+    mkdir /persist/display 0770 system graphics
+    mkdir /persist/rfs 0770 root system
+    mkdir /persist/hlos_rfs 0770 root system
+    mkdir /persist/elabel 0700 system system
+    chmod 0770 /persist/rfs
+    chmod 0770 /persist/rfs/shared
+    chmod 0770 /persist/rfs/msm
+    chmod 0770 /persist/rfs/msm/adsp
+    chown system system /persist/rfs/msm/adsp
+    chmod 0770 /persist/rfs/msm/mpss
+    chown system system /persist/rfs/msm/mpss
+    mkdir /persist/rfs/msm/slpi 0770 system system
+    chmod 0770 /persist/rfs/mdm
+    chmod 0770 /persist/rfs/mdm/adsp
+    chown system system /persist/rfs/mdm/adsp
+    chmod 0770 /persist/rfs/mdm/mpss
+    chown system system /persist/rfs/mdm/mpss
+    mkdir /persist/rfs/mdm/slpi 0770 system system
+    chmod 0770 /persist/rfs/mdm/sparrow
+    chown system system /persist/rfs/mdm/sparrow
+    mkdir /persist/rfs/mdm/tn 0770 system system
+    chmod 0770 /persist/rfs/apq
+    chmod 0770 /persist/rfs/apq/gnss
+    chmod 0770 /persist/hlos_rfs
     restorecon_recursive /persist
 
     restorecon_recursive /asdf
@@ -276,7 +301,11 @@ on boot
     chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode
     chown system system /sys/bus/i2c/devices/i2c-5/5-0038/keypad_mode
     chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/keypad_mode
+    chown system system /sys/bus/i2c/devices/i2c-5/5-0038/Enable_Proximyty_Check
+    chmod 0664 /sys/bus/i2c/devices/i2c-5/5-0038/Enable_Proximyty_Check
     chown system system /proc/asus_touch_proximity_status
+
+    write /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode 1
 
     # Permissions for sensors
     chown system system /dev/cm3602
